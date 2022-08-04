@@ -1,0 +1,34 @@
+from typing import Callable, List
+
+import psqlgraph
+
+from .helpers import base, related_cases
+
+
+class MirnaExpressionDataFromMirnaExpressionWorkflow(base.Edge):
+    __tablename__: str = "edge_8eaf9d39_miexdafrmiexwo"
+
+    __label__: str = "data_from"
+    __dst_class__: str = "MirnaExpressionWorkflow"
+    __dst_table__: str = "node_mirnaexpressionworkflow"
+    __src_class__: str = "MirnaExpression"
+    __src_table__: str = "node_mirnaexpression"
+
+    __dst_src_assoc__: str = "mirna_expressions"
+    __src_dst_assoc__: str = "mirna_expression_workflows"
+
+    _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
+        related_cases.cache_related_cases_on_insert
+    ]
+
+    _session_hooks_before_update: List[Callable] = psqlgraph.Edge._session_hooks_before_update + [
+        related_cases.cache_related_cases_on_update
+    ]
+
+    _session_hooks_before_delete: List[Callable] = psqlgraph.Edge._session_hooks_before_delete + [
+        related_cases.cache_related_cases_on_delete
+    ]
+
+    @classmethod
+    def post_process(cls) -> None:
+        pass

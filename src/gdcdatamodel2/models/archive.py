@@ -1,0 +1,249 @@
+from typing import Any, Dict, List, Optional, Union
+
+import psqlgraph
+from sqlalchemy.ext import hybrid
+
+from .helpers import base, datetime_hooks, indexes, related_cases, versioning
+
+
+class Archive(base.Node):
+    __tablename__: str = "node_archive"
+
+    # this field contains values of uniqueProperties
+    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+
+    # _defaults: default value for specified fields in the dictionary
+    _defaults: Dict[str, Union[bool, float, int, str]] = {
+        "state": "validated",
+        "file_state": "registered",
+    }
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
+        "title": "Archive",
+        "namespace": "https://gdc.cancer.gov",
+        "category": "data_file",
+        "submittable": False,
+        "downloadable": True,
+        "description": "A group of files containing program or project related data ingested by the GDC. Archives may be submitted directly to GDC by a center, assembled by the GDC, or obtained by another route. (GDC subclass of NCIt C114463)",
+        "required": [
+            "submitter_id",
+            "file_name",
+            "file_size",
+            "md5sum",
+            "state",
+            "revision",
+            "projects",
+        ],
+        "project": "*",
+        "program": "*",
+        "previous_version_downloadable": True,
+    }
+
+    _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_links: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+
+    @classmethod
+    def get_label(cls) -> str:
+        return "archive"
+
+    @property
+    def id(self):
+        return self.node_id
+
+    @id.setter
+    def id(self, value):
+        self.node_id = value
+
+    @classmethod
+    def post_process(cls) -> None:
+        cls.add_secondary_key_indexes()
+        cls.populate_pg_backrefs()
+        cls.populate_pg_links()
+        cls.populate_pg_edges()
+
+    @classmethod
+    def add_secondary_key_indexes(cls) -> None:
+        secondary_key_indexes = indexes.get_secondary_key_indexes(cls)
+        for index in secondary_key_indexes:
+            cls.__table__.append_constraint(index)
+
+    @classmethod
+    def populate_pg_backrefs(cls) -> None:
+        """_pg_backrefs are in_edges, links FROM other types."""
+        cls._pg_backrefs = {
+            "annotations": {
+                "name": "archives",
+                "src_type": base.Node.get_subclass("annotation"),
+            },
+            "biospecimen_supplements": {
+                "name": "archives",
+                "src_type": base.Node.get_subclass("biospecimen_supplement"),
+            },
+            "clinical_supplements": {
+                "name": "archives",
+                "src_type": base.Node.get_subclass("clinical_supplement"),
+            },
+            "files": {
+                "name": "archives",
+                "src_type": base.Node.get_subclass("file"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_edges(cls) -> None:
+        """_pg_edges are all edges, links to AND from other types."""
+        cls._pg_edges = {
+            "annotations": {
+                "backref": "archives",
+                "type": base.Node.get_subclass("annotation"),
+            },
+            "biospecimen_supplements": {
+                "backref": "archives",
+                "type": base.Node.get_subclass("biospecimen_supplement"),
+            },
+            "clinical_supplements": {
+                "backref": "archives",
+                "type": base.Node.get_subclass("clinical_supplement"),
+            },
+            "files": {
+                "backref": "archives",
+                "type": base.Node.get_subclass("file"),
+            },
+            "projects": {
+                "backref": "archives",
+                "type": base.Node.get_subclass("project"),
+            },
+            "related_to_files": {
+                "backref": "related_archives",
+                "type": base.Node.get_subclass("file"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_links(cls) -> None:
+        """_pg_links are out_edges, links TO other types."""
+        cls._pg_links = {
+            "projects": {
+                "edge_out": "_ArchiveMemberOfProject_out",
+                "dst_type": base.Node.get_subclass("project"),
+            },
+            "related_to_files": {
+                "edge_out": "_ArchiveRelatedToFile_out",
+                "dst_type": base.Node.get_subclass("file"),
+            },
+        }
+
+    @property
+    def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_cache(self)
+
+    @property
+    def _related_cases_from_parents(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_parents(self)
+
+    @property
+    def _secondary_keys_dicts(self) -> List[Dict[str, Any]]:
+        vals = []
+        secondary_keys = self.__pg_secondary_keys
+        for keys in secondary_keys:
+            if "id" in keys:
+                continue
+            vals.append({key: getattr(self, key, None) for key in keys})
+        return vals
+
+    @hybrid.hybrid_property
+    def _secondary_keys(self):
+        vals = []
+        for keys in self.__pg_secondary_keys:
+            vals.append(tuple(getattr(self, key) for key in keys))
+        return tuple(vals)
+
+    @_secondary_keys.comparator
+    def _secondary_keys(cls):
+        return indexes.SecondaryKeyComparator(cls)
+
+    # Set this attribute so psqlgraph doesn't treat it as a property
+    _secondary_keys._is_pg_property = False
+
+    @psqlgraph.pg_property(str)
+    def submitter_id(self, value):
+        self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def batch_id(self, value):
+        self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, str, enum=["validated", "submitted", "released"])
+    def state(self, value):
+        self._set_property("state", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def project_id(self, value):
+        self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def created_datetime(self, value):
+        self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def updated_datetime(self, value):
+        self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def file_name(self, value):
+        self._set_property("file_name", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def file_size(self, value):
+        self._set_property("file_size", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def md5sum(self, value):
+        self._set_property("md5sum", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "registered",
+            "uploading",
+            "uploaded",
+            "validating",
+            "validated",
+            "submitted",
+            "processing",
+            "processed",
+            "released",
+            "error",
+            "deleted",
+        ],
+    )
+    def file_state(self, value):
+        self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["file_size", "file_format", "md5sum"])
+    def error_type(self, value):
+        self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def state_comment(self, value):
+        self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Archive"])
+    def data_category(self, value):
+        self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["TCGA DCC Archive", "TARGET DCC Archive"])
+    def data_type(self, value):
+        self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["TARGZ", "MAGETAB"])
+    def data_format(self, value):
+        self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def revision(self, value):
+        self._set_property("revision", value)  # type: ignore  # inherited from CommonBase
+
+
+datetime_hooks.cls_inject_created_datetime_hook(Archive)
+datetime_hooks.cls_inject_updated_datetime_hook(Archive)

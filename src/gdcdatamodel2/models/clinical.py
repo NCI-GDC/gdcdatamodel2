@@ -1,0 +1,185 @@
+from typing import Any, Dict, List, Optional, Union
+
+import psqlgraph
+from sqlalchemy.ext import hybrid
+
+from .helpers import base, datetime_hooks, indexes, related_cases, versioning
+
+
+class Clinical(base.Node):
+    __tablename__: str = "node_clinical"
+
+    # this field contains values of uniqueProperties
+    __pg_secondary_keys: List[List[str]] = []
+
+    # _defaults: default value for specified fields in the dictionary
+    _defaults: Dict[str, Union[bool, float, int, str]] = {"state": "validated"}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
+        "title": "Clinical",
+        "namespace": "https://gdc.cancer.gov",
+        "category": "clinical",
+        "submittable": False,
+        "downloadable": False,
+        "description": "Data obtained through patient examination or treatment. (GDC synonym for NCIt C15783)",
+        "required": ["id", "submitter_id", "cases"],
+        "project": "*",
+        "program": "*",
+        "previous_version_downloadable": False,
+    }
+
+    _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_links: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+
+    @classmethod
+    def get_label(cls) -> str:
+        return "clinical"
+
+    @property
+    def id(self):
+        return self.node_id
+
+    @id.setter
+    def id(self, value):
+        self.node_id = value
+
+    @classmethod
+    def post_process(cls) -> None:
+        cls.add_secondary_key_indexes()
+        cls.populate_pg_backrefs()
+        cls.populate_pg_links()
+        cls.populate_pg_edges()
+
+    @classmethod
+    def add_secondary_key_indexes(cls) -> None:
+        secondary_key_indexes = indexes.get_secondary_key_indexes(cls)
+        for index in secondary_key_indexes:
+            cls.__table__.append_constraint(index)
+
+    @classmethod
+    def populate_pg_backrefs(cls) -> None:
+        """_pg_backrefs are in_edges, links FROM other types."""
+        cls._pg_backrefs = {}
+
+    @classmethod
+    def populate_pg_edges(cls) -> None:
+        """_pg_edges are all edges, links to AND from other types."""
+        cls._pg_edges = {
+            "cases": {
+                "backref": "clinicals",
+                "type": base.Node.get_subclass("case"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_links(cls) -> None:
+        """_pg_links are out_edges, links TO other types."""
+        cls._pg_links = {
+            "cases": {
+                "edge_out": "_ClinicalDescribesCase_out",
+                "dst_type": base.Node.get_subclass("case"),
+            },
+        }
+
+    @property
+    def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_cache(self)
+
+    @property
+    def _related_cases_from_parents(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_parents(self)
+
+    @property
+    def _secondary_keys_dicts(self) -> List[Dict[str, Any]]:
+        vals = []
+        secondary_keys = self.__pg_secondary_keys
+        for keys in secondary_keys:
+            if "id" in keys:
+                continue
+            vals.append({key: getattr(self, key, None) for key in keys})
+        return vals
+
+    @hybrid.hybrid_property
+    def _secondary_keys(self):
+        vals = []
+        for keys in self.__pg_secondary_keys:
+            vals.append(tuple(getattr(self, key) for key in keys))
+        return tuple(vals)
+
+    @_secondary_keys.comparator
+    def _secondary_keys(cls):
+        return indexes.SecondaryKeyComparator(cls)
+
+    # Set this attribute so psqlgraph doesn't treat it as a property
+    _secondary_keys._is_pg_property = False
+
+    @psqlgraph.pg_property(str)
+    def submitter_id(self, value):
+        self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def batch_id(self, value):
+        self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, str, enum=["validated", "submitted", "released"])
+    def state(self, value):
+        self._set_property("state", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def project_id(self, value):
+        self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def created_datetime(self, value):
+        self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def updated_datetime(self, value):
+        self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def age_at_diagnosis(self, value):
+        self._set_property("age_at_diagnosis", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def days_to_death(self, value):
+        self._set_property("days_to_death", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["female", "male", "unknown", "unspecified"])
+    def gender(self, value):
+        self._set_property("gender", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["hispanic or latino", "not hispanic or latino"])
+    def ethnicity(self, value):
+        self._set_property("ethnicity", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def icd_10(self, value):
+        self._set_property("icd_10", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "not reported",
+            "white",
+            "american indian or alaska native",
+            "black or african american",
+            "asian",
+            "native hawaiian or other pacific islander",
+            "other",
+        ],
+    )
+    def race(self, value):
+        self._set_property("race", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["alive", "dead", "lost to follow-up"])
+    def vital_status(self, value):
+        self._set_property("vital_status", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def year_of_diagnosis(self, value):
+        self._set_property("year_of_diagnosis", value)  # type: ignore  # inherited from CommonBase
+
+
+datetime_hooks.cls_inject_created_datetime_hook(Clinical)
+datetime_hooks.cls_inject_updated_datetime_hook(Clinical)

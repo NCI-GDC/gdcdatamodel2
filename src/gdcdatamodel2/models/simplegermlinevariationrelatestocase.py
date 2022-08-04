@@ -1,0 +1,34 @@
+from typing import Callable, List
+
+import psqlgraph
+
+from .helpers import base, related_cases
+
+
+class SimpleGermlineVariationRelatesToCase(base.Edge):
+    __tablename__: str = "edge_f66beba0_sigevaretoca"
+
+    __label__: str = "relates_to"
+    __dst_class__: str = "Case"
+    __dst_table__: str = "node_case"
+    __src_class__: str = "SimpleGermlineVariation"
+    __src_table__: str = "node_simplegermlinevariation"
+
+    __dst_src_assoc__: str = "_related_simple_germline_variation"
+    __src_dst_assoc__: str = "_related_cases"
+
+    _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
+        related_cases.cache_related_cases_on_insert
+    ]
+
+    _session_hooks_before_update: List[Callable] = psqlgraph.Edge._session_hooks_before_update + [
+        related_cases.cache_related_cases_on_update
+    ]
+
+    _session_hooks_before_delete: List[Callable] = psqlgraph.Edge._session_hooks_before_delete + [
+        related_cases.cache_related_cases_on_delete
+    ]
+
+    @classmethod
+    def post_process(cls) -> None:
+        pass

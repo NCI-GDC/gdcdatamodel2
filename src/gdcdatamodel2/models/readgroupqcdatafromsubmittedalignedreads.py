@@ -1,0 +1,34 @@
+from typing import Callable, List
+
+import psqlgraph
+
+from .helpers import base, related_cases
+
+
+class ReadGroupQcDataFromSubmittedAlignedReads(base.Edge):
+    __tablename__: str = "edge_76a82568_regrqcdafrsualre"
+
+    __label__: str = "data_from"
+    __dst_class__: str = "SubmittedAlignedReads"
+    __dst_table__: str = "node_submittedalignedreads"
+    __src_class__: str = "ReadGroupQc"
+    __src_table__: str = "node_readgroupqc"
+
+    __dst_src_assoc__: str = "read_group_qcs"
+    __src_dst_assoc__: str = "submitted_aligned_reads_files"
+
+    _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
+        related_cases.cache_related_cases_on_insert
+    ]
+
+    _session_hooks_before_update: List[Callable] = psqlgraph.Edge._session_hooks_before_update + [
+        related_cases.cache_related_cases_on_update
+    ]
+
+    _session_hooks_before_delete: List[Callable] = psqlgraph.Edge._session_hooks_before_delete + [
+        related_cases.cache_related_cases_on_delete
+    ]
+
+    @classmethod
+    def post_process(cls) -> None:
+        pass

@@ -1,0 +1,34 @@
+from typing import Callable, List
+
+import psqlgraph
+
+from .helpers import base, related_cases
+
+
+class MolecularTestRelatedToSlide(base.Edge):
+    __tablename__: str = "edge_moleculartestrelatedtoslide"
+
+    __label__: str = "related_to"
+    __dst_class__: str = "Slide"
+    __dst_table__: str = "node_slide"
+    __src_class__: str = "MolecularTest"
+    __src_table__: str = "node_moleculartest"
+
+    __dst_src_assoc__: str = "molecular_tests"
+    __src_dst_assoc__: str = "slides"
+
+    _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
+        related_cases.cache_related_cases_on_insert
+    ]
+
+    _session_hooks_before_update: List[Callable] = psqlgraph.Edge._session_hooks_before_update + [
+        related_cases.cache_related_cases_on_update
+    ]
+
+    _session_hooks_before_delete: List[Callable] = psqlgraph.Edge._session_hooks_before_delete + [
+        related_cases.cache_related_cases_on_delete
+    ]
+
+    @classmethod
+    def post_process(cls) -> None:
+        pass

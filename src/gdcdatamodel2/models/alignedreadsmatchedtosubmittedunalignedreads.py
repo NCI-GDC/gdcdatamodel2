@@ -1,0 +1,34 @@
+from typing import Callable, List
+
+import psqlgraph
+
+from .helpers import base, related_cases
+
+
+class AlignedReadsMatchedToSubmittedUnalignedReads(base.Edge):
+    __tablename__: str = "edge_96d545b0_alrematosuunre"
+
+    __label__: str = "matched_to"
+    __dst_class__: str = "SubmittedUnalignedReads"
+    __dst_table__: str = "node_submittedunalignedreads"
+    __src_class__: str = "AlignedReads"
+    __src_table__: str = "node_alignedreads"
+
+    __dst_src_assoc__: str = "aligned_reads_files"
+    __src_dst_assoc__: str = "submitted_unaligned_reads_files"
+
+    _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
+        related_cases.cache_related_cases_on_insert
+    ]
+
+    _session_hooks_before_update: List[Callable] = psqlgraph.Edge._session_hooks_before_update + [
+        related_cases.cache_related_cases_on_update
+    ]
+
+    _session_hooks_before_delete: List[Callable] = psqlgraph.Edge._session_hooks_before_delete + [
+        related_cases.cache_related_cases_on_delete
+    ]
+
+    @classmethod
+    def post_process(cls) -> None:
+        pass

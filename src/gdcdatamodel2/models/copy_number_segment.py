@@ -1,0 +1,254 @@
+from typing import Any, Dict, List, Optional, Union
+
+import psqlgraph
+from sqlalchemy.ext import hybrid
+
+from .helpers import base, datetime_hooks, indexes, related_cases, versioning
+
+
+class CopyNumberSegment(base.Node):
+    __tablename__: str = "node_copynumbersegment"
+
+    # this field contains values of uniqueProperties
+    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+
+    # _defaults: default value for specified fields in the dictionary
+    _defaults: Dict[str, Union[bool, float, int, str]] = {
+        "state": "validated",
+        "file_state": "registered",
+    }
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
+        "title": "Copy Number Segment",
+        "namespace": "https://gdc.cancer.gov",
+        "category": "data_file",
+        "submittable": False,
+        "downloadable": True,
+        "description": "Data file containing the copy number data from a copy number liftover workflow. Contains all copy numbers detected.",
+        "required": [
+            "submitter_id",
+            "file_name",
+            "file_size",
+            "md5sum",
+            "data_category",
+            "data_format",
+            "data_type",
+            "experimental_strategy",
+            "platform",
+        ],
+        "project": "*",
+        "program": "*",
+        "previous_version_downloadable": True,
+    }
+
+    _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_links: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+
+    @classmethod
+    def get_label(cls) -> str:
+        return "copy_number_segment"
+
+    @property
+    def id(self):
+        return self.node_id
+
+    @id.setter
+    def id(self, value):
+        self.node_id = value
+
+    @classmethod
+    def post_process(cls) -> None:
+        cls.add_secondary_key_indexes()
+        cls.populate_pg_backrefs()
+        cls.populate_pg_links()
+        cls.populate_pg_edges()
+
+    @classmethod
+    def add_secondary_key_indexes(cls) -> None:
+        secondary_key_indexes = indexes.get_secondary_key_indexes(cls)
+        for index in secondary_key_indexes:
+            cls.__table__.append_constraint(index)
+
+    @classmethod
+    def populate_pg_backrefs(cls) -> None:
+        """_pg_backrefs are in_edges, links FROM other types."""
+        cls._pg_backrefs = {
+            "annotations": {
+                "name": "copy_number_segments",
+                "src_type": base.Node.get_subclass("annotation"),
+            },
+            "copy_number_variation_workflows": {
+                "name": "copy_number_segments",
+                "src_type": base.Node.get_subclass("copy_number_variation_workflow"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_edges(cls) -> None:
+        """_pg_edges are all edges, links to AND from other types."""
+        cls._pg_edges = {
+            "annotations": {
+                "backref": "copy_number_segments",
+                "type": base.Node.get_subclass("annotation"),
+            },
+            "copy_number_liftover_workflows": {
+                "backref": "copy_number_segments",
+                "type": base.Node.get_subclass("copy_number_liftover_workflow"),
+            },
+            "copy_number_variation_workflows": {
+                "backref": "copy_number_segments",
+                "type": base.Node.get_subclass("copy_number_variation_workflow"),
+            },
+            "genomic_profile_harmonization_workflows": {
+                "backref": "copy_number_segments",
+                "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+            },
+            "somatic_copy_number_workflows": {
+                "backref": "copy_number_segments",
+                "type": base.Node.get_subclass("somatic_copy_number_workflow"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_links(cls) -> None:
+        """_pg_links are out_edges, links TO other types."""
+        cls._pg_links = {
+            "copy_number_liftover_workflows": {
+                "edge_out": "_CopyNumberSegmentDerivedFromCopyNumberLiftoverWorkflow_out",
+                "dst_type": base.Node.get_subclass("copy_number_liftover_workflow"),
+            },
+            "genomic_profile_harmonization_workflows": {
+                "edge_out": "_CopyNumberSegmentDerivedFromGenomicProfileHarmonizationWorkflow_out",
+                "dst_type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+            },
+            "somatic_copy_number_workflows": {
+                "edge_out": "_CopyNumberSegmentDerivedFromSomaticCopyNumberWorkflow_out",
+                "dst_type": base.Node.get_subclass("somatic_copy_number_workflow"),
+            },
+        }
+
+    @property
+    def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_cache(self)
+
+    @property
+    def _related_cases_from_parents(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_parents(self)
+
+    @property
+    def _secondary_keys_dicts(self) -> List[Dict[str, Any]]:
+        vals = []
+        secondary_keys = self.__pg_secondary_keys
+        for keys in secondary_keys:
+            if "id" in keys:
+                continue
+            vals.append({key: getattr(self, key, None) for key in keys})
+        return vals
+
+    @hybrid.hybrid_property
+    def _secondary_keys(self):
+        vals = []
+        for keys in self.__pg_secondary_keys:
+            vals.append(tuple(getattr(self, key) for key in keys))
+        return tuple(vals)
+
+    @_secondary_keys.comparator
+    def _secondary_keys(cls):
+        return indexes.SecondaryKeyComparator(cls)
+
+    # Set this attribute so psqlgraph doesn't treat it as a property
+    _secondary_keys._is_pg_property = False
+
+    @psqlgraph.pg_property(str)
+    def submitter_id(self, value):
+        self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def batch_id(self, value):
+        self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, str, enum=["validated", "submitted", "released"])
+    def state(self, value):
+        self._set_property("state", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def project_id(self, value):
+        self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def created_datetime(self, value):
+        self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def updated_datetime(self, value):
+        self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def file_name(self, value):
+        self._set_property("file_name", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def file_size(self, value):
+        self._set_property("file_size", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def md5sum(self, value):
+        self._set_property("md5sum", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "registered",
+            "uploading",
+            "uploaded",
+            "validating",
+            "validated",
+            "submitted",
+            "processing",
+            "processed",
+            "released",
+            "error",
+            "deleted",
+        ],
+    )
+    def file_state(self, value):
+        self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["file_size", "file_format", "md5sum"])
+    def error_type(self, value):
+        self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def state_comment(self, value):
+        self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Copy Number Variation"])
+    def data_category(self, value):
+        self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Allele-specific Copy Number Segment",
+            "Copy Number Segment",
+            "Masked Copy Number Segment",
+        ],
+    )
+    def data_type(self, value):
+        self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["TXT"])
+    def data_format(self, value):
+        self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Genotyping Array", "Targeted Sequencing", "WGS", "WXS"])
+    def experimental_strategy(self, value):
+        self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Affymetrix SNP 6.0", "Illumina"])
+    def platform(self, value):
+        self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
+
+
+datetime_hooks.cls_inject_created_datetime_hook(CopyNumberSegment)
+datetime_hooks.cls_inject_updated_datetime_hook(CopyNumberSegment)

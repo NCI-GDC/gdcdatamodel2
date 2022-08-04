@@ -1,0 +1,386 @@
+from typing import Any, Dict, List, Optional, Union
+
+import psqlgraph
+from sqlalchemy.ext import hybrid
+
+from .helpers import base, datetime_hooks, indexes, related_cases, versioning
+
+
+class Exposure(base.Node):
+    __tablename__: str = "node_exposure"
+
+    # this field contains values of uniqueProperties
+    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+
+    # _defaults: default value for specified fields in the dictionary
+    _defaults: Dict[str, Union[bool, float, int, str]] = {"state": "validated"}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
+        "title": "Exposure",
+        "namespace": "https://gdc.cancer.gov",
+        "category": "clinical",
+        "submittable": True,
+        "downloadable": False,
+        "description": "Clinically relevant patient information not immediately resulting from genetic predispositions.",
+        "required": ["submitter_id"],
+        "project": "*",
+        "program": "*",
+        "previous_version_downloadable": False,
+    }
+
+    _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_links: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+
+    @classmethod
+    def get_label(cls) -> str:
+        return "exposure"
+
+    @property
+    def id(self):
+        return self.node_id
+
+    @id.setter
+    def id(self, value):
+        self.node_id = value
+
+    @classmethod
+    def post_process(cls) -> None:
+        cls.add_secondary_key_indexes()
+        cls.populate_pg_backrefs()
+        cls.populate_pg_links()
+        cls.populate_pg_edges()
+
+    @classmethod
+    def add_secondary_key_indexes(cls) -> None:
+        secondary_key_indexes = indexes.get_secondary_key_indexes(cls)
+        for index in secondary_key_indexes:
+            cls.__table__.append_constraint(index)
+
+    @classmethod
+    def populate_pg_backrefs(cls) -> None:
+        """_pg_backrefs are in_edges, links FROM other types."""
+        cls._pg_backrefs = {
+            "annotations": {
+                "name": "exposures",
+                "src_type": base.Node.get_subclass("annotation"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_edges(cls) -> None:
+        """_pg_edges are all edges, links to AND from other types."""
+        cls._pg_edges = {
+            "annotations": {
+                "backref": "exposures",
+                "type": base.Node.get_subclass("annotation"),
+            },
+            "cases": {
+                "backref": "exposures",
+                "type": base.Node.get_subclass("case"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_links(cls) -> None:
+        """_pg_links are out_edges, links TO other types."""
+        cls._pg_links = {
+            "cases": {
+                "edge_out": "_ExposureDescribesCase_out",
+                "dst_type": base.Node.get_subclass("case"),
+            },
+        }
+
+    @property
+    def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_cache(self)
+
+    @property
+    def _related_cases_from_parents(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_parents(self)
+
+    @property
+    def _secondary_keys_dicts(self) -> List[Dict[str, Any]]:
+        vals = []
+        secondary_keys = self.__pg_secondary_keys
+        for keys in secondary_keys:
+            if "id" in keys:
+                continue
+            vals.append({key: getattr(self, key, None) for key in keys})
+        return vals
+
+    @hybrid.hybrid_property
+    def _secondary_keys(self):
+        vals = []
+        for keys in self.__pg_secondary_keys:
+            vals.append(tuple(getattr(self, key) for key in keys))
+        return tuple(vals)
+
+    @_secondary_keys.comparator
+    def _secondary_keys(cls):
+        return indexes.SecondaryKeyComparator(cls)
+
+    # Set this attribute so psqlgraph doesn't treat it as a property
+    _secondary_keys._is_pg_property = False
+
+    @psqlgraph.pg_property(str)
+    def submitter_id(self, value):
+        self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def batch_id(self, value):
+        self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, str, enum=["validated", "submitted", "released"])
+    def state(self, value):
+        self._set_property("state", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def project_id(self, value):
+        self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def created_datetime(self, value):
+        self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def updated_datetime(self, value):
+        self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Amosite", "Crocidolite"])
+    def asbestos_exposure_type(self, value):
+        self._set_property("asbestos_exposure_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def age_at_last_exposure(self, value):
+        self._set_property("age_at_last_exposure", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def age_at_onset(self, value):
+        self._set_property("age_at_onset", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def alcohol_days_per_week(self, value):
+        self._set_property("alcohol_days_per_week", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def alcohol_drinks_per_day(self, value):
+        self._set_property("alcohol_drinks_per_day", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported", "no", "yes"])
+    def alcohol_history(self, value):
+        self._set_property("alcohol_history", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Drinker",
+            "Heavy Drinker",
+            "Lifelong Non-Drinker",
+            "Non-Drinker",
+            "Occasional Drinker",
+            "Social Drinker",
+            "Unknown",
+            "Not Reported",
+        ],
+    )
+    def alcohol_intensity(self, value):
+        self._set_property("alcohol_intensity", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str, enum=["Beer", "Liquor", "Other", "Wine", "Unknown", "Not Reported"]
+    )
+    def alcohol_type(self, value):
+        self._set_property("alcohol_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
+    def asbestos_exposure(self, value):
+        self._set_property("asbestos_exposure", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def cigarettes_per_day(self, value):
+        self._set_property("cigarettes_per_day", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown"])
+    def coal_dust_exposure(self, value):
+        self._set_property("coal_dust_exposure", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown"])
+    def environmental_tobacco_smoke_exposure(self, value):
+        self._set_property("environmental_tobacco_smoke_exposure", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Six Weeks or More", "Unknown", "Not Reported"])
+    def exposure_duration(self, value):
+        self._set_property("exposure_duration", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def exposure_duration_years(self, value):
+        self._set_property("exposure_duration_years", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Occupational", "Secondary", "Unknown"])
+    def exposure_source(self, value):
+        self._set_property("exposure_source", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Asbestos",
+            "Chemical",
+            "Marijuana",
+            "Radiation",
+            "Smoke",
+            "Radon",
+            "Respirable Crystalline Silica",
+            "Smokeless Tobacco",
+            "Tobacco",
+            "Wood Dust",
+        ],
+    )
+    def exposure_type(self, value):
+        self._set_property("exposure_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def pack_years_smoked(self, value):
+        self._set_property("pack_years_smoked", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
+    def parent_with_radiation_exposure(self, value):
+        self._set_property("parent_with_radiation_exposure", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
+    def radon_exposure(self, value):
+        self._set_property("radon_exposure", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown"])
+    def respirable_crystalline_silica_exposure(self, value):
+        self._set_property("respirable_crystalline_silica_exposure", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
+    def secondhand_smoke_as_child(self, value):
+        self._set_property("secondhand_smoke_as_child", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Every day", "Some days", "Unknown"])
+    def smoking_frequency(self, value):
+        self._set_property("smoking_frequency", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Within 5 Minutes",
+            "6-30 Minutes",
+            "31-60 Minutes",
+            "After 60 Minutes",
+            "Unknown",
+        ],
+    )
+    def time_between_waking_and_first_smoke(self, value):
+        self._set_property("time_between_waking_and_first_smoke", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def tobacco_smoking_onset_year(self, value):
+        self._set_property("tobacco_smoking_onset_year", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def tobacco_smoking_quit_year(self, value):
+        self._set_property("tobacco_smoking_quit_year", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "Unknown",
+            "Not Reported",
+            "Not Allowed To Collect",
+        ],
+    )
+    def tobacco_smoking_status(self, value):
+        self._set_property("tobacco_smoking_status", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Accidental building fire smoke",
+            "Accidental fire smoke, grass",
+            "Accidental fire smoke, NOS",
+            "Accidental forest fire smoke",
+            "Accidental vehicle fire smoke",
+            "Aircraft smoke",
+            "Burning tree smoke",
+            "Coal smoke, NOS",
+            "Cooking-related smoke, NOS",
+            "Electrical fire smoke",
+            "Electronic cigarette smoke, NOS",
+            "Environmental tobacco smoke",
+            "Factory smokestack smoke",
+            "Field burning smoke",
+            "Fire smoke, NOS",
+            "Furnace or boiler smoke",
+            "Gas burning smoke, propane",
+            "Grease fire smoke",
+            "Grilling smoke",
+            "Hashish smoke",
+            "Indoor stove or fireplace smoke, coal burning",
+            "Indoor stove or fireplace smoke, NOS",
+            "Indoor stove or fireplace smoke, wood burning",
+            "Machine smoke",
+            "Marijuana smoke",
+            "No Smoke Exposure",
+            "Oil burning smoke, Kerosene",
+            "Oil burning smoke, NOS",
+            "Recreational fire smoke",
+            "Smoke exposure, NOS",
+            "Smokehouse smoke",
+            "Tobacco smoke, cigar",
+            "Tobacco smoke, cigarettes",
+            "Tobacco smoke, NOS",
+            "Tobacco smoke, pipe",
+            "Volcanic smoke",
+            "Waste burning smoke",
+            "Wood burning smoke, factory",
+            "Wood burning smoke, NOS",
+            "Work-related smoke, artificial smoke machines",
+            "Work-related smoke, fire fighting",
+            "Work-related smoke, foundry",
+            "Work-related smoke, generators",
+            "Work-related smoke, military",
+            "Work-related smoke, NOS",
+            "Work-related smoke, paint baking",
+            "Work-related smoke, plastics factory",
+            "Work-related smoke, plumbing",
+            "Work-related smoke, soldering/welding",
+            "Unknown",
+        ],
+    )
+    def type_of_smoke_exposure(self, value):
+        self._set_property("type_of_smoke_exposure", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Cigar",
+            "Cigarette",
+            "Electronic Cigarette",
+            "Other",
+            "Pipe",
+            "Smokeless Tobacco",
+        ],
+    )
+    def type_of_tobacco_used(self, value):
+        self._set_property("type_of_tobacco_used", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def use_per_day(self, value):
+        self._set_property("use_per_day", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def years_smoked(self, value):
+        self._set_property("years_smoked", value)  # type: ignore  # inherited from CommonBase
+
+
+datetime_hooks.cls_inject_created_datetime_hook(Exposure)
+datetime_hooks.cls_inject_updated_datetime_hook(Exposure)
