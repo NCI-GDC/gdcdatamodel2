@@ -35,70 +35,89 @@ def test_traverse(
         assert len(list(case_x1.traverse())) == 35
 
 
-# def test_counts(
-#     sample_data: fixtures.FixtureFunction, gdc_graph: psqlgraph.PsqlGraphDriver
-# ) -> None:
-#     with gdc_graph.session_scope():
-#         assert gdc_graph.nodes().count() == 18
-#         assert gdc_graph.nodes().props(project_id="GDC-MISC").count() == 16
-#         assert gdc_graph.nodes(models.Project).count() == 1
-#         assert gdc_graph.nodes(models.AlignedReads).count() == 4
-#
-#
-# def test_path(
-#     sample_data: fixtures.FixtureFunction, gdc_graph: psqlgraph.PsqlGraphDriver
-# ) -> None:
-#     with gdc_graph.session_scope():
-#         aligned_reads = (
-#             gdc_graph.nodes(models.AlignedReads)
-#             .path("harmonization_workflows")
-#             .props(workflow_type="miRNA Harmonization and Quantification")
-#             .one()
-#         )
-#         assert aligned_reads.submitter_id == "ar_3"
-#         aligned_reads = (
-#             gdc_graph.nodes(models.AlignedReads)
-#             .path("bamqc_extraction_workflows.bamqc_metrics")
-#             .one()
-#         )
-#         assert aligned_reads.submitter_id == "ar_2"
-#
-#
-# def test_create_and_read(
-#     sample_data: fixtures.FixtureFunction, gdc_graph: psqlgraph.PsqlGraphDriver
-# ) -> None:
-#     with gdc_graph.session_scope() as s:
-#         aliquot = models.Aliquot("aliquot_1", submitter_id="aliquot_submitter_1")
-#         read_group = gdc_graph.nodes(models.ReadGroup).one()
-#         aliquot.read_groups = [read_group]
-#         s.add(aliquot)
-#
-#         read_group = gdc_graph.nodes(models.ReadGroup).one()
-#         assert len(read_group.aliquots) == 1
-#         assert read_group.aliquots[0].node_id == "aliquot_1"
-#
-#
-# def test_update(
-#     sample_data: fixtures.FixtureFunction, gdc_graph: psqlgraph.PsqlGraphDriver
-# ) -> None:
-#     with gdc_graph.session_scope():
-#         ar0 = gdc_graph.nodes(models.AlignedReads).props(submitter_id="ar_0").one()
-#         assert ar0.experimental_strategy == "WGS"
-#
-#         ar0.experimental_strategy = "WXS"
-#         flag_modified(ar0, "_props")
-#
-#         ar0 = gdc_graph.nodes(models.AlignedReads).props(submitter_id="ar_0").one()
-#         assert ar0.experimental_strategy == "WXS"
-#
-#
-# def test_delete(
-#     sample_data: fixtures.FixtureFunction, gdc_graph: psqlgraph.PsqlGraphDriver
-# ) -> None:
-#     with gdc_graph.session_scope() as s:
-#         ar0 = gdc_graph.nodes(models.AlignedReads).props(submitter_id="ar_0").one()
-#         s.delete(ar0)
-#         s.commit()
-#
-#         ar0 = gdc_graph.nodes(models.AlignedReads).props(submitter_id="ar_0").one_or_none()
-#         assert ar0 is None
+def test_counts(
+    sample_data: fixtures.FixtureFunction, gdc_graph: psqlgraph.PsqlGraphDriver
+) -> None:
+    with gdc_graph.session_scope():
+        assert gdc_graph.nodes().count() == 44
+        assert gdc_graph.nodes().props(project_id="GDC-MISC").count() == 42
+        assert gdc_graph.nodes(models.Project).count() == 1
+        assert gdc_graph.nodes(models.AlignedReads).count() == 4
+
+
+def test_path(
+    sample_data: fixtures.FixtureFunction, gdc_graph: psqlgraph.PsqlGraphDriver
+) -> None:
+    with gdc_graph.session_scope():
+        aliquot = (
+            gdc_graph.nodes(models.Aliquot)
+            .path("samples")
+            .props(sample_type="Additional Metastatic")
+            .one()
+        )
+        assert aliquot.submitter_id == "aliquot_y1"
+
+        case = (
+            gdc_graph.nodes(models.Case).path("samples.aliquots").ids("aliquot_y1-node_id").one()
+        )
+        assert case.submitter_id == "case_y1"
+
+
+def test_create_and_read(
+    sample_data: fixtures.FixtureFunction, gdc_graph: psqlgraph.PsqlGraphDriver
+) -> None:
+    with gdc_graph.session_scope() as s:
+        aliquot = models.Aliquot("aliquot_x4", submitter_id="aliquot_submitter_x4")
+        sample = gdc_graph.nodes(models.Sample).props(submitter_id="sample_x4").one()
+        aliquot.samples = [sample]
+        s.add(aliquot)
+
+        sample = gdc_graph.nodes(models.Sample).props(submitter_id="sample_x4").one()
+        assert len(sample.aliquots) == 1
+        assert sample.aliquots[0].node_id == "aliquot_x4"
+
+
+def test_update(
+    sample_data: fixtures.FixtureFunction, gdc_graph: psqlgraph.PsqlGraphDriver
+) -> None:
+    with gdc_graph.session_scope():
+        aliquot = gdc_graph.nodes(models.Aliquot).props(submitter_id="aliquot_x2").one()
+        assert aliquot.no_matched_normal_wgs is False
+
+        aliquot.no_matched_normal_wgs = True
+        flag_modified(aliquot, "_props")
+
+        aliquot = gdc_graph.nodes(models.Aliquot).props(submitter_id="aliquot_x2").one()
+        assert aliquot.no_matched_normal_wgs is True
+
+
+def test_delete(
+    sample_data: fixtures.FixtureFunction, gdc_graph: psqlgraph.PsqlGraphDriver
+) -> None:
+    with gdc_graph.session_scope() as s:
+        ari_x3 = (
+            gdc_graph.nodes(models.AlignedReadsIndex)
+            .props(submitter_id="aligned_reads_index_x3")
+            .one()
+        )
+        ar_x3 = (
+            gdc_graph.nodes(models.AlignedReads)
+            .props(submitter_id="aligned_reads_x3")
+            .one_or_none()
+        )
+        assert len(ar_x3.aligned_reads_indexes) == 1
+        s.delete(ari_x3)
+        s.commit()
+
+        ari_x3 = (
+            gdc_graph.nodes(models.AlignedReadsIndex)
+            .props(submitter_id="aligned_reads_index_x3")
+            .one_or_none()
+        )
+        assert ari_x3 is None
+        ar_x3 = (
+            gdc_graph.nodes(models.AlignedReads)
+            .props(submitter_id="aligned_reads_x3")
+            .one_or_none()
+        )
+        assert len(ar_x3.aligned_reads_indexes) == 0
