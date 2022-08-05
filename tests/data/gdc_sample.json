@@ -1,0 +1,365 @@
+{
+  "edges": [
+    {
+      "dst": "case_y1",
+      "src": "sample_y1"
+    },
+    {
+      "dst": "case_x1",
+      "src": "sample_x1"
+    },
+    {
+      "dst": "case_x1",
+      "src": "sample_x2"
+    },
+    {
+      "dst": "case_x1",
+      "src": "sample_x3"
+    },
+    {
+      "dst": "case_x1",
+      "src": "demographic_x1"
+    },
+    {
+      "dst": "case_x1",
+      "src": "clinical_supplement_x1"
+    },
+    {
+      "dst": "sample_y1",
+      "src": "aliquot_y1"
+    },
+    {
+      "dst": "sample_x1",
+      "src": "aliquot_x1"
+    },
+    {
+      "dst": "sample_x2",
+      "src": "aliquot_x2"
+    },
+    {
+      "dst": "sample_x3",
+      "src": "aliquot_x3"
+    },
+    {
+      "dst": "aliquot_x1",
+      "src": "file_x1"
+    },
+    {
+      "dst": "aliquot_x1",
+      "src": "raw_methylation_array_x1"
+    },
+    {
+      "dst": "aliquot_x2",
+      "src": "file_x2"
+    },
+    {
+      "dst": "file_x1",
+      "src": "analysis_metadata_x1"
+    },
+    {
+      "dst": "file_x1",
+      "src": "experimental_metadata_x1"
+    },
+    {
+      "dst": "read_group_x1",
+      "src": "aliquot_x1"
+    },
+    {
+      "dst": "read_group_x2",
+      "src": "aliquot_x1"
+    },
+    {
+      "dst": "read_group_x3",
+      "src": "aliquot_x2"
+    },
+    {
+      "dst": "read_group_x4",
+      "src": "aliquot_x3"
+    },
+    {
+      "dst": "read_group_x1",
+      "src": "sur_x1"
+    },
+    {
+      "dst": "read_group_x2",
+      "src": "sur_x2"
+    },
+    {
+      "dst": "read_group_x3",
+      "src": "sur_x3"
+    },
+    {
+      "dst": "read_group_x1",
+      "src": "sar_x1"
+    },
+    {
+      "dst": "read_group_x2",
+      "src": "sar_x1"
+    },
+    {
+      "dst": "read_group_x3",
+      "src": "sar_x1"
+    },
+    {
+      "dst": "read_group_x4",
+      "src": "sar_x2"
+    },
+    {
+      "dst": "sur_x1",
+      "src": "alignment_workflow_x1"
+    },
+    {
+      "dst": "sur_x2",
+      "src": "alignment_workflow_x2"
+    },
+    {
+      "dst": "sur_x3",
+      "src": "alignment_workflow_x3"
+    },
+    {
+      "dst": "sar_x1",
+      "src": "alignment_workflow_x4"
+    },
+    {
+      "dst": "sar_x2",
+      "src": "alignment_workflow_x5"
+    },
+    {
+      "dst": "alignment_workflow_x1",
+      "src": "aligned_reads_x1"
+    },
+    {
+      "dst": "alignment_workflow_x2",
+      "src": "aligned_reads_x2"
+    },
+    {
+      "dst": "alignment_workflow_x3",
+      "src": "aligned_reads_x3"
+    },
+    {
+      "dst": "alignment_workflow_x4",
+      "src": "aligned_reads_x4"
+    },
+    {
+      "dst": "aligned_reads_x1",
+      "src": "aligned_reads_index_x1"
+    },
+    {
+      "dst": "aligned_reads_x2",
+      "src": "aligned_reads_index_x2"
+    },
+    {
+      "dst": "aligned_reads_x3",
+      "src": "aligned_reads_index_x3"
+    },
+    {
+      "dst": "aligned_reads_x4",
+      "src": "aligned_reads_index_x4"
+    },
+    {
+      "dst": "aligned_reads_index_x1",
+      "src": "rna_expression_workflow_x1"
+    },
+    {
+      "dst": "rna_expression_workflow_x1",
+      "src": "gene_expression_x1"
+    }
+  ],
+  "nodes": [
+    {
+      "label": "case",
+      "submitter_id": "case_y1"
+    },
+    {
+      "label": "case",
+      "submitter_id": "case_x1"
+    },
+    {
+      "label": "demographic",
+      "submitter_id": "demographic_x1"
+    },
+    {
+      "label": "sample",
+      "sample_type": "Additional Metastatic",
+      "submitter_id": "sample_y1"
+    },
+    {
+      "label": "sample",
+      "sample_type": "DNA",
+      "submitter_id": "sample_x1",
+      "tissue_type": "Normal"
+    },
+    {
+      "label": "sample",
+      "sample_type": "Lymphoid Normal",
+      "submitter_id": "sample_x2",
+      "tissue_type": "Normal"
+    },
+    {
+      "label": "sample",
+      "sample_type": "EBV Immortalized Normal",
+      "submitter_id": "sample_x3"
+    },
+    {
+      "label": "sample",
+      "sample_type": "EBV Immortalized Normal",
+      "submitter_id": "sample_x4"
+    },
+    {
+      "label": "aliquot",
+      "no_matched_normal_wgs": false,
+      "node_id": "aliquot_x1-node_id",
+      "selected_normal_wgs": false,
+      "submitter_id": "aliquot_x1"
+    },
+    {
+      "label": "aliquot",
+      "no_matched_normal_wgs": false,
+      "node_id": "aliquot_x2-node_id",
+      "selected_normal_wgs": false,
+      "submitter_id": "aliquot_x2"
+    },
+    {
+      "label": "aliquot",
+      "no_matched_normal_wgs": false,
+      "node_id": "aliquot_x3-node_id",
+      "selected_normal_wgs": false,
+      "submitter_id": "aliquot_x3"
+    },
+    {
+      "label": "aliquot",
+      "node_id": "aliquot_y1-node_id",
+      "submitter_id": "aliquot_y1"
+    },
+    {
+      "experimental_strategy": "Methylation Array",
+      "label": "raw_methylation_array",
+      "submitter_id": "raw_methylation_array_x1"
+    },
+    {
+      "label": "file",
+      "submitter_id": "file_x1"
+    },
+    {
+      "label": "file",
+      "submitter_id": "file_x2"
+    },
+    {
+      "label": "analysis_metadata",
+      "submitter_id": "analysis_metadata_x1"
+    },
+    {
+      "label": "experiment_metadata",
+      "submitter_id": "experiment_metadata_x1"
+    },
+    {
+      "label": "clinical_supplement",
+      "submitter_id": "clinical_supplement_x1"
+    },
+    {
+      "label": "read_group",
+      "submitter_id": "read_group_x1"
+    },
+    {
+      "label": "read_group",
+      "submitter_id": "read_group_x2"
+    },
+    {
+      "label": "read_group",
+      "submitter_id": "read_group_x3"
+    },
+    {
+      "label": "read_group",
+      "submitter_id": "read_group_x4"
+    },
+    {
+      "experimental_strategy": "WGS",
+      "label": "submitted_unaligned_reads",
+      "submitter_id": "sur_x1"
+    },
+    {
+      "experimental_strategy": "WGS",
+      "label": "submitted_unaligned_reads",
+      "submitter_id": "sur_x2"
+    },
+    {
+      "experimental_strategy": "WXS",
+      "label": "submitted_unaligned_reads",
+      "submitter_id": "sur_x3"
+    },
+    {
+      "experimental_strategy": "WGS",
+      "label": "submitted_aligned_reads",
+      "submitter_id": "sar_x1"
+    },
+    {
+      "experimental_strategy": "WGS",
+      "label": "submitted_aligned_reads",
+      "submitter_id": "sar_x2"
+    },
+    {
+      "label": "alignment_workflow",
+      "submitter_id": "alignment_workflow_x1"
+    },
+    {
+      "label": "alignment_workflow",
+      "submitter_id": "alignment_workflow_x2"
+    },
+    {
+      "label": "alignment_workflow",
+      "submitter_id": "alignment_workflow_x3"
+    },
+    {
+      "label": "alignment_workflow",
+      "submitter_id": "alignment_workflow_x4"
+    },
+    {
+      "label": "alignment_workflow",
+      "submitter_id": "alignment_workflow_x5"
+    },
+    {
+      "experimental_strategy": "WGS",
+      "label": "aligned_reads",
+      "submitter_id": "aligned_reads_x1"
+    },
+    {
+      "experimental_strategy": "WGS",
+      "label": "aligned_reads",
+      "submitter_id": "aligned_reads_x2"
+    },
+    {
+      "experimental_strategy": "WXS",
+      "label": "aligned_reads",
+      "submitter_id": "aligned_reads_x3"
+    },
+    {
+      "experimental_strategy": "WGS",
+      "label": "aligned_reads",
+      "submitter_id": "aligned_reads_x4"
+    },
+    {
+      "label": "aligned_reads_index",
+      "submitter_id": "aligned_reads_index_x1"
+    },
+    {
+      "label": "aligned_reads_index",
+      "submitter_id": "aligned_reads_index_x2"
+    },
+    {
+      "label": "aligned_reads_index",
+      "submitter_id": "aligned_reads_index_x3"
+    },
+    {
+      "label": "aligned_reads_index",
+      "submitter_id": "aligned_reads_index_x4"
+    },
+    {
+      "label": "rna_expression_workflow",
+      "submitter_id": "rna_expression_workflow_x1"
+    },
+    {
+      "label": "gene_expression",
+      "submitter_id": "gene_expression_x1"
+    }
+  ]
+}
