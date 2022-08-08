@@ -122,7 +122,7 @@ class File(base.Node):
                 "type": base.Node.get_subclass("archive"),
             },
             "cases": {
-                "backref": "files",
+                "backref": "describing_files",
                 "type": base.Node.get_subclass("case"),
             },
             "centers": {
@@ -138,11 +138,11 @@ class File(base.Node):
                 "type": base.Node.get_subclass("data_subtype"),
             },
             "derived_files": {
-                "backref": "parent_files",
+                "backref": "source_files",
                 "type": base.Node.get_subclass("file"),
             },
             "described_cases": {
-                "backref": "files",
+                "backref": "describing_files",
                 "type": base.Node.get_subclass("case"),
             },
             "experiment_metadata_files": {
@@ -174,7 +174,7 @@ class File(base.Node):
                 "type": base.Node.get_subclass("archive"),
             },
             "related_files": {
-                "backref": "parent_files",
+                "backref": "source_files",
                 "type": base.Node.get_subclass("file"),
             },
             "run_metadata_files": {
@@ -309,7 +309,25 @@ class File(base.Node):
     def batch_id(self, value):
         self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, str, enum=["validated", "submitted", "released"])
+    @psqlgraph.pg_property(
+        str,
+        str,
+        enum=[
+            "uploading",
+            "uploaded",
+            "md5summing",
+            "md5summed",
+            "validating",
+            "error",
+            "invalid",
+            "suppressed",
+            "redacted",
+            "live",
+            "validated",
+            "submitted",
+            "released",
+        ],
+    )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
 

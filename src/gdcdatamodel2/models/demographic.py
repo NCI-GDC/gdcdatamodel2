@@ -130,7 +130,25 @@ class Demographic(base.Node):
     def batch_id(self, value):
         self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, str, enum=["validated", "submitted", "released"])
+    @psqlgraph.pg_property(
+        str,
+        str,
+        enum=[
+            "uploading",
+            "uploaded",
+            "md5summing",
+            "md5summed",
+            "validating",
+            "error",
+            "invalid",
+            "suppressed",
+            "redacted",
+            "live",
+            "validated",
+            "submitted",
+            "released",
+        ],
+    )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
 

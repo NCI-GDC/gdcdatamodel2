@@ -544,6 +544,7 @@ from .treatmentrelatestocase import TreatmentRelatesToCase
 
 namespace = base.namespace
 Node = base.Node
+Edge = base.Edge
 
 __all__ = [
     "AggregatedSomaticMutation",
@@ -886,3 +887,8 @@ for __type in __all__:
     cls.post_process()
 
 __all__.append("Node")
+__all__.append("Edge")
+
+from sqlalchemy import orm
+
+orm.configure_mappers()
