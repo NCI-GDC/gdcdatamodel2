@@ -1,16 +1,7 @@
 from copy import copy
 
 from gdcdatamodel2 import validators
-
-
-class MockSubmissionEntity(object):
-    def __init__(self):
-        self.errors = []
-        self.node = None
-        self.doc = {}
-
-    def record_error(self, message, **kwargs):
-        self.errors.append(dict(message=message, **kwargs))
+from tests import MockSubmissionEntity
 
 
 def test_json_validator_with_insufficient_properties():
