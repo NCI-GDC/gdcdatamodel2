@@ -179,3 +179,59 @@ def test_graph_validator_with_wrong_multiplicity(gdc_graph):
         )
         graph_validator.record_errors(gdc_graph, entities)
         assert entities[0].errors[0]["keys"] == ["analytes"]
+
+
+def test_graph_validator_with_correct_node(gdc_graph):
+    graph_validator = validators.GDCGraphValidator()
+    entities = [MockSubmissionEntity()]
+
+    with gdc_graph.session_scope() as session:
+        analyte = create_node(
+            gdc_graph,
+            {
+                "type": "analyte",
+                "props": {"submitter_id": "test", "analyte_type_id": "D", "analyte_type": "DNA"},
+                "edges": {},
+            },
+            session,
+        )
+
+        node = create_node(
+            gdc_graph,
+            {
+                "type": "aliquot",
+                "props": {"submitter_id": "test"},
+                "edges": {"analytes": [analyte.node_id]},
+            },
+            session,
+        )
+        entities[0].node = node
+        update_schema(
+            graph_validator,
+            "aliquot",
+            "links",
+            [
+                {
+                    "exclusive": False,
+                    "required": True,
+                    "subgroup": [
+                        {
+                            "name": "analytes",
+                            "backref": "aliquots",
+                            "label": "derived_from",
+                            "multiplicity": "many_to_one",
+                            "target_type": "analyte",
+                        },
+                        {
+                            "name": "samples",
+                            "backref": "aliquots",
+                            "label": "derived_from",
+                            "multiplicity": "many_to_one",
+                            "target_type": "sample",
+                        },
+                    ],
+                }
+            ],
+        )
+        graph_validator.record_errors(gdc_graph, entities)
+        assert len(entities[0].errors) == 0
