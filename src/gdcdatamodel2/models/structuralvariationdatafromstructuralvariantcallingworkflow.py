@@ -1,0 +1,34 @@
+from typing import Callable, List
+
+import psqlgraph
+
+from .helpers import base, related_cases
+
+
+class StructuralVariationDataFromStructuralVariantCallingWorkflow(base.Edge):
+    __tablename__: str = "edge_627746ab_stvadafrstvacawo"
+
+    __label__: str = "data_from"
+    __dst_class__: str = "StructuralVariantCallingWorkflow"
+    __dst_table__: str = "node_structuralvariantcallingworkflow"
+    __src_class__: str = "StructuralVariation"
+    __src_table__: str = "node_structuralvariation"
+
+    __dst_src_assoc__: str = "structural_variations"
+    __src_dst_assoc__: str = "structural_variant_calling_workflows"
+
+    _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
+        related_cases.cache_related_cases_on_insert
+    ]
+
+    _session_hooks_before_update: List[Callable] = psqlgraph.Edge._session_hooks_before_update + [
+        related_cases.cache_related_cases_on_update
+    ]
+
+    _session_hooks_before_delete: List[Callable] = psqlgraph.Edge._session_hooks_before_delete + [
+        related_cases.cache_related_cases_on_delete
+    ]
+
+    @classmethod
+    def post_process(cls) -> None:
+        pass

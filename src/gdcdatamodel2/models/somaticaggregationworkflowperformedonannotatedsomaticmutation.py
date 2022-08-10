@@ -1,0 +1,34 @@
+from typing import Callable, List
+
+import psqlgraph
+
+from .helpers import base, related_cases
+
+
+class SomaticAggregationWorkflowPerformedOnAnnotatedSomaticMutation(base.Edge):
+    __tablename__: str = "edge_fb896048_soagwopeonansomu"
+
+    __label__: str = "performed_on"
+    __dst_class__: str = "AnnotatedSomaticMutation"
+    __dst_table__: str = "node_annotatedsomaticmutation"
+    __src_class__: str = "SomaticAggregationWorkflow"
+    __src_table__: str = "node_somaticaggregationworkflow"
+
+    __dst_src_assoc__: str = "somatic_aggregation_workflows"
+    __src_dst_assoc__: str = "annotated_somatic_mutations"
+
+    _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
+        related_cases.cache_related_cases_on_insert
+    ]
+
+    _session_hooks_before_update: List[Callable] = psqlgraph.Edge._session_hooks_before_update + [
+        related_cases.cache_related_cases_on_update
+    ]
+
+    _session_hooks_before_delete: List[Callable] = psqlgraph.Edge._session_hooks_before_delete + [
+        related_cases.cache_related_cases_on_delete
+    ]
+
+    @classmethod
+    def post_process(cls) -> None:
+        pass

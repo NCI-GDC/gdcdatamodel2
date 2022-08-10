@@ -1,0 +1,34 @@
+from typing import Callable, List
+
+import psqlgraph
+
+from .helpers import base, related_cases
+
+
+class MethylationLiftoverWorkflowPerformedOnSubmittedMethylationBetaValue(base.Edge):
+    __tablename__: str = "edge_5babf3e7_meliwopeonsumebeva"
+
+    __label__: str = "performed_on"
+    __dst_class__: str = "SubmittedMethylationBetaValue"
+    __dst_table__: str = "node_submittedmethylationbetavalue"
+    __src_class__: str = "MethylationLiftoverWorkflow"
+    __src_table__: str = "node_methylationliftoverworkflow"
+
+    __dst_src_assoc__: str = "methylation_liftover_workflows"
+    __src_dst_assoc__: str = "submitted_methylation_beta_values"
+
+    _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
+        related_cases.cache_related_cases_on_insert
+    ]
+
+    _session_hooks_before_update: List[Callable] = psqlgraph.Edge._session_hooks_before_update + [
+        related_cases.cache_related_cases_on_update
+    ]
+
+    _session_hooks_before_delete: List[Callable] = psqlgraph.Edge._session_hooks_before_delete + [
+        related_cases.cache_related_cases_on_delete
+    ]
+
+    @classmethod
+    def post_process(cls) -> None:
+        pass

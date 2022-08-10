@@ -1,0 +1,16 @@
+title = "Data Model code generator configuration"
+
+[environment]
+
+[logging]
+level = "INFO"
+log_file = "plaster.log"
+
+[profiles]
+
+[profiles.gdcdictionary]
+url = "https://github.com/NCI-GDC/gdcdictionary.git"
+path = "gdcdictionary/schemas"
+version = "2.5.0-rc.0"
+overwrite = false
+type = "remote"

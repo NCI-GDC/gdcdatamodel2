@@ -1,0 +1,1018 @@
+from typing import Any, Dict, List, Optional, Union
+
+import psqlgraph
+from sqlalchemy.ext import hybrid
+
+from .helpers import base, datetime_hooks, indexes, related_cases, versioning
+
+
+class Sample(base.Node):
+    __tablename__: str = "node_sample"
+
+    # this field contains values of uniqueProperties
+    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+
+    # _defaults: default value for specified fields in the dictionary
+    _defaults: Dict[str, Union[bool, float, int, str]] = {"state": "validated"}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
+        "title": "Sample",
+        "namespace": "https://gdc.cancer.gov",
+        "category": "biospecimen",
+        "submittable": True,
+        "downloadable": False,
+        "description": "Any material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes, including a sample obtained from a living organism or taken from the biological object after halting of all its life functions. Biospecimen can contain one or more components including but not limited to cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory products.",
+        "required": ["submitter_id", "sample_type", "tissue_type"],
+        "project": "*",
+        "program": "*",
+        "previous_version_downloadable": False,
+    }
+
+    _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_links: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+
+    @classmethod
+    def get_label(cls) -> str:
+        return "sample"
+
+    @property
+    def id(self):
+        return self.node_id
+
+    @id.setter
+    def id(self, value):
+        self.node_id = value
+
+    @classmethod
+    def post_process(cls) -> None:
+        cls.add_secondary_key_indexes()
+        cls.populate_pg_backrefs()
+        cls.populate_pg_links()
+        cls.populate_pg_edges()
+
+    @classmethod
+    def add_secondary_key_indexes(cls) -> None:
+        secondary_key_indexes = indexes.get_secondary_key_indexes(cls)
+        for index in secondary_key_indexes:
+            cls.__table__.append_constraint(index)
+
+    @classmethod
+    def populate_pg_backrefs(cls) -> None:
+        """_pg_backrefs are in_edges, links FROM other types."""
+        cls._pg_backrefs = {
+            "aliquots": {
+                "name": "samples",
+                "src_type": base.Node.get_subclass("aliquot"),
+            },
+            "analytes": {
+                "name": "samples",
+                "src_type": base.Node.get_subclass("analyte"),
+            },
+            "annotations": {
+                "name": "samples",
+                "src_type": base.Node.get_subclass("annotation"),
+            },
+            "child_samples": {
+                "name": "parent_samples",
+                "src_type": base.Node.get_subclass("sample"),
+            },
+            "files": {
+                "name": "samples",
+                "src_type": base.Node.get_subclass("file"),
+            },
+            "pathology_reports": {
+                "name": "samples",
+                "src_type": base.Node.get_subclass("pathology_report"),
+            },
+            "portions": {
+                "name": "samples",
+                "src_type": base.Node.get_subclass("portion"),
+            },
+            "protein_expressions": {
+                "name": "samples",
+                "src_type": base.Node.get_subclass("protein_expression"),
+            },
+            "slides": {
+                "name": "samples",
+                "src_type": base.Node.get_subclass("slide"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_edges(cls) -> None:
+        """_pg_edges are all edges, links to AND from other types."""
+        cls._pg_edges = {
+            "aliquots": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("aliquot"),
+            },
+            "analytes": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("analyte"),
+            },
+            "annotations": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("annotation"),
+            },
+            "cases": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("case"),
+            },
+            "child_samples": {
+                "backref": "parent_samples",
+                "type": base.Node.get_subclass("sample"),
+            },
+            "diagnoses": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("diagnosis"),
+            },
+            "files": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("file"),
+            },
+            "parent_samples": {
+                "backref": "child_samples",
+                "type": base.Node.get_subclass("sample"),
+            },
+            "pathology_reports": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("pathology_report"),
+            },
+            "portions": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("portion"),
+            },
+            "protein_expressions": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("protein_expression"),
+            },
+            "slides": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("slide"),
+            },
+            "tissue_source_sites": {
+                "backref": "samples",
+                "type": base.Node.get_subclass("tissue_source_site"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_links(cls) -> None:
+        """_pg_links are out_edges, links TO other types."""
+        cls._pg_links = {
+            "cases": {
+                "edge_out": "_SampleDerivedFromCase_out",
+                "dst_type": base.Node.get_subclass("case"),
+            },
+            "diagnoses": {
+                "edge_out": "_SampleRelatedToDiagnosis_out",
+                "dst_type": base.Node.get_subclass("diagnosis"),
+            },
+            "parent_samples": {
+                "edge_out": "_SampleDerivedFromSample_out",
+                "dst_type": base.Node.get_subclass("sample"),
+            },
+            "tissue_source_sites": {
+                "edge_out": "_SampleProcessedAtTissueSourceSite_out",
+                "dst_type": base.Node.get_subclass("tissue_source_site"),
+            },
+        }
+
+    @property
+    def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_cache(self)
+
+    @property
+    def _related_cases_from_parents(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_parents(self)
+
+    @property
+    def _secondary_keys_dicts(self) -> List[Dict[str, Any]]:
+        vals = []
+        secondary_keys = self.__pg_secondary_keys
+        for keys in secondary_keys:
+            if "id" in keys:
+                continue
+            vals.append({key: getattr(self, key, None) for key in keys})
+        return vals
+
+    @hybrid.hybrid_property
+    def _secondary_keys(self):
+        vals = []
+        for keys in self.__pg_secondary_keys:
+            vals.append(tuple(getattr(self, key) for key in keys))
+        return tuple(vals)
+
+    @_secondary_keys.comparator
+    def _secondary_keys(cls):
+        return indexes.SecondaryKeyComparator(cls)
+
+    # Set this attribute so psqlgraph doesn't treat it as a property
+    _secondary_keys._is_pg_property = False
+
+    @psqlgraph.pg_property(str)
+    def submitter_id(self, value):
+        self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def batch_id(self, value):
+        self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        str,
+        enum=[
+            "uploading",
+            "uploaded",
+            "md5summing",
+            "md5summed",
+            "validating",
+            "error",
+            "invalid",
+            "suppressed",
+            "redacted",
+            "live",
+            "validated",
+            "submitted",
+            "released",
+        ],
+    )
+    def state(self, value):
+        self._set_property("state", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def project_id(self, value):
+        self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def created_datetime(self, value):
+        self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def updated_datetime(self, value):
+        self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Abdomen",
+            "Abdominal Wall",
+            "Acetabulum",
+            "Adenoid",
+            "Adipose",
+            "Adrenal",
+            "Alveolar Ridge",
+            "Amniotic Fluid",
+            "Ampulla Of Vater",
+            "Anal Sphincter",
+            "Ankle",
+            "Anorectum",
+            "Antecubital Fossa",
+            "Antrum",
+            "Anus",
+            "Aorta",
+            "Aortic Body",
+            "Appendix",
+            "Aqueous Fluid",
+            "Arm",
+            "Artery",
+            "Ascending Colon",
+            "Ascending Colon Hepatic Flexure",
+            "Auditory Canal",
+            "Autonomic Nervous System",
+            "Axilla",
+            "Back",
+            "Bile Duct",
+            "Bladder",
+            "Blood",
+            "Blood Vessel",
+            "Bone",
+            "Bone Marrow",
+            "Bowel",
+            "Brain",
+            "Brain Stem",
+            "Breast",
+            "Broad Ligament",
+            "Bronchiole",
+            "Bronchus",
+            "Brow",
+            "Buccal Cavity",
+            "Buccal Mucosa",
+            "Buttock",
+            "Calf",
+            "Capillary",
+            "Cardia",
+            "Carina",
+            "Carotid Artery",
+            "Carotid Body",
+            "Cartilage",
+            "Cecum",
+            "Cell-Line",
+            "Central Nervous System",
+            "Cerebellum",
+            "Cerebral Cortex",
+            "Cerebrospinal Fluid",
+            "Cerebrum",
+            "Cervical Spine",
+            "Cervix",
+            "Chest",
+            "Chest Wall",
+            "Chin",
+            "Clavicle",
+            "Clitoris",
+            "Colon",
+            "Colon - Mucosa Only",
+            "Common Duct",
+            "Conjunctiva",
+            "Connective Tissue",
+            "Dermal",
+            "Descending Colon",
+            "Diaphragm",
+            "Duodenum",
+            "Ear",
+            "Ear Canal",
+            "Ear, Pinna (External)",
+            "Effusion",
+            "Elbow",
+            "Endocrine Gland",
+            "Epididymis",
+            "Epidural Space",
+            "Esophageal; Distal",
+            "Esophageal; Mid",
+            "Esophageal; Proximal",
+            "Esophagogastric Junction",
+            "Esophagus",
+            "Esophagus - Mucosa Only",
+            "Eye",
+            "Fallopian Tube",
+            "Femoral Artery",
+            "Femoral Vein",
+            "Femur",
+            "Fibroblasts",
+            "Fibula",
+            "Finger",
+            "Floor Of Mouth",
+            "Fluid",
+            "Foot",
+            "Forearm",
+            "Forehead",
+            "Foreskin",
+            "Frontal Cortex",
+            "Frontal Lobe",
+            "Fundus Of Stomach",
+            "Gallbladder",
+            "Ganglia",
+            "Gastroesophageal Junction",
+            "Gastrointestinal Tract",
+            "Glottis",
+            "Groin",
+            "Gum",
+            "Hand",
+            "Hard Palate",
+            "Head - Face Or Neck, Nos",
+            "Head & Neck",
+            "Heart",
+            "Hepatic",
+            "Hepatic Duct",
+            "Hepatic Flexure",
+            "Hepatic Vein",
+            "Hip",
+            "Hippocampus",
+            "Humerus",
+            "Hypopharynx",
+            "Ileum",
+            "Ilium",
+            "Index Finger",
+            "Ischium",
+            "Islet Cells",
+            "Jaw",
+            "Jejunum",
+            "Joint",
+            "Kidney",
+            "Knee",
+            "Lacrimal Gland",
+            "Large Bowel",
+            "Laryngopharynx",
+            "Larynx",
+            "Leg",
+            "Leptomeninges",
+            "Ligament",
+            "Lip",
+            "Liver",
+            "Lumbar Spine",
+            "Lung",
+            "Lymph Node",
+            "Lymph Node(s) Axilla",
+            "Lymph Node(s) Cervical",
+            "Lymph Node(s) Distant",
+            "Lymph Node(s) Epitrochlear",
+            "Lymph Node(s) Femoral",
+            "Lymph Node(s) Hilar",
+            "Lymph Node(s) Iliac-Common",
+            "Lymph Node(s) Iliac-External",
+            "Lymph Node(s) Inguinal",
+            "Lymph Node(s) Internal Mammary",
+            "Lymph Node(s) Mammary",
+            "Lymph Node(s) Mesenteric",
+            "Lymph Node(s) Occipital",
+            "Lymph Node(s) Paraaortic",
+            "Lymph Node(s) Parotid",
+            "Lymph Node(s) Pelvic",
+            "Lymph Node(s) Popliteal",
+            "Lymph Node(s) Regional",
+            "Lymph Node(s) Retroperitoneal",
+            "Lymph Node(s) Scalene",
+            "Lymph Node(s) Splenic",
+            "Lymph Node(s) Subclavicular",
+            "Lymph Node(s) Submandibular",
+            "Lymph Node(s) Supraclavicular",
+            "Lymph Nodes(s) Mediastinal",
+            "Mandible",
+            "Maxilla",
+            "Mediastinal Soft Tissue",
+            "Mediastinum",
+            "Mesentery",
+            "Mesothelium",
+            "Middle Finger",
+            "Mitochondria",
+            "Muscle",
+            "Nails",
+            "Nasal Cavity",
+            "Nasal Soft Tissue",
+            "Nasopharynx",
+            "Neck",
+            "Nerve",
+            "Nerve(s) Cranial",
+            "Not Allowed To Collect",
+            "Occipital Cortex",
+            "Ocular Orbits",
+            "Omentum",
+            "Oral Cavity",
+            "Oral Cavity - Mucosa Only",
+            "Oropharynx",
+            "Other",
+            "Ovary",
+            "Palate",
+            "Pancreas",
+            "Paranasal Sinuses",
+            "Paraspinal Ganglion",
+            "Parathyroid",
+            "Parotid Gland",
+            "Patella",
+            "Pelvis",
+            "Penis",
+            "Pericardium",
+            "Periorbital Soft Tissue",
+            "Peritoneal Cavity",
+            "Peritoneum",
+            "Pharynx",
+            "Pineal",
+            "Pineal Gland",
+            "Pituitary Gland",
+            "Placenta",
+            "Pleura",
+            "Popliteal Fossa",
+            "Prostate",
+            "Pylorus",
+            "Rectosigmoid Junction",
+            "Rectum",
+            "Retina",
+            "Retro-Orbital Region",
+            "Retroperitoneum",
+            "Rib",
+            "Ring Finger",
+            "Round Ligament",
+            "Sacrum",
+            "Salivary Gland",
+            "Scalp",
+            "Scapula",
+            "Sciatic Nerve",
+            "Scrotum",
+            "Seminal Vesicle",
+            "Shoulder",
+            "Sigmoid Colon",
+            "Sinus",
+            "Sinus(es), Maxillary",
+            "Skeletal Muscle",
+            "Skin",
+            "Skull",
+            "Small Bowel",
+            "Small Bowel - Mucosa Only",
+            "Small Finger",
+            "Soft Tissue",
+            "Spinal Column",
+            "Spinal Cord",
+            "Spleen",
+            "Splenic Flexure",
+            "Sternum",
+            "Stomach",
+            "Stomach - Mucosa Only",
+            "Subcutaneous Tissue",
+            "Subglottis",
+            "Sublingual Gland",
+            "Submandibular Gland",
+            "Supraglottis",
+            "Synovium",
+            "Temporal Cortex",
+            "Tendon",
+            "Testis",
+            "Thigh",
+            "Thoracic Spine",
+            "Thorax",
+            "Throat",
+            "Thumb",
+            "Thymus",
+            "Thyroid",
+            "Tibia",
+            "Tongue",
+            "Tonsil",
+            "Tonsil (Pharyngeal)",
+            "Trachea / Major Bronchi",
+            "Transverse Colon",
+            "Trunk",
+            "Umbilical Cord",
+            "Ureter",
+            "Urethra",
+            "Urinary Tract",
+            "Uterus",
+            "Uvula",
+            "Vagina",
+            "Vas Deferens",
+            "Vein",
+            "Venous",
+            "Vertebra",
+            "Vulva",
+            "White Blood Cells",
+            "Wrist",
+            "Unknown",
+            "Not Reported",
+        ],
+    )
+    def biospecimen_anatomic_site(self, value):
+        self._set_property("biospecimen_anatomic_site", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Bilateral", "Left", "Right", "Unknown", "Not Reported"])
+    def biospecimen_laterality(self, value):
+        self._set_property("biospecimen_laterality", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def catalog_reference(self, value):
+        self._set_property("catalog_reference", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "2D Classical Conditionally Reprogrammed Cells",
+            "2D Modified Conditionally Reprogrammed Cells",
+            "3D Air-Liquid Interface Organoid",
+            "3D Neurosphere",
+            "3D Organoid",
+            "Adherent Cell Line",
+            "Bone Marrow Components",
+            "Bone Marrow Components NOS",
+            "Buccal Cells",
+            "Buffy Coat",
+            "Cell",
+            "Control Analyte",
+            "Derived Cell Line",
+            "EBV Immortalized",
+            "Fibroblasts from Bone Marrow Normal",
+            "Granulocytes",
+            "Human Original Cells",
+            "Liquid Suspension Cell Line",
+            "Lymphocytes",
+            "Mixed Adherent Suspension",
+            "Mononuclear Cells from Bone Marrow Normal",
+            "Not Allowed To Collect",
+            "Peripheral Blood Components NOS",
+            "Peripheral Whole Blood",
+            "Plasma",
+            "Pleural Effusion",
+            "Saliva",
+            "Serum",
+            "Solid Tissue",
+            "Sorted Cells",
+            "Sputum",
+            "Whole Bone Marrow",
+            "Unknown",
+            "Not Reported",
+        ],
+    )
+    def composition(self, value):
+        self._set_property("composition", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def current_weight(self, value):
+        self._set_property("current_weight", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def days_to_collection(self, value):
+        self._set_property("days_to_collection", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def days_to_sample_procurement(self, value):
+        self._set_property("days_to_sample_procurement", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str, enum=["Not Allowed To Collect", "Yes", "No", "Unknown", "Not Reported"]
+    )
+    def diagnosis_pathologically_confirmed(self, value):
+        self._set_property("diagnosis_pathologically_confirmed", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str, enum=["Adjacent (< or = 2cm)", "Distal (>2cm)", "Unknown", "Not Reported"]
+    )
+    def distance_normal_to_tumor(self, value):
+        self._set_property("distance_normal_to_tumor", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def distributor_reference(self, value):
+        self._set_property("distributor_reference", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def freezing_method(self, value):
+        self._set_property("freezing_method", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def growth_rate(self, value):
+        self._set_property("growth_rate", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def initial_weight(self, value):
+        self._set_property("initial_weight", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def intermediate_dimension(self, value):
+        self._set_property("intermediate_dimension", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(bool)
+    def is_ffpe(self, value):
+        self._set_property("is_ffpe", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def longest_dimension(self, value):
+        self._set_property("longest_dimension", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Abdomino-perineal Resection of Rectum",
+            "Anterior Resection of Rectum",
+            "Ascites Drainage",
+            "Aspirate",
+            "Autopsy",
+            "Biopsy",
+            "Blood Draw",
+            "Bone Marrow Aspirate",
+            "Buccal Mucosal Resection",
+            "Core Biopsy",
+            "Cystectomy",
+            "Deep Parotidectomy",
+            "Endo Rectal Tumor Resection",
+            "Endolaryngeal Excision",
+            "Endoscopic Biopsy",
+            "Endoscopic Mucosal Resection (EMR)",
+            "Enucleation",
+            "Excisional Biopsy",
+            "Fine Needle Aspiration",
+            "Full Hysterectomy",
+            "Glossectomy",
+            "Gross Total Resection",
+            "Hand Assisted Laparoscopic Radical Nephrectomy",
+            "Hysterectomy NOS",
+            "Incisional Biopsy",
+            "Indeterminant",
+            "Laparoscopic Biopsy",
+            "Laparoscopic Partial Nephrectomy",
+            "Laparoscopic Radical Nephrectomy",
+            "Laparoscopic Radical Prostatectomy with Robotics",
+            "Laparoscopic Radical Prostatectomy without Robotics",
+            "Laryngopharyngectomy",
+            "Left Hemicolectomy",
+            "Liquid Biopsy",
+            "Lobectomy",
+            "Local Resection (Exoresection; wall resection)",
+            "Lumpectomy",
+            "Lymph Node Dissection",
+            "Lymphadenectomy",
+            "Mandibulectomy",
+            "Maxillectomy",
+            "Metastasectomy",
+            "Modified Radical Mastectomy",
+            "Needle Biopsy",
+            "Not Allowed To Collect",
+            "Omentectomy",
+            "Oophorectomy",
+            "Open Craniotomy",
+            "Open Partial Nephrectomy",
+            "Open Radical Nephrectomy",
+            "Open Radical Prostatectomy",
+            "Orchiectomy",
+            "Other",
+            "Other Surgical Resection",
+            "Palatectomy",
+            "Pan-Procto Colectomy",
+            "Pancreatectomy",
+            "Paracentesis",
+            "Parotidectomy, NOS",
+            "Partial Hepatectomy",
+            "Partial Laryngectomy",
+            "Partial Maxillectomy",
+            "Partial Nephrectomy",
+            "Peritoneal Lavage",
+            "Pneumonectomy",
+            "Punch Biopsy",
+            "Radical Hysterectomy",
+            "Radical Maxillectomy",
+            "Radical Nephrectomy",
+            "Radical Prostatectomy",
+            "Right Hemicolectomy",
+            "Salpingectomy",
+            "Salpingo-oophorectomy",
+            "Sigmoid Colectomy",
+            "Simple Hysterectomy",
+            "Simple Mastectomy",
+            "Subtotal Prostatectomy",
+            "Subtotal Resection",
+            "Superficial Parotidectomy",
+            "Supracervical Hysterectomy",
+            "Supracricoid Laryngectomy",
+            "Supraglottic Laryngectomy",
+            "Surgical Resection",
+            "Thoracentesis",
+            "Thoracoscopic Biopsy",
+            "Tonsillectomy",
+            "Total Colectomy",
+            "Total Hepatectomy",
+            "Total Laryngectomy",
+            "Total Mastectomy",
+            "Total Nephrectomy",
+            "Transoral Laser Excision",
+            "Transplant",
+            "Transurethral resection (TURBT)",
+            "Transurethral Resection (TURP)",
+            "Transverse Colectomy",
+            "Tumor Debulking",
+            "Tumor Resection",
+            "Vertical Hemilaryngectomy",
+            "Wedge Resection",
+            "Whipple Procedure",
+            "Unknown",
+            "Not Reported",
+        ],
+    )
+    def method_of_sample_procurement(self, value):
+        self._set_property("method_of_sample_procurement", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def oct_embedded(self, value):
+        self._set_property("oct_embedded", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def pathology_report_uuid(self, value):
+        self._set_property("pathology_report_uuid", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Cryopreserved",
+            "FFPE",
+            "Fresh",
+            "Frozen",
+            "Not Allowed To Collect",
+            "OCT",
+            "Snap Frozen",
+            "Unknown",
+            "Not Reported",
+        ],
+    )
+    def preservation_method(self, value):
+        self._set_property("preservation_method", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def passage_count(self, value):
+        self._set_property("passage_count", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def sample_ordinal(self, value):
+        self._set_property("sample_ordinal", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Additional - New Primary",
+            "Additional Metastatic",
+            "Benign Neoplasms",
+            "Blood Derived Cancer - Bone Marrow",
+            "Blood Derived Cancer - Bone Marrow, Post-treatment",
+            "Blood Derived Cancer - Peripheral Blood",
+            "Blood Derived Cancer - Peripheral Blood, Post-treatment",
+            "Blood Derived Liquid Biopsy",
+            "Blood Derived Normal",
+            "Bone Marrow Normal",
+            "Buccal Cell Normal",
+            "Cell Line Derived Xenograft Tissue",
+            "Cell Lines",
+            "Control Analyte",
+            "DNA",
+            "EBV Immortalized Normal",
+            "Expanded Next Generation Cancer Model",
+            "FFPE Recurrent",
+            "FFPE Scrolls",
+            "Fibroblasts from Bone Marrow Normal",
+            "GenomePlex (Rubicon) Amplified DNA",
+            "Granulocytes",
+            "Human Tumor Original Cells",
+            "In Situ Neoplasms",
+            "Lymphoid Normal",
+            "Metastatic",
+            "Mixed Adherent Suspension",
+            "Mononuclear Cells from Bone Marrow Normal",
+            "Neoplasms of Uncertain and Unknown Behavior",
+            "Next Generation Cancer Model",
+            "Next Generation Cancer Model Expanded Under Non-conforming Conditions",
+            "Not Allowed To Collect",
+            "Pleural Effusion",
+            "Post neo-adjuvant therapy",
+            "Primary Blood Derived Cancer - Bone Marrow",
+            "Primary Blood Derived Cancer - Peripheral Blood",
+            "Primary Tumor",
+            "Primary Xenograft Tissue",
+            "Recurrent Blood Derived Cancer - Bone Marrow",
+            "Recurrent Blood Derived Cancer - Peripheral Blood",
+            "Recurrent Tumor",
+            "Repli-G (Qiagen) DNA",
+            "Repli-G X (Qiagen) DNA",
+            "RNA",
+            "Saliva",
+            "Slides",
+            "Solid Tissue Normal",
+            "Total RNA",
+            "Tumor",
+            "Tumor Adjacent Normal - Post Neo-adjuvant Therapy",
+            "Xenograft Tissue",
+            "Unknown",
+            "Not Reported",
+        ],
+    )
+    def sample_type(self, value):
+        self._set_property("sample_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "20",
+            "30",
+            "31",
+            "32",
+            "40",
+            "41",
+            "42",
+            "50",
+            "60",
+            "61",
+            "85",
+            "86",
+            "87",
+            "99",
+        ],
+    )
+    def sample_type_id(self, value):
+        self._set_property("sample_type_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def shortest_dimension(self, value):
+        self._set_property("shortest_dimension", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def time_between_clamping_and_freezing(self, value):
+        self._set_property("time_between_clamping_and_freezing", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def time_between_excision_and_freezing(self, value):
+        self._set_property("time_between_excision_and_freezing", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Prospective", "Retrospective"])
+    def tissue_collection_type(self, value):
+        self._set_property("tissue_collection_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Tumor",
+            "Normal",
+            "Abnormal",
+            "Peritumoral",
+            "Not Allowed To Collect",
+            "Unknown",
+            "Not Reported",
+        ],
+    )
+    def tissue_type(self, value):
+        self._set_property("tissue_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Acute Leukemia of Ambiguous Lineage (ALAL)",
+            "Acute lymphoblastic leukemia (ALL)",
+            "Acute myeloid leukemia (AML)",
+            "Anal Cancer (all types)",
+            "Cervical Cancer (all types)",
+            "Clear cell sarcoma of the kidney (CCSK)",
+            "CNS, ependymoma",
+            "CNS, glioblastoma (GBM)",
+            "CNS, low grade glioma (LGG)",
+            "CNS, medulloblastoma",
+            "CNS, other",
+            "CNS, rhabdoid tumor",
+            "Diffuse Large B-Cell Lymphoma (DLBCL)",
+            "Ewing sarcoma",
+            "Induction Failure AML (AML-IF)",
+            "Lung Cancer (all types)",
+            "Neuroblastoma (NBL)",
+            "NHL, anaplastic large cell lymphoma",
+            "NHL, Burkitt lymphoma (BL)",
+            "Non cancerous tissue",
+            "Osteosarcoma (OS)",
+            "Rhabdoid tumor (kidney) (RT)",
+            "Rhabdomyosarcoma",
+            "Soft tissue sarcoma, non-rhabdomyosarcoma",
+            "Wilms tumor (WT)",
+        ],
+    )
+    def tumor_code(self, value):
+        self._set_property("tumor_code", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "10",
+            "15",
+            "20",
+            "21",
+            "30",
+            "40",
+            "41",
+            "50",
+            "51",
+            "52",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "70",
+            "71",
+            "80",
+            "81",
+        ],
+    )
+    def tumor_code_id(self, value):
+        self._set_property("tumor_code_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Metastatic",
+            "NOS",
+            "Not Allowed To Collect",
+            "Not Applicable",
+            "Premalignant",
+            "Primary",
+            "Recurrence",
+            "Xenograft",
+            "Unknown",
+            "Not Reported",
+        ],
+    )
+    def tumor_descriptor(self, value):
+        self._set_property("tumor_descriptor", value)  # type: ignore  # inherited from CommonBase
+
+
+datetime_hooks.cls_inject_created_datetime_hook(Sample)
+datetime_hooks.cls_inject_updated_datetime_hook(Sample)

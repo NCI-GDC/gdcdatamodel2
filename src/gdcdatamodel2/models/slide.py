@@ -1,0 +1,285 @@
+from typing import Any, Dict, List, Optional, Union
+
+import psqlgraph
+from sqlalchemy.ext import hybrid
+
+from .helpers import base, datetime_hooks, indexes, related_cases, versioning
+
+
+class Slide(base.Node):
+    __tablename__: str = "node_slide"
+
+    # this field contains values of uniqueProperties
+    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+
+    # _defaults: default value for specified fields in the dictionary
+    _defaults: Dict[str, Union[bool, float, int, str]] = {"state": "validated"}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
+        "title": "Slide",
+        "namespace": "https://gdc.cancer.gov",
+        "category": "biospecimen",
+        "submittable": True,
+        "downloadable": False,
+        "description": "A digital image, microscopic or otherwise, of any sample, portion, or sub-part thereof. (GDC)",
+        "required": ["submitter_id", "section_location"],
+        "project": "*",
+        "program": "*",
+        "previous_version_downloadable": False,
+    }
+
+    _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+    _pg_links: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
+
+    @classmethod
+    def get_label(cls) -> str:
+        return "slide"
+
+    @property
+    def id(self):
+        return self.node_id
+
+    @id.setter
+    def id(self, value):
+        self.node_id = value
+
+    @classmethod
+    def post_process(cls) -> None:
+        cls.add_secondary_key_indexes()
+        cls.populate_pg_backrefs()
+        cls.populate_pg_links()
+        cls.populate_pg_edges()
+
+    @classmethod
+    def add_secondary_key_indexes(cls) -> None:
+        secondary_key_indexes = indexes.get_secondary_key_indexes(cls)
+        for index in secondary_key_indexes:
+            cls.__table__.append_constraint(index)
+
+    @classmethod
+    def populate_pg_backrefs(cls) -> None:
+        """_pg_backrefs are in_edges, links FROM other types."""
+        cls._pg_backrefs = {
+            "annotations": {
+                "name": "slides",
+                "src_type": base.Node.get_subclass("annotation"),
+            },
+            "files": {
+                "name": "slides",
+                "src_type": base.Node.get_subclass("file"),
+            },
+            "molecular_tests": {
+                "name": "slides",
+                "src_type": base.Node.get_subclass("molecular_test"),
+            },
+            "slide_images": {
+                "name": "slides",
+                "src_type": base.Node.get_subclass("slide_image"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_edges(cls) -> None:
+        """_pg_edges are all edges, links to AND from other types."""
+        cls._pg_edges = {
+            "annotations": {
+                "backref": "slides",
+                "type": base.Node.get_subclass("annotation"),
+            },
+            "files": {
+                "backref": "slides",
+                "type": base.Node.get_subclass("file"),
+            },
+            "molecular_tests": {
+                "backref": "slides",
+                "type": base.Node.get_subclass("molecular_test"),
+            },
+            "portions": {
+                "backref": "slides",
+                "type": base.Node.get_subclass("portion"),
+            },
+            "samples": {
+                "backref": "slides",
+                "type": base.Node.get_subclass("sample"),
+            },
+            "slide_images": {
+                "backref": "slides",
+                "type": base.Node.get_subclass("slide_image"),
+            },
+        }
+
+    @classmethod
+    def populate_pg_links(cls) -> None:
+        """_pg_links are out_edges, links TO other types."""
+        cls._pg_links = {
+            "portions": {
+                "edge_out": "_SlideDerivedFromPortion_out",
+                "dst_type": base.Node.get_subclass("portion"),
+            },
+            "samples": {
+                "edge_out": "_SlideDerivedFromSample_out",
+                "dst_type": base.Node.get_subclass("sample"),
+            },
+        }
+
+    @property
+    def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_cache(self)
+
+    @property
+    def _related_cases_from_parents(self) -> List[psqlgraph.Node]:
+        return related_cases.get_related_cases_from_parents(self)
+
+    @property
+    def _secondary_keys_dicts(self) -> List[Dict[str, Any]]:
+        vals = []
+        secondary_keys = self.__pg_secondary_keys
+        for keys in secondary_keys:
+            if "id" in keys:
+                continue
+            vals.append({key: getattr(self, key, None) for key in keys})
+        return vals
+
+    @hybrid.hybrid_property
+    def _secondary_keys(self):
+        vals = []
+        for keys in self.__pg_secondary_keys:
+            vals.append(tuple(getattr(self, key) for key in keys))
+        return tuple(vals)
+
+    @_secondary_keys.comparator
+    def _secondary_keys(cls):
+        return indexes.SecondaryKeyComparator(cls)
+
+    # Set this attribute so psqlgraph doesn't treat it as a property
+    _secondary_keys._is_pg_property = False
+
+    @psqlgraph.pg_property(str)
+    def submitter_id(self, value):
+        self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def batch_id(self, value):
+        self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        str,
+        enum=[
+            "uploading",
+            "uploaded",
+            "md5summing",
+            "md5summed",
+            "validating",
+            "error",
+            "invalid",
+            "suppressed",
+            "redacted",
+            "live",
+            "validated",
+            "submitted",
+            "released",
+        ],
+    )
+    def state(self, value):
+        self._set_property("state", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def project_id(self, value):
+        self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def created_datetime(self, value):
+        self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, type(None))
+    def updated_datetime(self, value):
+        self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
+    def bone_marrow_malignant_cells(self, value):
+        self._set_property("bone_marrow_malignant_cells", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def number_proliferating_cells(self, value):
+        self._set_property("number_proliferating_cells", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_follicular_component(self, value):
+        self._set_property("percent_follicular_component", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_rhabdoid_features(self, value):
+        self._set_property("percent_rhabdoid_features", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_sarcomatoid_features(self, value):
+        self._set_property("percent_sarcomatoid_features", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_tumor_cells(self, value):
+        self._set_property("percent_tumor_cells", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_tumor_nuclei(self, value):
+        self._set_property("percent_tumor_nuclei", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_normal_cells(self, value):
+        self._set_property("percent_normal_cells", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_necrosis(self, value):
+        self._set_property("percent_necrosis", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_stromal_cells(self, value):
+        self._set_property("percent_stromal_cells", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_inflam_infiltration(self, value):
+        self._set_property("percent_inflam_infiltration", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_lymphocyte_infiltration(self, value):
+        self._set_property("percent_lymphocyte_infiltration", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_monocyte_infiltration(self, value):
+        self._set_property("percent_monocyte_infiltration", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_granulocyte_infiltration(self, value):
+        self._set_property("percent_granulocyte_infiltration", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_neutrophil_infiltration(self, value):
+        self._set_property("percent_neutrophil_infiltration", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def percent_eosinophil_infiltration(self, value):
+        self._set_property("percent_eosinophil_infiltration", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def prostatic_chips_positive_count(self, value):
+        self._set_property("prostatic_chips_positive_count", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def prostatic_chips_total_count(self, value):
+        self._set_property("prostatic_chips_total_count", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def prostatic_involvement_percent(self, value):
+        self._set_property("prostatic_involvement_percent", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def section_location(self, value):
+        self._set_property("section_location", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def tissue_microarray_coordinates(self, value):
+        self._set_property("tissue_microarray_coordinates", value)  # type: ignore  # inherited from CommonBase
+
+
+datetime_hooks.cls_inject_created_datetime_hook(Slide)
+datetime_hooks.cls_inject_updated_datetime_hook(Slide)

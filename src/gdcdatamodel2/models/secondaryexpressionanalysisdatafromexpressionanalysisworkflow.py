@@ -1,0 +1,34 @@
+from typing import Callable, List
+
+import psqlgraph
+
+from .helpers import base, related_cases
+
+
+class SecondaryExpressionAnalysisDataFromExpressionAnalysisWorkflow(base.Edge):
+    __tablename__: str = "edge_1bedc005_seexandafrexanwo"
+
+    __label__: str = "data_from"
+    __dst_class__: str = "ExpressionAnalysisWorkflow"
+    __dst_table__: str = "node_expressionanalysisworkflow"
+    __src_class__: str = "SecondaryExpressionAnalysis"
+    __src_table__: str = "node_secondaryexpressionanalysis"
+
+    __dst_src_assoc__: str = "secondary_expression_analyses"
+    __src_dst_assoc__: str = "expression_analysis_workflows"
+
+    _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
+        related_cases.cache_related_cases_on_insert
+    ]
+
+    _session_hooks_before_update: List[Callable] = psqlgraph.Edge._session_hooks_before_update + [
+        related_cases.cache_related_cases_on_update
+    ]
+
+    _session_hooks_before_delete: List[Callable] = psqlgraph.Edge._session_hooks_before_delete + [
+        related_cases.cache_related_cases_on_delete
+    ]
+
+    @classmethod
+    def post_process(cls) -> None:
+        pass
