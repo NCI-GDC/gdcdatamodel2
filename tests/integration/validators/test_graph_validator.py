@@ -235,3 +235,20 @@ def test_graph_validator_with_correct_node(gdc_graph):
         )
         graph_validator.record_errors(gdc_graph, entities)
         assert len(entities[0].errors) == 0
+
+
+def test_graph_validator_with_existing_unique_keys(gdc_graph):
+    graph_validator = validators.GDCGraphValidator()
+    entities = [MockSubmissionEntity()]
+
+    with gdc_graph.session_scope() as session:
+        node = create_node(
+            gdc_graph, {"type": "data_format", "props": {"name": "test"}, "edges": {}}, session
+        )
+        node = create_node(
+            gdc_graph, {"type": "data_format", "props": {"name": "test"}, "edges": {}}, session
+        )
+        update_schema(graph_validator, "data_format", "uniqueKeys", [["name"]])
+        entities[0].node = node
+        graph_validator.record_errors(gdc_graph, entities)
+        entities[0].errors[0]["keys"] == ["name"]
