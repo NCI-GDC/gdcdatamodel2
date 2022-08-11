@@ -251,4 +251,35 @@ def test_graph_validator_with_existing_unique_keys(gdc_graph):
         update_schema(graph_validator, "data_format", "uniqueKeys", [["name"]])
         entities[0].node = node
         graph_validator.record_errors(gdc_graph, entities)
-        entities[0].errors[0]["keys"] == ["name"]
+        assert entities[0].errors[0]["keys"] == ["name"]
+
+
+def test_graph_validator_with_existing_unique_keys_for_different_node_types(gdc_graph):
+    graph_validator = validators.GDCGraphValidator()
+    entities = [MockSubmissionEntity()]
+
+    with gdc_graph.session_scope() as session:
+        node = create_node(
+            gdc_graph,
+            {"type": "sample", "props": {"submitter_id": "test", "project_id": "A"}, "edges": {}},
+            session,
+        )
+        node = create_node(
+            gdc_graph,
+            {
+                "type": "aliquot",
+                "props": {"submitter_id": "test", "project_id": "A"},
+                "edges": {},
+            },
+            session,
+        )
+        update_schema(
+            graph_validator, "data_format", "uniqueKeys", [["submitter_id", "project_id"]]
+        )
+        entities[0].node = node
+        graph_validator.record_errors(gdc_graph, entities)
+        error_keys = {tuple(sorted(e["keys"])) for e in entities[0].errors}
+        # Check (project_id, submitter_id) uniqueness is captured
+        assert ("project_id", "submitter_id") in error_keys
+        # Check that missing edges is captured
+        assert ("analytes", "samples") in error_keys
