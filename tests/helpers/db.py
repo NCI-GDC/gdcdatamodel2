@@ -10,10 +10,10 @@ import psqlgraph
 import yaml
 from psqlgraph import create_all, ext, mocks
 from psqlgraph.base import ORMBase, VoidedBase
-from sqlalchemy import MetaData
+from sqlalchemy import MetaData, engine
 from sqlalchemy import exc as sa_exc
 
-from gdcdatamodel2 import models
+from gdcdatamodel2 import models, versioned_nodes
 from tests.helpers import hints, typing_compat
 
 SAMPLE_PROGRAM = "GDC"
@@ -205,3 +205,13 @@ class GraphDataGenerator(typing_compat.Protocol):
         extension: Optional[DataLoaderExtension] = None,
     ) -> List[models.Node]:
         ...
+
+
+def create_ng_tables(graph_engine: engine.Engine):
+    versioned_nodes.Base.metadata.create_all(graph_engine)
+
+
+def truncate_ng_tables(graph_engine: engine.Engine):
+    conn = graph_engine.connect()
+    for table in versioned_nodes.Base.metadata.tables:
+        conn.execute(f"DELETE FROM {table}")
