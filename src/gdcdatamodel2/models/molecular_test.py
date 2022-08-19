@@ -79,10 +79,6 @@ class MolecularTest(base.Node):
                 "backref": "molecular_tests",
                 "type": base.Node.get_subclass("annotation"),
             },
-            "diagnoses": {
-                "backref": "molecular_tests",
-                "type": base.Node.get_subclass("diagnosis"),
-            },
             "follow_ups": {
                 "backref": "molecular_tests",
                 "type": base.Node.get_subclass("follow_up"),
@@ -97,10 +93,6 @@ class MolecularTest(base.Node):
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "diagnoses": {
-                "edge_out": "_MolecularTestRelatedToDiagnosis_out",
-                "dst_type": base.Node.get_subclass("diagnosis"),
-            },
             "follow_ups": {
                 "edge_out": "_MolecularTestPerformedAtFollowUp_out",
                 "dst_type": base.Node.get_subclass("follow_up"),
@@ -216,16 +208,12 @@ class MolecularTest(base.Node):
             "CD7",
             "CD79A",
             "CEA",
-            "FMC-7",
             "HLA-DR",
-            "Kappa, Surface",
             "Ki67",
-            "Lambda, Surface",
             "Mesothelin",
             "NSE",
             "Prostate-Specific Antigen (PSA)",
             "Squamous Cell Carcinoma Antigen (SCCA)",
-            "TAG-72",
             "Unknown",
             "Not Reported",
         ],
@@ -330,10 +318,6 @@ class MolecularTest(base.Node):
     def cytoband(self, value):
         self._set_property("cytoband", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
-    def days_to_test(self, value):
-        self._set_property("days_to_test", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(str)
     def exon(self, value):
         self._set_property("exon", value)  # type: ignore  # inherited from CommonBase
@@ -363,7 +347,6 @@ class MolecularTest(base.Node):
             "ANK1",
             "APC",
             "APOBEC3B",
-            "AQP1",
             "AR",
             "ARAF",
             "ARHGAP26",
@@ -418,7 +401,6 @@ class MolecularTest(base.Node):
             "BUB1B",
             "C15orf65",
             "CACNA1D",
-            "CALB2",
             "CALR",
             "CAMTA1",
             "CANT1",
@@ -522,7 +504,6 @@ class MolecularTest(base.Node):
             "DNAJB1",
             "DNM2",
             "DNMT3A",
-            "DNTT",
             "DROSHA",
             "DUX4L1",
             "EBF1",
@@ -540,7 +521,6 @@ class MolecularTest(base.Node):
             "EML4",
             "EP300",
             "EPAS1",
-            "EPCAM",
             "EPHA3",
             "EPHA7",
             "EPS15",
@@ -615,7 +595,6 @@ class MolecularTest(base.Node):
             "GATA1",
             "GATA2",
             "GATA3",
-            "GCET1",
             "GLI1",
             "GMPS",
             "GNA11",
@@ -835,7 +814,6 @@ class MolecularTest(base.Node):
             "PDGFB",
             "PDGFRA",
             "PDGFRB",
-            "PDPN",
             "PER1",
             "PGR",
             "PHF6",
@@ -876,7 +854,6 @@ class MolecularTest(base.Node):
             "PSIP1",
             "PTCH1",
             "PTEN",
-            "PTGS2",
             "PTK6",
             "PTPN11",
             "PTPN13",
@@ -1003,7 +980,6 @@ class MolecularTest(base.Node):
             "TFRC",
             "TGFBR2",
             "THRAP3",
-            "TLR2",
             "TLX1",
             "TLX3",
             "TMEM127",
@@ -1100,29 +1076,6 @@ class MolecularTest(base.Node):
     def histone_variant(self, value):
         self._set_property("histone_variant", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "HPV16",
-            "HPV18",
-            "HPV31",
-            "HPV33",
-            "HPV35",
-            "HPV39",
-            "HPV45",
-            "HPV51",
-            "HPV52",
-            "HPV56",
-            "HPV58",
-            "HPV59",
-            "HPV66",
-            "HPV68",
-            "HPV73",
-        ],
-    )
-    def hpv_strain(self, value):
-        self._set_property("hpv_strain", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(str)
     def intron(self, value):
         self._set_property("intron", value)  # type: ignore  # inherited from CommonBase
@@ -1137,23 +1090,16 @@ class MolecularTest(base.Node):
             "B-cell genotyping",
             "Basophil",
             "Beta 2 Microglobulin",
-            "BG8",
             "Blood Urea Nitrogen",
             "C-Reactive Protein",
             "Calcium",
             "Cellularity",
             "Chromogranin A",
             "Chromogranin B",
-            "Circulating Endothelial Cells",
             "Circulating Tumor Cells",
             "Creatinine",
-            "Cytokeratin 5",
-            "Cytokeratin 6",
-            "Dopamine-Secreting",
             "Eosinophil",
-            "Epinephrine-Secreting",
             "Epstein-Barr Virus",
-            "Erythrocyte Sedimentation Rate",
             "Gamma-Enolase",
             "Glucose",
             "Hematocrit",
@@ -1171,25 +1117,17 @@ class MolecularTest(base.Node):
             "Lymphocytes",
             "M Protein",
             "Metamyelocytes",
-            "Metanephrine-Secreting",
-            "Methoxytyramine-Secreting",
-            "Microsatellite Instability",
             "Myeloblasts",
             "Myelocytes",
             "Neutrophil Bands",
-            "Norepinephrine-Secreting",
-            "Normetanephrine-Secreting",
             "Platelets",
             "Prolymphocytes",
             "Promonocytes",
             "Promyelocytes",
-            "Prothrombin Time",
             "Segmented Neutrophil",
             "Serum Free Immunoglobulin Light Chain, Kappa",
             "Serum Free Immunoglobulin Light Chain, Lambda",
             "Serum Free Immunoglobulin Light Chain, NOS",
-            "Serum Mesothelin",
-            "TAG-72",
             "Testosterone",
             "Total Bilirubin",
             "Total Protein",
@@ -1985,7 +1923,6 @@ class MolecularTest(base.Node):
             "TFRC",
             "TGFBR2",
             "THRAP3",
-            "TLR2",
             "TLX1",
             "TLX3",
             "TMEM127",
@@ -2084,7 +2021,6 @@ class MolecularTest(base.Node):
             "Normal",
             "Overexpressed",
             "Positive",
-            "Stable",
             "Test Value Reported",
             "Unknown",
             "Not Reported",
@@ -2093,34 +2029,7 @@ class MolecularTest(base.Node):
     def test_result(self, value):
         self._set_property("test_result", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "cells/mL",
-            "count x10^9/L",
-            "g/dL",
-            "g/L",
-            "mcg/L",
-            "mcg/mL",
-            "mg/24 hr",
-            "mg/dL",
-            "mg/L",
-            "mm^2",
-            "mmol/L",
-            "mU/mol Hb",
-            "ng/mL",
-            "percent",
-            "U/g Hb",
-            "U/mL",
-            "U/L",
-            "ukat/L",
-            "umol/L",
-            "x10^3 cells/mcL",
-            "x10^9 cells/L",
-            "Not Reported",
-            "Unknown",
-        ],
-    )
+    @psqlgraph.pg_property(str)
     def test_units(self, value):
         self._set_property("test_units", value)  # type: ignore  # inherited from CommonBase
 

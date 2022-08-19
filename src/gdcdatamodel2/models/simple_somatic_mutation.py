@@ -76,10 +76,6 @@ class SimpleSomaticMutation(base.Node):
                 "name": "simple_somatic_mutations",
                 "src_type": base.Node.get_subclass("annotation"),
             },
-            "somatic_aggregation_workflows": {
-                "name": "simple_somatic_mutations",
-                "src_type": base.Node.get_subclass("somatic_aggregation_workflow"),
-            },
             "somatic_annotation_workflows": {
                 "name": "simple_somatic_mutations",
                 "src_type": base.Node.get_subclass("somatic_annotation_workflow"),
@@ -101,10 +97,6 @@ class SimpleSomaticMutation(base.Node):
             "genomic_profile_harmonization_workflows": {
                 "backref": "simple_somatic_mutations",
                 "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
-            },
-            "somatic_aggregation_workflows": {
-                "backref": "simple_somatic_mutations",
-                "type": base.Node.get_subclass("somatic_aggregation_workflow"),
             },
             "somatic_annotation_workflows": {
                 "backref": "simple_somatic_mutations",
@@ -267,6 +259,7 @@ class SimpleSomaticMutation(base.Node):
             "ATAC-Seq",
             "Bisulfite-Seq",
             "ChIP-Seq",
+            "Low Pass WGS",
             "miRNA-Seq",
             "RNA-Seq",
             "Targeted Sequencing",

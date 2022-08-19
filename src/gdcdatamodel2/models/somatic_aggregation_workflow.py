@@ -86,10 +86,6 @@ class SomaticAggregationWorkflow(base.Node):
                 "backref": "somatic_aggregation_workflows",
                 "type": base.Node.get_subclass("masked_somatic_mutation"),
             },
-            "simple_somatic_mutations": {
-                "backref": "somatic_aggregation_workflows",
-                "type": base.Node.get_subclass("simple_somatic_mutation"),
-            },
         }
 
     @classmethod
@@ -99,10 +95,6 @@ class SomaticAggregationWorkflow(base.Node):
             "annotated_somatic_mutations": {
                 "edge_out": "_SomaticAggregationWorkflowPerformedOnAnnotatedSomaticMutation_out",
                 "dst_type": base.Node.get_subclass("annotated_somatic_mutation"),
-            },
-            "simple_somatic_mutations": {
-                "edge_out": "_SomaticAggregationWorkflowPerformedOnSimpleSomaticMutation_out",
-                "dst_type": base.Node.get_subclass("simple_somatic_mutation"),
             },
         }
 
@@ -200,7 +192,6 @@ class SomaticAggregationWorkflow(base.Node):
         str,
         enum=[
             "Aliquot Ensemble Somatic Variant Merging and Masking",
-            "CaVEMan Variant Aggregation and Masking",
             "FoundationOne Variant Aggregation and Masking",
             "GENIE Variant Aggregation and Masking",
             "MuSE Variant Aggregation and Masking",

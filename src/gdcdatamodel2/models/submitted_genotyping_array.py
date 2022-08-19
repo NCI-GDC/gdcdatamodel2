@@ -77,10 +77,6 @@ class SubmittedGenotypingArray(base.Node):
                 "name": "submitted_genotyping_arrays",
                 "src_type": base.Node.get_subclass("annotation"),
             },
-            "germline_mutation_calling_workflows": {
-                "name": "submitted_genotyping_arrays",
-                "src_type": base.Node.get_subclass("germline_mutation_calling_workflow"),
-            },
             "somatic_copy_number_workflows": {
                 "name": "submitted_genotyping_arrays",
                 "src_type": base.Node.get_subclass("somatic_copy_number_workflow"),
@@ -98,10 +94,6 @@ class SubmittedGenotypingArray(base.Node):
             "annotations": {
                 "backref": "submitted_genotyping_arrays",
                 "type": base.Node.get_subclass("annotation"),
-            },
-            "germline_mutation_calling_workflows": {
-                "backref": "submitted_genotyping_arrays",
-                "type": base.Node.get_subclass("germline_mutation_calling_workflow"),
             },
             "somatic_copy_number_workflows": {
                 "backref": "submitted_genotyping_arrays",

@@ -168,14 +168,6 @@ class Treatment(base.Node):
     def chemo_concurrent_to_radiation(self, value):
         self._set_property("chemo_concurrent_to_radiation", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
-    def clinical_trial_indicator(self, value):
-        self._set_property("clinical_trial_indicator", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def course_number(self, value):
-        self._set_property("course_number", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(int)
     def days_to_treatment_end(self, value):
         self._set_property("days_to_treatment_end", value)  # type: ignore  # inherited from CommonBase
@@ -183,26 +175,6 @@ class Treatment(base.Node):
     @psqlgraph.pg_property(int)
     def days_to_treatment_start(self, value):
         self._set_property("days_to_treatment_start", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Glucocorticoid", "Growth factor", "PARP inhibitor"])
-    def drug_category(self, value):
-        self._set_property("drug_category", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Gelfoam",
-            "Lipiodol",
-            "Plastic Beads",
-            "PVA Particles",
-            "Spherical Particles",
-            "Y-90 Sirsphere",
-            "Y-90 Therasphere",
-            "Other",
-        ],
-    )
-    def embolic_agent(self, value):
-        self._set_property("embolic_agent", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -218,25 +190,9 @@ class Treatment(base.Node):
     def initial_disease_status(self, value):
         self._set_property("initial_disease_status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
-    def lesions_treated_number(self, value):
-        self._set_property("lesions_treated_number", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(int)
     def number_of_cycles(self, value):
         self._set_property("number_of_cycles", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def number_of_fractions(self, value):
-        self._set_property("number_of_fractions", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def prescribed_dose(self, value):
-        self._set_property("prescribed_dose", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["A081105", "A081801", "E4512", "EA5142"])
-    def protocol_identifier(self, value):
-        self._set_property("protocol_identifier", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -255,10 +211,6 @@ class Treatment(base.Node):
     @psqlgraph.pg_property(str)
     def regimen_or_line_of_therapy(self, value):
         self._set_property("regimen_or_line_of_therapy", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(list)
-    def route_of_administration(self, value):
-        self._set_property("route_of_administration", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -569,7 +521,7 @@ class Treatment(base.Node):
     def treatment_anatomic_site(self, value):
         self._set_property("treatment_anatomic_site", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["A081105", "A081801", "E4512", "EA5142"])
+    @psqlgraph.pg_property(str, enum=["A081105", "E4512", "EA5142"])
     def treatment_arm(self, value):
         self._set_property("treatment_arm", value)  # type: ignore  # inherited from CommonBase
 
@@ -577,39 +529,7 @@ class Treatment(base.Node):
     def treatment_dose(self, value):
         self._set_property("treatment_dose", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
-    def treatment_dose_max(self, value):
-        self._set_property("treatment_dose_max", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "AUC",
-            "cGy",
-            "g/day",
-            "g/m2",
-            "Gy",
-            "IU/kg",
-            "IU/mg",
-            "mCi",
-            "mEq",
-            "mg",
-            "mg/day",
-            "mg/dL",
-            "mg/kg",
-            "mg/kg/day",
-            "mg/m2",
-            "mg/m2/day",
-            "mg/m2/wk",
-            "mg/mL",
-            "mg/wk",
-            "mIU",
-            "mL",
-            "ug",
-            "ug/m2",
-            "Wafer",
-        ],
-    )
+    @psqlgraph.pg_property(str, enum=["cGy", "Gy", "mg"])
     def treatment_dose_units(self, value):
         self._set_property("treatment_dose_units", value)  # type: ignore  # inherited from CommonBase
 
@@ -725,11 +645,8 @@ class Treatment(base.Node):
             "Not Allowed To Collect",
             "Organ Transplantation",
             "Other",
-            "Peptide Receptor Radionuclide Therapy (PRRT)",
             "Pharmaceutical Therapy, NOS",
             "Pleurodesis",
-            "Pleurodesis, Talc",
-            "Pleurodesis, NOS",
             "Radiation Therapy, NOS",
             "Radiation, 2D Conventional",
             "Radiation, 3D Conformal",
@@ -2012,7 +1929,6 @@ class Treatment(base.Node):
             "Canertinib Dihydrochloride",
             "Canfosfamide",
             "Canfosfamide Hydrochloride",
-            "Canakinumab",
             "Cannabidiol",
             "Cantrixil",
             "Cantuzumab Ravtansine",
@@ -3104,7 +3020,6 @@ class Treatment(base.Node):
             "Integrin alpha-2 Inhibitor E7820",
             "Integrin Receptor Antagonist GLPG0187",
             "Interferon",
-            "Interferon Alfa-2B",
             "Interferon Alfa-N1",
             "Interferon Alfa-N3",
             "Interferon Alfacon-1",
@@ -3256,7 +3171,6 @@ class Treatment(base.Node):
             "Leuprolide Mesylate Injectable Suspension",
             "Leurubicin",
             "Levetiracetam",
-            "Levoleucovorin Calcium",
             "Levothyroxine",
             "Levothyroxine Sodium",
             "Lexatumumab",
@@ -3540,7 +3454,6 @@ class Treatment(base.Node):
             "Mirvetuximab Soravtansine",
             "Mirzotamab Clezutoclax",
             "Misonidazole",
-            "Mistletoe Extract",
             "Mitazalimab",
             "Mitindomide",
             "Mitobronitol",
@@ -3987,6 +3900,7 @@ class Treatment(base.Node):
             "PARP Inhibitor E7016",
             "PARP Inhibitor NMS-03305293",
             "PARP-1/2 Inhibitor ABT-767",
+            "PARP/Tankyrase Inhibitor 2X-121",
             "PARP/Tankyrase Inhibitor 2X-121",
             "PARP7 Inhibitor RBN-2397",
             "Parsaclisib",
@@ -4464,7 +4378,6 @@ class Treatment(base.Node):
             "Rituximab",
             "Rituximab and Hyaluronidase Human",
             "Rituximab Conjugate CON-4619",
-            "Rivaroxaban",
             "Riviciclib",
             "Rivoceranib",
             "Rivoceranib Mesylate",
@@ -4851,6 +4764,7 @@ class Treatment(base.Node):
             "TGF-beta Receptor 1 Kinase Inhibitor SH3051",
             "TGF-beta Receptor 1 Kinase Inhibitor YL-13027",
             "TGFa-PE38 Immunotoxin",
+            "TGFa-PE38 Immunotoxin",
             "TGFbeta Inhibitor LY3200882",
             "TGFbeta Receptor Ectodomain-IgG Fc Fusion Protein AVID200",
             "Thalicarpine",
@@ -4970,6 +4884,7 @@ class Treatment(base.Node):
             "Transdermal 4-Hydroxytestosterone",
             "Transferrin Receptor-Targeted Anti-RRM2 siRNA CALAA-01",
             "Transferrin Receptor-Targeted Liposomal p53 cDNA",
+            "Transferrin-CRM107",
             "Transferrin-CRM107",
             "Tranylcypromine Sulfate",
             "Trapoxin",

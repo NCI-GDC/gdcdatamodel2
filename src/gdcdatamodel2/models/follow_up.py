@@ -1085,7 +1085,6 @@ class FollowUp(base.Node):
             "Chronic Systemic Steroid Use",
             "Cirrhosis, Unknown Etiology",
             "Clonal Hematopoiesis",
-            "CNS Infection",
             "Colon Polyps",
             "Common Variable Immunodeficiency",
             "Congestive Heart Failure (CHF)",
@@ -1098,7 +1097,6 @@ class FollowUp(base.Node):
             "Cytomegalovirus (CMV)",
             "Deep Vein Thrombosis / Thromboembolism",
             "Denys-Drash Syndrome",
-            "Dermatomyosis",
             "Depression",
             "Diabetes",
             "Diabetes, Type II",
@@ -1107,7 +1105,6 @@ class FollowUp(base.Node):
             "Diverticulitis",
             "DVT/PE",
             "Dyslipidemia",
-            "EBV Lymphoproliferation",
             "Eczema",
             "Epilepsy",
             "Epstein-Barr Virus",
@@ -1136,10 +1133,8 @@ class FollowUp(base.Node):
             "Hepatitis, Chronic",
             "Hereditary Non-polyposis Colon Cancer",
             "Herpes",
-            "Herpes Zoster",
             "High Grade Liver Dysplastic Nodule",
             "HIV / AIDS",
-            "Hodgkin Lymphoma",
             "Human Papillomavirus Infection",
             "HUS/TTP",
             "Hypercalcemia",
@@ -1163,13 +1158,11 @@ class FollowUp(base.Node):
             "Liver Toxicity (Non-Infectious)",
             "Low Grade Liver Dysplastic Nodule",
             "Lupus",
-            "Lymphamatoid Papulosis",
             "Lymphocytic Meningitis",
             "Lynch Syndrome",
             "MAI",
             "Malaria",
             "Metabolic Syndrome",
-            "Methicillin-Resistant Staphylococcus aureus (MRSA)",
             "Myasthenia Gravis",
             "Mycobacterium avium Complex",
             "Myocardial Infarction",
@@ -1208,20 +1201,16 @@ class FollowUp(base.Node):
             "Sjogren's Syndrome",
             "Sleep apnea",
             "Smoking",
-            "Staph Osteomyelitis",
             "Staphylococcus aureus",
             "Steatosis",
             "Stroke",
             "Syphilis",
-            "Thyroid Disease, Non-Cancer",
             "Transient Ischemic Attack",
             "Treponema pallidum",
             "Tuberculosis",
             "Turcot Syndrome",
             "Tyrosinemia",
             "Ulcerative Colitis",
-            "Urinary Tract Infection",
-            "Varicella Zoster Virus",
             "Wagr Syndrome",
             "Unknown",
             "Not Reported",
@@ -1272,7 +1261,6 @@ class FollowUp(base.Node):
             "Diet",
             "Injected Insulin",
             "Insulin",
-            "Linagliptin",
             "Oral Hypoglycemic",
             "Other",
             "Sulfonylurea",
@@ -1345,23 +1333,6 @@ class FollowUp(base.Node):
     def evidence_of_recurrence_type(self, value):
         self._set_property("evidence_of_recurrence_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Amber",
-            "Blue",
-            "Brown",
-            "Gray",
-            "Green",
-            "Hazel",
-            "Red & Violet",
-            "Other",
-            "Not Reported",
-        ],
-    )
-    def eye_color(self, value):
-        self._set_property("eye_color", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(float, int)
     def fev1_ref_post_bronch_percent(self, value):
         self._set_property("fev1_ref_post_bronch_percent", value)  # type: ignore  # inherited from CommonBase
@@ -1389,14 +1360,6 @@ class FollowUp(base.Node):
     @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
     def hepatitis_sustained_virological_response(self, value):
         self._set_property("hepatitis_sustained_virological_response", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
-    def history_of_tumor(self, value):
-        self._set_property("history_of_tumor", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Phenochromocytoma or Paraganglioma"])
-    def history_of_tumor_type(self, value):
-        self._set_property("history_of_tumor_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
     def hiv_viral_load(self, value):
@@ -1963,7 +1926,6 @@ class FollowUp(base.Node):
         str,
         enum=[
             "Abnormal Glucose Level",
-            "Adenomyosis",
             "Adenosis (Atypical Adenomatous Hyperplasia)",
             "Alcohol Consumption",
             "Alcoholic Liver Disease",
@@ -2010,7 +1972,6 @@ class FollowUp(base.Node):
             "Cyst(s)",
             "Cytomegalovirus (CMV)",
             "Denys-Drash Syndrome",
-            "Dermatomyosis",
             "Diabetes, NOS",
             "Diabetes, Type I",
             "Diabetes, Type II",
@@ -2049,12 +2010,9 @@ class FollowUp(base.Node):
             "Hereditary Papillary Renal Cell Carcinoma",
             "Hereditary Prostate Cancer",
             "Hereditary Renal Cell Carcinoma",
-            "Herpes Zoster",
             "High Grade Dysplasia",
             "High-grade Prostatic Intraepithelial Neoplasia (PIN)",
             "HIV",
-            "Human Herpesvirus-6 (HHV-6)",
-            "Human Herpesvirus-8 (HHV-8)",
             "Human Papillomavirus Infection",
             "Hypospadias",
             "Inflammation",
@@ -2109,7 +2067,6 @@ class FollowUp(base.Node):
             "Tumor-associated Lymphoid Proliferation",
             "Turcot Syndrome",
             "Undescended Testis",
-            "Varicella Zoster Virus",
             "Vascular Disease",
             "Vision Changes",
             "Von Hippel-Lindau Syndrome",
@@ -2128,39 +2085,6 @@ class FollowUp(base.Node):
     @psqlgraph.pg_property(str, enum=["Acetate", "Axumin", "Choline", "PSMA", "Sodium Fluoride"])
     def scan_tracer_used(self, value):
         self._set_property("scan_tracer_used", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
-    def undescended_testis_corrected(self, value):
-        self._set_property("undescended_testis_corrected", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(int)
-    def undescended_testis_corrected_age(self, value):
-        self._set_property("undescended_testis_corrected_age", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Left", "Right", "Bilateral", "Not Reported"])
-    def undescended_testis_corrected_laterality(self, value):
-        self._set_property("undescended_testis_corrected_laterality", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Spontaneous Descent",
-            "Orchiopexy",
-            "Hormones",
-            "Testis Removed",
-            "Not Reported",
-        ],
-    )
-    def undescended_testis_corrected_method(self, value):
-        self._set_property("undescended_testis_corrected_method", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
-    def undescended_testis_history(self, value):
-        self._set_property("undescended_testis_history", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Left", "Right", "Bilateral", "Not Reported"])
-    def undescended_testis_history_laterality(self, value):
-        self._set_property("undescended_testis_history_laterality", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,

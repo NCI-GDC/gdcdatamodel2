@@ -223,7 +223,7 @@ class SimpleGermlineVariation(base.Node):
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["VCF", "TSV"])
+    @psqlgraph.pg_property(str, enum=["VCF"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
@@ -233,6 +233,7 @@ class SimpleGermlineVariation(base.Node):
             "ATAC-Seq",
             "Bisulfite-Seq",
             "ChIP-Seq",
+            "Low Pass WGS",
             "miRNA-Seq",
             "RNA-Seq",
             "Targeted Sequencing",
@@ -242,10 +243,6 @@ class SimpleGermlineVariation(base.Node):
     )
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Affymetrix SNP 6.0"])
-    def platform(self, value):
-        self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
 
 
 datetime_hooks.cls_inject_created_datetime_hook(SimpleGermlineVariation)

@@ -225,7 +225,7 @@ class SlideImage(base.Node):
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["JPEG", "JPEG 2000", "SVS", "TIFF"])
+    @psqlgraph.pg_property(str, enum=["JPEG", "SVS", "TIFF"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 

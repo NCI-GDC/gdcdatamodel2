@@ -259,6 +259,7 @@ class AnnotatedSomaticMutation(base.Node):
             "ATAC-Seq",
             "Bisulfite-Seq",
             "ChIP-Seq",
+            "Low Pass WGS",
             "miRNA-Seq",
             "RNA-Seq",
             "Targeted Sequencing",

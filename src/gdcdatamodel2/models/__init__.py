@@ -295,9 +295,6 @@ from .germline_mutation_calling_workflow import GermlineMutationCallingWorkflow
 from .germlinemutationcallingworkflowperformedonalignedreads import (
     GermlineMutationCallingWorkflowPerformedOnAlignedReads,
 )
-from .germlinemutationcallingworkflowperformedonsubmittedgenotypingarray import (
-    GermlineMutationCallingWorkflowPerformedOnSubmittedGenotypingArray,
-)
 from .germlinemutationcallingworkflowrelatestocase import (
     GermlineMutationCallingWorkflowRelatesToCase,
 )
@@ -354,7 +351,6 @@ from .mirnaexpressionworkflowperformedonalignedreads import (
 from .mirnaexpressionworkflowrelatestocase import MirnaExpressionWorkflowRelatesToCase
 from .molecular_test import MolecularTest
 from .moleculartestperformedatfollowup import MolecularTestPerformedAtFollowUp
-from .moleculartestrelatedtodiagnosis import MolecularTestRelatedToDiagnosis
 from .moleculartestrelatedtoslide import MolecularTestRelatedToSlide
 from .moleculartestrelatestocase import MolecularTestRelatesToCase
 from .pathology_detail import PathologyDetail
@@ -449,9 +445,6 @@ from .somatic_mutation_calling_workflow import SomaticMutationCallingWorkflow
 from .somatic_mutation_index import SomaticMutationIndex
 from .somaticaggregationworkflowperformedonannotatedsomaticmutation import (
     SomaticAggregationWorkflowPerformedOnAnnotatedSomaticMutation,
-)
-from .somaticaggregationworkflowperformedonsimplesomaticmutation import (
-    SomaticAggregationWorkflowPerformedOnSimpleSomaticMutation,
 )
 from .somaticaggregationworkflowrelatestocase import (
     SomaticAggregationWorkflowRelatesToCase,
@@ -734,7 +727,6 @@ __all__ = [
     "GenomicProfileHarmonizationWorkflowRelatesToCase",
     "GermlineMutationCallingWorkflow",
     "GermlineMutationCallingWorkflowPerformedOnAlignedReads",
-    "GermlineMutationCallingWorkflowPerformedOnSubmittedGenotypingArray",
     "GermlineMutationCallingWorkflowRelatesToCase",
     "MaskedMethylationArray",
     "MaskedSomaticMutation",
@@ -762,7 +754,6 @@ __all__ = [
     "MirnaExpressionWorkflowRelatesToCase",
     "MolecularTest",
     "MolecularTestPerformedAtFollowUp",
-    "MolecularTestRelatedToDiagnosis",
     "MolecularTestRelatedToSlide",
     "MolecularTestRelatesToCase",
     "PathologyDetail",
@@ -836,7 +827,6 @@ __all__ = [
     "SomaticMutationCallingWorkflow",
     "SomaticMutationIndex",
     "SomaticAggregationWorkflowPerformedOnAnnotatedSomaticMutation",
-    "SomaticAggregationWorkflowPerformedOnSimpleSomaticMutation",
     "SomaticAggregationWorkflowRelatesToCase",
     "SomaticAnnotationWorkflowPerformedOnSimpleSomaticMutation",
     "SomaticAnnotationWorkflowRelatesToCase",

@@ -290,7 +290,8 @@ class SubmittedAlignedReads(base.Node):
             "Bisulfite-Seq",
             "ChIP-Seq",
             "HiChIP",
-            "m6A MeRIP-Seq",
+            "Low Pass WGS",
+            "m6A RNA Methylation",
             "miRNA-Seq",
             "RNA-Seq",
             "scATAC-Seq",
@@ -302,10 +303,6 @@ class SubmittedAlignedReads(base.Node):
     )
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["dna-seq skip"])
-    def proc_internal(self, value):
-        self._set_property("proc_internal", value)  # type: ignore  # inherited from CommonBase
 
 
 datetime_hooks.cls_inject_created_datetime_hook(SubmittedAlignedReads)

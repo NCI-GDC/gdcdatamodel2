@@ -335,7 +335,7 @@ class AlignedReads(base.Node):
             "Bisulfite-Seq",
             "ChIP-Seq",
             "HiChIP",
-            "m6A MeRIP-Seq",
+            "Low Pass WGS",
             "miRNA-Seq",
             "RNA-Seq",
             "scATAC-Seq",

@@ -78,10 +78,6 @@ class GermlineMutationCallingWorkflow(base.Node):
                 "backref": "germline_mutation_calling_workflows",
                 "type": base.Node.get_subclass("simple_germline_variation"),
             },
-            "submitted_genotyping_arrays": {
-                "backref": "germline_mutation_calling_workflows",
-                "type": base.Node.get_subclass("submitted_genotyping_array"),
-            },
         }
 
     @classmethod
@@ -91,10 +87,6 @@ class GermlineMutationCallingWorkflow(base.Node):
             "aligned_reads_files": {
                 "edge_out": "_GermlineMutationCallingWorkflowPerformedOnAlignedReads_out",
                 "dst_type": base.Node.get_subclass("aligned_reads"),
-            },
-            "submitted_genotyping_arrays": {
-                "edge_out": "_GermlineMutationCallingWorkflowPerformedOnSubmittedGenotypingArray_out",
-                "dst_type": base.Node.get_subclass("submitted_genotyping_array"),
             },
         }
 
@@ -188,7 +180,7 @@ class GermlineMutationCallingWorkflow(base.Node):
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Birdseed", "HaplotypeCaller"])
+    @psqlgraph.pg_property(str, enum=["HaplotypeCaller"])
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase
 

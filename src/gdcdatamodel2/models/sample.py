@@ -830,7 +830,6 @@ class Sample(base.Node):
             "Mononuclear Cells from Bone Marrow Normal",
             "Neoplasms of Uncertain and Unknown Behavior",
             "Next Generation Cancer Model",
-            "Next Generation Cancer Model Expanded Under Non-conforming Conditions",
             "Not Allowed To Collect",
             "Pleural Effusion",
             "Post neo-adjuvant therapy",
@@ -891,7 +890,6 @@ class Sample(base.Node):
             "61",
             "85",
             "86",
-            "87",
             "99",
         ],
     )
