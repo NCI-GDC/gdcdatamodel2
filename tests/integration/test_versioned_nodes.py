@@ -58,3 +58,27 @@ def test_round_trip(
     assert v_node.neighbors == ["analyte1"]
     assert v_node.versioned is not None
     assert v_node.key is not None
+
+
+@pytest.mark.skip(reason="_version not implemented")
+def test_versions_property(
+    gdc_graph: psqlgraph.PsqlGraphDriver, portion: psqlgraph.Node, analyte: psqlgraph.Node
+):
+    with gdc_graph.session_scope() as session:
+        portion.analytes = [analyte]
+        session.add(portion)
+
+    with gdc_graph.session_scope() as session:
+        portion = gdc_graph.nodes(models.Portion).one()
+        v_node = versioned_nodes.VersionedNode.clone(portion)
+        session.add(v_node)
+
+    with gdc_graph.session_scope():
+        portion = gdc_graph.nodes(models.Portion).one()
+        portion._versions.one()
+
+    with pytest.raises(RuntimeError):
+        portion._versions.one()
+
+    with gdc_graph.session_scope() as s:
+        portion.get_versions(s).one()
