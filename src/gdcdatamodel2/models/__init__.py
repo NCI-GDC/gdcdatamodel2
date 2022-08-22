@@ -162,6 +162,7 @@ from .annotationannotatessubmittedunalignedreads import (
 )
 from .annotationannotatestissuesourcesite import AnnotationAnnotatesTissueSourceSite
 from .annotationannotatestreatment import AnnotationAnnotatesTreatment
+from .annotationrelatestocase import AnnotationRelatesToCase
 from .archive import Archive
 from .archivememberofproject import ArchiveMemberOfProject
 from .archiverelatedtofile import ArchiveRelatedToFile
@@ -632,6 +633,7 @@ __all__ = [
     "AnnotationAnnotatesSubmittedUnalignedReads",
     "AnnotationAnnotatesTissueSourceSite",
     "AnnotationAnnotatesTreatment",
+    "AnnotationRelatesToCase",
     "Archive",
     "ArchiveMemberOfProject",
     "ArchiveRelatedToFile",

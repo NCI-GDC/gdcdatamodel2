@@ -5,17 +5,17 @@ import psqlgraph
 from .helpers import base, related_cases
 
 
-class GermlineMutationCallingWorkflowPerformedOnSubmittedGenotypingArray(base.Edge):
-    __tablename__: str = "edge_3c05fa0e_gemucawopeonsugear"
+class AnnotationRelatesToCase(base.Edge):
+    __tablename__: str = "edge_annotationrelatestocase"
 
-    __label__: str = "performed_on"
-    __dst_class__: str = "SubmittedGenotypingArray"
-    __dst_table__: str = "node_submittedgenotypingarray"
-    __src_class__: str = "GermlineMutationCallingWorkflow"
-    __src_table__: str = "node_germlinemutationcallingworkflow"
+    __label__: str = "relates_to"
+    __dst_class__: str = "Case"
+    __dst_table__: str = "node_case"
+    __src_class__: str = "Annotation"
+    __src_table__: str = "node_annotation"
 
-    __dst_src_assoc__: str = "germline_mutation_calling_workflows"
-    __src_dst_assoc__: str = "submitted_genotyping_arrays"
+    __dst_src_assoc__: str = "_related_annotation"
+    __src_dst_assoc__: str = "_related_cases"
 
     _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
         related_cases.cache_related_cases_on_insert

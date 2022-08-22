@@ -122,7 +122,7 @@ class File(base.Node):
                 "type": base.Node.get_subclass("archive"),
             },
             "cases": {
-                "backref": "files",
+                "backref": "describing_files",
                 "type": base.Node.get_subclass("case"),
             },
             "centers": {
@@ -138,11 +138,11 @@ class File(base.Node):
                 "type": base.Node.get_subclass("data_subtype"),
             },
             "derived_files": {
-                "backref": "parent_files",
+                "backref": "source_files",
                 "type": base.Node.get_subclass("file"),
             },
             "described_cases": {
-                "backref": "files",
+                "backref": "describing_files",
                 "type": base.Node.get_subclass("case"),
             },
             "experiment_metadata_files": {
@@ -174,7 +174,7 @@ class File(base.Node):
                 "type": base.Node.get_subclass("archive"),
             },
             "related_files": {
-                "backref": "parent_files",
+                "backref": "source_files",
                 "type": base.Node.get_subclass("file"),
             },
             "run_metadata_files": {
