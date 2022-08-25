@@ -10,7 +10,7 @@ import psqlgraph
 import yaml
 from psqlgraph import create_all, ext, mocks
 from psqlgraph.base import ORMBase, VoidedBase
-from sqlalchemy import MetaData, engine
+from sqlalchemy import MetaData
 from sqlalchemy import exc as sa_exc
 
 from gdcdatamodel2 import models
