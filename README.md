@@ -25,6 +25,11 @@ Install dependencies with:
 pip install --no-deps -r dev-requirements.txt
 ```
 
+Run test with:
+```bash
+pytest tests
+```
+
 # Update models
 ## Update Plaster
 To use a different version of plaster, update the `extras_require.plaster` entry in
@@ -34,6 +39,11 @@ To use a different version of plaster, update the `extras_require.plaster` entry
 To use a different version of gdcdictioanry, update the version value of
 profile.gdcdictionary in [plaster.toml](plaster.toml).
 
+## Generate graph models
+Generate graph with:
+```bash
+bash plaster
+```
 
 # Repo Visualizer
 
