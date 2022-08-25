@@ -302,7 +302,7 @@ from .germlinemutationcallingworkflowperformedonsubmittedgenotypingarray import 
 from .germlinemutationcallingworkflowrelatestocase import (
     GermlineMutationCallingWorkflowRelatesToCase,
 )
-from .helpers import base, indexes, related_cases, versioning
+from .helpers import base, indexes, related_cases, versioned_nodes, versioning
 from .masked_methylation_array import MaskedMethylationArray
 from .masked_somatic_mutation import MaskedSomaticMutation
 from .maskedmethylationarraydatafrommethylationarrayharmonizationworkflow import (
