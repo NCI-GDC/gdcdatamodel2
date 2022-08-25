@@ -1,9 +1,17 @@
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
+from sqlalchemy.orm import Session, query
 
-from .helpers import base, datetime_hooks, indexes, related_cases, versioning
+from .helpers import (
+    base,
+    datetime_hooks,
+    indexes,
+    related_cases,
+    versioned_nodes,
+    versioning,
+)
 
 
 class Case(base.Node):
@@ -205,7 +213,7 @@ class Case(base.Node):
         return vals
 
     @hybrid.hybrid_property
-    def _secondary_keys(self):
+    def _secondary_keys(self) -> Tuple[Tuple[Any]]:
         vals = []
         for keys in self.__pg_secondary_keys:
             vals.append(tuple(getattr(self, key) for key in keys))
@@ -217,6 +225,41 @@ class Case(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
+    @property
+    def _versions(self) -> query.Query:
+        """Return a query to get node versions (node history).
+
+        Returns a query if the node is bound to a session. Raises an
+            exception if the node is not bound to a session. This is different
+            from node tagging and versioning. This is used by sheepdog to save
+            node history when a node is updated. But the data seems never read by
+            any repo.
+
+        Args:
+            self: Psqlgraph Node
+
+        Returns:
+            A SQLAlchemy query for node versions.
+
+        Raises:
+            RuntimeError if the node is not bound to a session.
+        """
+        session = self.get_session()
+        if not session:
+            raise RuntimeError(
+                "{} not bound to a session. Try .get_versions(session).".format(self)
+            )
+        return self.get_versions(session)
+
+    def get_versions(self, session: Session) -> query.Query:
+        """Return a query for node versions given a session."""
+        return (
+            session.query(versioned_nodes.VersionedNode)
+            .filter(versioned_nodes.VersionedNode.node_id == self.node_id)
+            .filter(versioned_nodes.VersionedNode.label == self.label)
+            .order_by(versioned_nodes.VersionedNode.key.desc())
+        )
 
     @psqlgraph.pg_property(str)
     def submitter_id(self, value):
