@@ -14,11 +14,9 @@ SAMPLE_PROJECT = "MISC"
 @pytest.fixture(scope="session")
 def gdc_graph() -> psqlgraph.PsqlGraphDriver:
     graph = db.init_graph(use_gpas=False)
-    db.create_ng_tables(graph.engine)
 
     yield graph
 
-    db.truncate_ng_tables(graph.engine)
     db.tear_down_graph(graph)
 
 
