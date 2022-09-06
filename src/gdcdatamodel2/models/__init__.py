@@ -162,6 +162,7 @@ from .annotationannotatessubmittedunalignedreads import (
 )
 from .annotationannotatestissuesourcesite import AnnotationAnnotatesTissueSourceSite
 from .annotationannotatestreatment import AnnotationAnnotatesTreatment
+from .annotationrelatestocase import AnnotationRelatesToCase
 from .archive import Archive
 from .archivememberofproject import ArchiveMemberOfProject
 from .archiverelatedtofile import ArchiveRelatedToFile
@@ -301,7 +302,7 @@ from .germlinemutationcallingworkflowperformedonsubmittedgenotypingarray import 
 from .germlinemutationcallingworkflowrelatestocase import (
     GermlineMutationCallingWorkflowRelatesToCase,
 )
-from .helpers import base, indexes, related_cases, versioning
+from .helpers import base, indexes, related_cases, versioned_nodes, versioning
 from .masked_methylation_array import MaskedMethylationArray
 from .masked_somatic_mutation import MaskedSomaticMutation
 from .maskedmethylationarraydatafrommethylationarrayharmonizationworkflow import (
@@ -639,6 +640,7 @@ __all__ = [
     "AnnotationAnnotatesSubmittedUnalignedReads",
     "AnnotationAnnotatesTissueSourceSite",
     "AnnotationAnnotatesTreatment",
+    "AnnotationRelatesToCase",
     "Archive",
     "ArchiveMemberOfProject",
     "ArchiveRelatedToFile",
