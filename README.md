@@ -72,7 +72,6 @@ bash plaster
 
 Use following code in jupyterlab to visualize your graph.
 ```python
-from graphviz import Digraph
 from IPython.display import display
 from gdcdatamodel2 import models
 from gdcdatamodel2.viz import create_graphviz
