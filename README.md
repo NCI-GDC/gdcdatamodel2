@@ -70,6 +70,8 @@ bash plaster
 
 # Visualize Graph
 
+For interactive visualization, use [gexplorer](https://github.com/ncI-GDC/gexplorer)
+
 Use following code in jupyterlab to visualize your graph.
 ```python
 from IPython.display import display
