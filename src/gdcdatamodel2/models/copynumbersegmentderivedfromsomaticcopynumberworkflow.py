@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class CopyNumberSegmentDerivedFromSomaticCopyNumberWorkflow(base.Edge):
+
     __tablename__: str = "edge_60b9f340_conusedefrsoconuwo"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "derived_from"
     __dst_class__: str = "SomaticCopyNumberWorkflow"

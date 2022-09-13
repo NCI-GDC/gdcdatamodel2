@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class MethylationBetaValueDataFromMethylationArrayHarmonizationWorkflow(base.Edge):
+
     __tablename__: str = "edge_27507fa9_mebevadafrmearhawo"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "data_from"
     __dst_class__: str = "MethylationArrayHarmonizationWorkflow"

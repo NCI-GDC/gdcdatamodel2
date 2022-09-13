@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class MirnaExpressionWorkflowRelatesToCase(base.Edge):
+
     __tablename__: str = "edge_808395c5_miexworetoca"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "relates_to"
     __dst_class__: str = "Case"

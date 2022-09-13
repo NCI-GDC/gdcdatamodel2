@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class AlignedReadsMatchedToSubmittedAlignedReads(base.Edge):
+
     __tablename__: str = "edge_87d00d4d_alrematosualre"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "matched_to"
     __dst_class__: str = "SubmittedAlignedReads"

@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class AnnotationAnnotatesBiospecimenSupplement(base.Edge):
+
     __tablename__: str = "edge_c643e194_ananbisu"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "annotates"
     __dst_class__: str = "BiospecimenSupplement"

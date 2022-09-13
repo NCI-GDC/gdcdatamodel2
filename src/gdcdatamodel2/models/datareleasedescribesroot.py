@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class DataReleaseDescribesRoot(base.Edge):
+
     __tablename__: str = "edge_datareleasedescribesroot"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "describes"
     __dst_class__: str = "Root"

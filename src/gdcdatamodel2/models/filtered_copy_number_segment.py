@@ -15,7 +15,9 @@ from .helpers import (
 
 
 class FilteredCopyNumberSegment(base.Node):
+
     __tablename__: str = "node_filteredcopynumbersegment"
+    __table_args__ = {"extend_existing": True}
 
     # this field contains values of uniqueProperties
     __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]

@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class RnaExpressionWorkflowPerformedOnAlignedReads(base.Edge):
+
     __tablename__: str = "edge_aaa1a1ca_rnexwopeonalre"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "performed_on"
     __dst_class__: str = "AlignedReads"

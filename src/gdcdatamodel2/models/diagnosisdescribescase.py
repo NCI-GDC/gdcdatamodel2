@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class DiagnosisDescribesCase(base.Edge):
+
     __tablename__: str = "edge_diagnosisdescribescase"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "describes"
     __dst_class__: str = "Case"

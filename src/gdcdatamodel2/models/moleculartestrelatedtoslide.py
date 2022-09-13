@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class MolecularTestRelatedToSlide(base.Edge):
+
     __tablename__: str = "edge_moleculartestrelatedtoslide"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "related_to"
     __dst_class__: str = "Slide"

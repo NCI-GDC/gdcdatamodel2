@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class AnnotationAnnotatesExperimentMetadata(base.Edge):
+
     __tablename__: str = "edge_edeee08f_ananexme"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "annotates"
     __dst_class__: str = "ExperimentMetadata"

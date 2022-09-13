@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class AnnotationAnnotatesAnalyte(base.Edge):
+
     __tablename__: str = "edge_annotationannotatesanalyte"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "annotates"
     __dst_class__: str = "Analyte"

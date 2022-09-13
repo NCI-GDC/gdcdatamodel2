@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class CopyNumberEstimateDerivedFromGenomicProfileHarmonizationWorkflow(base.Edge):
+
     __tablename__: str = "edge_fdda6ae4_conuesdefrgeprhawo"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "derived_from"
     __dst_class__: str = "GenomicProfileHarmonizationWorkflow"

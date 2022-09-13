@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class AnnotatedSomaticMutationDataFromSomaticAnnotationWorkflow(base.Edge):
+
     __tablename__: str = "edge_023eaa75_ansomudafrsoanwo"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "data_from"
     __dst_class__: str = "SomaticAnnotationWorkflow"

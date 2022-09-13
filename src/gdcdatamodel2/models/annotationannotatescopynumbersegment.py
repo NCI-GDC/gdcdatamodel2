@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class AnnotationAnnotatesCopyNumberSegment(base.Edge):
+
     __tablename__: str = "edge_a6d7cc5a_ananconuse"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "annotates"
     __dst_class__: str = "CopyNumberSegment"

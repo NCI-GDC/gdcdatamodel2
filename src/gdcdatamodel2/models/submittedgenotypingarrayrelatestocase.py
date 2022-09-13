@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class SubmittedGenotypingArrayRelatesToCase(base.Edge):
+
     __tablename__: str = "edge_1c5a1d46_sugearretoca"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "relates_to"
     __dst_class__: str = "Case"

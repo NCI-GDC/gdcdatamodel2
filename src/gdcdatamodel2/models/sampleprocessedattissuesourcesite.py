@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class SampleProcessedAtTissueSourceSite(base.Edge):
+
     __tablename__: str = "edge_sampleprocessedattissuesourcesite"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "processed_at"
     __dst_class__: str = "TissueSourceSite"

@@ -6,7 +6,9 @@ from .helpers import base, related_cases
 
 
 class AlignedReadsDataFromAlignmentCocleaningWorkflow(base.Edge):
+
     __tablename__: str = "edge_7ae4f157_alredafralcowo"
+    __table_args__ = {"extend_existing": True}
 
     __label__: str = "data_from"
     __dst_class__: str = "AlignmentCocleaningWorkflow"
