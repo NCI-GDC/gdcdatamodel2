@@ -130,7 +130,7 @@ class File(base.Node):
                 "type": base.Node.get_subclass("archive"),
             },
             "cases": {
-                "backref": "describing_files",
+                "backref": "files",
                 "type": base.Node.get_subclass("case"),
             },
             "centers": {
@@ -146,7 +146,7 @@ class File(base.Node):
                 "type": base.Node.get_subclass("data_subtype"),
             },
             "derived_files": {
-                "backref": "parent_files",
+                "backref": "source_files",
                 "type": base.Node.get_subclass("file"),
             },
             "described_cases": {
