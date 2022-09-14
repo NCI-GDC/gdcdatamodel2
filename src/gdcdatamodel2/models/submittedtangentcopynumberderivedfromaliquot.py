@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class SubmittedTangentCopyNumberDerivedFromAliquot(base.Edge):
-
     __tablename__: str = "edge_51648ddc_sutaconudefral"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "derived_from"
     __dst_class__: str = "Aliquot"

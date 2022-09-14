@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class MolecularTestRelatedToDiagnosis(base.Edge):
-
     __tablename__: str = "edge_moleculartestrelatedtodiagnosis"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "related_to"
     __dst_class__: str = "Diagnosis"

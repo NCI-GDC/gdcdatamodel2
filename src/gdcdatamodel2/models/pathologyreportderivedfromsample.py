@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class PathologyReportDerivedFromSample(base.Edge):
-
     __tablename__: str = "edge_pathologyreportderivedfromsample"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "derived_from"
     __dst_class__: str = "Sample"

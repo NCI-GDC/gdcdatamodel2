@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class AnnotationAnnotatesAlignedReadsIndex(base.Edge):
-
     __tablename__: str = "edge_1f6309a2_ananalrein"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "annotates"
     __dst_class__: str = "AlignedReadsIndex"

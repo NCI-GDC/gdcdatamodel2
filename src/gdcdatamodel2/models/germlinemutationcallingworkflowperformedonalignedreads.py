@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class GermlineMutationCallingWorkflowPerformedOnAlignedReads(base.Edge):
-
     __tablename__: str = "edge_8ad9b01c_gemucawopeonalre"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "performed_on"
     __dst_class__: str = "AlignedReads"

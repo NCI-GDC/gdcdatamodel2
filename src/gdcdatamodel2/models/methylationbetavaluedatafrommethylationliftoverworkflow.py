@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class MethylationBetaValueDataFromMethylationLiftoverWorkflow(base.Edge):
-
     __tablename__: str = "edge_c3c40489_mebevadafrmeliwo"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "data_from"
     __dst_class__: str = "MethylationLiftoverWorkflow"

@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class SlideImageDataFromSlide(base.Edge):
-
     __tablename__: str = "edge_slideimagedatafromslide"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "data_from"
     __dst_class__: str = "Slide"

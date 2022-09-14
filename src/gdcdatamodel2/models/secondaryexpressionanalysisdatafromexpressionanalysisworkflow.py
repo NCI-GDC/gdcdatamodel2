@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class SecondaryExpressionAnalysisDataFromExpressionAnalysisWorkflow(base.Edge):
-
     __tablename__: str = "edge_1bedc005_seexandafrexanwo"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "data_from"
     __dst_class__: str = "ExpressionAnalysisWorkflow"

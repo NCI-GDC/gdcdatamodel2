@@ -15,9 +15,7 @@ from .helpers import (
 
 
 class AnalysisMetadata(base.Node):
-
     __tablename__: str = "node_analysismetadata"
-    __table_args__ = {"extend_existing": True}
 
     # this field contains values of uniqueProperties
     __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]

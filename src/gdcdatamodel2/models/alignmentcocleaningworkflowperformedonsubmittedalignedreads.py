@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class AlignmentCocleaningWorkflowPerformedOnSubmittedAlignedReads(base.Edge):
-
     __tablename__: str = "edge_4c2316bf_alcowopeonsualre"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "performed_on"
     __dst_class__: str = "SubmittedAlignedReads"

@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class SomaticCopyNumberWorkflowPerformedOnSubmittedGenotypingArray(base.Edge):
-
     __tablename__: str = "edge_2341a00a_soconuwopeonsugear"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "performed_on"
     __dst_class__: str = "SubmittedGenotypingArray"

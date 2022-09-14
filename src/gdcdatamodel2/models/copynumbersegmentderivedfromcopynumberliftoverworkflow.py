@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class CopyNumberSegmentDerivedFromCopyNumberLiftoverWorkflow(base.Edge):
-
     __tablename__: str = "edge_9f05d8e5_conusedefrconuliwo"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "derived_from"
     __dst_class__: str = "CopyNumberLiftoverWorkflow"

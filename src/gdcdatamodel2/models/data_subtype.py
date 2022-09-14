@@ -15,9 +15,7 @@ from .helpers import (
 
 
 class DataSubtype(base.Node):
-
     __tablename__: str = "node_datasubtype"
-    __table_args__ = {"extend_existing": True}
 
     # this field contains values of uniqueProperties
     __pg_secondary_keys: List[List[str]] = [["name"]]

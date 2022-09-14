@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class CopyNumberLiftoverWorkflowRelatesToCase(base.Edge):
-
     __tablename__: str = "edge_cff65d6a_conuliworetoca"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "relates_to"
     __dst_class__: str = "Case"

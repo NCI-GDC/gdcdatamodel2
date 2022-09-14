@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class FileMemberOfArchive(base.Edge):
-
     __tablename__: str = "edge_filememberofarchive"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "member_of"
     __dst_class__: str = "Archive"

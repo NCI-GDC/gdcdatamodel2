@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class ReadGroupQcGeneratedFromReadGroup(base.Edge):
-
     __tablename__: str = "edge_readgroupqcgeneratedfromreadgroup"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "generated_from"
     __dst_class__: str = "ReadGroup"

@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class AnnotationAnnotatesSecondaryExpressionAnalysis(base.Edge):
-
     __tablename__: str = "edge_8fbca09c_ananseexan"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "annotates"
     __dst_class__: str = "SecondaryExpressionAnalysis"

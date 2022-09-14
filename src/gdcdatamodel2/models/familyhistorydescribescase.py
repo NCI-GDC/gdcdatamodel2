@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class FamilyHistoryDescribesCase(base.Edge):
-
     __tablename__: str = "edge_familyhistorydescribescase"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "describes"
     __dst_class__: str = "Case"

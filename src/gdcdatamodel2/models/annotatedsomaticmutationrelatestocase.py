@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class AnnotatedSomaticMutationRelatesToCase(base.Edge):
-
     __tablename__: str = "edge_82dd6493_ansomuretoca"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "relates_to"
     __dst_class__: str = "Case"

@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class PublicationRefersToFile(base.Edge):
-
     __tablename__: str = "edge_publicationreferstofile"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "refers_to"
     __dst_class__: str = "File"

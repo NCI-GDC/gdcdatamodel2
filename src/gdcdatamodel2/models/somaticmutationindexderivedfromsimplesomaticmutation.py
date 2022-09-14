@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class SomaticMutationIndexDerivedFromSimpleSomaticMutation(base.Edge):
-
     __tablename__: str = "edge_8f683820_somuindefrsisomu"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "derived_from"
     __dst_class__: str = "SimpleSomaticMutation"

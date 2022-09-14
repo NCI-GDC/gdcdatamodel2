@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class AnnotationAnnotatesMaskedMethylationArray(base.Edge):
-
     __tablename__: str = "edge_c22497b4_ananmamear"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "annotates"
     __dst_class__: str = "MaskedMethylationArray"

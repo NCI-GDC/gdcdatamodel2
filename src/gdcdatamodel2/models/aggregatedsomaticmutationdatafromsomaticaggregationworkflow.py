@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class AggregatedSomaticMutationDataFromSomaticAggregationWorkflow(base.Edge):
-
     __tablename__: str = "edge_3e5c1da2_agsomudafrsoagwo"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "data_from"
     __dst_class__: str = "SomaticAggregationWorkflow"

@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class FileMemeberOfTag(base.Edge):
-
     __tablename__: str = "edge_filememeberoftag"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "memeber_of"
     __dst_class__: str = "Tag"

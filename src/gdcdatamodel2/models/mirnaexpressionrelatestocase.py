@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class MirnaExpressionRelatesToCase(base.Edge):
-
     __tablename__: str = "edge_mirnaexpressionrelatestocase"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "relates_to"
     __dst_class__: str = "Case"

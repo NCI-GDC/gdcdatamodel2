@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class AnnotationAnnotatesAggregatedSomaticMutation(base.Edge):
-
     __tablename__: str = "edge_8893f83c_ananagsomu"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "annotates"
     __dst_class__: str = "AggregatedSomaticMutation"

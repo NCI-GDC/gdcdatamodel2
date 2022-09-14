@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class FileSubmittedByCenter(base.Edge):
-
     __tablename__: str = "edge_filesubmittedbycenter"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "submitted_by"
     __dst_class__: str = "Center"

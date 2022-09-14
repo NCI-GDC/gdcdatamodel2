@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class GenomicProfileHarmonizationWorkflowPerformedOnSubmittedGenomicProfile(base.Edge):
-
     __tablename__: str = "edge_73d32b72_geprhawopeonsugepr"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "performed_on"
     __dst_class__: str = "SubmittedGenomicProfile"

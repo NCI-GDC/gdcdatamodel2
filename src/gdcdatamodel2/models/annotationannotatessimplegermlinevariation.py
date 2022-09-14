@@ -6,9 +6,7 @@ from .helpers import base, related_cases
 
 
 class AnnotationAnnotatesSimpleGermlineVariation(base.Edge):
-
     __tablename__: str = "edge_5c888cf2_anansigeva"
-    __table_args__ = {"extend_existing": True}
 
     __label__: str = "annotates"
     __dst_class__: str = "SimpleGermlineVariation"
