@@ -150,7 +150,7 @@ class File(base.Node):
                 "type": base.Node.get_subclass("file"),
             },
             "described_cases": {
-                "backref": "files",
+                "backref": "describing_files",
                 "type": base.Node.get_subclass("case"),
             },
             "experiment_metadata_files": {
@@ -182,7 +182,7 @@ class File(base.Node):
                 "type": base.Node.get_subclass("archive"),
             },
             "related_files": {
-                "backref": "source_files",
+                "backref": "parent_files",
                 "type": base.Node.get_subclass("file"),
             },
             "run_metadata_files": {
