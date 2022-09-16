@@ -228,7 +228,6 @@ class SomaticMutationCallingWorkflow(base.Node):
         enum=[
             "CaVEMan",
             "GATK4 MuTect2",
-            "GATK4 MuTect2 Tumor-Only",
             "MuSE",
             "MuTect2",
             "Pindel",

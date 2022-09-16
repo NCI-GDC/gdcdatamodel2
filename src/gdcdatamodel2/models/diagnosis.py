@@ -445,7 +445,6 @@ class Diagnosis(base.Node):
             "N1c",
             "N1mi",
             "N2",
-            "N2mi",
             "N2a",
             "N2b",
             "N2c",
@@ -519,7 +518,6 @@ class Diagnosis(base.Node):
             "T1b1",
             "T1b2",
             "T1c",
-            "T1c2",
             "T1mi",
             "T2",
             "T2a",
@@ -693,10 +691,8 @@ class Diagnosis(base.Node):
             "other",
             "Premalignant",
             "primary",
-            "Prior primary",
             "Progression",
             "recurrence",
-            "Synchronous primary",
             "Unknown",
             "not reported",
             "Not Allowed To Collect",
@@ -770,14 +766,6 @@ class Diagnosis(base.Node):
     @psqlgraph.pg_property(bool)
     def diagnosis_is_primary_disease(self, value):
         self._set_property("diagnosis_is_primary_disease", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
-    def double_expressor_lymphoma(self, value):
-        self._set_property("double_expressor_lymphoma", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
-    def double_hit_lymphoma(self, value):
-        self._set_property("double_hit_lymphoma", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str, enum=["Adverse", "Favorable", "Intermediate", "Unknown", "Not Reported"]
@@ -1111,52 +1099,6 @@ class Diagnosis(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "Adrenal",
-            "Appendix",
-            "Ascites/peritoneum",
-            "Axillary lymph nodes",
-            "Bone marrow",
-            "Brain",
-            "Breast",
-            "Cervical lymph nodes",
-            "Colon",
-            "Iliac",
-            "Iliac-external",
-            "Inguinal",
-            "Kidney",
-            "Liver",
-            "Lung",
-            "Mandible",
-            "Maxilla",
-            "Mediastinal lymph nodes",
-            "Mediastinal soft tissue",
-            "Mesenteric lymph nodes",
-            "Neck",
-            "No known nodal involvement",
-            "Oropharynx",
-            "Other",
-            "Ovary",
-            "Pancreas",
-            "Paraaortic lymph nodes",
-            "Parotid gland",
-            "Pericardium",
-            "Peri-orbital soft tissue",
-            "Retroperitoneal lymph nodes",
-            "Small intestine",
-            "Soft tissue (muscle, ligaments, subcutaneous)",
-            "Splenic lymph nodes",
-            "Stomach",
-            "Submandibular lymph nodes",
-            "Supraclavicular lymph nodes",
-            "Thyroid",
-        ],
-    )
-    def max_tumor_bulk_site(self, value):
-        self._set_property("max_tumor_bulk_site", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
             "Not Determined",
             "Non-WNT/non-SHH Activated",
             "SHH-Activated",
@@ -1225,9 +1167,7 @@ class Diagnosis(base.Node):
             "Skin",
             "Small Intestine",
             "Soft Tissue",
-            "Spleen",
             "Spinal Cord",
-            "Stomach",
             "Urethra",
             "Uterine Adnexa",
             "Vertebral Canal",
@@ -1462,7 +1402,6 @@ class Diagnosis(base.Node):
             "8210/3",
             "8211/0",
             "8211/3",
-            "8211/6",
             "8212/0",
             "8213/0",
             "8213/3",
@@ -1644,7 +1583,6 @@ class Diagnosis(base.Node):
             "8460/0",
             "8460/2",
             "8460/3",
-            "8460/6",
             "8461/0",
             "8461/3",
             "8461/6",
@@ -1695,7 +1633,6 @@ class Diagnosis(base.Node):
             "8519/2",
             "8520/2",
             "8520/3",
-            "8520/6",
             "8521/1",
             "8521/3",
             "8522/1",
@@ -2323,7 +2260,6 @@ class Diagnosis(base.Node):
             "9712/3",
             "9714/3",
             "9716/3",
-            "9715/3",
             "9717/3",
             "9718/3",
             "9719/3",
@@ -2848,7 +2784,6 @@ class Diagnosis(base.Node):
             "Blue nevus, NOS",
             "Botryoid sarcoma",
             "Bowen disease",
-            "Breast implant-associated anaplastic large cell lymphoma",
             "Brenner tumor, borderline malignancy",
             "Brenner tumor, malignant",
             "Brenner tumor, NOS",
@@ -3616,7 +3551,6 @@ class Diagnosis(base.Node):
             "Immunoproliferative small intestinal disease",
             "Indeterminate dendritic cell tumor",
             "Indolent systemic mastocytosis",
-            "Indolent T-cell lymphoproliferative disorder of gastrointestinal tract",
             "Infantile fibrosarcoma",
             "Infantile hemangioma",
             "Infantile myofibromatosis",
@@ -5911,286 +5845,6 @@ class Diagnosis(base.Node):
     @psqlgraph.pg_property(str, enum=["0", "1", "2", "3", "Unknown", "Not Reported"])
     def tumor_regression_grade(self, value):
         self._set_property("tumor_regression_grade", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "M0",
-            "M1",
-            "M1a",
-            "M1b",
-            "M1c",
-            "MX",
-            "cM0 (i+)",
-            "Unknown",
-            "Not Reported",
-        ],
-    )
-    def uicc_clinical_m(self, value):
-        self._set_property("uicc_clinical_m", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "N0",
-            "N0 (i+)",
-            "N0 (i-)",
-            "N0 (mol+)",
-            "N0 (mol-)",
-            "N1",
-            "N1a",
-            "N1b",
-            "N1bI",
-            "N1bII",
-            "N1bIII",
-            "N1bIV",
-            "N1c",
-            "N1mi",
-            "N2",
-            "N2a",
-            "N2b",
-            "N2c",
-            "N3",
-            "N3a",
-            "N3b",
-            "N3c",
-            "N4",
-            "NX",
-            "Unknown",
-            "Not Reported",
-        ],
-    )
-    def uicc_clinical_n(self, value):
-        self._set_property("uicc_clinical_n", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Stage 0",
-            "Stage 0a",
-            "Stage 0is",
-            "Stage I",
-            "Stage IA",
-            "Stage IA1",
-            "Stage IA2",
-            "Stage IA3",
-            "Stage IB",
-            "Stage IB1",
-            "Stage IB2",
-            "Stage IC",
-            "Stage II",
-            "Stage IIA",
-            "Stage IIA1",
-            "Stage IIA2",
-            "Stage IIB",
-            "Stage IIC",
-            "Stage IIC1",
-            "Stage III",
-            "Stage IIIA",
-            "Stage IIIB",
-            "Stage IIIC",
-            "Stage IIIC1",
-            "Stage IIIC2",
-            "Stage IS",
-            "Stage IV",
-            "Stage IVA",
-            "Stage IVB",
-            "Stage IVC",
-            "Stage Tis",
-            "Stage X",
-            "Unknown",
-            "Not Reported",
-        ],
-    )
-    def uicc_clinical_stage(self, value):
-        self._set_property("uicc_clinical_stage", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "T0",
-            "T1",
-            "T1a",
-            "T1a1",
-            "T1a2",
-            "T1b",
-            "T1b1",
-            "T1b2",
-            "T1c",
-            "T1mi",
-            "T2",
-            "T2a",
-            "T2a1",
-            "T2a2",
-            "T2b",
-            "T2c",
-            "T2d",
-            "T3",
-            "T3a",
-            "T3b",
-            "T3c",
-            "T3d",
-            "T4",
-            "T4a",
-            "T4b",
-            "T4c",
-            "T4d",
-            "T4e",
-            "TX",
-            "Ta",
-            "Tis",
-            "Tis (DCIS)",
-            "Tis (LCIS)",
-            "Tis (Paget's)",
-            "Unknown",
-            "Not Reported",
-        ],
-    )
-    def uicc_clinical_t(self, value):
-        self._set_property("uicc_clinical_t", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "M0",
-            "M1",
-            "M1a",
-            "M1b",
-            "M1c",
-            "M1d",
-            "M2",
-            "MX",
-            "cM0 (i+)",
-            "Unknown",
-            "Not Reported",
-        ],
-    )
-    def uicc_pathologic_m(self, value):
-        self._set_property("uicc_pathologic_m", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "N0",
-            "N0 (i+)",
-            "N0 (i-)",
-            "N0 (mol+)",
-            "N0 (mol-)",
-            "N1",
-            "N1a",
-            "N1b",
-            "N1bI",
-            "N1bII",
-            "N1bIII",
-            "N1bIV",
-            "N1c",
-            "N1mi",
-            "N2",
-            "N2mi",
-            "N2a",
-            "N2b",
-            "N2c",
-            "N3",
-            "N3a",
-            "N3b",
-            "N3c",
-            "N4",
-            "NX",
-            "Unknown",
-            "Not Reported",
-        ],
-    )
-    def uicc_pathologic_n(self, value):
-        self._set_property("uicc_pathologic_n", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Stage 0",
-            "Stage 0a",
-            "Stage 0is",
-            "Stage I",
-            "Stage IA",
-            "Stage IA1",
-            "Stage IA2",
-            "Stage IA3",
-            "Stage IB",
-            "Stage IB1",
-            "Stage IB2",
-            "Stage IC",
-            "Stage II",
-            "Stage IS",
-            "Stage IIA",
-            "Stage IIA1",
-            "Stage IIA2",
-            "Stage IIB",
-            "Stage IIC",
-            "Stage III",
-            "Stage IIIA",
-            "Stage IIIA1",
-            "Stage IIIA2",
-            "Stage IIIB",
-            "Stage IIIC",
-            "Stage IIIC1",
-            "Stage IIIC2",
-            "Stage IIID",
-            "Stage IV",
-            "Stage IVA",
-            "Stage IVB",
-            "Stage IVC",
-            "Stage Tis",
-            "Stage X",
-            "Unknown",
-            "Not Reported",
-        ],
-    )
-    def uicc_pathologic_stage(self, value):
-        self._set_property("uicc_pathologic_stage", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "T0",
-            "T1",
-            "T1a",
-            "T1a1",
-            "T1a2",
-            "T1b",
-            "T1b1",
-            "T1b2",
-            "T1c",
-            "T1c2",
-            "T1mi",
-            "T2",
-            "T2a",
-            "T2a1",
-            "T2a2",
-            "T2b",
-            "T2c",
-            "T2d",
-            "T3",
-            "T3a",
-            "T3b",
-            "T3c",
-            "T3d",
-            "T4",
-            "T4a",
-            "T4b",
-            "T4c",
-            "T4d",
-            "T4e",
-            "TX",
-            "Ta",
-            "Tis",
-            "Tis (DCIS)",
-            "Tis (LCIS)",
-            "Tis (Paget's)",
-            "Unknown",
-            "Not Reported",
-        ],
-    )
-    def uicc_pathologic_t(self, value):
-        self._set_property("uicc_pathologic_t", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str, enum=["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])
     def weiss_assessment_score(self, value):

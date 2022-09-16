@@ -302,7 +302,6 @@ class Aliquot(base.Node):
             "FFPE DNA",
             "FFPE RNA",
             "GenomePlex (Rubicon) Amplified DNA",
-            "m6A Enriched RNA",
             "Nuclei RNA",
             "Repli-G (Qiagen) DNA",
             "Repli-G Pooled (Qiagen) DNA",

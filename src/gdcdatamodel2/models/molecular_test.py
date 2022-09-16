@@ -268,7 +268,6 @@ class MolecularTest(base.Node):
             "NSE",
             "Prostate-Specific Antigen (PSA)",
             "Squamous Cell Carcinoma Antigen (SCCA)",
-            "TAG-72",
             "Unknown",
             "Not Reported",
         ],
@@ -1046,7 +1045,6 @@ class MolecularTest(base.Node):
             "TFRC",
             "TGFBR2",
             "THRAP3",
-            "TLR2",
             "TLX1",
             "TLX3",
             "TMEM127",
@@ -1143,29 +1141,6 @@ class MolecularTest(base.Node):
     def histone_variant(self, value):
         self._set_property("histone_variant", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "HPV16",
-            "HPV18",
-            "HPV31",
-            "HPV33",
-            "HPV35",
-            "HPV39",
-            "HPV45",
-            "HPV51",
-            "HPV52",
-            "HPV56",
-            "HPV58",
-            "HPV59",
-            "HPV66",
-            "HPV68",
-            "HPV73",
-        ],
-    )
-    def hpv_strain(self, value):
-        self._set_property("hpv_strain", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(str)
     def intron(self, value):
         self._set_property("intron", value)  # type: ignore  # inherited from CommonBase
@@ -1196,7 +1171,6 @@ class MolecularTest(base.Node):
             "Eosinophil",
             "Epinephrine-Secreting",
             "Epstein-Barr Virus",
-            "Erythrocyte Sedimentation Rate",
             "Gamma-Enolase",
             "Glucose",
             "Hematocrit",
@@ -1226,7 +1200,6 @@ class MolecularTest(base.Node):
             "Prolymphocytes",
             "Promonocytes",
             "Promyelocytes",
-            "Prothrombin Time",
             "Segmented Neutrophil",
             "Serum Free Immunoglobulin Light Chain, Kappa",
             "Serum Free Immunoglobulin Light Chain, Lambda",
@@ -2028,7 +2001,6 @@ class MolecularTest(base.Node):
             "TFRC",
             "TGFBR2",
             "THRAP3",
-            "TLR2",
             "TLX1",
             "TLX3",
             "TMEM127",
@@ -2127,7 +2099,6 @@ class MolecularTest(base.Node):
             "Normal",
             "Overexpressed",
             "Positive",
-            "Stable",
             "Test Value Reported",
             "Unknown",
             "Not Reported",
@@ -2139,13 +2110,9 @@ class MolecularTest(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "cells/mL",
-            "count x10^9/L",
             "g/dL",
             "g/L",
-            "mcg/L",
             "mcg/mL",
-            "mg/24 hr",
             "mg/dL",
             "mg/L",
             "mm^2",
@@ -2162,6 +2129,7 @@ class MolecularTest(base.Node):
             "x10^9 cells/L",
             "Not Reported",
             "Unknown",
+            "count x10^9/L",
         ],
     )
     def test_units(self, value):

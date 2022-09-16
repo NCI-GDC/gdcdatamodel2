@@ -246,8 +246,6 @@ class PathologyDetail(base.Node):
             "Nonkeratinizing dysplasia; moderate",
             "Nonkeratinizing dysplasia; severe (carcinoma in situ)",
             "Other",
-            "Percent follicular component <= 10%",
-            "Percent follicular component > 10%",
             "PD-L1 CPS (223C LDT) - 20%",
             "Platinum-resistant",
             "Pleural plaque",
@@ -514,10 +512,6 @@ class PathologyDetail(base.Node):
     def tumor_largest_dimension_diameter(self, value):
         self._set_property("tumor_largest_dimension_diameter", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(list)
-    def tumor_level_prostate(self, value):
-        self._set_property("tumor_level_prostate", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(float, int)
     def tumor_thickness(self, value):
         self._set_property("tumor_thickness", value)  # type: ignore  # inherited from CommonBase
@@ -540,19 +534,6 @@ class PathologyDetail(base.Node):
     )
     def vascular_invasion_type(self, value):
         self._set_property("vascular_invasion_type", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Peripheral zone",
-            "Transition zone",
-            "Central zone",
-            "Overlapping/multiple zones",
-            "Unknown zone",
-        ],
-    )
-    def zone_of_origin_prostate(self, value):
-        self._set_property("zone_of_origin_prostate", value)  # type: ignore  # inherited from CommonBase
 
 
 datetime_hooks.cls_inject_created_datetime_hook(PathologyDetail)

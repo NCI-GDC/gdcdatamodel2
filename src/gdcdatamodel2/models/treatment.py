@@ -211,14 +211,6 @@ class Treatment(base.Node):
     def chemo_concurrent_to_radiation(self, value):
         self._set_property("chemo_concurrent_to_radiation", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
-    def clinical_trial_indicator(self, value):
-        self._set_property("clinical_trial_indicator", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def course_number(self, value):
-        self._set_property("course_number", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(int)
     def days_to_treatment_end(self, value):
         self._set_property("days_to_treatment_end", value)  # type: ignore  # inherited from CommonBase
@@ -226,26 +218,6 @@ class Treatment(base.Node):
     @psqlgraph.pg_property(int)
     def days_to_treatment_start(self, value):
         self._set_property("days_to_treatment_start", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Glucocorticoid", "Growth factor", "PARP inhibitor"])
-    def drug_category(self, value):
-        self._set_property("drug_category", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Gelfoam",
-            "Lipiodol",
-            "Plastic Beads",
-            "PVA Particles",
-            "Spherical Particles",
-            "Y-90 Sirsphere",
-            "Y-90 Therasphere",
-            "Other",
-        ],
-    )
-    def embolic_agent(self, value):
-        self._set_property("embolic_agent", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -261,25 +233,9 @@ class Treatment(base.Node):
     def initial_disease_status(self, value):
         self._set_property("initial_disease_status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
-    def lesions_treated_number(self, value):
-        self._set_property("lesions_treated_number", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(int)
     def number_of_cycles(self, value):
         self._set_property("number_of_cycles", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def number_of_fractions(self, value):
-        self._set_property("number_of_fractions", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def prescribed_dose(self, value):
-        self._set_property("prescribed_dose", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["A081105", "A081801", "E4512", "EA5142"])
-    def protocol_identifier(self, value):
-        self._set_property("protocol_identifier", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -299,7 +255,7 @@ class Treatment(base.Node):
     def regimen_or_line_of_therapy(self, value):
         self._set_property("regimen_or_line_of_therapy", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(list)
+    @psqlgraph.pg_property(str, enum=["Intrathecal", "Intravenous", "Oral", "Not Reported"])
     def route_of_administration(self, value):
         self._set_property("route_of_administration", value)  # type: ignore  # inherited from CommonBase
 
@@ -620,39 +576,7 @@ class Treatment(base.Node):
     def treatment_dose(self, value):
         self._set_property("treatment_dose", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
-    def treatment_dose_max(self, value):
-        self._set_property("treatment_dose_max", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "AUC",
-            "cGy",
-            "g/day",
-            "g/m2",
-            "Gy",
-            "IU/kg",
-            "IU/mg",
-            "mCi",
-            "mEq",
-            "mg",
-            "mg/day",
-            "mg/dL",
-            "mg/kg",
-            "mg/kg/day",
-            "mg/m2",
-            "mg/m2/day",
-            "mg/m2/wk",
-            "mg/mL",
-            "mg/wk",
-            "mIU",
-            "mL",
-            "ug",
-            "ug/m2",
-            "Wafer",
-        ],
-    )
+    @psqlgraph.pg_property(str, enum=["cGy", "Gy", "mg"])
     def treatment_dose_units(self, value):
         self._set_property("treatment_dose_units", value)  # type: ignore  # inherited from CommonBase
 
@@ -768,7 +692,6 @@ class Treatment(base.Node):
             "Not Allowed To Collect",
             "Organ Transplantation",
             "Other",
-            "Peptide Receptor Radionuclide Therapy (PRRT)",
             "Pharmaceutical Therapy, NOS",
             "Pleurodesis",
             "Pleurodesis, Talc",
@@ -2055,7 +1978,6 @@ class Treatment(base.Node):
             "Canertinib Dihydrochloride",
             "Canfosfamide",
             "Canfosfamide Hydrochloride",
-            "Canakinumab",
             "Cannabidiol",
             "Cantrixil",
             "Cantuzumab Ravtansine",
@@ -4507,7 +4429,6 @@ class Treatment(base.Node):
             "Rituximab",
             "Rituximab and Hyaluronidase Human",
             "Rituximab Conjugate CON-4619",
-            "Rivaroxaban",
             "Riviciclib",
             "Rivoceranib",
             "Rivoceranib Mesylate",

@@ -333,7 +333,7 @@ class SubmittedAlignedReads(base.Node):
             "Bisulfite-Seq",
             "ChIP-Seq",
             "HiChIP",
-            "m6A MeRIP-Seq",
+            "m6A RNA Methylation",
             "miRNA-Seq",
             "RNA-Seq",
             "scATAC-Seq",
