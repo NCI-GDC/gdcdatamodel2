@@ -236,22 +236,21 @@ class ReadGroup(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
-        enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
+        enum={
             "validating",
-            "error",
-            "invalid",
             "suppressed",
-            "redacted",
             "live",
             "validated",
+            "md5summing",
+            "redacted",
+            "invalid",
             "submitted",
+            "uploading",
             "released",
-        ],
+            "error",
+            "uploaded",
+            "md5summed",
+        },
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -260,11 +259,11 @@ class ReadGroup(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -284,22 +283,22 @@ class ReadGroup(base.Node):
     def base_caller_version(self, value):
         self._set_property("base_caller_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["abcam ab4729 anti-H3K27ac", "Unknown", "Not Applicable"])
+    @psqlgraph.pg_property(str, enum={"Not Applicable", "abcam ab4729 anti-H3K27ac", "Unknown"})
     def chipseq_antibody(self, value):
         self._set_property("chipseq_antibody", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "H3K4me1",
-            "H3K4me3",
-            "H3K9me3",
+        enum={
             "H3K27me3",
-            "H3K36me3",
+            "H3K4me3",
+            "H3K4me1",
+            "H3K9me3",
             "H3K27ac",
-            "Input Control",
             "Unknown",
-        ],
+            "Input Control",
+            "H3K36me3",
+        },
     )
     def chipseq_target(self, value):
         self._set_property("chipseq_target", value)  # type: ignore  # inherited from CommonBase
@@ -332,7 +331,7 @@ class ReadGroup(base.Node):
     def fragment_standard_deviation_length(self, value):
         self._set_property("fragment_standard_deviation_length", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["MboI", "Unknown", "Not Applicable"])
+    @psqlgraph.pg_property(str, enum={"Not Applicable", "MboI", "Unknown"})
     def fragmentation_enzyme(self, value):
         self._set_property("fragmentation_enzyme", value)  # type: ignore  # inherited from CommonBase
 
@@ -342,35 +341,35 @@ class ReadGroup(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "454 GS FLX Titanium",
-            "AB SOLiD 2",
-            "AB SOLiD 3",
-            "AB SOLiD 4",
+        enum={
             "Complete Genomics",
-            "Illumina Genome Analyzer II",
-            "Illumina Genome Analyzer IIx",
+            "AB SOLiD 4",
+            "Other",
+            "Illumina NovaSeq 6000",
+            "PacBio RS",
+            "Illumina MiSeq",
+            "Unknown",
             "Illumina HiSeq 2000",
             "Illumina HiSeq 2500",
+            "AB SOLiD 3",
             "Illumina HiSeq 4000",
-            "Illumina HiSeq X Five",
-            "Illumina HiSeq X Ten",
-            "Illumina MiSeq",
-            "Illumina NextSeq",
-            "Illumina NovaSeq 6000",
-            "Ion Torrent PGM",
-            "Ion Torrent Proton",
+            "454 GS FLX Titanium",
+            "Illumina Genome Analyzer II",
+            "AB SOLiD 2",
             "Ion Torrent S5",
-            "Other",
-            "PacBio RS",
-            "Unknown",
+            "Ion Torrent Proton",
+            "Illumina Genome Analyzer IIx",
             "Not Reported",
-        ],
+            "Ion Torrent PGM",
+            "Illumina HiSeq X Ten",
+            "Illumina NextSeq",
+            "Illumina HiSeq X Five",
+        },
     )
     def instrument_model(self, value):
         self._set_property("instrument_model", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(bool, type(None))
+    @psqlgraph.pg_property(type(None), bool)
     def is_paired_end(self, value):
         self._set_property("is_paired_end", value)  # type: ignore  # inherited from CommonBase
 
@@ -400,42 +399,42 @@ class ReadGroup(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "Affinity Enrichment",
-            "Hybrid Selection",
-            "miRNA Size Fractionation",
-            "Other",
-            "PCR",
-            "Poly-T Enrichment",
-            "Random",
+        enum={
             "rRNA Depletion",
-        ],
+            "Other",
+            "Poly-T Enrichment",
+            "Affinity Enrichment",
+            "miRNA Size Fractionation",
+            "PCR",
+            "Hybrid Selection",
+            "Random",
+        },
     )
     def library_selection(self, value):
         self._set_property("library_selection", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum=["Unstranded", "First_Stranded", "Second_Stranded", "Not Applicable"]
+        str, enum={"Not Applicable", "Unstranded", "Second_Stranded", "First_Stranded"}
     )
     def library_strand(self, value):
         self._set_property("library_strand", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "ATAC-Seq",
+        enum={
+            "scATAC-Seq",
             "Bisulfite-Seq",
             "ChIP-Seq",
+            "scRNA-Seq",
+            "WGS",
             "HiChIP",
             "m6A MeRIP-Seq",
-            "miRNA-Seq",
-            "RNA-Seq",
-            "scATAC-Seq",
-            "scRNA-Seq",
             "Targeted Sequencing",
-            "WGS",
             "WXS",
-        ],
+            "RNA-Seq",
+            "ATAC-Seq",
+            "miRNA-Seq",
+        },
     )
     def library_strategy(self, value):
         self._set_property("library_strategy", value)  # type: ignore  # inherited from CommonBase
@@ -450,15 +449,15 @@ class ReadGroup(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=[
+        enum={
+            "LS454",
             "Complete Genomics",
             "Illumina",
             "Ion Torrent",
-            "LS454",
+            "SOLiD",
             "Other",
             "PacBio",
-            "SOLiD",
-        ],
+        },
     )
     def platform(self, value):
         self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
@@ -467,7 +466,7 @@ class ReadGroup(base.Node):
     def read_group_name(self, value):
         self._set_property("read_group_name", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, type(None))
+    @psqlgraph.pg_property(type(None), int)
     def read_length(self, value):
         self._set_property("read_length", value)  # type: ignore  # inherited from CommonBase
 
@@ -479,7 +478,7 @@ class ReadGroup(base.Node):
     def sequencing_center(self, value):
         self._set_property("sequencing_center", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def sequencing_date(self, value):
         self._set_property("sequencing_date", value)  # type: ignore  # inherited from CommonBase
 
@@ -489,12 +488,12 @@ class ReadGroup(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=[
+        enum={
+            "Smart-Seq2",
+            "Chromium scATAC v1 Library",
             "Chromium 3' Gene Expression v2 Library",
             "Chromium 3' Gene Expression v3 Library",
-            "Chromium scATAC v1 Library",
-            "Smart-Seq2",
-        ],
+        },
     )
     def single_cell_library(self, value):
         self._set_property("single_cell_library", value)  # type: ignore  # inherited from CommonBase
@@ -509,57 +508,57 @@ class ReadGroup(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "Custom AmpliSeq Cancer Hotspot GENIE-MDA Augmented Panel v1 - 46 Genes",
-            "Custom GENIE-DFCI OncoPanel - 275 Genes",
-            "Custom GENIE-DFCI Oncopanel - 300 Genes",
-            "Custom GENIE-DFCI Oncopanel - 447 Genes",
-            "Custom HaloPlex DLBCL Panel - 370 Genes",
-            "Custom Ion AmpliSeq Hotspot GENIE-MOSC3 Augmented Panel - 74 Genes",
-            "Custom Large Construct Capture TARGET-OS Panel - 8 Genes",
-            "Custom MSK IMPACT Panel - 341 Genes",
-            "Custom MSK IMPACT Panel - 410 Genes",
+        enum={
+            "SureSelect Human All Exon v4",
             "Custom MSK IMPACT Panel - 468 Genes",
-            "Custom Myeloid GENIE-VICC Panel - 37 Genes",
-            "Custom Personalis ACEcp VAREPOP-APOLLO Panel v2",
-            "Custom PGDX SureSelect CancerSelect VAREPOP-APOLLO Panel - 203 Genes",
-            "Custom PGDX SureSelect CancerSelect VAREPOP-APOLLO Panel - 88 Genes",
-            "Custom SeqCap EZ BeatAML Panel - 12.5 Mb",
-            "Custom SeqCap EZ HGSC VCRome v2.1 ER Augmented v1",
-            "Custom SeqCap EZ HGSC VCRome v2.1 ER Augmented v2",
-            "Custom SeqCap EZ TARGET-OS Panel - 7.0 Mb",
+            "Custom Large Construct Capture TARGET-OS Panel - 8 Genes",
+            "SureSelect Human All Exon v5",
+            "SeqCap EZ HGSC VCRome v2.1",
             "Custom Solid Tumor GENIE-VICC Panel - 34 Genes",
-            "Custom SureSelect CGCI-BLGSP Panel - 4.6 Mb",
-            "Custom SureSelect CGCI-HTMCP-CC KMT2D And Hotspot Panel - 37.0 Kb",
-            "Custom SureSelect CGCI-HTMCP-CC Panel - 19.7 Mb",
+            "Custom SeqCap EZ HGSC VCRome v2.1 ER Augmented v2",
             "Custom SureSelect GENIE-UHN Panel - 555 Genes",
-            "Custom SureSelect Human All Exon v1.1 Plus 3 Boosters",
-            "Custom SureSelect TARGET-AML_NBL_WT Panel - 2.8 Mb",
-            "Custom Twist Broad Exome v1.0 - 35.0 Mb",
-            "Custom Twist Broad PanCancer Panel - 396 Genes",
-            "Custom Twist MP2PRT-WT Panel - 52 Kb",
-            "Foundation Medicine T5a Panel - 322 Genes",
-            "Foundation Medicine T7 Panel - 429 Genes",
-            "Ion AmpliSeq Cancer Hotspot Panel v2",
+            "TruSight Myeloid Sequencing Panel",
+            "SureSelect Human All Exon v5 + UTR",
+            "Custom GENIE-DFCI Oncopanel - 300 Genes",
+            "Custom SeqCap EZ HGSC VCRome v2.1 ER Augmented v1",
             "Ion AmpliSeq Comprehensive Cancer Panel",
-            "Nextera DNA Exome",
+            "Custom Twist Broad PanCancer Panel - 396 Genes",
+            "Ion AmpliSeq Cancer Hotspot Panel v2",
+            "Custom HaloPlex DLBCL Panel - 370 Genes",
+            "Custom SureSelect CGCI-HTMCP-CC Panel - 19.7 Mb",
+            "Custom Twist Broad Exome v1.0 - 35.0 Mb",
+            "Foundation Medicine T7 Panel - 429 Genes",
             "Nextera Rapid Capture Exome v1.2",
             "Not Applicable",
-            "SeqCap EZ HGSC VCRome v2.1",
-            "SeqCap EZ Human Exome v2.0",
-            "SeqCap EZ Human Exome v3.0",
             "SureSelect Human All Exon v3",
-            "SureSelect Human All Exon v4",
-            "SureSelect Human All Exon v5",
-            "SureSelect Human All Exon v5 + UTR",
-            "TruSeq Amplicon Cancer Panel",
-            "TruSeq Exome Enrichment - 62 Mb",
-            "TruSeq RNA Exome",
-            "TruSight Myeloid Sequencing Panel",
-            "Twist Human Comprehensive Exome",
+            "Custom GENIE-DFCI OncoPanel - 275 Genes",
             "xGen Exome Research Panel v1.0",
+            "TruSeq Amplicon Cancer Panel",
+            "Custom Personalis ACEcp VAREPOP-APOLLO Panel v2",
+            "Custom PGDX SureSelect CancerSelect VAREPOP-APOLLO Panel - 203 Genes",
+            "Custom SureSelect CGCI-BLGSP Panel - 4.6 Mb",
+            "Nextera DNA Exome",
+            "Custom Twist MP2PRT-WT Panel - 52 Kb",
+            "Custom SureSelect CGCI-HTMCP-CC KMT2D And Hotspot Panel - 37.0 Kb",
+            "Custom MSK IMPACT Panel - 341 Genes",
+            "Foundation Medicine T5a Panel - 322 Genes",
+            "Custom SeqCap EZ TARGET-OS Panel - 7.0 Mb",
+            "Custom GENIE-DFCI Oncopanel - 447 Genes",
             "Unknown",
-        ],
+            "Custom SeqCap EZ BeatAML Panel - 12.5 Mb",
+            "TruSeq Exome Enrichment - 62 Mb",
+            "Custom Myeloid GENIE-VICC Panel - 37 Genes",
+            "Custom AmpliSeq Cancer Hotspot GENIE-MDA Augmented Panel v1 - 46 Genes",
+            "Twist Human Comprehensive Exome",
+            "Custom SureSelect Human All Exon v1.1 Plus 3 Boosters",
+            "SeqCap EZ Human Exome v3.0",
+            "Custom MSK IMPACT Panel - 410 Genes",
+            "Custom Ion AmpliSeq Hotspot GENIE-MOSC3 Augmented Panel - 74 Genes",
+            "Custom PGDX SureSelect CancerSelect VAREPOP-APOLLO Panel - 88 Genes",
+            "TruSeq RNA Exome",
+            "Custom SureSelect TARGET-AML_NBL_WT Panel - 2.8 Mb",
+            "SeqCap EZ Human Exome v2.0",
+        },
     )
     def target_capture_kit(self, value):
         self._set_property("target_capture_kit", value)  # type: ignore  # inherited from CommonBase

@@ -14,25 +14,38 @@ from .helpers import (
 )
 
 
-class CopyNumberVariationWorkflow(base.Node):
-    __tablename__: str = "node_copynumbervariationworkflow"
+class CopyNumberAuxiliaryFile(base.Node):
+    __tablename__: str = "node_copynumberauxiliaryfile"
 
     # this field contains values of uniqueProperties
     __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {"state": "validated"}
+    _defaults: Dict[str, Union[bool, float, int, str]] = {
+        "state": "validated",
+        "file_state": "registered",
+    }
     _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "Copy Number Variation Workflow",
+        "title": "Copy Number Auxiliary File",
         "namespace": "https://gdc.cancer.gov",
-        "category": "analysis",
+        "category": "data_file",
         "submittable": False,
-        "downloadable": False,
-        "description": "Metadata for the Copy Number Variation pipeline used to estimate copy number changes from different molecular data sources.",
-        "required": ["submitter_id", "workflow_link", "workflow_type"],
+        "downloadable": True,
+        "description": "Data file related to the copy number pipeline that contains any outputs not strictly defined in other nodes",
+        "required": [
+            "submitter_id",
+            "file_name",
+            "file_size",
+            "md5sum",
+            "data_category",
+            "data_format",
+            "data_type",
+            "experimental_strategy",
+            "platform",
+        ],
         "project": "*",
         "program": "*",
-        "previous_version_downloadable": False,
+        "previous_version_downloadable": True,
     }
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -41,7 +54,7 @@ class CopyNumberVariationWorkflow(base.Node):
 
     @classmethod
     def get_label(cls) -> str:
-        return "copy_number_variation_workflow"
+        return "copy_number_auxiliary_file"
 
     @property
     def id(self):
@@ -68,9 +81,9 @@ class CopyNumberVariationWorkflow(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "copy_number_estimates": {
-                "name": "copy_number_variation_workflows",
-                "src_type": base.Node.get_subclass("copy_number_estimate"),
+            "annotations": {
+                "name": "copy_number_auxiliary_files",
+                "src_type": base.Node.get_subclass("annotation"),
             },
         }
 
@@ -78,13 +91,13 @@ class CopyNumberVariationWorkflow(base.Node):
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "copy_number_estimates": {
-                "backref": "copy_number_variation_workflows",
-                "type": base.Node.get_subclass("copy_number_estimate"),
+            "annotations": {
+                "backref": "copy_number_auxiliary_files",
+                "type": base.Node.get_subclass("annotation"),
             },
-            "copy_number_segments": {
-                "backref": "copy_number_variation_workflows",
-                "type": base.Node.get_subclass("copy_number_segment"),
+            "somatic_copy_number_workflows": {
+                "backref": "copy_number_auxiliary_files",
+                "type": base.Node.get_subclass("somatic_copy_number_workflow"),
             },
         }
 
@@ -92,9 +105,9 @@ class CopyNumberVariationWorkflow(base.Node):
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "copy_number_segments": {
-                "edge_out": "_CopyNumberVariationWorkflowPerformedOnCopyNumberSegment_out",
-                "dst_type": base.Node.get_subclass("copy_number_segment"),
+            "somatic_copy_number_workflows": {
+                "edge_out": "_CopyNumberAuxiliaryFileDerivedFromSomaticCopyNumberWorkflow_out",
+                "dst_type": base.Node.get_subclass("somatic_copy_number_workflow"),
             },
         }
 
@@ -207,33 +220,64 @@ class CopyNumberVariationWorkflow(base.Node):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str)
-    def workflow_link(self, value):
-        self._set_property("workflow_link", value)  # type: ignore  # inherited from CommonBase
+    def file_name(self, value):
+        self._set_property("file_name", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def file_size(self, value):
+        self._set_property("file_size", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str)
-    def workflow_version(self, value):
-        self._set_property("workflow_version", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(type(None), str)
-    def workflow_start_datetime(self, value):
-        self._set_property("workflow_start_datetime", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(type(None), str)
-    def workflow_end_datetime(self, value):
-        self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
+    def md5sum(self, value):
+        self._set_property("md5sum", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "GISTIC - Arm Level Copy Number",
-            "GISTIC - Focal Deletion",
-            "GISTIC - Copy Number Score",
-            "GISTIC - Focal Amplification",
+            "validating",
+            "validated",
+            "uploaded",
+            "processing",
+            "deleted",
+            "submitted",
+            "uploading",
+            "released",
+            "error",
+            "processed",
+            "registered",
         },
     )
-    def workflow_type(self, value):
-        self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase
+    def file_state(self, value):
+        self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum={"file_format", "file_size", "md5sum"})
+    def error_type(self, value):
+        self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str)
+    def state_comment(self, value):
+        self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum={"Copy Number Variation"})
+    def data_category(self, value):
+        self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum={"Intermediate Analysis Archive"})
+    def data_type(self, value):
+        self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum={"TAR"})
+    def data_format(self, value):
+        self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum={"WGS"})
+    def experimental_strategy(self, value):
+        self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum={"Illumina"})
+    def platform(self, value):
+        self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
 
 
-datetime_hooks.cls_inject_created_datetime_hook(CopyNumberVariationWorkflow)
-datetime_hooks.cls_inject_updated_datetime_hook(CopyNumberVariationWorkflow)
+datetime_hooks.cls_inject_created_datetime_hook(CopyNumberAuxiliaryFile)
+datetime_hooks.cls_inject_updated_datetime_hook(CopyNumberAuxiliaryFile)

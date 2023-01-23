@@ -204,22 +204,21 @@ class CopyNumberEstimate(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
-        enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
+        enum={
             "validating",
-            "error",
-            "invalid",
             "suppressed",
-            "redacted",
             "live",
             "validated",
+            "md5summing",
+            "redacted",
+            "invalid",
             "submitted",
+            "uploading",
             "released",
-        ],
+            "error",
+            "uploaded",
+            "md5summed",
+        },
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -228,11 +227,11 @@ class CopyNumberEstimate(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -250,24 +249,24 @@ class CopyNumberEstimate(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "registered",
-            "uploading",
-            "uploaded",
+        enum={
             "validating",
             "validated",
-            "submitted",
+            "uploaded",
             "processing",
-            "processed",
+            "deleted",
+            "submitted",
+            "uploading",
             "released",
             "error",
-            "deleted",
-        ],
+            "processed",
+            "registered",
+        },
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["file_size", "file_format", "md5sum"])
+    @psqlgraph.pg_property(str, enum={"file_format", "file_size", "md5sum"})
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -275,30 +274,30 @@ class CopyNumberEstimate(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Copy Number Variation"])
+    @psqlgraph.pg_property(str, enum={"Copy Number Variation"})
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum=[
+        enum={
             "Gene Level Copy Number",
             "Gene Level Copy Number Scores",
             "Cohort Level Copy Number Scores",
-        ],
+        },
     )
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["TSV", "TXT"])
+    @psqlgraph.pg_property(str, enum={"TXT", "TSV"})
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Genotyping Array", "Targeted Sequencing", "WGS", "WXS"])
+    @psqlgraph.pg_property(str, enum={"Targeted Sequencing", "WXS", "WGS", "Genotyping Array"})
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Affymetrix SNP 6.0", "Illumina", "Ion Torrent"])
+    @psqlgraph.pg_property(str, enum={"Affymetrix SNP 6.0", "Ion Torrent", "Illumina"})
     def platform(self, value):
         self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
 

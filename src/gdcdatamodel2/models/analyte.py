@@ -199,22 +199,21 @@ class Analyte(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
-        enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
+        enum={
             "validating",
-            "error",
-            "invalid",
             "suppressed",
-            "redacted",
             "live",
             "validated",
+            "md5summing",
+            "redacted",
+            "invalid",
             "submitted",
+            "uploading",
             "released",
-        ],
+            "error",
+            "uploaded",
+            "md5summed",
+        },
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -223,11 +222,11 @@ class Analyte(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -245,26 +244,26 @@ class Analyte(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "cfDNA",
-            "DNA",
+        enum={
+            "Repli-G X (Qiagen) DNA",
+            "Repli-G (Qiagen) DNA",
             "EBV Immortalized Normal",
-            "FFPE DNA",
+            "RNA",
             "FFPE RNA",
+            "Repli-G Pooled (Qiagen) DNA",
+            "DNA",
+            "FFPE DNA",
+            "Total RNA",
+            "Nuclei RNA",
+            "cfDNA",
             "GenomePlex (Rubicon) Amplified DNA",
             "m6A Enriched RNA",
-            "Nuclei RNA",
-            "Repli-G (Qiagen) DNA",
-            "Repli-G Pooled (Qiagen) DNA",
-            "Repli-G X (Qiagen) DNA",
-            "RNA",
-            "Total RNA",
-        ],
+        },
     )
     def analyte_type(self, value):
         self._set_property("analyte_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["D", "E", "G", "H", "R", "S", "T", "W", "X", "Y"])
+    @psqlgraph.pg_property(str, enum={"W", "E", "T", "X", "G", "H", "S", "Y", "D", "R"})
     def analyte_type_id(self, value):
         self._set_property("analyte_type_id", value)  # type: ignore  # inherited from CommonBase
 
@@ -278,26 +277,26 @@ class Analyte(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=[
+        enum={
             "aDNA Preparation Type",
+            "Genomplex",
+            "Repli-G",
             "Allprep FFPE DNA",
             "Allprep RNA Extraction",
-            "Chemical Lysis DNA Extraction",
-            "Genomplex",
-            "HighPure miRNA (Allprep DNA) FFPE RNA",
             "mirVana (Allprep DNA) RNA",
             "nRNA - Melanoma Protocol",
-            "Pre-extracted DNA received by TSS",
-            "Repli-G",
-            "Repli-G X",
+            "HighPure miRNA (Allprep DNA) FFPE RNA",
             "Total RNA",
-        ],
+            "Chemical Lysis DNA Extraction",
+            "Pre-extracted DNA received by TSS",
+            "Repli-G X",
+        },
     )
     def experimental_protocol_type(self, value):
         self._set_property("experimental_protocol_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum=["Yes", "No", "Unknown", "Not Reported", "Not Allowed To Collect"]
+        str, enum={"Not Allowed To Collect", "Yes", "Unknown", "Not Reported", "No"}
     )
     def normal_tumor_genotype_snp_match(self, value):
         self._set_property("normal_tumor_genotype_snp_match", value)  # type: ignore  # inherited from CommonBase

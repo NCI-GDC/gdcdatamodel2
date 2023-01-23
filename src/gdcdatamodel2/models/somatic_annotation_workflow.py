@@ -175,22 +175,21 @@ class SomaticAnnotationWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
-        enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
+        enum={
             "validating",
-            "error",
-            "invalid",
             "suppressed",
-            "redacted",
             "live",
             "validated",
+            "md5summing",
+            "redacted",
+            "invalid",
             "submitted",
+            "uploading",
             "released",
-        ],
+            "error",
+            "uploaded",
+            "md5summed",
+        },
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -199,11 +198,11 @@ class SomaticAnnotationWorkflow(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -215,27 +214,27 @@ class SomaticAnnotationWorkflow(base.Node):
     def workflow_version(self, value):
         self._set_property("workflow_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def workflow_start_datetime(self, value):
         self._set_property("workflow_start_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "CaVEMan Annotation",
-            "FoundationOne Annotation",
-            "GATK4 MuTect2 Annotation",
-            "GATK4 MuTect2 Tumor-Only Annotation",
-            "MuSE Annotation",
-            "MuTect2 Annotation",
-            "Pindel Annotation",
+        enum={
             "SomaticSniper Annotation",
+            "CaVEMan Annotation",
+            "GATK4 MuTect2 Annotation",
             "VarScan2 Annotation",
-        ],
+            "Pindel Annotation",
+            "GATK4 MuTect2 Tumor-Only Annotation",
+            "FoundationOne Annotation",
+            "MuTect2 Annotation",
+            "MuSE Annotation",
+        },
     )
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase

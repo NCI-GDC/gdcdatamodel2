@@ -121,6 +121,10 @@ class Annotation(base.Node):
                 "backref": "annotations",
                 "type": base.Node.get_subclass("clinical_supplement"),
             },
+            "copy_number_auxiliary_files": {
+                "backref": "annotations",
+                "type": base.Node.get_subclass("copy_number_auxiliary_file"),
+            },
             "copy_number_estimates": {
                 "backref": "annotations",
                 "type": base.Node.get_subclass("copy_number_estimate"),
@@ -334,6 +338,10 @@ class Annotation(base.Node):
             "clinical_supplements": {
                 "edge_out": "_AnnotationAnnotatesClinicalSupplement_out",
                 "dst_type": base.Node.get_subclass("clinical_supplement"),
+            },
+            "copy_number_auxiliary_files": {
+                "edge_out": "_AnnotationAnnotatesCopyNumberAuxiliaryFile_out",
+                "dst_type": base.Node.get_subclass("copy_number_auxiliary_file"),
             },
             "copy_number_estimates": {
                 "edge_out": "_AnnotationAnnotatesCopyNumberEstimate_out",
@@ -574,22 +582,21 @@ class Annotation(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
-        enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
+        enum={
             "validating",
-            "error",
-            "invalid",
             "suppressed",
-            "redacted",
             "live",
             "validated",
+            "md5summing",
+            "redacted",
+            "invalid",
             "submitted",
+            "uploading",
             "released",
-        ],
+            "error",
+            "uploaded",
+            "md5summed",
+        },
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -598,75 +605,75 @@ class Annotation(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "Acceptable treatment for TCGA tumor",
+        enum={
             "Administrative Compliance",
-            "Alternate sample pipeline",
-            "BCR Notification",
-            "Barcode incorrect",
-            "Biospecimen identity unknown",
-            "Case submitted is found to be a recurrence after submission",
-            "Center QC failed",
-            "Clinical data insufficient",
-            "Duplicate case",
-            "Duplicate item",
-            "General",
-            "Genotype mismatch",
-            "History of acceptable prior treatment related to a prior/other malignancy",
-            "History of unacceptable prior treatment related to a prior/other malignancy",
-            "Inadvertently shipped",
-            "Item does not meet study protocol",
-            "Item flagged DNU",
-            "Item Flagged Low Quality",
-            "Item in special subset",
-            "Item is noncanonical",
-            "Item may not meet study protocol",
-            "Molecular analysis outside specification",
-            "Neoadjuvant therapy",
             "New notification type",
-            "New observation type",
-            "Normal class but appears diseased",
-            "Normal tissue origin incorrect",
-            "Observation",
-            "Pathology outside specification",
-            "Permanently missing item or object",
-            "Prior malignancy",
-            "Qualification metrics changed",
-            "Qualified in error",
-            "Sample compromised",
+            "Acceptable treatment for TCGA tumor",
+            "Duplicate case",
             "Subject identity unknown",
-            "Subject withdrew consent",
-            "Synchronous malignancy",
-            "Tumor class but appears normal",
-            "Tumor tissue origin incorrect",
+            "Inadvertently shipped",
+            "Sample compromised",
+            "Item does not meet study protocol",
+            "Item is noncanonical",
+            "Permanently missing item or object",
+            "Biospecimen identity unknown",
             "Tumor type incorrect",
+            "Normal class but appears diseased",
+            "Item flagged DNU",
+            "New observation type",
+            "Synchronous malignancy",
+            "Observation",
+            "Item Flagged Low Quality",
+            "Alternate sample pipeline",
+            "Center QC failed",
+            "Genotype mismatch",
+            "Case submitted is found to be a recurrence after submission",
+            "Normal tissue origin incorrect",
+            "General",
+            "Pathology outside specification",
+            "Prior malignancy",
+            "Tumor class but appears normal",
+            "Clinical data insufficient",
+            "History of acceptable prior treatment related to a prior/other malignancy",
+            "Qualification metrics changed",
+            "Tumor tissue origin incorrect",
+            "Item may not meet study protocol",
+            "BCR Notification",
+            "Qualified in error",
+            "Duplicate item",
+            "Barcode incorrect",
+            "Neoadjuvant therapy",
+            "History of unacceptable prior treatment related to a prior/other malignancy",
+            "Item in special subset",
             "WGA Failure",
-        ],
+            "Subject withdrew consent",
+            "Molecular analysis outside specification",
+        },
     )
     def category(self, value):
         self._set_property("category", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "Blocking Release",
-            "CenterNotification",
-            "Complete Data Freeze",
+        enum={
             "Downstream Data Freeze",
-            "Notification",
-            "Observation",
             "Redaction",
-        ],
+            "Blocking Release",
+            "Notification",
+            "CenterNotification",
+            "Observation",
+            "Complete Data Freeze",
+        },
     )
     def classification(self, value):
         self._set_property("classification", value)  # type: ignore  # inherited from CommonBase
@@ -679,15 +686,15 @@ class Annotation(base.Node):
     def notes(self, value):
         self._set_property("notes", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Approved", "Rescinded"])
+    @psqlgraph.pg_property(str, enum={"Rescinded", "Approved"})
     def status(self, value):
         self._set_property("status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def legacy_created_datetime(self, value):
         self._set_property("legacy_created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def legacy_updated_datetime(self, value):
         self._set_property("legacy_updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
