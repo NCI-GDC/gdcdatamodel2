@@ -215,22 +215,21 @@ class Portion(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
-        enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
+        enum={
             "validating",
-            "error",
-            "invalid",
             "suppressed",
-            "redacted",
             "live",
             "validated",
+            "md5summing",
+            "redacted",
+            "invalid",
             "submitted",
+            "uploading",
             "released",
-        ],
+            "error",
+            "uploaded",
+            "md5summed",
+        },
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -239,11 +238,11 @@ class Portion(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 

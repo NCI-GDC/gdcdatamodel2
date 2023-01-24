@@ -215,7 +215,7 @@ class Project(base.Node):
     def disease_type(self, value):
         self._set_property("disease_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def intended_release_date(self, value):
         self._set_property("intended_release_date", value)  # type: ignore  # inherited from CommonBase
 
@@ -237,15 +237,15 @@ class Project(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "open",
+        enum={
+            "legacy",
+            "processing",
             "review",
             "submitted",
-            "processing",
+            "open",
             "processed",
             "closed",
-            "legacy",
-        ],
+        },
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase

@@ -194,22 +194,21 @@ class ClinicalSupplement(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
-        enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
+        enum={
             "validating",
-            "error",
-            "invalid",
             "suppressed",
-            "redacted",
             "live",
             "validated",
+            "md5summing",
+            "redacted",
+            "invalid",
             "submitted",
+            "uploading",
             "released",
-        ],
+            "error",
+            "uploaded",
+            "md5summed",
+        },
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -218,11 +217,11 @@ class ClinicalSupplement(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -240,24 +239,24 @@ class ClinicalSupplement(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=[
-            "registered",
-            "uploading",
-            "uploaded",
+        enum={
             "validating",
             "validated",
-            "submitted",
+            "uploaded",
             "processing",
-            "processed",
+            "deleted",
+            "submitted",
+            "uploading",
             "released",
             "error",
-            "deleted",
-        ],
+            "processed",
+            "registered",
+        },
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["file_size", "file_format", "md5sum"])
+    @psqlgraph.pg_property(str, enum={"file_format", "file_size", "md5sum"})
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -265,25 +264,25 @@ class ClinicalSupplement(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Clinical"])
+    @psqlgraph.pg_property(str, enum={"Clinical"})
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Clinical Supplement"])
+    @psqlgraph.pg_property(str, enum={"Clinical Supplement"})
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum=[
+        enum={
+            "XLSX",
             "BCR Biotab",
+            "CDC JSON",
             "BCR OMF XML",
             "BCR XML",
-            "CDC JSON",
-            "FoundationOne XML",
             "TSV",
-            "XLSX",
-        ],
+            "FoundationOne XML",
+        },
     )
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase

@@ -68,6 +68,10 @@ class SomaticCopyNumberWorkflow(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
+            "copy_number_auxiliary_files": {
+                "name": "somatic_copy_number_workflows",
+                "src_type": base.Node.get_subclass("copy_number_auxiliary_file"),
+            },
             "copy_number_estimates": {
                 "name": "somatic_copy_number_workflows",
                 "src_type": base.Node.get_subclass("copy_number_estimate"),
@@ -85,6 +89,10 @@ class SomaticCopyNumberWorkflow(base.Node):
             "aligned_reads_files": {
                 "backref": "somatic_copy_number_workflows",
                 "type": base.Node.get_subclass("aligned_reads"),
+            },
+            "copy_number_auxiliary_files": {
+                "backref": "somatic_copy_number_workflows",
+                "type": base.Node.get_subclass("copy_number_auxiliary_file"),
             },
             "copy_number_estimates": {
                 "backref": "somatic_copy_number_workflows",
@@ -191,22 +199,21 @@ class SomaticCopyNumberWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
-        enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
+        enum={
             "validating",
-            "error",
-            "invalid",
             "suppressed",
-            "redacted",
             "live",
             "validated",
+            "md5summing",
+            "redacted",
+            "invalid",
             "submitted",
+            "uploading",
             "released",
-        ],
+            "error",
+            "uploaded",
+            "md5summed",
+        },
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -215,11 +222,11 @@ class SomaticCopyNumberWorkflow(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -231,15 +238,15 @@ class SomaticCopyNumberWorkflow(base.Node):
     def workflow_version(self, value):
         self._set_property("workflow_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def workflow_start_datetime(self, value):
         self._set_property("workflow_start_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+    @psqlgraph.pg_property(type(None), str)
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["ASCAT2", "AscatNGS"])
+    @psqlgraph.pg_property(str, enum={"ASCAT2", "AscatNGS"})
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase
 
