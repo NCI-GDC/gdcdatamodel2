@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -91,7 +91,9 @@ class AlignedReads(base.Node):
             },
             "germline_mutation_calling_workflows": {
                 "name": "aligned_reads_files",
-                "src_type": base.Node.get_subclass("germline_mutation_calling_workflow"),
+                "src_type": base.Node.get_subclass(
+                    "germline_mutation_calling_workflow"
+                ),
             },
             "mirna_expression_workflows": {
                 "name": "aligned_reads_files",
@@ -111,7 +113,9 @@ class AlignedReads(base.Node):
             },
             "structural_variant_calling_workflows": {
                 "name": "aligned_reads_files",
-                "src_type": base.Node.get_subclass("structural_variant_calling_workflow"),
+                "src_type": base.Node.get_subclass(
+                    "structural_variant_calling_workflow"
+                ),
             },
         }
 
@@ -269,19 +273,19 @@ class AlignedReads(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -314,23 +318,23 @@ class AlignedReads(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
             "validated",
-            "uploaded",
-            "processing",
-            "deleted",
-            "submitted",
-            "uploading",
-            "released",
             "error",
             "processed",
+            "released",
             "registered",
+            "submitted",
+            "deleted",
+            "processing",
+            "uploading",
+            "validating",
+            "uploaded",
         },
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "file_size", "md5sum"})
+    @psqlgraph.pg_property(str, enum={"file_size", "file_format", "md5sum"})
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -373,19 +377,19 @@ class AlignedReads(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "scATAC-Seq",
-            "Bisulfite-Seq",
-            "ChIP-Seq",
-            "Validation",
-            "scRNA-Seq",
-            "WGS",
-            "HiChIP",
-            "m6A MeRIP-Seq",
-            "Targeted Sequencing",
             "WXS",
-            "RNA-Seq",
-            "ATAC-Seq",
             "miRNA-Seq",
+            "WGS",
+            "Validation",
+            "Bisulfite-Seq",
+            "HiChIP",
+            "RNA-Seq",
+            "scATAC-Seq",
+            "scRNA-Seq",
+            "ATAC-Seq",
+            "ChIP-Seq",
+            "Targeted Sequencing",
+            "m6A MeRIP-Seq",
         },
     )
     def experimental_strategy(self, value):
@@ -410,13 +414,13 @@ class AlignedReads(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "LS454",
             "Complete Genomics",
-            "Illumina",
-            "Ion Torrent",
-            "SOLiD",
             "Other",
+            "Illumina",
+            "SOLiD",
             "PacBio",
+            "Ion Torrent",
+            "LS454",
         },
     )
     def platform(self, value):

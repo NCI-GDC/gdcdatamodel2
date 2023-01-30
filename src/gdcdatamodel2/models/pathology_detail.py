@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -176,19 +176,19 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -209,84 +209,84 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
+            "Sinonasal papilloma",
+            "Percent follicular component <= 10%",
+            "Tumor-associated lymphoid proliferation",
             "Leiomyoma",
-            "Benign endocervical polyp",
-            "Dysplasia; low grade",
+            "Adenomyosis",
+            "Bone marrow concordant histology",
+            "Nonkeratinizing dysplasia; moderate",
+            "Atrophic endometrium",
+            "Clostridioides difficile (c. diff)",
+            "Sialadenitis",
+            "Intestinal metaplasia",
             "Squamous papilloma; solitary",
-            "Keratinizing dysplasia; severe (carcinoma in situ)",
-            "Platinum-resistant",
-            "Endosalpingiosis",
-            "Dysplasia; high grade",
-            "Pleural plaque",
-            "Pulmonary interstitial fibrosis",
+            "Endometriosis",
+            "Endometroid carcinoma with local mucinous differentiation",
+            "Tumor has rough spikey edges",
+            "Carcinoma in situ",
             "Tubular (papillary) adenoma(s)",
             "Bilateral ovaries with endometriotic cyst and surface adhesions",
-            "Epithelial hyperplasia",
-            "Squamous papillomatosis",
-            "Tumor has rough spikey edges",
-            "Bone marrow discordant histology",
-            "Nonkeratinizing dysplasia; severe (carcinoma in situ)",
-            "Keratinizing dysplasia; mild",
-            "Nonkeratinizing dysplasia; mild",
-            "Colonization; fungal",
-            "Cirrhosis",
-            "Endometroid carcinoma with local mucinous differentiation",
-            "Glomerular disease",
-            "Percent follicular component <= 10%",
-            "Bone marrow concordant histology",
-            "Endometrial polyp",
-            "Sinonasal papilloma",
-            "Intestinal metaplasia",
-            "Carcinoma in situ",
-            "Keratinizing dysplasia; moderate",
-            "Adenomyosis",
             "Other",
-            "Sialadenitis",
-            "Percent follicular component > 10%",
-            "Tumor-associated lymphoid proliferation",
-            "Diffuse and early nodular diabetic glomerulosclerosis",
-            "Atypical hyperplasia/Endometrial intraepithelial neoplasia (EIN)",
-            "Leiomyomata w/ degenerative changes",
-            "Asbestos bodies",
-            "Inflammation",
-            "Squamous metaplasia",
-            "Autoimmune atrophic chronic gastritis",
-            "Epithelial dysplasia",
-            "PD-L1 CPS (223C LDT) - 20%",
-            "Clostridioides difficile (c. diff)",
-            "Hyperkeratosis",
-            "Nonkeratinizing dysplasia; moderate",
+            "Nonkeratinizing dysplasia; mild",
+            "Epithelial hyperplasia",
             "Colonization; bacterial",
-            "Endometriosis",
-            "Cyst(s)",
+            "Percent follicular component > 10%",
+            "Epithelial dysplasia",
+            "Glomerular disease",
+            "Leiomyomata w/ degenerative changes",
+            "Colonization; fungal",
+            "Nonkeratinizing dysplasia; severe (carcinoma in situ)",
+            "Platinum-resistant",
+            "Asbestos bodies",
+            "Keratinizing dysplasia; severe (carcinoma in situ)",
+            "PD-L1 CPS (223C LDT) - 20%",
+            "Bone marrow discordant histology",
+            "Hyperkeratosis",
+            "Pulmonary interstitial fibrosis",
+            "Dysplasia; low grade",
+            "Autoimmune atrophic chronic gastritis",
             "Gallbladder adenomyomatosis",
-            "Atrophic endometrium",
+            "Squamous metaplasia",
+            "Cyst(s)",
+            "Keratinizing dysplasia; mild",
+            "Benign endocervical polyp",
+            "Atypical hyperplasia/Endometrial intraepithelial neoplasia (EIN)",
+            "Keratinizing dysplasia; moderate",
+            "Squamous papillomatosis",
+            "Cirrhosis",
+            "Endometrial polyp",
+            "Dysplasia; high grade",
+            "Endosalpingiosis",
+            "Pleural plaque",
+            "Diffuse and early nodular diabetic glomerulosclerosis",
+            "Inflammation",
         },
     )
     def additional_pathology_findings(self, value):
         self._set_property("additional_pathology_findings", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Unknown", "Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "No", "Not Reported", "Yes"})
     def anaplasia_present(self, value):
         self._set_property("anaplasia_present", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "Sclerosis",
-            "Diffuse",
-            "Present",
-            "Not Reported",
-            "Focal",
+            "Unknown",
             "Absent",
             "Equivocal",
-            "Unknown",
+            "Not Reported",
+            "Sclerosis",
+            "Diffuse",
+            "Focal",
+            "Present",
         },
     )
     def anaplasia_present_type(self, value):
         self._set_property("anaplasia_present_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Unknown", "Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "No", "Not Reported", "Yes"})
     def bone_marrow_malignant_cells(self, value):
         self._set_property("bone_marrow_malignant_cells", value)  # type: ignore  # inherited from CommonBase
 
@@ -298,26 +298,26 @@ class PathologyDetail(base.Node):
     def circumferential_resection_margin(self, value):
         self._set_property("circumferential_resection_margin", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Unknown", "Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "No", "Not Reported", "Yes"})
     def columnar_mucosa_present(self, value):
         self._set_property("columnar_mucosa_present", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Not Reported", "No", "Yes"})
     def consistent_pathology_review(self, value):
         self._set_property("consistent_pathology_review", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "Indefinite",
-            "Moderate",
-            "Severe",
-            "Not Reported",
-            "No Dysplasia",
-            "Mild",
-            "Low Grade",
             "Unknown",
+            "Indefinite",
+            "Low Grade",
+            "Moderate",
             "High Grade",
+            "Not Reported",
+            "Severe",
+            "Mild",
+            "No Dysplasia",
         },
     )
     def dysplasia_degree(self, value):
@@ -326,14 +326,14 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "Esophageal Mucosa Columnar Dysplasia",
-            "Keratinizing",
-            "Other",
-            "Not Reported",
-            "Epithelial",
             "Unknown",
-            "Esophageal Columnar Dysplasia",
+            "Epithelial",
+            "Esophageal Mucosa Columnar Dysplasia",
             "Nonkeratinizing",
+            "Keratinizing",
+            "Not Reported",
+            "Esophageal Columnar Dysplasia",
+            "Other",
         },
     )
     def dysplasia_type(self, value):
@@ -345,7 +345,7 @@ class PathologyDetail(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={"No Extranodal Extension", "Microscopic Extension", "Gross Extension"},
+        enum={"Gross Extension", "No Extranodal Extension", "Microscopic Extension"},
     )
     def extranodal_extension(self, value):
         self._set_property("extranodal_extension", value)  # type: ignore  # inherited from CommonBase
@@ -365,9 +365,9 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
+            "Unknown",
             "Macroscopic (2cm or less)",
             "Microscopic",
-            "Unknown",
             "Not Reported",
             "Macroscopic (greater than 2cm)",
         },
@@ -378,52 +378,52 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "Functional (Limited) Neck Dissection",
-            "Radical Neck Dissection",
             "Modified Radical Neck Dissection",
+            "Radical Neck Dissection",
+            "Functional (Limited) Neck Dissection",
         },
     )
     def lymph_node_dissection_method(self, value):
         self._set_property("lymph_node_dissection_method", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Neck, Right", "Neck, NOS", "Neck, Left"})
+    @psqlgraph.pg_property(str, enum={"Neck, Left", "Neck, Right", "Neck, NOS"})
     def lymph_node_dissection_site(self, value):
         self._set_property("lymph_node_dissection_site", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "Axillary",
-            "Hilar",
-            "Iliac-external",
-            "Femoral",
-            "Occipital",
-            "Epitrochlear",
-            "Splenic",
-            "Paraaortic",
-            "Inguinal",
-            "Parotid",
-            "Unknown",
-            "Popliteal",
-            "Submandibular",
-            "None",
-            "Supraclavicular",
-            "Not Reported",
-            "Aortic",
-            "Pelvis, NOS",
-            "Retroperitoneal",
-            "Cervical",
-            "Iliac, NOS",
             "Iliac-common",
+            "Unknown",
+            "None",
+            "Occipital",
+            "Hilar",
+            "Cervical",
+            "Pelvis, NOS",
             "Mesenteric",
+            "Iliac, NOS",
+            "Aortic",
+            "Inguinal",
+            "Axillary",
+            "Parotid",
+            "Not Reported",
+            "Submandibular",
+            "Splenic",
+            "Popliteal",
+            "Femoral",
+            "Epitrochlear",
+            "Retroperitoneal",
             "Mediastinal",
+            "Iliac-external",
+            "Paraaortic",
+            "Supraclavicular",
         },
     )
     def lymph_node_involved_site(self, value):
         self._set_property("lymph_node_involved_site", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum={"Unknown", "Negative", "Indeterminant", "Not Reported", "Positive"}
+        str, enum={"Unknown", "Negative", "Not Reported", "Indeterminant", "Positive"}
     )
     def lymph_node_involvement(self, value):
         self._set_property("lymph_node_involvement", value)  # type: ignore  # inherited from CommonBase
@@ -432,7 +432,7 @@ class PathologyDetail(base.Node):
     def lymph_nodes_positive(self, value):
         self._set_property("lymph_nodes_positive", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Not Reported", "No", "Yes"})
     def lymph_nodes_removed(self, value):
         self._set_property("lymph_nodes_removed", value)  # type: ignore  # inherited from CommonBase
 
@@ -440,31 +440,31 @@ class PathologyDetail(base.Node):
     def lymph_nodes_tested(self, value):
         self._set_property("lymph_nodes_tested", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Unknown", "Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "No", "Not Reported", "Yes"})
     def lymphatic_invasion_present(self, value):
         self._set_property("lymphatic_invasion_present", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum={"Uninvolved", "Unknown", "Indeterminant", "Not Reported", "Involved"}
+        str, enum={"Unknown", "Uninvolved", "Involved", "Not Reported", "Indeterminant"}
     )
     def margin_status(self, value):
         self._set_property("margin_status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Unknown", "Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "No", "Not Reported", "Yes"})
     def metaplasia_present(self, value):
         self._set_property("metaplasia_present", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "Micropapillary",
-            "Tubular",
-            "Cohesive",
             "Non-cohesive",
-            "Papillary, NOS",
             "Cribiform",
-            "Solid",
+            "Tubular",
+            "Papillary, NOS",
             "Papillary Renal Cell",
+            "Solid",
+            "Micropapillary",
+            "Cohesive",
         },
     )
     def morphologic_architectural_pattern(self, value):
@@ -474,17 +474,17 @@ class PathologyDetail(base.Node):
     def necrosis_percent(self, value):
         self._set_property("necrosis_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Not Reported", "No", "Yes"})
     def necrosis_present(self, value):
         self._set_property("necrosis_present", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum={"Absent", "Unknown", "Present", "Indeterminate", "Not Reported"}
+        str, enum={"Unknown", "Absent", "Not Reported", "Indeterminate", "Present"}
     )
     def non_nodal_regional_disease(self, value):
         self._set_property("non_nodal_regional_disease", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Unknown", "Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "No", "Not Reported", "Yes"})
     def non_nodal_tumor_deposits(self, value):
         self._set_property("non_nodal_tumor_deposits", value)  # type: ignore  # inherited from CommonBase
 
@@ -500,11 +500,13 @@ class PathologyDetail(base.Node):
     def percent_tumor_nuclei(self, value):
         self._set_property("percent_tumor_nuclei", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Unknown", "Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "No", "Not Reported", "Yes"})
     def perineural_invasion_present(self, value):
         self._set_property("perineural_invasion_present", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"4 or More", "Unknown", "0", "1-3", "Not Reported"})
+    @psqlgraph.pg_property(
+        str, enum={"Unknown", "0", "1-3", "4 or More", "Not Reported"}
+    )
     def peripancreatic_lymph_nodes_positive(self, value):
         self._set_property("peripancreatic_lymph_nodes_positive", value)  # type: ignore  # inherited from CommonBase
 
@@ -524,11 +526,13 @@ class PathologyDetail(base.Node):
     def prostatic_involvement_percent(self, value):
         self._set_property("prostatic_involvement_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"R2", "R1", "RX", "R0"})
+    @psqlgraph.pg_property(str, enum={"R0", "R2", "RX", "R1"})
     def residual_tumor(self, value):
         self._set_property("residual_tumor", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"No macroscopic disease", ">20 mm", "1-10 mm", "11-20 mm"})
+    @psqlgraph.pg_property(
+        str, enum={">20 mm", "11-20 mm", "No macroscopic disease", "1-10 mm"}
+    )
     def residual_tumor_measurement(self, value):
         self._set_property("residual_tumor_measurement", value)  # type: ignore  # inherited from CommonBase
 
@@ -536,7 +540,7 @@ class PathologyDetail(base.Node):
     def rhabdoid_percent(self, value):
         self._set_property("rhabdoid_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Not Reported", "No", "Yes"})
     def rhabdoid_present(self, value):
         self._set_property("rhabdoid_present", value)  # type: ignore  # inherited from CommonBase
 
@@ -544,7 +548,7 @@ class PathologyDetail(base.Node):
     def sarcomatoid_percent(self, value):
         self._set_property("sarcomatoid_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Not Reported", "No", "Yes"})
     def sarcomatoid_present(self, value):
         self._set_property("sarcomatoid_present", value)  # type: ignore  # inherited from CommonBase
 
@@ -552,7 +556,7 @@ class PathologyDetail(base.Node):
     def size_extraocular_nodule(self, value):
         self._set_property("size_extraocular_nodule", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Absent", "Present", "Not Reported", "Unknown"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "Absent", "Present", "Not Reported"})
     def transglottic_extension(self, value):
         self._set_property("transglottic_extension", value)  # type: ignore  # inherited from CommonBase
 
@@ -568,20 +572,20 @@ class PathologyDetail(base.Node):
     def tumor_thickness(self, value):
         self._set_property("tumor_thickness", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Unknown", "Not Reported", "Yes", "No"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "No", "Not Reported", "Yes"})
     def vascular_invasion_present(self, value):
         self._set_property("vascular_invasion_present", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "No Vascular Invasion",
-            "Extramural",
-            "Macro",
-            "Unknown",
             "Micro",
-            "Not Reported",
+            "Unknown",
+            "Extramural",
             "Intramural",
+            "No Vascular Invasion",
+            "Macro",
+            "Not Reported",
         },
     )
     def vascular_invasion_type(self, value):
@@ -591,10 +595,10 @@ class PathologyDetail(base.Node):
         str,
         enum={
             "Central zone",
+            "Peripheral zone",
+            "Overlapping/multiple zones",
             "Transition zone",
             "Unknown zone",
-            "Overlapping/multiple zones",
-            "Peripheral zone",
         },
     )
     def zone_of_origin_prostate(self, value):

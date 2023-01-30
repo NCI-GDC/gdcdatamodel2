@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -184,19 +184,19 @@ class AlignmentWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -233,18 +233,18 @@ class AlignmentWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "BWA",
-            "BWA-aln",
-            "CellRanger - 10x Chromium",
-            "BWA with Mark Duplicates and BQSR",
-            "BWA with BQSR",
             "STAR 2-Pass",
-            "STAR 2-Pass Chimeric",
+            "CellRanger - 10x Chromium",
+            "BWA",
             "BWA-mem",
             "STAR - Smart-Seq2",
             "STAR 2-Pass Genome",
-            "STAR 2-Pass Transcriptome",
+            "BWA-aln",
             "zUMIs - Smart-Seq2",
+            "STAR 2-Pass Transcriptome",
+            "BWA with BQSR",
+            "BWA with Mark Duplicates and BQSR",
+            "STAR 2-Pass Chimeric",
         },
     )
     def workflow_type(self, value):

@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -188,19 +188,19 @@ class MirnaExpression(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -233,23 +233,23 @@ class MirnaExpression(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
             "validated",
-            "uploaded",
-            "processing",
-            "deleted",
-            "submitted",
-            "uploading",
-            "released",
             "error",
             "processed",
+            "released",
             "registered",
+            "submitted",
+            "deleted",
+            "processing",
+            "uploading",
+            "validating",
+            "uploaded",
         },
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "file_size", "md5sum"})
+    @psqlgraph.pg_property(str, enum={"file_size", "file_format", "md5sum"})
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -264,15 +264,15 @@ class MirnaExpression(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "Isoform Expression Quantification",
             "Supplementary Files",
             "miRNA Expression Quantification",
+            "Isoform Expression Quantification",
         },
     )
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"CSV", "TXT", "TSV"})
+    @psqlgraph.pg_property(str, enum={"TSV", "TXT", "CSV"})
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 

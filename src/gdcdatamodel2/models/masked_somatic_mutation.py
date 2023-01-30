@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -96,7 +96,9 @@ class MaskedSomaticMutation(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "backref": "masked_somatic_mutations",
-                "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "projects": {
                 "backref": "masked_somatic_mutations",
@@ -114,7 +116,9 @@ class MaskedSomaticMutation(base.Node):
         cls._pg_links = {
             "genomic_profile_harmonization_workflows": {
                 "edge_out": "_MaskedSomaticMutationDataFromGenomicProfileHarmonizationWorkflow_out",
-                "dst_type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "dst_type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "projects": {
                 "edge_out": "_MaskedSomaticMutationDerivedFromProject_out",
@@ -204,19 +208,19 @@ class MaskedSomaticMutation(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -249,23 +253,23 @@ class MaskedSomaticMutation(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
             "validated",
-            "uploaded",
-            "processing",
-            "deleted",
-            "submitted",
-            "uploading",
-            "released",
             "error",
             "processed",
+            "released",
             "registered",
+            "submitted",
+            "deleted",
+            "processing",
+            "uploading",
+            "validating",
+            "uploaded",
         },
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "file_size", "md5sum"})
+    @psqlgraph.pg_property(str, enum={"file_size", "file_format", "md5sum"})
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -281,21 +285,21 @@ class MaskedSomaticMutation(base.Node):
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"MAF", "TSV"})
+    @psqlgraph.pg_property(str, enum={"TSV", "MAF"})
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "Bisulfite-Seq",
-            "ChIP-Seq",
-            "WGS",
-            "Targeted Sequencing",
             "WXS",
+            "miRNA-Seq",
+            "WGS",
+            "Bisulfite-Seq",
             "RNA-Seq",
             "ATAC-Seq",
-            "miRNA-Seq",
+            "ChIP-Seq",
+            "Targeted Sequencing",
         },
     )
     def experimental_strategy(self, value):

@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -99,7 +99,9 @@ class StructuralVariation(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "backref": "structural_variations",
-                "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "somatic_mutation_indexes": {
                 "backref": "structural_variations",
@@ -117,11 +119,15 @@ class StructuralVariation(base.Node):
         cls._pg_links = {
             "genomic_profile_harmonization_workflows": {
                 "edge_out": "_StructuralVariationDataFromGenomicProfileHarmonizationWorkflow_out",
-                "dst_type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "dst_type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "structural_variant_calling_workflows": {
                 "edge_out": "_StructuralVariationDataFromStructuralVariantCallingWorkflow_out",
-                "dst_type": base.Node.get_subclass("structural_variant_calling_workflow"),
+                "dst_type": base.Node.get_subclass(
+                    "structural_variant_calling_workflow"
+                ),
             },
         }
 
@@ -203,19 +209,19 @@ class StructuralVariation(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -248,23 +254,23 @@ class StructuralVariation(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
             "validated",
-            "uploaded",
-            "processing",
-            "deleted",
-            "submitted",
-            "uploading",
-            "released",
             "error",
             "processed",
+            "released",
             "registered",
+            "submitted",
+            "deleted",
+            "processing",
+            "uploading",
+            "validating",
+            "uploaded",
         },
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "file_size", "md5sum"})
+    @psqlgraph.pg_property(str, enum={"file_size", "file_format", "md5sum"})
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -272,7 +278,9 @@ class StructuralVariation(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Somatic Structural Variation", "Structural Variation"})
+    @psqlgraph.pg_property(
+        str, enum={"Structural Variation", "Somatic Structural Variation"}
+    )
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
@@ -284,12 +292,12 @@ class StructuralVariation(base.Node):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum={"JSON", "BEDPE", "CSV", "TXT", "VCF", "GVF", "TSV", "FASTA"}
+        str, enum={"JSON", "TSV", "CSV", "BEDPE", "TXT", "GVF", "FASTA", "VCF"}
     )
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Targeted Sequencing", "WXS", "RNA-Seq", "WGS"})
+    @psqlgraph.pg_property(str, enum={"WXS", "RNA-Seq", "Targeted Sequencing", "WGS"})
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 

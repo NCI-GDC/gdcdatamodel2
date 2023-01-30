@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -167,19 +167,19 @@ class Clinical(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -205,11 +205,11 @@ class Clinical(base.Node):
     def days_to_death(self, value):
         self._set_property("days_to_death", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"unknown", "unspecified", "female", "male"})
+    @psqlgraph.pg_property(str, enum={"female", "unknown", "unspecified", "male"})
     def gender(self, value):
         self._set_property("gender", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"not hispanic or latino", "hispanic or latino"})
+    @psqlgraph.pg_property(str, enum={"hispanic or latino", "not hispanic or latino"})
     def ethnicity(self, value):
         self._set_property("ethnicity", value)  # type: ignore  # inherited from CommonBase
 
@@ -220,19 +220,19 @@ class Clinical(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
+            "white",
             "native hawaiian or other pacific islander",
             "other",
-            "not reported",
-            "asian",
             "black or african american",
-            "white",
             "american indian or alaska native",
+            "asian",
+            "not reported",
         },
     )
     def race(self, value):
         self._set_property("race", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"dead", "alive", "lost to follow-up"})
+    @psqlgraph.pg_property(str, enum={"lost to follow-up", "dead", "alive"})
     def vital_status(self, value):
         self._set_property("vital_status", value)  # type: ignore  # inherited from CommonBase
 

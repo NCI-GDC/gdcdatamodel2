@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -88,7 +88,9 @@ class RawMethylationArray(base.Node):
             },
             "methylation_array_harmonization_workflows": {
                 "name": "raw_methylation_arrays",
-                "src_type": base.Node.get_subclass("methylation_array_harmonization_workflow"),
+                "src_type": base.Node.get_subclass(
+                    "methylation_array_harmonization_workflow"
+                ),
             },
         }
 
@@ -106,7 +108,9 @@ class RawMethylationArray(base.Node):
             },
             "methylation_array_harmonization_workflows": {
                 "backref": "raw_methylation_arrays",
-                "type": base.Node.get_subclass("methylation_array_harmonization_workflow"),
+                "type": base.Node.get_subclass(
+                    "methylation_array_harmonization_workflow"
+                ),
             },
         }
 
@@ -198,19 +202,19 @@ class RawMethylationArray(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -243,23 +247,23 @@ class RawMethylationArray(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
             "validated",
-            "uploaded",
-            "processing",
-            "deleted",
-            "submitted",
-            "uploading",
-            "released",
             "error",
             "processed",
+            "released",
             "registered",
+            "submitted",
+            "deleted",
+            "processing",
+            "uploading",
+            "validating",
+            "uploaded",
         },
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "file_size", "md5sum"})
+    @psqlgraph.pg_property(str, enum={"file_size", "file_format", "md5sum"})
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -286,15 +290,15 @@ class RawMethylationArray(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "Illumina Methylation Epic",
             "Illumina Human Methylation 450",
+            "Illumina Methylation Epic",
             "Illumina Human Methylation 27",
         },
     )
     def platform(self, value):
         self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Green", "Red"})
+    @psqlgraph.pg_property(str, enum={"Red", "Green"})
     def channel(self, value):
         self._set_property("channel", value)  # type: ignore  # inherited from CommonBase
 

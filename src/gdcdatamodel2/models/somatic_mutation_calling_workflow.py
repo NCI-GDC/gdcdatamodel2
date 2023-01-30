@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -176,19 +176,19 @@ class SomaticMutationCallingWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -225,15 +225,15 @@ class SomaticMutationCallingWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "GATK4 MuTect2",
-            "SomaticSniper",
-            "Strelka2 RNA",
-            "CaVEMan",
-            "MuTect2",
-            "GATK4 MuTect2 Tumor-Only",
-            "VarScan2",
             "Pindel",
+            "GATK4 MuTect2 Tumor-Only",
+            "GATK4 MuTect2",
+            "VarScan2",
             "MuSE",
+            "CaVEMan",
+            "Strelka2 RNA",
+            "MuTect2",
+            "SomaticSniper",
         },
     )
     def workflow_type(self, value):

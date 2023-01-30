@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -192,19 +192,19 @@ class SomaticAggregationWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -243,13 +243,13 @@ class SomaticAggregationWorkflow(base.Node):
         enum={
             "FoundationOne Variant Aggregation and Masking",
             "Aliquot Ensemble Somatic Variant Merging and Masking",
-            "VarScan2 Variant Aggregation and Masking",
             "MuSE Variant Aggregation and Masking",
-            "MuTect2 Variant Aggregation and Masking",
-            "GENIE Variant Aggregation and Masking",
-            "CaVEMan Variant Aggregation and Masking",
+            "VarScan2 Variant Aggregation and Masking",
             "Pindel Variant Aggregation and Masking",
             "SomaticSniper Variant Aggregation and Masking",
+            "MuTect2 Variant Aggregation and Masking",
+            "CaVEMan Variant Aggregation and Masking",
+            "GENIE Variant Aggregation and Masking",
         },
     )
     def workflow_type(self, value):

@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -109,7 +109,9 @@ class CopyNumberSegment(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "backref": "copy_number_segments",
-                "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "somatic_copy_number_workflows": {
                 "backref": "copy_number_segments",
@@ -127,7 +129,9 @@ class CopyNumberSegment(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "edge_out": "_CopyNumberSegmentDerivedFromGenomicProfileHarmonizationWorkflow_out",
-                "dst_type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "dst_type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "somatic_copy_number_workflows": {
                 "edge_out": "_CopyNumberSegmentDerivedFromSomaticCopyNumberWorkflow_out",
@@ -213,19 +217,19 @@ class CopyNumberSegment(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -258,23 +262,23 @@ class CopyNumberSegment(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
             "validated",
-            "uploaded",
-            "processing",
-            "deleted",
-            "submitted",
-            "uploading",
-            "released",
             "error",
             "processed",
+            "released",
             "registered",
+            "submitted",
+            "deleted",
+            "processing",
+            "uploading",
+            "validating",
+            "uploaded",
         },
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "file_size", "md5sum"})
+    @psqlgraph.pg_property(str, enum={"file_size", "file_format", "md5sum"})
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -290,8 +294,8 @@ class CopyNumberSegment(base.Node):
         str,
         enum={
             "Copy Number Segment",
-            "Masked Copy Number Segment",
             "Allele-specific Copy Number Segment",
+            "Masked Copy Number Segment",
         },
     )
     def data_type(self, value):
@@ -301,11 +305,13 @@ class CopyNumberSegment(base.Node):
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Targeted Sequencing", "WXS", "WGS", "Genotyping Array"})
+    @psqlgraph.pg_property(
+        str, enum={"WXS", "Targeted Sequencing", "WGS", "Genotyping Array"}
+    )
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Affymetrix SNP 6.0", "Illumina"})
+    @psqlgraph.pg_property(str, enum={"Illumina", "Affymetrix SNP 6.0"})
     def platform(self, value):
         self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
 

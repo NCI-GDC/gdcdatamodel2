@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -192,19 +192,19 @@ class RnaExpressionWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -241,23 +241,23 @@ class RnaExpressionWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "zUMIs - Smart-Seq2 Counts",
+            "STAR - Smart-Seq2 Raw Counts",
+            "DEXSeq",
             "CellRanger - 10x Filtered Counts",
+            "RNA-SeQC - FPKM",
+            "RSEM - Quantification",
             "Cufflinks",
+            "Kallisto - HDF5",
+            "Kallisto - Quantification",
             "RNA-SeQC - Counts",
-            "STAR - Smart-Seq2 Filtered Counts",
+            "CellRanger - 10x Raw Counts",
+            "STAR - Counts",
             "HTSeq - Counts",
             "HTSeq - FPKM-UQ",
-            "STAR - Counts",
-            "STAR - FPKM",
-            "Kallisto - HDF5",
-            "RSEM - Quantification",
-            "DEXSeq",
-            "Kallisto - Quantification",
-            "CellRanger - 10x Raw Counts",
             "HTSeq - FPKM",
-            "RNA-SeQC - FPKM",
-            "STAR - Smart-Seq2 Raw Counts",
+            "STAR - FPKM",
+            "STAR - Smart-Seq2 Filtered Counts",
+            "zUMIs - Smart-Seq2 Counts",
         },
     )
     def workflow_type(self, value):

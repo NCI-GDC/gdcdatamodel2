@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -176,19 +176,19 @@ class SomaticAnnotationWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validating",
-            "suppressed",
-            "live",
             "validated",
-            "md5summing",
-            "redacted",
-            "invalid",
-            "submitted",
-            "uploading",
-            "released",
             "error",
-            "uploaded",
+            "md5summing",
+            "released",
+            "invalid",
+            "live",
+            "submitted",
             "md5summed",
+            "uploading",
+            "validating",
+            "redacted",
+            "uploaded",
+            "suppressed",
         },
     )
     def state(self, value):
@@ -225,15 +225,15 @@ class SomaticAnnotationWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "SomaticSniper Annotation",
-            "CaVEMan Annotation",
-            "GATK4 MuTect2 Annotation",
             "VarScan2 Annotation",
             "Pindel Annotation",
-            "GATK4 MuTect2 Tumor-Only Annotation",
-            "FoundationOne Annotation",
-            "MuTect2 Annotation",
             "MuSE Annotation",
+            "CaVEMan Annotation",
+            "MuTect2 Annotation",
+            "SomaticSniper Annotation",
+            "GATK4 MuTect2 Annotation",
+            "FoundationOne Annotation",
+            "GATK4 MuTect2 Tumor-Only Annotation",
         },
     )
     def workflow_type(self, value):
