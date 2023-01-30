@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -1020,9 +1020,7 @@ class FollowUp(base.Node):
     def adverse_event(self, value):
         self._set_property("adverse_event", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"Grade 1", "Grade 4", "Grade 5", "Grade 2", "Grade 3"}
-    )
+    @psqlgraph.pg_property(str, enum={"Grade 1", "Grade 4", "Grade 5", "Grade 2", "Grade 3"})
     def adverse_event_grade(self, value):
         self._set_property("adverse_event_grade", value)  # type: ignore  # inherited from CommonBase
 
@@ -1388,15 +1386,11 @@ class FollowUp(base.Node):
     def dlco_ref_predictive_percent(self, value):
         self._set_property("dlco_ref_predictive_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"Unknown", "4", "2", "Not Reported", "3", "0", "5", "1"}
-    )
+    @psqlgraph.pg_property(str, enum={"Unknown", "4", "2", "Not Reported", "3", "0", "5", "1"})
     def ecog_performance_status(self, value):
         self._set_property("ecog_performance_status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"Histologic Confirmation", "Convincing Image Source"}
-    )
+    @psqlgraph.pg_property(str, enum={"Histologic Confirmation", "Convincing Image Source"})
     def evidence_of_progression_type(self, value):
         self._set_property("evidence_of_progression_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -1625,9 +1619,7 @@ class FollowUp(base.Node):
     def imaging_suv_max(self, value):
         self._set_property("imaging_suv_max", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"MRI", "CT Scan", "99mTc Bone Scintigraphy", "PET"}
-    )
+    @psqlgraph.pg_property(str, enum={"MRI", "CT Scan", "99mTc Bone Scintigraphy", "PET"})
     def imaging_type(self, value):
         self._set_property("imaging_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -1713,9 +1705,7 @@ class FollowUp(base.Node):
     def pregnancy_outcome(self, value):
         self._set_property("pregnancy_outcome", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"Colonoscopy", "Endoscopy", "Unknown", "Not Reported"}
-    )
+    @psqlgraph.pg_property(str, enum={"Colonoscopy", "Endoscopy", "Unknown", "Not Reported"})
     def procedures_performed(self, value):
         self._set_property("procedures_performed", value)  # type: ignore  # inherited from CommonBase
 
@@ -2307,9 +2297,7 @@ class FollowUp(base.Node):
     def risk_factor_treatment(self, value):
         self._set_property("risk_factor_treatment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"Sodium Fluoride", "PSMA", "Choline", "Axumin", "Acetate"}
-    )
+    @psqlgraph.pg_property(str, enum={"Sodium Fluoride", "PSMA", "Choline", "Axumin", "Acetate"})
     def scan_tracer_used(self, value):
         self._set_property("scan_tracer_used", value)  # type: ignore  # inherited from CommonBase
 

@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -109,9 +109,7 @@ class CopyNumberSegment(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "backref": "copy_number_segments",
-                "type": base.Node.get_subclass(
-                    "genomic_profile_harmonization_workflow"
-                ),
+                "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
             },
             "somatic_copy_number_workflows": {
                 "backref": "copy_number_segments",
@@ -129,9 +127,7 @@ class CopyNumberSegment(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "edge_out": "_CopyNumberSegmentDerivedFromGenomicProfileHarmonizationWorkflow_out",
-                "dst_type": base.Node.get_subclass(
-                    "genomic_profile_harmonization_workflow"
-                ),
+                "dst_type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
             },
             "somatic_copy_number_workflows": {
                 "edge_out": "_CopyNumberSegmentDerivedFromSomaticCopyNumberWorkflow_out",
@@ -305,9 +301,7 @@ class CopyNumberSegment(base.Node):
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"WXS", "Targeted Sequencing", "WGS", "Genotyping Array"}
-    )
+    @psqlgraph.pg_property(str, enum={"WXS", "Targeted Sequencing", "WGS", "Genotyping Array"})
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 

@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -87,9 +87,7 @@ class SubmittedGenotypingArray(base.Node):
             },
             "germline_mutation_calling_workflows": {
                 "name": "submitted_genotyping_arrays",
-                "src_type": base.Node.get_subclass(
-                    "germline_mutation_calling_workflow"
-                ),
+                "src_type": base.Node.get_subclass("germline_mutation_calling_workflow"),
             },
             "somatic_copy_number_workflows": {
                 "name": "submitted_genotyping_arrays",

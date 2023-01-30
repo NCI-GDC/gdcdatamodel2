@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -1138,9 +1138,7 @@ class MolecularTest(base.Node):
     def gene_symbol(self, value):
         self._set_property("gene_symbol", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"H4", "Unknown", "H1", "H3", "Not Reported", "H2B", "H2A"}
-    )
+    @psqlgraph.pg_property(str, enum={"H4", "Unknown", "H1", "H3", "Not Reported", "H2B", "H2A"})
     def histone_family(self, value):
         self._set_property("histone_family", value)  # type: ignore  # inherited from CommonBase
 
@@ -2210,9 +2208,7 @@ class MolecularTest(base.Node):
     def test_value(self, value):
         self._set_property("test_value", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"76-100", "26-50", "Not Reported", "0-25", "51-75"}
-    )
+    @psqlgraph.pg_property(str, enum={"76-100", "26-50", "Not Reported", "0-25", "51-75"})
     def test_value_range(self, value):
         self._set_property("test_value_range", value)  # type: ignore  # inherited from CommonBase
 

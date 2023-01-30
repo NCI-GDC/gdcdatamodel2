@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -98,9 +98,7 @@ class MaskedMethylationArray(base.Node):
             },
             "methylation_array_harmonization_workflows": {
                 "backref": "masked_methylation_arrays",
-                "type": base.Node.get_subclass(
-                    "methylation_array_harmonization_workflow"
-                ),
+                "type": base.Node.get_subclass("methylation_array_harmonization_workflow"),
             },
         }
 
@@ -110,9 +108,7 @@ class MaskedMethylationArray(base.Node):
         cls._pg_links = {
             "methylation_array_harmonization_workflows": {
                 "edge_out": "_MaskedMethylationArrayDataFromMethylationArrayHarmonizationWorkflow_out",
-                "dst_type": base.Node.get_subclass(
-                    "methylation_array_harmonization_workflow"
-                ),
+                "dst_type": base.Node.get_subclass("methylation_array_harmonization_workflow"),
             },
         }
 

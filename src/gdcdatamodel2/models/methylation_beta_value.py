@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -97,9 +97,7 @@ class MethylationBetaValue(base.Node):
             },
             "methylation_array_harmonization_workflows": {
                 "backref": "methylation_beta_values",
-                "type": base.Node.get_subclass(
-                    "methylation_array_harmonization_workflow"
-                ),
+                "type": base.Node.get_subclass("methylation_array_harmonization_workflow"),
             },
             "methylation_liftover_workflows": {
                 "backref": "methylation_beta_values",
@@ -113,9 +111,7 @@ class MethylationBetaValue(base.Node):
         cls._pg_links = {
             "methylation_array_harmonization_workflows": {
                 "edge_out": "_MethylationBetaValueDataFromMethylationArrayHarmonizationWorkflow_out",
-                "dst_type": base.Node.get_subclass(
-                    "methylation_array_harmonization_workflow"
-                ),
+                "dst_type": base.Node.get_subclass("methylation_array_harmonization_workflow"),
             },
             "methylation_liftover_workflows": {
                 "edge_out": "_MethylationBetaValueDataFromMethylationLiftoverWorkflow_out",

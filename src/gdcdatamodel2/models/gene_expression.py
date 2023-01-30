@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -285,9 +285,7 @@ class GeneExpression(base.Node):
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"RNA-Seq", "scRNA-Seq", "Total RNA-Seq", "m6A MeRIP-Seq"}
-    )
+    @psqlgraph.pg_property(str, enum={"RNA-Seq", "scRNA-Seq", "Total RNA-Seq", "m6A MeRIP-Seq"})
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 

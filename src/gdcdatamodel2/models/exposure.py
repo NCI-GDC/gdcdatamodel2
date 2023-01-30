@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -230,9 +230,7 @@ class Exposure(base.Node):
     def alcohol_drinks_per_day(self, value):
         self._set_property("alcohol_drinks_per_day", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum={"Unknown", "no", "Yes", "yes", "No", "Not Reported"}
-    )
+    @psqlgraph.pg_property(str, enum={"Unknown", "no", "Yes", "yes", "No", "Not Reported"})
     def alcohol_history(self, value):
         self._set_property("alcohol_history", value)  # type: ignore  # inherited from CommonBase
 
