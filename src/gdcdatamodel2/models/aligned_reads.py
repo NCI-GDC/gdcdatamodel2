@@ -269,19 +269,19 @@ class AlignedReads(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "md5summing",
-            "released",
-            "invalid",
+            "validating",
+            "suppressed",
             "live",
             "submitted",
-            "md5summed",
-            "uploading",
-            "validating",
-            "redacted",
+            "error",
+            "validated",
+            "md5summing",
             "uploaded",
-            "suppressed",
+            "uploading",
+            "released",
+            "md5summed",
+            "redacted",
+            "invalid",
         },
     )
     def state(self, value):
@@ -291,11 +291,11 @@ class AlignedReads(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -314,23 +314,23 @@ class AlignedReads(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "processed",
-            "released",
-            "registered",
+            "validating",
             "submitted",
+            "error",
             "deleted",
+            "validated",
+            "processed",
+            "uploaded",
+            "registered",
             "processing",
             "uploading",
-            "validating",
-            "uploaded",
+            "released",
         },
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_size", "file_format", "md5sum"})
+    @psqlgraph.pg_property(str, enum={"file_format", "md5sum", "file_size"})
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -338,7 +338,7 @@ class AlignedReads(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def average_base_quality(self, value):
         self._set_property("average_base_quality", value)  # type: ignore  # inherited from CommonBase
 
@@ -350,11 +350,11 @@ class AlignedReads(base.Node):
     def average_read_length(self, value):
         self._set_property("average_read_length", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def contamination(self, value):
         self._set_property("contamination", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def contamination_error(self, value):
         self._set_property("contamination_error", value)  # type: ignore  # inherited from CommonBase
 
@@ -373,25 +373,25 @@ class AlignedReads(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "WXS",
-            "miRNA-Seq",
-            "WGS",
-            "Validation",
-            "Bisulfite-Seq",
-            "HiChIP",
-            "RNA-Seq",
-            "scATAC-Seq",
-            "scRNA-Seq",
-            "ATAC-Seq",
-            "ChIP-Seq",
             "Targeted Sequencing",
+            "miRNA-Seq",
+            "WXS",
+            "scRNA-Seq",
+            "Validation",
+            "ATAC-Seq",
             "m6A MeRIP-Seq",
+            "RNA-Seq",
+            "ChIP-Seq",
+            "WGS",
+            "Bisulfite-Seq",
+            "scATAC-Seq",
+            "HiChIP",
         },
     )
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def mean_coverage(self, value):
         self._set_property("mean_coverage", value)  # type: ignore  # inherited from CommonBase
 
@@ -399,7 +399,7 @@ class AlignedReads(base.Node):
     def msi_status(self, value):
         self._set_property("msi_status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def msi_score(self, value):
         self._set_property("msi_score", value)  # type: ignore  # inherited from CommonBase
 
@@ -410,47 +410,47 @@ class AlignedReads(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "Complete Genomics",
-            "Other",
-            "Illumina",
-            "SOLiD",
             "PacBio",
-            "Ion Torrent",
             "LS454",
+            "SOLiD",
+            "Other",
+            "Complete Genomics",
+            "Ion Torrent",
+            "Illumina",
         },
     )
     def platform(self, value):
         self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def proportion_base_mismatch(self, value):
         self._set_property("proportion_base_mismatch", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def proportion_coverage_10x(self, value):
         self._set_property("proportion_coverage_10x", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def proportion_coverage_30x(self, value):
         self._set_property("proportion_coverage_30x", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def proportion_reads_duplicated(self, value):
         self._set_property("proportion_reads_duplicated", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def proportion_reads_mapped(self, value):
         self._set_property("proportion_reads_mapped", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def proportion_targets_no_coverage(self, value):
         self._set_property("proportion_targets_no_coverage", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def tumor_ploidy(self, value):
         self._set_property("tumor_ploidy", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def tumor_purity(self, value):
         self._set_property("tumor_purity", value)  # type: ignore  # inherited from CommonBase
 

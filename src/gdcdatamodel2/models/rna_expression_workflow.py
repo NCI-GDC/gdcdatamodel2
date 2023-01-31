@@ -192,19 +192,19 @@ class RnaExpressionWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "md5summing",
-            "released",
-            "invalid",
+            "validating",
+            "suppressed",
             "live",
             "submitted",
-            "md5summed",
-            "uploading",
-            "validating",
-            "redacted",
+            "error",
+            "validated",
+            "md5summing",
             "uploaded",
-            "suppressed",
+            "uploading",
+            "released",
+            "md5summed",
+            "redacted",
+            "invalid",
         },
     )
     def state(self, value):
@@ -214,11 +214,11 @@ class RnaExpressionWorkflow(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -230,34 +230,34 @@ class RnaExpressionWorkflow(base.Node):
     def workflow_version(self, value):
         self._set_property("workflow_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def workflow_start_datetime(self, value):
         self._set_property("workflow_start_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "STAR - Smart-Seq2 Raw Counts",
-            "DEXSeq",
-            "CellRanger - 10x Filtered Counts",
-            "RNA-SeQC - FPKM",
-            "RSEM - Quantification",
-            "Cufflinks",
-            "Kallisto - HDF5",
-            "Kallisto - Quantification",
             "RNA-SeQC - Counts",
-            "CellRanger - 10x Raw Counts",
-            "STAR - Counts",
-            "HTSeq - Counts",
-            "HTSeq - FPKM-UQ",
-            "HTSeq - FPKM",
-            "STAR - FPKM",
             "STAR - Smart-Seq2 Filtered Counts",
+            "HTSeq - Counts",
+            "STAR - Smart-Seq2 Raw Counts",
+            "CellRanger - 10x Raw Counts",
+            "Kallisto - Quantification",
+            "Kallisto - HDF5",
+            "Cufflinks",
+            "RSEM - Quantification",
+            "STAR - Counts",
             "zUMIs - Smart-Seq2 Counts",
+            "STAR - FPKM",
+            "HTSeq - FPKM-UQ",
+            "DEXSeq",
+            "HTSeq - FPKM",
+            "RNA-SeQC - FPKM",
+            "CellRanger - 10x Filtered Counts",
         },
     )
     def workflow_type(self, value):

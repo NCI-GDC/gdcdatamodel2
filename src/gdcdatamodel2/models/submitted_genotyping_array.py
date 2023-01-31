@@ -205,19 +205,19 @@ class SubmittedGenotypingArray(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "md5summing",
-            "released",
-            "invalid",
+            "validating",
+            "suppressed",
             "live",
             "submitted",
-            "md5summed",
-            "uploading",
-            "validating",
-            "redacted",
+            "error",
+            "validated",
+            "md5summing",
             "uploaded",
-            "suppressed",
+            "uploading",
+            "released",
+            "md5summed",
+            "redacted",
+            "invalid",
         },
     )
     def state(self, value):
@@ -227,11 +227,11 @@ class SubmittedGenotypingArray(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -250,23 +250,23 @@ class SubmittedGenotypingArray(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "processed",
-            "released",
-            "registered",
+            "validating",
             "submitted",
+            "error",
             "deleted",
+            "validated",
+            "processed",
+            "uploaded",
+            "registered",
             "processing",
             "uploading",
-            "validating",
-            "uploaded",
+            "released",
         },
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_size", "file_format", "md5sum"})
+    @psqlgraph.pg_property(str, enum={"file_format", "md5sum", "file_size"})
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 

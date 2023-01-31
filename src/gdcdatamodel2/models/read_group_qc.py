@@ -192,19 +192,19 @@ class ReadGroupQc(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "md5summing",
-            "released",
-            "invalid",
+            "validating",
+            "suppressed",
             "live",
             "submitted",
-            "md5summed",
-            "uploading",
-            "validating",
-            "redacted",
+            "error",
+            "validated",
+            "md5summing",
             "uploaded",
-            "suppressed",
+            "uploading",
+            "released",
+            "md5summed",
+            "redacted",
+            "invalid",
         },
     )
     def state(self, value):
@@ -214,11 +214,11 @@ class ReadGroupQc(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -230,19 +230,19 @@ class ReadGroupQc(base.Node):
     def workflow_version(self, value):
         self._set_property("workflow_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def workflow_start_datetime(self, value):
         self._set_property("workflow_start_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def adapter_content(self, value):
         self._set_property("adapter_content", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def basic_statistics(self, value):
         self._set_property("basic_statistics", value)  # type: ignore  # inherited from CommonBase
 
@@ -254,35 +254,35 @@ class ReadGroupQc(base.Node):
     def fastq_name(self, value):
         self._set_property("fastq_name", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def kmer_content(self, value):
         self._set_property("kmer_content", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def overrepresented_sequences(self, value):
         self._set_property("overrepresented_sequences", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def per_base_sequence_quality(self, value):
         self._set_property("per_base_sequence_quality", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def per_tile_sequence_quality(self, value):
         self._set_property("per_tile_sequence_quality", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def per_sequence_quality_score(self, value):
         self._set_property("per_sequence_quality_score", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def per_base_sequence_content(self, value):
         self._set_property("per_base_sequence_content", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def per_sequence_gc_content(self, value):
         self._set_property("per_sequence_gc_content", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def per_base_n_content(self, value):
         self._set_property("per_base_n_content", value)  # type: ignore  # inherited from CommonBase
 
@@ -290,11 +290,11 @@ class ReadGroupQc(base.Node):
     def percent_gc_content(self, value):
         self._set_property("percent_gc_content", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def sequence_length_distribution(self, value):
         self._set_property("sequence_length_distribution", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FAIL", "Unknown", "Not Reported", "PASS", "WARN"})
+    @psqlgraph.pg_property(str, enum={"Unknown", "WARN", "PASS", "Not Reported", "FAIL"})
     def sequence_duplication_levels(self, value):
         self._set_property("sequence_duplication_levels", value)  # type: ignore  # inherited from CommonBase
 

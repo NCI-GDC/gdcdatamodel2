@@ -250,19 +250,19 @@ class Aliquot(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "md5summing",
-            "released",
-            "invalid",
+            "validating",
+            "suppressed",
             "live",
             "submitted",
-            "md5summed",
-            "uploading",
-            "validating",
-            "redacted",
+            "error",
+            "validated",
+            "md5summing",
             "uploaded",
-            "suppressed",
+            "uploading",
+            "released",
+            "md5summed",
+            "redacted",
+            "invalid",
         },
     )
     def state(self, value):
@@ -272,52 +272,52 @@ class Aliquot(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def aliquot_quantity(self, value):
         self._set_property("aliquot_quantity", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def aliquot_volume(self, value):
         self._set_property("aliquot_volume", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def amount(self, value):
         self._set_property("amount", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "m6A Enriched RNA",
-            "Total RNA",
-            "cfDNA",
-            "FFPE RNA",
             "Nuclei RNA",
-            "EBV Immortalized Normal",
-            "Repli-G Pooled (Qiagen) DNA",
-            "Repli-G (Qiagen) DNA",
-            "Repli-G X (Qiagen) DNA",
-            "DNA",
-            "GenomePlex (Rubicon) Amplified DNA",
-            "FFPE DNA",
             "RNA",
+            "Repli-G (Qiagen) DNA",
+            "FFPE DNA",
+            "Repli-G Pooled (Qiagen) DNA",
+            "Total RNA",
+            "GenomePlex (Rubicon) Amplified DNA",
+            "m6A Enriched RNA",
+            "FFPE RNA",
+            "EBV Immortalized Normal",
+            "DNA",
+            "Repli-G X (Qiagen) DNA",
+            "cfDNA",
         },
     )
     def analyte_type(self, value):
         self._set_property("analyte_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"E", "T", "G", "H", "D", "S", "W", "X", "Y", "R"})
+    @psqlgraph.pg_property(str, enum={"R", "H", "W", "S", "T", "X", "E", "D", "G", "Y"})
     def analyte_type_id(self, value):
         self._set_property("analyte_type_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def concentration(self, value):
         self._set_property("concentration", value)  # type: ignore  # inherited from CommonBase
 

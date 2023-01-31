@@ -200,19 +200,19 @@ class Analyte(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "md5summing",
-            "released",
-            "invalid",
+            "validating",
+            "suppressed",
             "live",
             "submitted",
-            "md5summed",
-            "uploading",
-            "validating",
-            "redacted",
+            "error",
+            "validated",
+            "md5summing",
             "uploaded",
-            "suppressed",
+            "uploading",
+            "released",
+            "md5summed",
+            "redacted",
+            "invalid",
         },
     )
     def state(self, value):
@@ -222,90 +222,90 @@ class Analyte(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def a260_a280_ratio(self, value):
         self._set_property("a260_a280_ratio", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def amount(self, value):
         self._set_property("amount", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def analyte_quantity(self, value):
         self._set_property("analyte_quantity", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "m6A Enriched RNA",
-            "Total RNA",
-            "cfDNA",
-            "FFPE RNA",
             "Nuclei RNA",
-            "EBV Immortalized Normal",
-            "Repli-G Pooled (Qiagen) DNA",
-            "Repli-G (Qiagen) DNA",
-            "Repli-G X (Qiagen) DNA",
-            "DNA",
-            "GenomePlex (Rubicon) Amplified DNA",
-            "FFPE DNA",
             "RNA",
+            "Repli-G (Qiagen) DNA",
+            "FFPE DNA",
+            "Repli-G Pooled (Qiagen) DNA",
+            "Total RNA",
+            "GenomePlex (Rubicon) Amplified DNA",
+            "m6A Enriched RNA",
+            "FFPE RNA",
+            "EBV Immortalized Normal",
+            "DNA",
+            "Repli-G X (Qiagen) DNA",
+            "cfDNA",
         },
     )
     def analyte_type(self, value):
         self._set_property("analyte_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"E", "T", "G", "H", "D", "S", "W", "X", "Y", "R"})
+    @psqlgraph.pg_property(str, enum={"R", "H", "W", "S", "T", "X", "E", "D", "G", "Y"})
     def analyte_type_id(self, value):
         self._set_property("analyte_type_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def analyte_volume(self, value):
         self._set_property("analyte_volume", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def concentration(self, value):
         self._set_property("concentration", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "mirVana (Allprep DNA) RNA",
-            "aDNA Preparation Type",
             "Allprep RNA Extraction",
-            "Total RNA",
-            "HighPure miRNA (Allprep DNA) FFPE RNA",
-            "Chemical Lysis DNA Extraction",
-            "Pre-extracted DNA received by TSS",
-            "nRNA - Melanoma Protocol",
-            "Repli-G",
             "Allprep FFPE DNA",
-            "Repli-G X",
+            "nRNA - Melanoma Protocol",
+            "Chemical Lysis DNA Extraction",
+            "Repli-G",
+            "Total RNA",
             "Genomplex",
+            "mirVana (Allprep DNA) RNA",
+            "Repli-G X",
+            "Pre-extracted DNA received by TSS",
+            "HighPure miRNA (Allprep DNA) FFPE RNA",
+            "aDNA Preparation Type",
         },
     )
     def experimental_protocol_type(self, value):
         self._set_property("experimental_protocol_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum={"Unknown", "Yes", "Not Reported", "No", "Not Allowed To Collect"}
+        str, enum={"Yes", "Unknown", "Not Reported", "No", "Not Allowed To Collect"}
     )
     def normal_tumor_genotype_snp_match(self, value):
         self._set_property("normal_tumor_genotype_snp_match", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def ribosomal_rna_28s_16s_ratio(self, value):
         self._set_property("ribosomal_rna_28s_16s_ratio", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def rna_integrity_number(self, value):
         self._set_property("rna_integrity_number", value)  # type: ignore  # inherited from CommonBase
 

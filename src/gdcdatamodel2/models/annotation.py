@@ -583,19 +583,19 @@ class Annotation(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "md5summing",
-            "released",
-            "invalid",
+            "validating",
+            "suppressed",
             "live",
             "submitted",
-            "md5summed",
-            "uploading",
-            "validating",
-            "redacted",
+            "error",
+            "validated",
+            "md5summing",
             "uploaded",
-            "suppressed",
+            "uploading",
+            "released",
+            "md5summed",
+            "redacted",
+            "invalid",
         },
     )
     def state(self, value):
@@ -605,59 +605,59 @@ class Annotation(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "Tumor tissue origin incorrect",
-            "Clinical data insufficient",
-            "Genotype mismatch",
-            "BCR Notification",
-            "Item flagged DNU",
-            "Normal class but appears diseased",
-            "Center QC failed",
-            "Item Flagged Low Quality",
-            "Alternate sample pipeline",
-            "WGA Failure",
-            "General",
-            "History of acceptable prior treatment related to a prior/other malignancy",
-            "Barcode incorrect",
             "New notification type",
-            "Acceptable treatment for TCGA tumor",
-            "Observation",
-            "Permanently missing item or object",
-            "Subject withdrew consent",
-            "Normal tissue origin incorrect",
-            "Prior malignancy",
-            "Duplicate item",
-            "Qualification metrics changed",
-            "Sample compromised",
-            "Subject identity unknown",
-            "Molecular analysis outside specification",
-            "Case submitted is found to be a recurrence after submission",
-            "Biospecimen identity unknown",
-            "Duplicate case",
-            "Item may not meet study protocol",
-            "Neoadjuvant therapy",
-            "New observation type",
-            "Administrative Compliance",
             "History of unacceptable prior treatment related to a prior/other malignancy",
-            "Synchronous malignancy",
-            "Item does not meet study protocol",
-            "Pathology outside specification",
-            "Qualified in error",
-            "Item is noncanonical",
             "Tumor type incorrect",
+            "Subject withdrew consent",
             "Tumor class but appears normal",
-            "Item in special subset",
+            "Qualified in error",
+            "New observation type",
+            "Pathology outside specification",
+            "Item does not meet study protocol",
+            "Administrative Compliance",
+            "Synchronous malignancy",
+            "Acceptable treatment for TCGA tumor",
+            "Item is noncanonical",
+            "Genotype mismatch",
+            "Sample compromised",
+            "Case submitted is found to be a recurrence after submission",
+            "Qualification metrics changed",
+            "Duplicate case",
             "Inadvertently shipped",
+            "Prior malignancy",
+            "Molecular analysis outside specification",
+            "Alternate sample pipeline",
+            "Permanently missing item or object",
+            "Observation",
+            "Duplicate item",
+            "Item flagged DNU",
+            "BCR Notification",
+            "Item may not meet study protocol",
+            "WGA Failure",
+            "Subject identity unknown",
+            "Neoadjuvant therapy",
+            "General",
+            "Item in special subset",
+            "Item Flagged Low Quality",
+            "Center QC failed",
+            "Barcode incorrect",
+            "History of acceptable prior treatment related to a prior/other malignancy",
+            "Biospecimen identity unknown",
+            "Normal class but appears diseased",
+            "Clinical data insufficient",
+            "Normal tissue origin incorrect",
+            "Tumor tissue origin incorrect",
         },
     )
     def category(self, value):
@@ -666,13 +666,13 @@ class Annotation(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
+            "CenterNotification",
             "Complete Data Freeze",
+            "Blocking Release",
+            "Observation",
+            "Downstream Data Freeze",
             "Notification",
             "Redaction",
-            "Downstream Data Freeze",
-            "Observation",
-            "CenterNotification",
-            "Blocking Release",
         },
     )
     def classification(self, value):
@@ -686,15 +686,15 @@ class Annotation(base.Node):
     def notes(self, value):
         self._set_property("notes", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Rescinded", "Approved"})
+    @psqlgraph.pg_property(str, enum={"Approved", "Rescinded"})
     def status(self, value):
         self._set_property("status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def legacy_created_datetime(self, value):
         self._set_property("legacy_created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def legacy_updated_datetime(self, value):
         self._set_property("legacy_updated_datetime", value)  # type: ignore  # inherited from CommonBase
 

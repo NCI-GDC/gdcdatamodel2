@@ -167,19 +167,19 @@ class Clinical(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "md5summing",
-            "released",
-            "invalid",
+            "validating",
+            "suppressed",
             "live",
             "submitted",
-            "md5summed",
-            "uploading",
-            "validating",
-            "redacted",
+            "error",
+            "validated",
+            "md5summing",
             "uploaded",
-            "suppressed",
+            "uploading",
+            "released",
+            "md5summed",
+            "redacted",
+            "invalid",
         },
     )
     def state(self, value):
@@ -189,27 +189,27 @@ class Clinical(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def age_at_diagnosis(self, value):
         self._set_property("age_at_diagnosis", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def days_to_death(self, value):
         self._set_property("days_to_death", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"female", "unknown", "unspecified", "male"})
+    @psqlgraph.pg_property(str, enum={"female", "male", "unspecified", "unknown"})
     def gender(self, value):
         self._set_property("gender", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"hispanic or latino", "not hispanic or latino"})
+    @psqlgraph.pg_property(str, enum={"not hispanic or latino", "hispanic or latino"})
     def ethnicity(self, value):
         self._set_property("ethnicity", value)  # type: ignore  # inherited from CommonBase
 
@@ -221,22 +221,22 @@ class Clinical(base.Node):
         str,
         enum={
             "white",
-            "native hawaiian or other pacific islander",
             "other",
-            "black or african american",
-            "american indian or alaska native",
+            "native hawaiian or other pacific islander",
             "asian",
             "not reported",
+            "black or african american",
+            "american indian or alaska native",
         },
     )
     def race(self, value):
         self._set_property("race", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"lost to follow-up", "dead", "alive"})
+    @psqlgraph.pg_property(str, enum={"dead", "lost to follow-up", "alive"})
     def vital_status(self, value):
         self._set_property("vital_status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+    @psqlgraph.pg_property(int, float)
     def year_of_diagnosis(self, value):
         self._set_property("year_of_diagnosis", value)  # type: ignore  # inherited from CommonBase
 

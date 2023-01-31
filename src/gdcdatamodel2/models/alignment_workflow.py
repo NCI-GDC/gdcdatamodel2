@@ -184,19 +184,19 @@ class AlignmentWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "md5summing",
-            "released",
-            "invalid",
+            "validating",
+            "suppressed",
             "live",
             "submitted",
-            "md5summed",
-            "uploading",
-            "validating",
-            "redacted",
+            "error",
+            "validated",
+            "md5summing",
             "uploaded",
-            "suppressed",
+            "uploading",
+            "released",
+            "md5summed",
+            "redacted",
+            "invalid",
         },
     )
     def state(self, value):
@@ -206,11 +206,11 @@ class AlignmentWorkflow(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -222,29 +222,29 @@ class AlignmentWorkflow(base.Node):
     def workflow_version(self, value):
         self._set_property("workflow_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def workflow_start_datetime(self, value):
         self._set_property("workflow_start_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum={
-            "STAR 2-Pass",
-            "CellRanger - 10x Chromium",
-            "BWA",
-            "BWA-mem",
             "STAR - Smart-Seq2",
-            "STAR 2-Pass Genome",
-            "BWA-aln",
+            "CellRanger - 10x Chromium",
             "zUMIs - Smart-Seq2",
-            "STAR 2-Pass Transcriptome",
             "BWA with BQSR",
-            "BWA with Mark Duplicates and BQSR",
             "STAR 2-Pass Chimeric",
+            "STAR 2-Pass Genome",
+            "BWA with Mark Duplicates and BQSR",
+            "BWA-aln",
+            "BWA-mem",
+            "BWA",
+            "STAR 2-Pass",
+            "STAR 2-Pass Transcriptome",
         },
     )
     def workflow_type(self, value):

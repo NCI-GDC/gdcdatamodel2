@@ -192,19 +192,19 @@ class SomaticAggregationWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum={
-            "validated",
-            "error",
-            "md5summing",
-            "released",
-            "invalid",
+            "validating",
+            "suppressed",
             "live",
             "submitted",
-            "md5summed",
-            "uploading",
-            "validating",
-            "redacted",
+            "error",
+            "validated",
+            "md5summing",
             "uploaded",
-            "suppressed",
+            "uploading",
+            "released",
+            "md5summed",
+            "redacted",
+            "invalid",
         },
     )
     def state(self, value):
@@ -214,11 +214,11 @@ class SomaticAggregationWorkflow(base.Node):
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -230,11 +230,11 @@ class SomaticAggregationWorkflow(base.Node):
     def workflow_version(self, value):
         self._set_property("workflow_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def workflow_start_datetime(self, value):
         self._set_property("workflow_start_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(type(None), str)
+    @psqlgraph.pg_property(str, type(None))
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
@@ -242,14 +242,14 @@ class SomaticAggregationWorkflow(base.Node):
         str,
         enum={
             "FoundationOne Variant Aggregation and Masking",
-            "Aliquot Ensemble Somatic Variant Merging and Masking",
-            "MuSE Variant Aggregation and Masking",
-            "VarScan2 Variant Aggregation and Masking",
-            "Pindel Variant Aggregation and Masking",
-            "SomaticSniper Variant Aggregation and Masking",
             "MuTect2 Variant Aggregation and Masking",
+            "VarScan2 Variant Aggregation and Masking",
             "CaVEMan Variant Aggregation and Masking",
+            "MuSE Variant Aggregation and Masking",
             "GENIE Variant Aggregation and Masking",
+            "Pindel Variant Aggregation and Masking",
+            "Aliquot Ensemble Somatic Variant Merging and Masking",
+            "SomaticSniper Variant Aggregation and Masking",
         },
     )
     def workflow_type(self, value):
