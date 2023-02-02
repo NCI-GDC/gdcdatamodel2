@@ -249,21 +249,21 @@ class Aliquot(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -280,44 +280,44 @@ class Aliquot(base.Node):
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def aliquot_quantity(self, value):
         self._set_property("aliquot_quantity", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def aliquot_volume(self, value):
         self._set_property("aliquot_volume", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def amount(self, value):
         self._set_property("amount", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum={
+        enum=[
+            "DNA",
+            "EBV Immortalized Normal",
+            "FFPE DNA",
+            "FFPE RNA",
+            "GenomePlex (Rubicon) Amplified DNA",
             "Nuclei RNA",
             "RNA",
             "Repli-G (Qiagen) DNA",
-            "FFPE DNA",
             "Repli-G Pooled (Qiagen) DNA",
-            "Total RNA",
-            "GenomePlex (Rubicon) Amplified DNA",
-            "m6A Enriched RNA",
-            "FFPE RNA",
-            "EBV Immortalized Normal",
-            "DNA",
             "Repli-G X (Qiagen) DNA",
+            "Total RNA",
             "cfDNA",
-        },
+            "m6A Enriched RNA",
+        ],
     )
     def analyte_type(self, value):
         self._set_property("analyte_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"R", "H", "W", "S", "T", "X", "E", "D", "G", "Y"})
+    @psqlgraph.pg_property(str, enum=["D", "E", "G", "H", "R", "S", "T", "W", "X", "Y"])
     def analyte_type_id(self, value):
         self._set_property("analyte_type_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def concentration(self, value):
         self._set_property("concentration", value)  # type: ignore  # inherited from CommonBase
 

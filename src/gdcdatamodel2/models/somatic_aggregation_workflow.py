@@ -191,21 +191,21 @@ class SomaticAggregationWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -240,17 +240,17 @@ class SomaticAggregationWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "FoundationOne Variant Aggregation and Masking",
-            "MuTect2 Variant Aggregation and Masking",
-            "VarScan2 Variant Aggregation and Masking",
-            "CaVEMan Variant Aggregation and Masking",
-            "MuSE Variant Aggregation and Masking",
-            "GENIE Variant Aggregation and Masking",
-            "Pindel Variant Aggregation and Masking",
+        enum=[
             "Aliquot Ensemble Somatic Variant Merging and Masking",
+            "CaVEMan Variant Aggregation and Masking",
+            "FoundationOne Variant Aggregation and Masking",
+            "GENIE Variant Aggregation and Masking",
+            "MuSE Variant Aggregation and Masking",
+            "MuTect2 Variant Aggregation and Masking",
+            "Pindel Variant Aggregation and Masking",
             "SomaticSniper Variant Aggregation and Masking",
-        },
+            "VarScan2 Variant Aggregation and Masking",
+        ],
     )
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase

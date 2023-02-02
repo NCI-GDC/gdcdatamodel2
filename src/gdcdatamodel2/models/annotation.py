@@ -582,21 +582,21 @@ class Annotation(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -615,65 +615,65 @@ class Annotation(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "New notification type",
-            "History of unacceptable prior treatment related to a prior/other malignancy",
-            "Tumor type incorrect",
-            "Subject withdrew consent",
-            "Tumor class but appears normal",
-            "Qualified in error",
-            "New observation type",
-            "Pathology outside specification",
-            "Item does not meet study protocol",
-            "Administrative Compliance",
-            "Synchronous malignancy",
+        enum=[
             "Acceptable treatment for TCGA tumor",
-            "Item is noncanonical",
-            "Genotype mismatch",
-            "Sample compromised",
-            "Case submitted is found to be a recurrence after submission",
-            "Qualification metrics changed",
-            "Duplicate case",
-            "Inadvertently shipped",
-            "Prior malignancy",
-            "Molecular analysis outside specification",
+            "Administrative Compliance",
             "Alternate sample pipeline",
-            "Permanently missing item or object",
-            "Observation",
-            "Duplicate item",
-            "Item flagged DNU",
             "BCR Notification",
-            "Item may not meet study protocol",
-            "WGA Failure",
-            "Subject identity unknown",
-            "Neoadjuvant therapy",
-            "General",
-            "Item in special subset",
-            "Item Flagged Low Quality",
-            "Center QC failed",
             "Barcode incorrect",
-            "History of acceptable prior treatment related to a prior/other malignancy",
             "Biospecimen identity unknown",
-            "Normal class but appears diseased",
+            "Case submitted is found to be a recurrence after submission",
+            "Center QC failed",
             "Clinical data insufficient",
+            "Duplicate case",
+            "Duplicate item",
+            "General",
+            "Genotype mismatch",
+            "History of acceptable prior treatment related to a prior/other malignancy",
+            "History of unacceptable prior treatment related to a prior/other malignancy",
+            "Inadvertently shipped",
+            "Item Flagged Low Quality",
+            "Item does not meet study protocol",
+            "Item flagged DNU",
+            "Item in special subset",
+            "Item is noncanonical",
+            "Item may not meet study protocol",
+            "Molecular analysis outside specification",
+            "Neoadjuvant therapy",
+            "New notification type",
+            "New observation type",
+            "Normal class but appears diseased",
             "Normal tissue origin incorrect",
+            "Observation",
+            "Pathology outside specification",
+            "Permanently missing item or object",
+            "Prior malignancy",
+            "Qualification metrics changed",
+            "Qualified in error",
+            "Sample compromised",
+            "Subject identity unknown",
+            "Subject withdrew consent",
+            "Synchronous malignancy",
+            "Tumor class but appears normal",
             "Tumor tissue origin incorrect",
-        },
+            "Tumor type incorrect",
+            "WGA Failure",
+        ],
     )
     def category(self, value):
         self._set_property("category", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum={
+        enum=[
+            "Blocking Release",
             "CenterNotification",
             "Complete Data Freeze",
-            "Blocking Release",
-            "Observation",
             "Downstream Data Freeze",
             "Notification",
+            "Observation",
             "Redaction",
-        },
+        ],
     )
     def classification(self, value):
         self._set_property("classification", value)  # type: ignore  # inherited from CommonBase
@@ -686,7 +686,7 @@ class Annotation(base.Node):
     def notes(self, value):
         self._set_property("notes", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Approved", "Rescinded"})
+    @psqlgraph.pg_property(str, enum=["Approved", "Rescinded"])
     def status(self, value):
         self._set_property("status", value)  # type: ignore  # inherited from CommonBase
 

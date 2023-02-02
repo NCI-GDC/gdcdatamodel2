@@ -194,21 +194,21 @@ class RunMetadata(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -239,24 +239,24 @@ class RunMetadata(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "submitted",
-            "error",
+        enum=[
             "deleted",
-            "validated",
+            "error",
             "processed",
-            "uploaded",
-            "registered",
             "processing",
-            "uploading",
+            "registered",
             "released",
-        },
+            "submitted",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
+        ],
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "md5sum", "file_size"})
+    @psqlgraph.pg_property(str, enum=["file_format", "file_size", "md5sum"])
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -264,15 +264,15 @@ class RunMetadata(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Sequencing Data", "Raw Sequencing Data"})
+    @psqlgraph.pg_property(str, enum=["Raw Sequencing Data", "Sequencing Data"])
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Run Metadata"})
+    @psqlgraph.pg_property(str, enum=["Run Metadata"])
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"SRA XML"})
+    @psqlgraph.pg_property(str, enum=["SRA XML"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 

@@ -187,21 +187,21 @@ class SlideImage(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -232,24 +232,24 @@ class SlideImage(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "submitted",
-            "error",
+        enum=[
             "deleted",
-            "validated",
+            "error",
             "processed",
-            "uploaded",
-            "registered",
             "processing",
-            "uploading",
+            "registered",
             "released",
-        },
+            "submitted",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
+        ],
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "md5sum", "file_size"})
+    @psqlgraph.pg_property(str, enum=["file_format", "file_size", "md5sum"])
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -257,21 +257,21 @@ class SlideImage(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Biospecimen"})
+    @psqlgraph.pg_property(str, enum=["Biospecimen"])
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum={"Cell Culture Image", "Tissue Microarray Image", "Slide Image"}
+        str, enum=["Cell Culture Image", "Slide Image", "Tissue Microarray Image"]
     )
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"TIFF", "SVS", "JPEG 2000", "JPEG"})
+    @psqlgraph.pg_property(str, enum=["JPEG", "JPEG 2000", "SVS", "TIFF"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Cell Culture", "Tissue Slide", "Diagnostic Slide"})
+    @psqlgraph.pg_property(str, enum=["Cell Culture", "Diagnostic Slide", "Tissue Slide"])
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 
@@ -279,12 +279,12 @@ class SlideImage(base.Node):
     def imaging_date(self, value):
         self._set_property("imaging_date", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def magnification(self, value):
         self._set_property("magnification", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum={"Haemotoxylin and Eosin (H&E)", "Immunohistochemistry (IHC)"}
+        str, enum=["Haemotoxylin and Eosin (H&E)", "Immunohistochemistry (IHC)"]
     )
     def stain_type(self, value):
         self._set_property("stain_type", value)  # type: ignore  # inherited from CommonBase

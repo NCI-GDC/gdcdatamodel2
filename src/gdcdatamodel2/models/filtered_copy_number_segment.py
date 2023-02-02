@@ -187,21 +187,21 @@ class FilteredCopyNumberSegment(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -232,24 +232,24 @@ class FilteredCopyNumberSegment(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "submitted",
-            "error",
+        enum=[
             "deleted",
-            "validated",
+            "error",
             "processed",
-            "uploaded",
-            "registered",
             "processing",
-            "uploading",
+            "registered",
             "released",
-        },
+            "submitted",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
+        ],
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "md5sum", "file_size"})
+    @psqlgraph.pg_property(str, enum=["file_format", "file_size", "md5sum"])
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -257,19 +257,19 @@ class FilteredCopyNumberSegment(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Copy Number Variation"})
+    @psqlgraph.pg_property(str, enum=["Copy Number Variation"])
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Masked Copy Number Segment", "Copy Number Segment"})
+    @psqlgraph.pg_property(str, enum=["Copy Number Segment", "Masked Copy Number Segment"])
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"TXT"})
+    @psqlgraph.pg_property(str, enum=["TXT"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Genotyping Array"})
+    @psqlgraph.pg_property(str, enum=["Genotyping Array"])
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 

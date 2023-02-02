@@ -196,21 +196,21 @@ class SubmittedGenomicProfile(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -241,24 +241,24 @@ class SubmittedGenomicProfile(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "submitted",
-            "error",
+        enum=[
             "deleted",
-            "validated",
+            "error",
             "processed",
-            "uploaded",
-            "registered",
             "processing",
-            "uploading",
+            "registered",
             "released",
-        },
+            "submitted",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
+        ],
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "md5sum", "file_size"})
+    @psqlgraph.pg_property(str, enum=["file_format", "file_size", "md5sum"])
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -266,30 +266,30 @@ class SubmittedGenomicProfile(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Combined Nucleotide Variation", "Genomic Profiling"})
+    @psqlgraph.pg_property(str, enum=["Combined Nucleotide Variation", "Genomic Profiling"])
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"FoundationOne Report", "Raw CGI Variant", "GENIE Report"})
+    @psqlgraph.pg_property(str, enum=["FoundationOne Report", "GENIE Report", "Raw CGI Variant"])
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"TSV", "MAF", "XML", "VCF"})
+    @psqlgraph.pg_property(str, enum=["MAF", "TSV", "VCF", "XML"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "Targeted Sequencing",
-            "miRNA-Seq",
-            "WXS",
+        enum=[
             "ATAC-Seq",
-            "RNA-Seq",
-            "WGS",
-            "ChIP-Seq",
             "Bisulfite-Seq",
-        },
+            "ChIP-Seq",
+            "RNA-Seq",
+            "Targeted Sequencing",
+            "WGS",
+            "WXS",
+            "miRNA-Seq",
+        ],
     )
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase

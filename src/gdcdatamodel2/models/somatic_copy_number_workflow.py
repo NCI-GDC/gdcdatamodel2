@@ -199,21 +199,21 @@ class SomaticCopyNumberWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -247,7 +247,7 @@ class SomaticCopyNumberWorkflow(base.Node):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum={"GATK4 CNV", "ASCAT2", "ABSOLUTE LiftOver", "ASCAT3", "AscatNGS"}
+        str, enum=["ABSOLUTE LiftOver", "ASCAT2", "ASCAT3", "AscatNGS", "GATK4 CNV"]
     )
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase

@@ -207,21 +207,21 @@ class Slide(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -238,7 +238,7 @@ class Slide(base.Node):
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Yes", "No", "Unknown", "Not Reported"})
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def bone_marrow_malignant_cells(self, value):
         self._set_property("bone_marrow_malignant_cells", value)  # type: ignore  # inherited from CommonBase
 
@@ -246,71 +246,71 @@ class Slide(base.Node):
     def number_proliferating_cells(self, value):
         self._set_property("number_proliferating_cells", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_follicular_component(self, value):
         self._set_property("percent_follicular_component", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_rhabdoid_features(self, value):
         self._set_property("percent_rhabdoid_features", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_sarcomatoid_features(self, value):
         self._set_property("percent_sarcomatoid_features", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_tumor_cells(self, value):
         self._set_property("percent_tumor_cells", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_tumor_nuclei(self, value):
         self._set_property("percent_tumor_nuclei", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_normal_cells(self, value):
         self._set_property("percent_normal_cells", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_necrosis(self, value):
         self._set_property("percent_necrosis", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_stromal_cells(self, value):
         self._set_property("percent_stromal_cells", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_inflam_infiltration(self, value):
         self._set_property("percent_inflam_infiltration", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_lymphocyte_infiltration(self, value):
         self._set_property("percent_lymphocyte_infiltration", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_monocyte_infiltration(self, value):
         self._set_property("percent_monocyte_infiltration", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_granulocyte_infiltration(self, value):
         self._set_property("percent_granulocyte_infiltration", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_neutrophil_infiltration(self, value):
         self._set_property("percent_neutrophil_infiltration", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def percent_eosinophil_infiltration(self, value):
         self._set_property("percent_eosinophil_infiltration", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def prostatic_chips_positive_count(self, value):
         self._set_property("prostatic_chips_positive_count", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def prostatic_chips_total_count(self, value):
         self._set_property("prostatic_chips_total_count", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int, float)
+    @psqlgraph.pg_property(float, int)
     def prostatic_involvement_percent(self, value):
         self._set_property("prostatic_involvement_percent", value)  # type: ignore  # inherited from CommonBase
 

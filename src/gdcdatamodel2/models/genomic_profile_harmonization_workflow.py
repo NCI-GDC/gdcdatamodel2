@@ -215,21 +215,21 @@ class GenomicProfileHarmonizationWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -264,16 +264,16 @@ class GenomicProfileHarmonizationWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "GENIE Simple Somatic Mutation",
+        enum=[
+            "FM Copy Number Variation",
+            "FM Simple Somatic Mutation",
             "FM Structural Variation",
             "GENIE Copy Number Variation",
-            "VCF LiftOver",
-            "MuTect2",
-            "FM Copy Number Variation",
+            "GENIE Simple Somatic Mutation",
             "GENIE Structural Variation",
-            "FM Simple Somatic Mutation",
-        },
+            "MuTect2",
+            "VCF LiftOver",
+        ],
     )
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase

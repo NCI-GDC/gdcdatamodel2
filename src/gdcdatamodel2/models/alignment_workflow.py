@@ -183,21 +183,21 @@ class AlignmentWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -232,20 +232,20 @@ class AlignmentWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "STAR - Smart-Seq2",
-            "CellRanger - 10x Chromium",
-            "zUMIs - Smart-Seq2",
+        enum=[
+            "BWA",
             "BWA with BQSR",
-            "STAR 2-Pass Chimeric",
-            "STAR 2-Pass Genome",
             "BWA with Mark Duplicates and BQSR",
             "BWA-aln",
             "BWA-mem",
-            "BWA",
+            "CellRanger - 10x Chromium",
+            "STAR - Smart-Seq2",
             "STAR 2-Pass",
+            "STAR 2-Pass Chimeric",
+            "STAR 2-Pass Genome",
             "STAR 2-Pass Transcriptome",
-        },
+            "zUMIs - Smart-Seq2",
+        ],
     )
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase

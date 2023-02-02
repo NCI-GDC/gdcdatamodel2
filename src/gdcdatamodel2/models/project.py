@@ -237,15 +237,15 @@ class Project(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "open",
-            "submitted",
-            "review",
+        enum=[
             "closed",
             "legacy",
+            "open",
             "processed",
             "processing",
-        },
+            "review",
+            "submitted",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase

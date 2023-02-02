@@ -187,21 +187,21 @@ class MirnaExpression(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -232,24 +232,24 @@ class MirnaExpression(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "submitted",
-            "error",
+        enum=[
             "deleted",
-            "validated",
+            "error",
             "processed",
-            "uploaded",
-            "registered",
             "processing",
-            "uploading",
+            "registered",
             "released",
-        },
+            "submitted",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
+        ],
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"file_format", "md5sum", "file_size"})
+    @psqlgraph.pg_property(str, enum=["file_format", "file_size", "md5sum"])
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -257,26 +257,26 @@ class MirnaExpression(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"Transcriptome Profiling"})
+    @psqlgraph.pg_property(str, enum=["Transcriptome Profiling"])
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "miRNA Expression Quantification",
-            "Supplementary Files",
+        enum=[
             "Isoform Expression Quantification",
-        },
+            "Supplementary Files",
+            "miRNA Expression Quantification",
+        ],
     )
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"TSV", "CSV", "TXT"})
+    @psqlgraph.pg_property(str, enum=["CSV", "TSV", "TXT"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum={"miRNA-Seq"})
+    @psqlgraph.pg_property(str, enum=["miRNA-Seq"])
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 

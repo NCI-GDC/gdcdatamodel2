@@ -191,21 +191,21 @@ class RnaExpressionWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -240,25 +240,25 @@ class RnaExpressionWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "RNA-SeQC - Counts",
-            "STAR - Smart-Seq2 Filtered Counts",
-            "HTSeq - Counts",
-            "STAR - Smart-Seq2 Raw Counts",
+        enum=[
+            "CellRanger - 10x Filtered Counts",
             "CellRanger - 10x Raw Counts",
-            "Kallisto - Quantification",
-            "Kallisto - HDF5",
             "Cufflinks",
+            "DEXSeq",
+            "HTSeq - Counts",
+            "HTSeq - FPKM",
+            "HTSeq - FPKM-UQ",
+            "Kallisto - HDF5",
+            "Kallisto - Quantification",
+            "RNA-SeQC - Counts",
+            "RNA-SeQC - FPKM",
             "RSEM - Quantification",
             "STAR - Counts",
-            "zUMIs - Smart-Seq2 Counts",
             "STAR - FPKM",
-            "HTSeq - FPKM-UQ",
-            "DEXSeq",
-            "HTSeq - FPKM",
-            "RNA-SeQC - FPKM",
-            "CellRanger - 10x Filtered Counts",
-        },
+            "STAR - Smart-Seq2 Filtered Counts",
+            "STAR - Smart-Seq2 Raw Counts",
+            "zUMIs - Smart-Seq2 Counts",
+        ],
     )
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase

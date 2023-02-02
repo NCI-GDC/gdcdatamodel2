@@ -175,21 +175,21 @@ class SomaticMutationCallingWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "validating",
-            "suppressed",
-            "live",
-            "submitted",
+        enum=[
             "error",
-            "validated",
+            "invalid",
+            "live",
+            "md5summed",
             "md5summing",
+            "redacted",
+            "released",
+            "submitted",
+            "suppressed",
             "uploaded",
             "uploading",
-            "released",
-            "md5summed",
-            "redacted",
-            "invalid",
-        },
+            "validated",
+            "validating",
+        ],
     )
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
@@ -224,17 +224,17 @@ class SomaticMutationCallingWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum={
-            "GATK4 MuTect2",
+        enum=[
             "CaVEMan",
-            "Pindel",
+            "GATK4 MuTect2",
             "GATK4 MuTect2 Tumor-Only",
-            "MuTect2",
             "MuSE",
+            "MuTect2",
+            "Pindel",
             "SomaticSniper",
-            "VarScan2",
             "Strelka2 RNA",
-        },
+            "VarScan2",
+        ],
     )
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase
