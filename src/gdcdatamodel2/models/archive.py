@@ -218,21 +218,20 @@ class Archive(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -265,23 +264,23 @@ class Archive(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "registered",
-            "uploading",
-            "uploaded",
-            "validating",
-            "validated",
-            "submitted",
-            "processing",
-            "processed",
-            "released",
-            "error",
             "deleted",
+            "error",
+            "processed",
+            "processing",
+            "registered",
+            "released",
+            "submitted",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["file_size", "file_format", "md5sum"])
+    @psqlgraph.pg_property(str, enum=["file_format", "file_size", "md5sum"])
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -293,11 +292,11 @@ class Archive(base.Node):
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["TCGA DCC Archive", "TARGET DCC Archive"])
+    @psqlgraph.pg_property(str, enum=["TARGET DCC Archive", "TCGA DCC Archive"])
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["TARGZ", "MAGETAB"])
+    @psqlgraph.pg_property(str, enum=["MAGETAB", "TARGZ"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 

@@ -191,21 +191,20 @@ class RnaExpressionWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -256,8 +255,8 @@ class RnaExpressionWorkflow(base.Node):
             "RSEM - Quantification",
             "STAR - Counts",
             "STAR - FPKM",
-            "STAR - Smart-Seq2 Raw Counts",
             "STAR - Smart-Seq2 Filtered Counts",
+            "STAR - Smart-Seq2 Raw Counts",
             "zUMIs - Smart-Seq2 Counts",
         ],
     )

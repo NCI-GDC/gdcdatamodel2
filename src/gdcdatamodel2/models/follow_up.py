@@ -191,21 +191,20 @@ class FollowUp(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -297,12 +296,12 @@ class FollowUp(base.Node):
             "Bladder Perforation",
             "Bladder Spasm",
             "Bloating",
-            "Blood and Lymphatic System Disorders - Other",
             "Blood Antidiuretic Hormone Abnormal",
             "Blood Bilirubin Increased",
             "Blood Corticotrophin Decreased",
             "Blood Gonadotrophin Abnormal",
             "Blood Prolactin Abnormal",
+            "Blood and Lymphatic System Disorders - Other",
             "Blurred Vision",
             "Body Odor",
             "Bone Infection",
@@ -323,6 +322,8 @@ class FollowUp(base.Node):
             "Bullous Dermatitis",
             "Burn",
             "Buttock Pain",
+            "CD4 Lymphocytes Decreased",
+            "CPK Increased",
             "Capillary Leak Syndrome",
             "Carbon Monoxide Diffusing Capacity Decreased",
             "Cardiac Arrest",
@@ -331,7 +332,6 @@ class FollowUp(base.Node):
             "Cardiac Troponin T Increased",
             "Cataract",
             "Catheter Related Infection",
-            "CD4 Lymphocytes Decreased",
             "Cecal Hemorrhage",
             "Cecal Infection",
             "Central Nervous System Necrosis",
@@ -364,14 +364,13 @@ class FollowUp(base.Node):
             "Corneal Infection",
             "Corneal Ulcer",
             "Cough",
-            "CPK Increased",
             "Cranial Nerve Infection",
             "Creatinine Increased",
             "Cushingoid",
             "Cystitis Noninfective",
             "Cytokine Release Syndrome",
-            "Death Neonatal",
             "Death NOS",
+            "Death Neonatal",
             "Dehydration",
             "Delayed Orgasm",
             "Delayed Puberty",
@@ -404,8 +403,8 @@ class FollowUp(base.Node):
             "Dysphagia",
             "Dysphasia",
             "Dyspnea",
-            "Ear and Labyrinth Disorders - Other",
             "Ear Pain",
+            "Ear and Labyrinth Disorders - Other",
             "Edema Cerebral",
             "Edema Face",
             "Edema Limbs",
@@ -475,6 +474,7 @@ class FollowUp(base.Node):
             "Flushing",
             "Forced Expiratory Volume Decreased",
             "Fracture",
+            "GGT Increased",
             "Gait Disturbance",
             "Gallbladder Fistula",
             "Gallbladder Infection",
@@ -500,7 +500,6 @@ class FollowUp(base.Node):
             "General Disorders and Administration Site Conditions - Other",
             "Generalized Muscle Weakness",
             "Genital Edema",
-            "GGT Increased",
             "Gingival Pain",
             "Glaucoma",
             "Glossopharyngeal Nerve Disorder",
@@ -565,6 +564,8 @@ class FollowUp(base.Node):
             "Hypothermia",
             "Hypothyroidism",
             "Hypoxia",
+            "INR Increased",
+            "IVth Nerve Disorder",
             "Ileal Fistula",
             "Ileal Hemorrhage",
             "Ileal Obstruction",
@@ -583,7 +584,6 @@ class FollowUp(base.Node):
             "Injury to Jugular Vein",
             "Injury to Superior Vena Cava",
             "Injury, Poisoning and Procedural Complications - Other",
-            "INR Increased",
             "Insomnia",
             "Intestinal Stoma Leak",
             "Intestinal Stoma Obstruction",
@@ -614,7 +614,6 @@ class FollowUp(base.Node):
             "Irregular Menstruation",
             "Irritability",
             "Ischemia Cerebrovascular",
-            "IVth Nerve Disorder",
             "Jejunal Fistula",
             "Jejunal Hemorrhage",
             "Jejunal Obstruction",
@@ -688,8 +687,8 @@ class FollowUp(base.Node):
             "Muscle Weakness Right-Sided",
             "Muscle Weakness Trunk",
             "Muscle Weakness Upper Limb",
-            "Musculoskeletal and Connective Tissue Disorders - Other",
             "Musculoskeletal Deformity",
+            "Musculoskeletal and Connective Tissue Disorders - Other",
             "Myalgia",
             "Myelitis",
             "Myelodysplastic Syndrome",
@@ -835,10 +834,10 @@ class FollowUp(base.Node):
             "Rectal Stenosis",
             "Rectal Ulcer",
             "Recurrent Laryngeal Nerve Palsy",
-            "Renal and Urinary Disorders - Other",
             "Renal Calculi",
             "Renal Colic",
             "Renal Hemorrhage",
+            "Renal and Urinary Disorders - Other",
             "Reproductive System and Breast Disorders - Other",
             "Respiratory Failure",
             "Respiratory, Thoracic and Mediastinal Disorders - Other",
@@ -872,13 +871,13 @@ class FollowUp(base.Node):
             "Sinus Pain",
             "Sinus Tachycardia",
             "Sinusitis",
-            "Skin and Subcutaneous Tissue Disorders - Other",
             "Skin Atrophy",
             "Skin Hyperpigmentation",
             "Skin Hypopigmentation",
             "Skin Induration",
             "Skin Infection",
             "Skin Ulceration",
+            "Skin and Subcutaneous Tissue Disorders - Other",
             "Sleep Apnea",
             "Small Intestinal Anastomotic Leak",
             "Small Intestinal Mucositis",
@@ -1052,7 +1051,7 @@ class FollowUp(base.Node):
     def aids_risk_factors(self, value):
         self._set_property("aids_risk_factors", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def barretts_esophagus_goblet_cells_present(self, value):
         self._set_property("barretts_esophagus_goblet_cells_present", value)  # type: ignore  # inherited from CommonBase
 
@@ -1080,13 +1079,17 @@ class FollowUp(base.Node):
             "Homosexual Contact",
             "Intravenous Drug User",
             "None",
+            "Not Reported",
             "Transfusion Recipient",
             "Unknown",
-            "Not Reported",
         ],
     )
     def cdc_hiv_risk_factors(self, value):
         self._set_property("cdc_hiv_risk_factors", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(list)
+    def comorbidities(self, value):
+        self._set_property("comorbidities", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -1116,39 +1119,42 @@ class FollowUp(base.Node):
             "Blood Clots",
             "Bone Fracture(s)",
             "Bronchitis",
+            "CNS Infection",
+            "COPD",
             "Calcium Channel Blockers",
             "Cancer",
             "Cataracts",
             "Celiac Disease",
             "Cerebrovascular Disease",
             "Chlamydia",
+            "Chloroma",
             "Cholelithiasis",
             "Chronic Fatigue Syndrome",
+            "Chronic Pancreatitis",
             "Chronic Renal Failure",
             "Chronic Systemic Steroid Use",
             "Cirrhosis, Unknown Etiology",
             "Clonal Hematopoiesis",
-            "CNS Infection",
             "Colon Polyps",
             "Common Variable Immunodeficiency",
             "Congestive Heart Failure (CHF)",
             "Connective Tissue Disorder",
-            "COPD",
             "Coronary Artery Disease",
             "Crohn's Disease",
-            "Cryptogenic Organizing Pneumonia",
             "Cryptococcal Meningitis",
+            "Cryptogenic Organizing Pneumonia",
             "Cytomegalovirus (CMV)",
+            "DVT/PE",
             "Deep Vein Thrombosis / Thromboembolism",
             "Denys-Drash Syndrome",
-            "Dermatomyosis",
             "Depression",
+            "Dermatomyosis",
             "Diabetes",
             "Diabetes, Type II",
             "Diabetic Neuropathy",
             "Diet Controlled Diabetes",
             "Diverticulitis",
-            "DVT/PE",
+            "Down Syndrome",
             "Dyslipidemia",
             "EBV Lymphoproliferation",
             "Eczema",
@@ -1158,15 +1164,17 @@ class FollowUp(base.Node):
             "Fanconi Anemia",
             "Fibromyalgia",
             "Fibrosis",
+            "GERD",
             "Gastritis",
             "Gastroesophageal Reflux Disease",
-            "GERD",
             "Glaucoma",
             "Glycogen Storage Disease",
             "Gonadal Dysfunction",
             "Gorlin Syndrome",
             "Gout",
             "H. pylori Infection",
+            "HIV / AIDS",
+            "HUS/TTP",
             "Hashimoto's Thyroiditis",
             "Headache",
             "Heart Disease",
@@ -1181,10 +1189,8 @@ class FollowUp(base.Node):
             "Herpes",
             "Herpes Zoster",
             "High Grade Liver Dysplastic Nodule",
-            "HIV / AIDS",
             "Hodgkin Lymphoma",
             "Human Papillomavirus Infection",
-            "HUS/TTP",
             "Hypercalcemia",
             "Hypercholesterolemia",
             "Hyperglycemia",
@@ -1192,13 +1198,13 @@ class FollowUp(base.Node):
             "Hypertension",
             "Hypospadias",
             "Hypothyroidism",
+            "ITP",
             "Inflammatory Bowel Disease",
             "Insulin Controlled Diabetes",
             "Interstitial Pneumontis or ARDS",
             "Intraductal Papillary Mucinous Neoplasm",
             "Iron Overload",
             "Ischemic Heart Disease",
-            "ITP",
             "Joint Replacement",
             "Kidney Disease",
             "Li-Fraumeni Syndrome",
@@ -1218,6 +1224,7 @@ class FollowUp(base.Node):
             "Myocardial Infarction",
             "Neuroendocrine Tumor",
             "Nonalcoholic Steatohepatitis",
+            "Not Reported",
             "Obesity",
             "Organ transplant (site)",
             "Osteoarthritis",
@@ -1263,18 +1270,17 @@ class FollowUp(base.Node):
             "Turcot Syndrome",
             "Tyrosinemia",
             "Ulcerative Colitis",
+            "Unknown",
             "Urinary Tract Infection",
             "Varicella Zoster Virus",
             "Wagr Syndrome",
-            "Unknown",
-            "Not Reported",
         ],
     )
     def comorbidity(self, value):
         self._set_property("comorbidity", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum=["Histology", "Pathology", "Radiology", "Unknown", "Not Reported"]
+        str, enum=["Histology", "Not Reported", "Pathology", "Radiology", "Unknown"]
     )
     def comorbidity_method_of_diagnosis(self, value):
         self._set_property("comorbidity_method_of_diagnosis", value)  # type: ignore  # inherited from CommonBase
@@ -1286,6 +1292,10 @@ class FollowUp(base.Node):
     @psqlgraph.pg_property(int)
     def days_to_comorbidity(self, value):
         self._set_property("days_to_comorbidity", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def days_to_first_event(self, value):
+        self._set_property("days_to_first_event", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(int, type(None))
     def days_to_follow_up(self, value):
@@ -1307,6 +1317,10 @@ class FollowUp(base.Node):
     def days_to_recurrence(self, value):
         self._set_property("days_to_recurrence", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(int)
+    def days_to_risk_factor(self, value):
+        self._set_property("days_to_risk_factor", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -1316,12 +1330,12 @@ class FollowUp(base.Node):
             "Injected Insulin",
             "Insulin",
             "Linagliptin",
+            "Not Reported",
             "Oral Hypoglycemic",
             "Other",
             "Sulfonylurea",
             "Thiazolidinedione",
             "Unknown",
-            "Not Reported",
         ],
     )
     def diabetes_treatment_type(self, value):
@@ -1340,9 +1354,10 @@ class FollowUp(base.Node):
             "IPD-Immunoprogression",
             "MR-Minimal/Marginal response",
             "MX-Mixed Response",
-            "Non-CR/Non-PD-Non-CR/Non-PD",
             "NPB-No Palliative Benefit",
             "NR-No Response",
+            "Non-CR/Non-PD-Non-CR/Non-PD",
+            "Not Reported",
             "PA-Palliative Therapy",
             "PB-Palliative Benefit",
             "PD-Progressive Disease",
@@ -1354,15 +1369,14 @@ class FollowUp(base.Node):
             "RD-Responsive Disease",
             "RP-Response",
             "RPD-Radiographic Progressive Disease",
-            "sCR-Stringent Complete Response",
             "SD-Stable Disease",
             "SPD-Surgical Progression",
             "TE-Too Early",
             "TF-Tumor Free",
+            "Unknown",
             "VGPR-Very Good Partial Response",
             "WT-With Tumor",
-            "Unknown",
-            "Not Reported",
+            "sCR-Stringent Complete Response",
         ],
     )
     def disease_response(self, value):
@@ -1372,15 +1386,20 @@ class FollowUp(base.Node):
     def dlco_ref_predictive_percent(self, value):
         self._set_property("dlco_ref_predictive_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["0", "1", "2", "3", "4", "5", "Unknown", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["0", "1", "2", "3", "4", "5", "Not Reported", "Unknown"])
     def ecog_performance_status(self, value):
         self._set_property("ecog_performance_status", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Convincing Image Source", "Histologic Confirmation"])
+    def evidence_of_progression_type(self, value):
+        self._set_property("evidence_of_progression_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum=[
             "Biopsy with Histologic Confirmation",
             "Convincing Image Source",
+            "Histologic Confirmation",
             "Physical Examination",
             "Positive Biomarker(s)",
         ],
@@ -1397,9 +1416,9 @@ class FollowUp(base.Node):
             "Gray",
             "Green",
             "Hazel",
-            "Red & Violet",
-            "Other",
             "Not Reported",
+            "Other",
+            "Red & Violet",
         ],
     )
     def eye_color(self, value):
@@ -1421,7 +1440,27 @@ class FollowUp(base.Node):
     def fev1_fvc_post_bronch_percent(self, value):
         self._set_property("fev1_fvc_post_bronch_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Censored",
+            "Death",
+            "Death without Remission",
+            "Event",
+            "Induction Death",
+            "Induction Failure",
+            "None",
+            "Not Reported",
+            "Other",
+            "Progression",
+            "Relapse",
+            "Second Malignant Neoplasm",
+        ],
+    )
+    def first_event(self, value):
+        self._set_property("first_event", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def haart_treatment_indicator(self, value):
         self._set_property("haart_treatment_indicator", value)  # type: ignore  # inherited from CommonBase
 
@@ -1429,15 +1468,22 @@ class FollowUp(base.Node):
     def height(self, value):
         self._set_property("height", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def hepatitis_sustained_virological_response(self, value):
         self._set_property("hepatitis_sustained_virological_response", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Yes"])
     def history_of_tumor(self, value):
         self._set_property("history_of_tumor", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Phenochromocytoma or Paraganglioma"])
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Colorectal Cancer",
+            "Lower Grade Glioma",
+            "Phenochromocytoma or Paraganglioma",
+        ],
+    )
     def history_of_tumor_type(self, value):
         self._set_property("history_of_tumor_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -1446,14 +1492,14 @@ class FollowUp(base.Node):
         self._set_property("hiv_viral_load", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum=["Progestin", "Progestin and Estrogen", "Unknown", "Not Reported"]
+        str, enum=["Not Reported", "Progestin", "Progestin and Estrogen", "Unknown"]
     )
     def hormonal_contraceptive_type(self, value):
         self._set_property("hormonal_contraceptive_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
-        enum=["Current User", "Former User", "Never Used", "Unknown", "Not Reported"],
+        enum=["Current User", "Former User", "Never Used", "Not Reported", "Unknown"],
     )
     def hormonal_contraceptive_use(self, value):
         self._set_property("hormonal_contraceptive_use", value)  # type: ignore  # inherited from CommonBase
@@ -1462,10 +1508,10 @@ class FollowUp(base.Node):
         str,
         enum=[
             "Estrogen only",
+            "Not Reported",
             "Progesterone and Estrogen",
             "Progesterone only",
             "Unknown",
-            "Not Reported",
         ],
     )
     def hormone_replacement_therapy_type(self, value):
@@ -1494,9 +1540,9 @@ class FollowUp(base.Node):
             "70",
             "73",
             "82",
+            "Not Reported",
             "Other",
             "Unknown",
-            "Not Reported",
         ],
     )
     def hpv_positive_type(self, value):
@@ -1509,9 +1555,9 @@ class FollowUp(base.Node):
             "Macroscopic Parametrium",
             "Microscopic Parametrium",
             "None",
-            "Vagina",
-            "Unknown",
             "Not Reported",
+            "Unknown",
+            "Vagina",
         ],
     )
     def hysterectomy_margins_involved(self, value):
@@ -1521,29 +1567,57 @@ class FollowUp(base.Node):
         str,
         enum=[
             "Hysterectomy, NOS",
+            "Not Reported",
             "Not performed",
             "Radical Hysterectomy",
             "Simple Hysterectomy",
             "Unknown",
-            "Not Reported",
         ],
     )
     def hysterectomy_type(self, value):
         self._set_property("hysterectomy_type", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(list)
+    def imaging_anatomic_site(self, value):
+        self._set_property("imaging_anatomic_site", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
-            "Positive",
+            "Carcinomatosis",
+            "Kidney Involvement",
+            "Liver Involvement",
+            "Lung Involvement",
+            "Normal",
+            "Not Reported",
+            "Retroperitoneal Lymph Node Involvement",
+            "Vena Cava Involvement/Thrombus",
+        ],
+    )
+    def imaging_findings(self, value):
+        self._set_property("imaging_findings", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
             "Indeterminate",
             "Negative",
             "Not Performed",
-            "Unknown",
             "Not Reported",
+            "Positive",
+            "Unknown",
         ],
     )
     def imaging_result(self, value):
         self._set_property("imaging_result", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def imaging_suv(self, value):
+        self._set_property("imaging_suv", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def imaging_suv_max(self, value):
+        self._set_property("imaging_suv_max", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str, enum=["99mTc Bone Scintigraphy", "CT Scan", "MRI", "PET"])
     def imaging_type(self, value):
@@ -1557,9 +1631,9 @@ class FollowUp(base.Node):
             "Cyclophosphamide",
             "Methotrexate",
             "None",
+            "Not Reported",
             "Other",
             "Unknown",
-            "Not Reported",
         ],
     )
     def immunosuppressive_treatment_type(self, value):
@@ -1570,6 +1644,7 @@ class FollowUp(base.Node):
         enum=[
             "0",
             "10",
+            "100",
             "20",
             "30",
             "40",
@@ -1578,9 +1653,8 @@ class FollowUp(base.Node):
             "70",
             "80",
             "90",
-            "100",
-            "Unknown",
             "Not Reported",
+            "Unknown",
         ],
     )
     def karnofsky_performance_status(self, value):
@@ -1589,11 +1663,11 @@ class FollowUp(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "Premenopausal",
+            "Not Reported",
             "Perimenopausal",
             "Postmenopausal",
+            "Premenopausal",
             "Unknown",
-            "Not Reported",
         ],
     )
     def menopause_status(self, value):
@@ -1607,6 +1681,14 @@ class FollowUp(base.Node):
     def pancreatitis_onset_year(self, value):
         self._set_property("pancreatitis_onset_year", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str, enum=["Negative", "Not Reported", "Positive"])
+    def peritoneal_washing_results(self, value):
+        self._set_property("peritoneal_washing_results", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def pregnancy_count(self, value):
+        self._set_property("pregnancy_count", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -1614,19 +1696,20 @@ class FollowUp(base.Node):
             "Induced Abortion",
             "Live Birth",
             "Miscarriage",
+            "Not Reported",
+            "Spontaneous Abortion",
             "Stillbirth",
             "Unknown",
-            "Not Reported",
         ],
     )
     def pregnancy_outcome(self, value):
         self._set_property("pregnancy_outcome", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Colonoscopy", "Endoscopy", "Unknown", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["Colonoscopy", "Endoscopy", "Not Reported", "Unknown"])
     def procedures_performed(self, value):
         self._set_property("procedures_performed", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def progression_or_recurrence(self, value):
         self._set_property("progression_or_recurrence", value)  # type: ignore  # inherited from CommonBase
 
@@ -1800,6 +1883,7 @@ class FollowUp(base.Node):
             "Nasopharynx, NOS",
             "Nervous system, NOS",
             "Nipple",
+            "Not Reported",
             "Occipital lobe",
             "Olfactory nerve",
             "Optic nerve",
@@ -1939,6 +2023,7 @@ class FollowUp(base.Node):
             "Transverse colon",
             "Trigone of bladder",
             "Undescended testis",
+            "Unknown",
             "Unknown primary site",
             "Upper gum",
             "Upper limb, NOS",
@@ -1963,8 +2048,6 @@ class FollowUp(base.Node):
             "Vestibule of mouth",
             "Vulva, NOS",
             "Waldeyer ring",
-            "Unknown",
-            "Not Reported",
         ],
     )
     def progression_or_recurrence_anatomic_site(self, value):
@@ -1972,7 +2055,15 @@ class FollowUp(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=["Biochemical", "Distant", "Local", "Regional", "Unknown", "Not Reported"],
+        enum=[
+            "Biochemical",
+            "Distant",
+            "Local",
+            "Locoregional",
+            "Not Reported",
+            "Regional",
+            "Unknown",
+        ],
     )
     def progression_or_recurrence_type(self, value):
         self._set_property("progression_or_recurrence_type", value)  # type: ignore  # inherited from CommonBase
@@ -1993,10 +2084,10 @@ class FollowUp(base.Node):
             "Medically Treated",
             "No Treatment",
             "Not Applicable",
+            "Not Reported",
             "Proton Pump Inhibitors",
             "Surgically Treated",
             "Unknown",
-            "Not Reported",
         ],
     )
     def reflux_treatment_type(self, value):
@@ -2026,28 +2117,35 @@ class FollowUp(base.Node):
             "Allergy, Seafood",
             "Allergy, Wasp",
             "Alpha-1 Antitrypsin Deficiency",
+            "Altered Mental Status",
+            "Androgen Excess",
+            "Anemia",
+            "Asthma",
             "Ataxia-telangiectasia",
             "Autoimmune Atrophic Chronic Gastritis",
             "Autoimmune Lymphoproliferative Syndrome (ALPS)",
-            "Bacteroides fragilis",
             "BAP1 Tumor Predisposition Syndrome",
+            "BRCA Family History",
+            "Bacteroides fragilis",
             "Barrett's Esophagus",
             "Beckwith-Wiedemann",
             "Behcet's Disease",
             "Benign Prostatic Hyperplasia",
             "Birt-Hogg-Dube Syndrome",
-            "BRCA Family History",
             "Cancer",
             "Chlamydia",
+            "Chloroma",
             "Cholelithiasis",
             "Chronic Hepatitis",
             "Chronic Kidney Disease",
+            "Chronic Pancreatitis",
             "Chronic Systemic Steroid Use",
             "Cirrhosis",
             "Colon Polyps",
             "Colonization, Bacterial",
             "Colonization, Fungal",
             "Common variable immune deficiency (CVID)",
+            "Cortisol Excess",
             "Cowden Syndrome",
             "Cryptococcal Meningitis",
             "Cyst(s)",
@@ -2059,6 +2157,8 @@ class FollowUp(base.Node):
             "Diabetes, Type II",
             "Diet",
             "Diverticulitis",
+            "Down Syndrome",
+            "EBV Lymphoproliferation",
             "Eczema",
             "Endometriosis",
             "Endosalpingiosis",
@@ -2066,6 +2166,7 @@ class FollowUp(base.Node):
             "Epithelial Hyperplasia",
             "Epstein-Barr Virus",
             "Escherichia coli",
+            "Estrogen Excess",
             "Familial Adenomatous Polyposis",
             "Fanconi Anemia",
             "Fibrosis",
@@ -2074,6 +2175,8 @@ class FollowUp(base.Node):
             "Gilbert's Syndrome",
             "Glomerular Disease",
             "Gorlin Syndrome",
+            "H. pylori Infection",
+            "HIV",
             "Hashimoto's Thyroiditis",
             "Hay Fever",
             "Headache",
@@ -2082,10 +2185,12 @@ class FollowUp(base.Node):
             "Hemihypertrophy",
             "Hemochromatosis",
             "Hepatic Encephalopathy",
+            "Hepatitis A Infection",
             "Hepatitis B Infection",
             "Hepatitis C Infection",
             "Hepatitis, NOS",
             "Hereditary Breast Cancer",
+            "Hereditary Hemorrhagic Telangiectasia",
             "Hereditary Kidney Oncocytoma",
             "Hereditary Leiomyomatosis and Renal Cell Carcinoma",
             "Hereditary Ovarian Cancer",
@@ -2095,27 +2200,35 @@ class FollowUp(base.Node):
             "Herpes Zoster",
             "High Grade Dysplasia",
             "High-grade Prostatic Intraepithelial Neoplasia (PIN)",
-            "HIV",
+            "Hodgkin Lymphoma",
             "Human Herpesvirus-6 (HHV-6)",
             "Human Herpesvirus-8 (HHV-8)",
             "Human Papillomavirus Infection",
             "Hypospadias",
             "Inflammation",
             "Inflammation, Hyperkeratosis",
+            "Inherited Genetic Syndrome, NOS",
             "Intestinal Metaplasia",
             "Iron Overload",
             "Li-Fraumeni Syndrome",
             "Low Grade Dysplasia",
+            "Lymphamatoid Papulosis",
             "Lymphocytic Meningitis",
             "Lymphocytic Thyroiditis",
             "Lynch Syndrome",
             "Malaria",
             "Metabolic Syndrome",
+            "Mineralcorticoids Excess",
+            "Motor / Movement Change",
             "Myasthenia Gravis",
             "Mycobacterium avium Complex",
+            "Myelodysplastic Syndrome",
+            "Neurocystericerosis",
             "Nodular Prostatic Hyperplasia",
             "Nonalcoholic Fatty Liver Disease",
             "Nonalcoholic Steatohepatitis",
+            "None",
+            "Not Reported",
             "Obesity",
             "Oral Contraceptives",
             "Pancreatitis",
@@ -2126,6 +2239,7 @@ class FollowUp(base.Node):
             "Recurrent Pyogenic Cholangitis",
             "Reflux Disease",
             "Rheumatoid Arthritis",
+            "Rubella",
             "Rubinstein-Taybi Syndrome",
             "Sarcoidosis",
             "Seizure",
@@ -2152,19 +2266,34 @@ class FollowUp(base.Node):
             "Tumor-associated Lymphoid Proliferation",
             "Turcot Syndrome",
             "Undescended Testis",
+            "Unknown",
             "Varicella Zoster Virus",
             "Vascular Disease",
             "Vision Changes",
             "Von Hippel-Lindau Syndrome",
             "Wagr Syndrome",
-            "Unknown",
-            "Not Reported",
         ],
     )
     def risk_factor(self, value):
         self._set_property("risk_factor", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
+    @psqlgraph.pg_property(list)
+    def risk_factors(self, value):
+        self._set_property("risk_factors", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Biochemical Assessment",
+            "Both Clinical and Biochemical Assessments",
+            "Clinical Assessment",
+            "Not Reported",
+        ],
+    )
+    def risk_factor_method_of_diagnosis(self, value):
+        self._set_property("risk_factor_method_of_diagnosis", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def risk_factor_treatment(self, value):
         self._set_property("risk_factor_treatment", value)  # type: ignore  # inherited from CommonBase
 
@@ -2172,7 +2301,32 @@ class FollowUp(base.Node):
     def scan_tracer_used(self, value):
         self._set_property("scan_tracer_used", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Adjuvant Therapy",
+            "Adolescence",
+            "Adulthood",
+            "Childhood",
+            "Follow-up",
+            "Initial Diagnosis",
+            "Last Contact",
+            "Not Reported",
+            "Other",
+            "Post Adjuvant Therapy",
+            "Post Hormone Therapy",
+            "Post Secondary Therapy",
+            "Postoperative",
+            "Preoperative",
+            "Prior to Diagnosis",
+            "Prior to Treatment",
+            "Recurrence/Progression",
+        ],
+    )
+    def timepoint_category(self, value):
+        self._set_property("timepoint_category", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Yes"])
     def undescended_testis_corrected(self, value):
         self._set_property("undescended_testis_corrected", value)  # type: ignore  # inherited from CommonBase
 
@@ -2180,28 +2334,28 @@ class FollowUp(base.Node):
     def undescended_testis_corrected_age(self, value):
         self._set_property("undescended_testis_corrected_age", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Left", "Right", "Bilateral", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["Bilateral", "Left", "Not Reported", "Right"])
     def undescended_testis_corrected_laterality(self, value):
         self._set_property("undescended_testis_corrected_laterality", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum=[
-            "Spontaneous Descent",
-            "Orchiopexy",
             "Hormones",
-            "Testis Removed",
             "Not Reported",
+            "Orchiopexy",
+            "Spontaneous Descent",
+            "Testis Removed",
         ],
     )
     def undescended_testis_corrected_method(self, value):
         self._set_property("undescended_testis_corrected_method", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Yes"])
     def undescended_testis_history(self, value):
         self._set_property("undescended_testis_history", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Left", "Right", "Bilateral", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["Bilateral", "Left", "Not Reported", "Right"])
     def undescended_testis_history_laterality(self, value):
         self._set_property("undescended_testis_history_laterality", value)  # type: ignore  # inherited from CommonBase
 
@@ -2216,8 +2370,8 @@ class FollowUp(base.Node):
             "Hepatitis B Surface Antigen",
             "Hepatitis C Antibody",
             "Hepatitis C Virus RNA",
-            "Unknown",
             "Not Reported",
+            "Unknown",
         ],
     )
     def viral_hepatitis_serologies(self, value):
@@ -2226,6 +2380,10 @@ class FollowUp(base.Node):
     @psqlgraph.pg_property(float, int)
     def weight(self, value):
         self._set_property("weight", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def year_of_follow_up(self, value):
+        self._set_property("year_of_follow_up", value)  # type: ignore  # inherited from CommonBase
 
 
 datetime_hooks.cls_inject_created_datetime_hook(FollowUp)

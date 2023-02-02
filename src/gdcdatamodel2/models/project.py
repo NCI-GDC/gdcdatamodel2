@@ -238,13 +238,13 @@ class Project(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "open",
-            "review",
-            "submitted",
-            "processing",
-            "processed",
             "closed",
             "legacy",
+            "open",
+            "processed",
+            "processing",
+            "review",
+            "submitted",
         ],
     )
     def state(self, value):

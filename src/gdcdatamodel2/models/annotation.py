@@ -121,6 +121,10 @@ class Annotation(base.Node):
                 "backref": "annotations",
                 "type": base.Node.get_subclass("clinical_supplement"),
             },
+            "copy_number_auxiliary_files": {
+                "backref": "annotations",
+                "type": base.Node.get_subclass("copy_number_auxiliary_file"),
+            },
             "copy_number_estimates": {
                 "backref": "annotations",
                 "type": base.Node.get_subclass("copy_number_estimate"),
@@ -334,6 +338,10 @@ class Annotation(base.Node):
             "clinical_supplements": {
                 "edge_out": "_AnnotationAnnotatesClinicalSupplement_out",
                 "dst_type": base.Node.get_subclass("clinical_supplement"),
+            },
+            "copy_number_auxiliary_files": {
+                "edge_out": "_AnnotationAnnotatesCopyNumberAuxiliaryFile_out",
+                "dst_type": base.Node.get_subclass("copy_number_auxiliary_file"),
             },
             "copy_number_estimates": {
                 "edge_out": "_AnnotationAnnotatesCopyNumberEstimate_out",
@@ -574,21 +582,20 @@ class Annotation(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -625,9 +632,9 @@ class Annotation(base.Node):
             "History of acceptable prior treatment related to a prior/other malignancy",
             "History of unacceptable prior treatment related to a prior/other malignancy",
             "Inadvertently shipped",
+            "Item Flagged Low Quality",
             "Item does not meet study protocol",
             "Item flagged DNU",
-            "Item Flagged Low Quality",
             "Item in special subset",
             "Item is noncanonical",
             "Item may not meet study protocol",

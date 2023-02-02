@@ -219,21 +219,20 @@ class SimpleSomaticMutation(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -266,23 +265,23 @@ class SimpleSomaticMutation(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "registered",
-            "uploading",
-            "uploaded",
-            "validating",
-            "validated",
-            "submitted",
-            "processing",
-            "processed",
-            "released",
-            "error",
             "deleted",
+            "error",
+            "processed",
+            "processing",
+            "registered",
+            "released",
+            "submitted",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["file_size", "file_format", "md5sum"])
+    @psqlgraph.pg_property(str, enum=["file_format", "file_size", "md5sum"])
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -310,11 +309,11 @@ class SimpleSomaticMutation(base.Node):
             "ATAC-Seq",
             "Bisulfite-Seq",
             "ChIP-Seq",
-            "miRNA-Seq",
             "RNA-Seq",
             "Targeted Sequencing",
             "WGS",
             "WXS",
+            "miRNA-Seq",
         ],
     )
     def experimental_strategy(self, value):

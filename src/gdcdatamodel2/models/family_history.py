@@ -175,21 +175,20 @@ class FamilyHistory(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -230,6 +229,7 @@ class FamilyHistory(base.Node):
             "Female Sibling of Adopted Child",
             "First Cousin",
             "First Cousin Once Removed",
+            "First Degree Relative, NOS",
             "Foster Brother",
             "Foster Daughter",
             "Foster Father",
@@ -291,6 +291,7 @@ class FamilyHistory(base.Node):
             "Nephew",
             "Niece",
             "Niece Second Degree Relative",
+            "Not Reported",
             "Other",
             "Parent",
             "Paternal Aunt",
@@ -322,17 +323,16 @@ class FamilyHistory(base.Node):
             "Stepson",
             "Twin Sibling",
             "Uncle",
+            "Unknown",
             "Unrelated",
             "Ward",
             "Wife",
-            "Unknown",
-            "Not Reported",
         ],
     )
     def relationship_type(self, value):
         self._set_property("relationship_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["female", "male", "unknown", "unspecified", "not reported"])
+    @psqlgraph.pg_property(str, enum=["female", "male", "not reported", "unknown", "unspecified"])
     def relationship_gender(self, value):
         self._set_property("relationship_gender", value)  # type: ignore  # inherited from CommonBase
 
@@ -351,10 +351,10 @@ class FamilyHistory(base.Node):
             "Bone Cancer",
             "Brain Cancer",
             "Breast Cancer",
+            "CNS Cancer",
             "Cancer",
             "Cervical Cancer",
             "Chondrosarcoma",
-            "CNS Cancer",
             "Colorectal Cancer",
             "Esophageal Cancer",
             "Ewing Sarcoma",
@@ -376,6 +376,7 @@ class FamilyHistory(base.Node):
             "Mesothelioma",
             "Multiple Myeloma",
             "Neuroblastoma",
+            "Not Reported",
             "Osteosarcoma",
             "Ovarian Cancer",
             "Pancreas Cancer",
@@ -391,16 +392,15 @@ class FamilyHistory(base.Node):
             "Thyroid Cancer",
             "Tongue Cancer",
             "Tonsillar Cancer",
+            "Unknown",
             "Uterine Cancer",
             "Wilms Tumor",
-            "Unknown",
-            "Not Reported",
         ],
     )
     def relationship_primary_diagnosis(self, value):
         self._set_property("relationship_primary_diagnosis", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["yes", "no", "unknown", "not reported"])
+    @psqlgraph.pg_property(str, enum=["no", "not reported", "unknown", "yes"])
     def relative_with_cancer_history(self, value):
         self._set_property("relative_with_cancer_history", value)  # type: ignore  # inherited from CommonBase
 

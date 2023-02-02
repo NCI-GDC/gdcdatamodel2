@@ -175,21 +175,20 @@ class CopyNumberVariationWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -226,10 +225,10 @@ class CopyNumberVariationWorkflow(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "GISTIC - Copy Number Score",
             "GISTIC - Arm Level Copy Number",
-            "GISTIC - Focal Deletion",
+            "GISTIC - Copy Number Score",
             "GISTIC - Focal Amplification",
+            "GISTIC - Focal Deletion",
         ],
     )
     def workflow_type(self, value):

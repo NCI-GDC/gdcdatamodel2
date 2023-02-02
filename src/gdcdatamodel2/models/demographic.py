@@ -28,7 +28,7 @@ class Demographic(base.Node):
         "category": "clinical",
         "submittable": True,
         "downloadable": False,
-        "description": "Data for the characterization of the patient by means of segementing the population (e.g., characterization by age, sex, or race).",
+        "description": "Data for the characterization of the patient by means of segmenting the population (e.g., characterization by age, sex, or race).",
         "required": ["submitter_id", "ethnicity", "gender", "race", "vital_status"],
         "project": "*",
         "program": "*",
@@ -175,21 +175,20 @@ class Demographic(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -223,12 +222,12 @@ class Demographic(base.Node):
             "End-stage Renal Disease",
             "Infection",
             "Not Cancer Related",
+            "Not Reported",
             "Renal Disorder, NOS",
             "Spinal Muscular Atrophy",
             "Surgical Complications",
             "Toxicity",
             "Unknown",
-            "Not Reported",
         ],
     )
     def cause_of_death(self, value):
@@ -240,9 +239,9 @@ class Demographic(base.Node):
             "Autopsy",
             "Death Certificate",
             "Medical Record",
+            "Not Reported",
             "Social Security Death Index",
             "Unknown",
-            "Not Reported",
         ],
     )
     def cause_of_death_source(self, value):
@@ -499,18 +498,18 @@ class Demographic(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "hispanic or latino",
-            "not hispanic or latino",
             "Unknown",
-            "not reported",
+            "hispanic or latino",
             "not allowed to collect",
+            "not hispanic or latino",
+            "not reported",
             "unknown",
         ],
     )
     def ethnicity(self, value):
         self._set_property("ethnicity", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["female", "male", "unknown", "unspecified", "not reported"])
+    @psqlgraph.pg_property(str, enum=["female", "male", "not reported", "unknown", "unspecified"])
     def gender(self, value):
         self._set_property("gender", value)  # type: ignore  # inherited from CommonBase
 
@@ -518,29 +517,29 @@ class Demographic(base.Node):
     def occupation_duration_years(self, value):
         self._set_property("occupation_duration_years", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def premature_at_birth(self, value):
         self._set_property("premature_at_birth", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum=[
-            "white",
-            "american indian or alaska native",
-            "black or african american",
-            "asian",
-            "native hawaiian or other pacific islander",
-            "other",
             "Unknown",
-            "not reported",
+            "american indian or alaska native",
+            "asian",
+            "black or african american",
+            "native hawaiian or other pacific islander",
             "not allowed to collect",
+            "not reported",
+            "other",
             "unknown",
+            "white",
         ],
     )
     def race(self, value):
         self._set_property("race", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Alive", "Dead", "Unknown", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["Alive", "Dead", "Not Reported", "Unknown"])
     def vital_status(self, value):
         self._set_property("vital_status", value)  # type: ignore  # inherited from CommonBase
 

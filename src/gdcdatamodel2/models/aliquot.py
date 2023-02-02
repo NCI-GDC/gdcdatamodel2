@@ -249,21 +249,20 @@ class Aliquot(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -296,19 +295,19 @@ class Aliquot(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "cfDNA",
             "DNA",
             "EBV Immortalized Normal",
             "FFPE DNA",
             "FFPE RNA",
             "GenomePlex (Rubicon) Amplified DNA",
-            "m6A Enriched RNA",
             "Nuclei RNA",
+            "RNA",
             "Repli-G (Qiagen) DNA",
             "Repli-G Pooled (Qiagen) DNA",
             "Repli-G X (Qiagen) DNA",
-            "RNA",
             "Total RNA",
+            "cfDNA",
+            "m6A Enriched RNA",
         ],
     )
     def analyte_type(self, value):

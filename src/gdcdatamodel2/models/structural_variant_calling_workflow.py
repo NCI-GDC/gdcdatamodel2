@@ -175,21 +175,20 @@ class StructuralVariantCallingWorkflow(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -224,7 +223,8 @@ class StructuralVariantCallingWorkflow(base.Node):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum=["Arriba", "BRASS", "Fusion Catcher", "Pizzly", "STAR-Fusion"]
+        str,
+        enum=["Arriba", "BRASS", "Fusion Catcher", "Pizzly", "STAR-Fusion", "SvABA"],
     )
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase
