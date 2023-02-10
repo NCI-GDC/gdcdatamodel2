@@ -4,6 +4,8 @@
 #
 #    pip-compile --extra=dev --output-file=dev-requirements.txt pyproject.toml
 #
+--index-url https://nexus.osdc.io/repository/pypi-all/simple
+
 attrs==22.1.0
     # via
     #   jsonschema
@@ -12,7 +14,7 @@ coverage[toml]==6.2
     # via
     #   gdcdatamodel2 (pyproject.toml)
     #   pytest-cov
-gdcdictionary @ git+https://github.com/NCI-GDC/gdcdictionary.git@2.6.3
+gdcdictionary @ git+https://github.com/NCI-GDC/gdcdictionary.git@feat/dev-1672-automate-gdcdatamodel2-generation
     # via gdcdatamodel2 (pyproject.toml)
 importlib-metadata==4.8.3
     # via

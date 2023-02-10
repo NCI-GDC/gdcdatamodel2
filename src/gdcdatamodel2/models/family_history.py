@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -332,7 +332,9 @@ class FamilyHistory(base.Node):
     def relationship_type(self, value):
         self._set_property("relationship_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["female", "male", "not reported", "unknown", "unspecified"])
+    @psqlgraph.pg_property(
+        str, enum=["female", "male", "not reported", "unknown", "unspecified"]
+    )
     def relationship_gender(self, value):
         self._set_property("relationship_gender", value)  # type: ignore  # inherited from CommonBase
 

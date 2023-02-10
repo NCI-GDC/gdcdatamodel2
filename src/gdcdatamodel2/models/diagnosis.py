@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -664,7 +664,9 @@ class Diagnosis(base.Node):
     def burkitt_lymphoma_clinical_variant(self, value):
         self._set_property("burkitt_lymphoma_clinical_variant", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Not Reported", "Screening", "Surveillance", "Symptomatic"])
+    @psqlgraph.pg_property(
+        str, enum=["Not Reported", "Screening", "Surveillance", "Symptomatic"]
+    )
     def cancer_detection_method(self, value):
         self._set_property("cancer_detection_method", value)  # type: ignore  # inherited from CommonBase
 
@@ -977,7 +979,9 @@ class Diagnosis(base.Node):
     def inpc_grade(self, value):
         self._set_property("inpc_grade", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Favorable", "Not Reported", "Unfavorable", "Unknown"])
+    @psqlgraph.pg_property(
+        str, enum=["Favorable", "Not Reported", "Unfavorable", "Unknown"]
+    )
     def inpc_histologic_group(self, value):
         self._set_property("inpc_histologic_group", value)  # type: ignore  # inherited from CommonBase
 
@@ -1297,7 +1301,9 @@ class Diagnosis(base.Node):
     def mitotic_count(self, value):
         self._set_property("mitotic_count", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["High", "Intermediate", "Low", "Not Reported", "Unknown"])
+    @psqlgraph.pg_property(
+        str, enum=["High", "Intermediate", "Low", "Not Reported", "Unknown"]
+    )
     def mitosis_karyorrhexis_index(self, value):
         self._set_property("mitosis_karyorrhexis_index", value)  # type: ignore  # inherited from CommonBase
 
@@ -5183,7 +5189,9 @@ class Diagnosis(base.Node):
     def progression_or_recurrence(self, value):
         self._set_property("progression_or_recurrence", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Not Reported", "R0", "R1", "R2", "RX", "Unknown"])
+    @psqlgraph.pg_property(
+        str, enum=["Not Reported", "R0", "R1", "R2", "RX", "Unknown"]
+    )
     def residual_disease(self, value):
         self._set_property("residual_disease", value)  # type: ignore  # inherited from CommonBase
 
@@ -5919,7 +5927,9 @@ class Diagnosis(base.Node):
     def tumor_depth(self, value):
         self._set_property("tumor_depth", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Multifocal", "Not Reported", "Unifocal", "Unknown"])
+    @psqlgraph.pg_property(
+        str, enum=["Multifocal", "Not Reported", "Unifocal", "Unknown"]
+    )
     def tumor_focality(self, value):
         self._set_property("tumor_focality", value)  # type: ignore  # inherited from CommonBase
 
@@ -6272,11 +6282,15 @@ class Diagnosis(base.Node):
     def who_cns_grade(self, value):
         self._set_property("who_cns_grade", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["G1", "G2", "G3", "GX", "Not Reported", "Unknown"])
+    @psqlgraph.pg_property(
+        str, enum=["G1", "G2", "G3", "GX", "Not Reported", "Unknown"]
+    )
     def who_nte_grade(self, value):
         self._set_property("who_nte_grade", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Favorable", "Not Reported", "Unfavorable", "Unknown"])
+    @psqlgraph.pg_property(
+        str, enum=["Favorable", "Not Reported", "Unfavorable", "Unknown"]
+    )
     def wilms_tumor_histologic_subtype(self, value):
         self._set_property("wilms_tumor_histologic_subtype", value)  # type: ignore  # inherited from CommonBase
 

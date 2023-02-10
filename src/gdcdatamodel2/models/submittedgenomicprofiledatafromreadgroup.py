@@ -1,4 +1,4 @@
-from typing import Callable, List
+from typing import List, Callable
 
 import psqlgraph
 
@@ -17,15 +17,21 @@ class SubmittedGenomicProfileDataFromReadGroup(base.Edge):
     __dst_src_assoc__: str = "submitted_genomic_profiles"
     __src_dst_assoc__: str = "read_groups"
 
-    _session_hooks_before_insert: List[Callable] = psqlgraph.Edge._session_hooks_before_insert + [
+    _session_hooks_before_insert: List[
+        Callable
+    ] = psqlgraph.Edge._session_hooks_before_insert + [
         related_cases.cache_related_cases_on_insert
     ]
 
-    _session_hooks_before_update: List[Callable] = psqlgraph.Edge._session_hooks_before_update + [
+    _session_hooks_before_update: List[
+        Callable
+    ] = psqlgraph.Edge._session_hooks_before_update + [
         related_cases.cache_related_cases_on_update
     ]
 
-    _session_hooks_before_delete: List[Callable] = psqlgraph.Edge._session_hooks_before_delete + [
+    _session_hooks_before_delete: List[
+        Callable
+    ] = psqlgraph.Edge._session_hooks_before_delete + [
         related_cases.cache_related_cases_on_delete
     ]
 

@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -504,7 +504,9 @@ class PathologyDetail(base.Node):
     def perineural_invasion_present(self, value):
         self._set_property("perineural_invasion_present", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["0", "1-3", "4 or More", "Not Reported", "Unknown"])
+    @psqlgraph.pg_property(
+        str, enum=["0", "1-3", "4 or More", "Not Reported", "Unknown"]
+    )
     def peripancreatic_lymph_nodes_positive(self, value):
         self._set_property("peripancreatic_lymph_nodes_positive", value)  # type: ignore  # inherited from CommonBase
 
@@ -528,7 +530,9 @@ class PathologyDetail(base.Node):
     def residual_tumor(self, value):
         self._set_property("residual_tumor", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["1-10 mm", "11-20 mm", ">20 mm", "No macroscopic disease"])
+    @psqlgraph.pg_property(
+        str, enum=["1-10 mm", "11-20 mm", ">20 mm", "No macroscopic disease"]
+    )
     def residual_tumor_measurement(self, value):
         self._set_property("residual_tumor_measurement", value)  # type: ignore  # inherited from CommonBase
 

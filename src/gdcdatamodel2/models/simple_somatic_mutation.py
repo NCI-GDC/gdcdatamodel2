@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -108,7 +108,9 @@ class SimpleSomaticMutation(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "backref": "simple_somatic_mutations",
-                "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "somatic_aggregation_workflows": {
                 "backref": "simple_somatic_mutations",
@@ -134,7 +136,9 @@ class SimpleSomaticMutation(base.Node):
         cls._pg_links = {
             "genomic_profile_harmonization_workflows": {
                 "edge_out": "_SimpleSomaticMutationDataFromGenomicProfileHarmonizationWorkflow_out",
-                "dst_type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "dst_type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "somatic_mutation_calling_workflows": {
                 "edge_out": "_SimpleSomaticMutationDataFromSomaticMutationCallingWorkflow_out",
