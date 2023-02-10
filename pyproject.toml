@@ -21,7 +21,7 @@ profile = "black"
 known_first_party = ["gdcdatamodel2"]
 
 [tool.setuptools_scm]
-local_scheme = "no-local-version"
+local_scheme = "node-and-timestamp"
 
 [tool.towncrier]
 package = "gdcdatamodel2"
