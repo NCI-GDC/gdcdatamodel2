@@ -6,8 +6,9 @@
 #
 --index-url https://nexus.osdc.io/repository/pypi-all/simple
 
-attrs==22.1.0
+attrs==20.3.0
     # via
+    #   gdcdictionary
     #   jsonschema
     #   pytest
 coverage[toml]==6.2
