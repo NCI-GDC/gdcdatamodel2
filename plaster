@@ -10,5 +10,8 @@ plaster --version
 psqlgml --version
 plaster generate -p gdcdictionary -o src/gdcdatamodel2/models
 pre-commit run -a
+git add -u
+# rerun pre-commit for detect-secrets
+pre-commit run -a
 
 rm -rf $VENV
