@@ -1,10 +1,5 @@
 ---
 repos:
-  - repo: https://github.com/Yelp/detect-secrets
-    rev: v1.3.0
-    hooks:
-      - id: detect-secrets
-        args: [--baseline, .secrets.baseline]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0 # last version to support py36
     hooks:
@@ -77,3 +72,8 @@ repos:
     hooks:
       - id: toml-sort
         args: [--in-place]
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.3.0
+    hooks:
+      - id: detect-secrets
+        args: [--baseline, .secrets.baseline]
