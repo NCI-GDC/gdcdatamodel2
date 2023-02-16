@@ -12,6 +12,6 @@ log_file = "plaster.log"
 url = "https://github.com/NCI-GDC/gdcdictionary.git"
 path = "gdcdictionary/schemas"
 version = "feat/dev-1672-automate-gdcdatamodel2-generation"
-is_tag = false
+is_git_tag = false
 overwrite = false
 type = "remote"
