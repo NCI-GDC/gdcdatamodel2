@@ -206,18 +206,6 @@ class Exposure(base.Node):
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Daily Drinker", "Weekly Drinker"])
-    def alcohol_frequency(self, value):
-        self._set_property("alcohol_frequency", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Amosite", "Crocidolite"])
-    def asbestos_exposure_type(self, value):
-        self._set_property("asbestos_exposure_type", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(int)
-    def age_at_last_exposure(self, value):
-        self._set_property("age_at_last_exposure", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(int)
     def age_at_onset(self, value):
         self._set_property("age_at_onset", value)  # type: ignore  # inherited from CommonBase
@@ -243,7 +231,6 @@ class Exposure(base.Node):
             "Non-Drinker",
             "Not Reported",
             "Occasional Drinker",
-            "Social Drinker",
             "Unknown",
         ],
     )
@@ -259,10 +246,6 @@ class Exposure(base.Node):
     @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def asbestos_exposure(self, value):
         self._set_property("asbestos_exposure", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(list)
-    def chemical_exposure_type(self, value):
-        self._set_property("chemical_exposure_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
     def cigarettes_per_day(self, value):
@@ -284,36 +267,13 @@ class Exposure(base.Node):
     def exposure_duration_years(self, value):
         self._set_property("exposure_duration_years", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Occupational", "Secondary", "Unknown"])
-    def exposure_source(self, value):
-        self._set_property("exposure_source", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Asbestos",
-            "Chemical",
-            "Coal Dust",
-            "Marijuana",
-            "Radiation",
-            "Radon",
-            "Respirable Crystalline Silica",
-            "Smoke",
-            "Smokeless Tobacco",
-            "Tobacco",
-            "Wood Dust",
-        ],
-    )
+    @psqlgraph.pg_property(str, enum=["Marijuana", "Radiation", "Smoke", "Tobacco", "Wood Dust"])
     def exposure_type(self, value):
         self._set_property("exposure_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
-    def occupation_duration_years(self, value):
-        self._set_property("occupation_duration_years", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(list)
-    def occupation_type(self, value):
-        self._set_property("occupation_type", value)  # type: ignore  # inherited from CommonBase
+    @psqlgraph.pg_property(float, int)
+    def marijuana_use_per_week(self, value):
+        self._set_property("marijuana_use_per_week", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
     def pack_years_smoked(self, value):
@@ -334,6 +294,10 @@ class Exposure(base.Node):
     @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def secondhand_smoke_as_child(self, value):
         self._set_property("secondhand_smoke_as_child", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def smokeless_tobacco_quit_age(self, value):
+        self._set_property("smokeless_tobacco_quit_age", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str, enum=["Every day", "Some days", "Unknown"])
     def smoking_frequency(self, value):
@@ -370,20 +334,17 @@ class Exposure(base.Node):
             "5",
             "6",
             "7",
-            "Current Reformed Smoker for < or = 15 yrs",
-            "Current Reformed Smoker for > 15 yrs",
-            "Current Reformed Smoker, Duration Not Specified",
-            "Current Smoker",
-            "Lifelong Non-Smoker",
             "Not Allowed To Collect",
             "Not Reported",
-            "Smoker at Diagnosis",
-            "Smoking history not documented",
             "Unknown",
         ],
     )
     def tobacco_smoking_status(self, value):
         self._set_property("tobacco_smoking_status", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def tobacco_use_per_day(self, value):
+        self._set_property("tobacco_use_per_day", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -456,10 +417,6 @@ class Exposure(base.Node):
     )
     def type_of_tobacco_used(self, value):
         self._set_property("type_of_tobacco_used", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def use_per_day(self, value):
-        self._set_property("use_per_day", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
     def years_smoked(self, value):

@@ -336,7 +336,7 @@ class SubmittedAlignedReads(base.Node):
             "Targeted Sequencing",
             "WGS",
             "WXS",
-            "m6A MeRIP-Seq",
+            "m6A RNA Methylation",
             "miRNA-Seq",
             "scATAC-Seq",
             "scRNA-Seq",

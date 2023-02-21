@@ -210,14 +210,6 @@ class Treatment(base.Node):
     def chemo_concurrent_to_radiation(self, value):
         self._set_property("chemo_concurrent_to_radiation", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Yes"])
-    def clinical_trial_indicator(self, value):
-        self._set_property("clinical_trial_indicator", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def course_number(self, value):
-        self._set_property("course_number", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(int)
     def days_to_treatment_end(self, value):
         self._set_property("days_to_treatment_end", value)  # type: ignore  # inherited from CommonBase
@@ -226,35 +218,13 @@ class Treatment(base.Node):
     def days_to_treatment_start(self, value):
         self._set_property("days_to_treatment_start", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Glucocorticoid", "Growth factor", "PARP inhibitor"])
-    def drug_category(self, value):
-        self._set_property("drug_category", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Gelfoam",
-            "Lipiodol",
-            "Other",
-            "PVA Particles",
-            "Plastic Beads",
-            "Spherical Particles",
-            "Y-90 Sirsphere",
-            "Y-90 Therasphere",
-        ],
-    )
-    def embolic_agent(self, value):
-        self._set_property("embolic_agent", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(
         str,
         enum=[
             "Initial Diagnosis",
             "Not Reported",
-            "Persistent Disease",
             "Progressive Disease",
             "Recurrent Disease",
-            "Refractory Disease",
             "Residual Disease",
             "Unknown",
         ],
@@ -262,153 +232,9 @@ class Treatment(base.Node):
     def initial_disease_status(self, value):
         self._set_property("initial_disease_status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
-    def lesions_treated_number(self, value):
-        self._set_property("lesions_treated_number", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(int)
     def number_of_cycles(self, value):
         self._set_property("number_of_cycles", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def number_of_fractions(self, value):
-        self._set_property("number_of_fractions", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def prescribed_dose(self, value):
-        self._set_property("prescribed_dose", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "321P2",
-            "321P3",
-            "323P",
-            "3881",
-            "3891",
-            "4941",
-            "8605",
-            "901",
-            "9047",
-            "9082",
-            "911",
-            "914",
-            "925",
-            "9340",
-            "9341",
-            "9342",
-            "9343",
-            "935",
-            "937",
-            "9464",
-            "9640",
-            "9906",
-            "A081105",
-            "A081801",
-            "A3961",
-            "A3973",
-            "AADM01P1",
-            "AALL0031",
-            "AALL0232",
-            "AALL0331",
-            "AALL03B1",
-            "AALL0434",
-            "AALL07P4",
-            "AALL08P1",
-            "AALL1131",
-            "AAML00P2",
-            "AAML03P1",
-            "AAML0531",
-            "AAML0631",
-            "AAML1031",
-            "AB9804",
-            "ACCL0331",
-            "ACCL0431",
-            "ACCL05C1",
-            "ACCL0934",
-            "ACCL1031",
-            "ADVL0018",
-            "ADVL0212",
-            "ADVL0214",
-            "ADVL0215",
-            "ADVL0421",
-            "ADVL0524",
-            "ADVL0525",
-            "ADVL06B1",
-            "ADVL0714",
-            "ADVL0812",
-            "ADVL0813",
-            "ADVL0821",
-            "ADVL0911",
-            "ADVL0912",
-            "ADVL0918",
-            "ADVL0921",
-            "ADVL1011",
-            "ADVL1111",
-            "ADVL1112",
-            "ADVL1115",
-            "ADVL1213",
-            "ADVL1412",
-            "AEPI07N1",
-            "ALTE03N1",
-            "ALTE05N1",
-            "ANBL0032",
-            "ANBL00B1",
-            "ANBL00P1",
-            "ANBL00P3",
-            "ANBL02P1",
-            "ANBL0321",
-            "ANBL0322",
-            "ANBL0421",
-            "ANBL0531",
-            "ANBL0532",
-            "ANBL0621",
-            "ANBL0931",
-            "ANBL09P1",
-            "ANBL1021",
-            "ANBL1221",
-            "ANUR1131",
-            "AOST0121",
-            "AOST0331",
-            "AOST06B1",
-            "AOST06P1",
-            "AREN03B2",
-            "B003",
-            "B903",
-            "B947",
-            "B954",
-            "B973",
-            "BCM",
-            "CCG2961",
-            "D9902",
-            "E04",
-            "E18",
-            "E4512",
-            "EA5142",
-            "GBCTTO/99",
-            "GLATO 2006",
-            "I03",
-            "IHRT",
-            "INT-0133",
-            "N891",
-            "NWTS-4",
-            "NWTS-5",
-            "Not Reported",
-            "OSTEO 2006",
-            "P9462",
-            "P9641",
-            "P9754",
-            "P9851",
-            "P9906",
-            "P9963",
-            "R9702",
-            "S31",
-            "S921",
-            "STB",
-        ],
-    )
-    def protocol_identifier(self, value):
-        self._set_property("protocol_identifier", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -424,36 +250,13 @@ class Treatment(base.Node):
     def reason_treatment_ended(self, value):
         self._set_property("reason_treatment_ended", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Not Reported", "R0", "R1", "R2", "RX"])
-    def residual_disease(self, value):
-        self._set_property("residual_disease", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(str)
     def regimen_or_line_of_therapy(self, value):
         self._set_property("regimen_or_line_of_therapy", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(list)
+    @psqlgraph.pg_property(str, enum=["Intrathecal", "Intravenous", "Not Reported", "Oral"])
     def route_of_administration(self, value):
         self._set_property("route_of_administration", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "End of Consolidation Therapy",
-            "End of Treatment Course",
-            "First Complete Response",
-            "Not Reported",
-            "Postoperative",
-            "Preoperative",
-            "Prior to Diagnosis",
-            "Prior to Procurement",
-            "Prior to Study Registration",
-            "Progression",
-            "Recurrence",
-        ],
-    )
-    def timepoint_category(self, value):
-        self._set_property("timepoint_category", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -605,7 +408,6 @@ class Treatment(base.Node):
             "Ligament",
             "Lip",
             "Liver",
-            "Locoregional Site",
             "Lumbar Spine",
             "Lung",
             "Lymph Node",
@@ -773,45 +575,9 @@ class Treatment(base.Node):
     def treatment_dose(self, value):
         self._set_property("treatment_dose", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
-    def treatment_dose_max(self, value):
-        self._set_property("treatment_dose_max", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "AUC",
-            "Gy",
-            "IU/kg",
-            "IU/mg",
-            "Wafer",
-            "cGy",
-            "g/day",
-            "g/m2",
-            "mCi",
-            "mEq",
-            "mIU",
-            "mL",
-            "mg",
-            "mg/dL",
-            "mg/day",
-            "mg/kg",
-            "mg/kg/day",
-            "mg/m2",
-            "mg/m2/day",
-            "mg/m2/wk",
-            "mg/mL",
-            "mg/wk",
-            "ug",
-            "ug/m2",
-        ],
-    )
+    @psqlgraph.pg_property(str, enum=["Gy", "cGy", "mg"])
     def treatment_dose_units(self, value):
         self._set_property("treatment_dose_units", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(int)
-    def treatment_duration(self, value):
-        self._set_property("treatment_duration", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -856,16 +622,12 @@ class Treatment(base.Node):
             "Adjuvant",
             "Androgen Deprivation Therapy (ADT)",
             "Cancer Control",
-            "Consolidation Therapy",
             "Cure",
-            "First-Line Therapy",
-            "Induction",
             "Maintenance Therapy",
             "Neoadjuvant",
             "Not Reported",
             "Palliative",
             "Prevention",
-            "Radiation Boost",
             "Unknown",
         ],
     )
@@ -883,7 +645,6 @@ class Treatment(base.Node):
             "Mixed Response",
             "No Measurable Disease",
             "No Response",
-            "Normalization of Tumor Markers",
             "Not Reported",
             "Partial Response",
             "Persistent Disease",
@@ -898,10 +659,6 @@ class Treatment(base.Node):
     def treatment_outcome(self, value):
         self._set_property("treatment_outcome", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
-    def treatment_outcome_duration(self, value):
-        self._set_property("treatment_outcome_duration", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -913,8 +670,6 @@ class Treatment(base.Node):
             "Ablation, Radiosurgical",
             "Ancillary Treatment",
             "Antiseizure Treatment",
-            "Biopsy, Excisional",
-            "Biopsy, Incisional",
             "Bisphosphonate Therapy",
             "Blinded Study, Treatment Unknown",
             "Brachytherapy, High Dose",
@@ -925,7 +680,6 @@ class Treatment(base.Node):
             "Chemotherapy",
             "Concurrent Chemoradiation",
             "Cryoablation",
-            "Distal Pancreatectomy",
             "Embolization",
             "Ethanol Injection Ablation",
             "External Beam Radiation",
@@ -938,7 +692,6 @@ class Treatment(base.Node):
             "Not Reported",
             "Organ Transplantation",
             "Other",
-            "Peptide Receptor Radionuclide Therapy (PRRT)",
             "Pharmaceutical Therapy, NOS",
             "Pleurodesis",
             "Pleurodesis, NOS",
@@ -973,13 +726,8 @@ class Treatment(base.Node):
             "Stereotactic Radiosurgery",
             "Steroid Therapy",
             "Surgery",
-            "Surgery, Minimally Invasive",
-            "Surgery, NOS",
-            "Surgery, Open",
             "Targeted Molecular Therapy",
-            "Total Pancreatectomy",
             "Unknown",
-            "Whipple",
         ],
     )
     def treatment_type(self, value):
@@ -2290,7 +2038,6 @@ class Treatment(base.Node):
             "Camptothecin-20(S)-O-Propionate Hydrate",
             "Camrelizumab",
             "Camsirubicin",
-            "Canakinumab",
             "Cancell",
             "Cancer Peptide Vaccine S-588410",
             "Canerpaturev",
@@ -4617,7 +4364,6 @@ class Treatment(base.Node):
             "Rituximab",
             "Rituximab Conjugate CON-4619",
             "Rituximab and Hyaluronidase Human",
-            "Rivaroxaban",
             "Riviciclib",
             "Rivoceranib",
             "Rivoceranib Mesylate",
@@ -4912,7 +4658,6 @@ class Treatment(base.Node):
             "TLR7/8/9 Antagonist IMO-8400",
             "TLR8 Agonist DN1508052",
             "TLR9 Agonist AST-008",
-            "TLR9 Agonist SD-101",
             "TM4SF1-CAR/EpCAM-CAR-expressing Autologous T Cells",
             "TORC1/2 Kinase Inhibitor DS-3078a",
             "TP40 Immunotoxin",
@@ -5470,14 +5215,6 @@ class Treatment(base.Node):
     )
     def therapeutic_agents(self, value):
         self._set_property("therapeutic_agents", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(bool)
-    def therapeutic_level_achieved(self, value):
-        self._set_property("therapeutic_level_achieved", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=[">14 mg/L"])
-    def therapeutic_target_level(self, value):
-        self._set_property("therapeutic_target_level", value)  # type: ignore  # inherited from CommonBase
 
 
 datetime_hooks.cls_inject_created_datetime_hook(Treatment)

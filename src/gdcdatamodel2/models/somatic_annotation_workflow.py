@@ -228,7 +228,6 @@ class SomaticAnnotationWorkflow(base.Node):
             "CaVEMan Annotation",
             "FoundationOne Annotation",
             "GATK4 MuTect2 Annotation",
-            "GATK4 MuTect2 Tumor-Only Annotation",
             "MuSE Annotation",
             "MuTect2 Annotation",
             "Pindel Annotation",

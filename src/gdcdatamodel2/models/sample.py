@@ -29,13 +29,7 @@ class Sample(base.Node):
         "submittable": True,
         "downloadable": False,
         "description": "Any material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes, including a sample obtained from a living organism or taken from the biological object after halting of all its life functions. Biospecimen can contain one or more components including but not limited to cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory products.",
-        "required": [
-            "preservation_method",
-            "specimen_type",
-            "submitter_id",
-            "tissue_type",
-            "tumor_descriptor",
-        ],
+        "required": ["submitter_id", "sample_type", "tissue_type"],
         "project": "*",
         "program": "*",
         "previous_version_downloadable": False,
@@ -816,10 +810,6 @@ class Sample(base.Node):
     def oct_embedded(self, value):
         self._set_property("oct_embedded", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
-    def passage_count(self, value):
-        self._set_property("passage_count", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(str)
     def pathology_report_uuid(self, value):
         self._set_property("pathology_report_uuid", value)  # type: ignore  # inherited from CommonBase
@@ -840,6 +830,10 @@ class Sample(base.Node):
     )
     def preservation_method(self, value):
         self._set_property("preservation_method", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def passage_count(self, value):
+        self._set_property("passage_count", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(int)
     def sample_ordinal(self, value):
@@ -950,49 +944,6 @@ class Sample(base.Node):
     def shortest_dimension(self, value):
         self._set_property("shortest_dimension", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "2D Classical Conditionally Reprogrammed Cells",
-            "2D Modified Conditionally Reprogrammed Cells",
-            "3D Air-Liquid Interface Organoid",
-            "3D Neurosphere",
-            "3D Organoid",
-            "Adherent Cell Line",
-            "Bone Marrow Components NOS",
-            "Bone Marrow NOS",
-            "Buccal Cells",
-            "Buffy Coat",
-            "Cell",
-            "Control Analyte",
-            "Derived Cell Line",
-            "EBV Immortalized",
-            "Fibroblasts from Bone Marrow",
-            "Granulocytes",
-            "Human Original Cells",
-            "Liquid Suspension Cell Line",
-            "Lymphocytes",
-            "Lymphoid",
-            "Mixed Adherent Suspension",
-            "Mononuclear Cells from Bone Marrow",
-            "Not Reported",
-            "Peripheral Blood Components NOS",
-            "Peripheral Blood NOS",
-            "Peripheral Whole Blood",
-            "Plasma",
-            "Pleural Effusion",
-            "Saliva",
-            "Serum",
-            "Solid Tissue",
-            "Sorted Cells",
-            "Sputum",
-            "Unknown",
-            "Whole Bone Marrow",
-        ],
-    )
-    def specimen_type(self, value):
-        self._set_property("specimen_type", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(float, int)
     def time_between_clamping_and_freezing(self, value):
         self._set_property("time_between_clamping_and_freezing", value)  # type: ignore  # inherited from CommonBase
@@ -1091,7 +1042,6 @@ class Sample(base.Node):
         enum=[
             "Metastatic",
             "NOS",
-            "New Primary",
             "Not Allowed To Collect",
             "Not Applicable",
             "Not Reported",

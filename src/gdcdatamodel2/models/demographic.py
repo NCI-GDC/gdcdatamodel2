@@ -28,7 +28,7 @@ class Demographic(base.Node):
         "category": "clinical",
         "submittable": True,
         "downloadable": False,
-        "description": "Data for the characterization of the patient by means of segmenting the population (e.g., characterization by age, sex, or race).",
+        "description": "Data for the characterization of the patient by means of segementing the population (e.g., characterization by age, sex, or race).",
         "required": ["submitter_id", "ethnicity", "gender", "race", "vital_status"],
         "project": "*",
         "program": "*",

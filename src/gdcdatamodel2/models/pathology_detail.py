@@ -216,8 +216,6 @@ class PathologyDetail(base.Node):
             "Autoimmune atrophic chronic gastritis",
             "Benign endocervical polyp",
             "Bilateral ovaries with endometriotic cyst and surface adhesions",
-            "Bone marrow concordant histology",
-            "Bone marrow discordant histology",
             "Carcinoma in situ",
             "Cirrhosis",
             "Clostridioides difficile (c. diff)",
@@ -248,8 +246,6 @@ class PathologyDetail(base.Node):
             "Nonkeratinizing dysplasia; severe (carcinoma in situ)",
             "Other",
             "PD-L1 CPS (223C LDT) - 20%",
-            "Percent follicular component <= 10%",
-            "Percent follicular component > 10%",
             "Platinum-resistant",
             "Pleural plaque",
             "Pulmonary interstitial fibrosis",
@@ -328,7 +324,6 @@ class PathologyDetail(base.Node):
         enum=[
             "Epithelial",
             "Esophageal Columnar Dysplasia",
-            "Esophageal Mucosa Columnar Dysplasia",
             "Keratinizing",
             "Nonkeratinizing",
             "Not Reported",
@@ -338,21 +333,6 @@ class PathologyDetail(base.Node):
     )
     def dysplasia_type(self, value):
         self._set_property("dysplasia_type", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Extensive", "Focal", "Not Reported"])
-    def extracapsular_extension(self, value):
-        self._set_property("extracapsular_extension", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=["Gross Extension", "Microscopic Extension", "No Extranodal Extension"],
-    )
-    def extranodal_extension(self, value):
-        self._set_property("extranodal_extension", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(bool)
-    def extrascleral_extension(self, value):
-        self._set_property("extrascleral_extension", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
     def greatest_tumor_dimension(self, value):
@@ -378,22 +358,6 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "Functional (Limited) Neck Dissection",
-            "Modified Radical Neck Dissection",
-            "Radical Neck Dissection",
-        ],
-    )
-    def lymph_node_dissection_method(self, value):
-        self._set_property("lymph_node_dissection_method", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Neck, Left", "Neck, NOS", "Neck, Right"])
-    def lymph_node_dissection_site(self, value):
-        self._set_property("lymph_node_dissection_site", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Aortic",
             "Axillary",
             "Cervical",
             "Epitrochlear",
@@ -410,7 +374,6 @@ class PathologyDetail(base.Node):
             "Occipital",
             "Paraaortic",
             "Parotid",
-            "Pelvis, NOS",
             "Popliteal",
             "Retroperitoneal",
             "Splenic",
@@ -431,10 +394,6 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(int)
     def lymph_nodes_positive(self, value):
         self._set_property("lymph_nodes_positive", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Yes"])
-    def lymph_nodes_removed(self, value):
-        self._set_property("lymph_nodes_removed", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(int)
     def lymph_nodes_tested(self, value):
@@ -496,10 +455,6 @@ class PathologyDetail(base.Node):
     def percent_tumor_invasion(self, value):
         self._set_property("percent_tumor_invasion", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
-    def percent_tumor_nuclei(self, value):
-        self._set_property("percent_tumor_nuclei", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def perineural_invasion_present(self, value):
         self._set_property("perineural_invasion_present", value)  # type: ignore  # inherited from CommonBase
@@ -527,10 +482,6 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(str, enum=["R0", "R1", "R2", "RX"])
     def residual_tumor(self, value):
         self._set_property("residual_tumor", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["1-10 mm", "11-20 mm", ">20 mm", "No macroscopic disease"])
-    def residual_tumor_measurement(self, value):
-        self._set_property("residual_tumor_measurement", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
     def rhabdoid_percent(self, value):
@@ -560,10 +511,6 @@ class PathologyDetail(base.Node):
     def tumor_largest_dimension_diameter(self, value):
         self._set_property("tumor_largest_dimension_diameter", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(list)
-    def tumor_level_prostate(self, value):
-        self._set_property("tumor_level_prostate", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(float, int)
     def tumor_thickness(self, value):
         self._set_property("tumor_thickness", value)  # type: ignore  # inherited from CommonBase
@@ -586,19 +533,6 @@ class PathologyDetail(base.Node):
     )
     def vascular_invasion_type(self, value):
         self._set_property("vascular_invasion_type", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Central zone",
-            "Overlapping/multiple zones",
-            "Peripheral zone",
-            "Transition zone",
-            "Unknown zone",
-        ],
-    )
-    def zone_of_origin_prostate(self, value):
-        self._set_property("zone_of_origin_prostate", value)  # type: ignore  # inherited from CommonBase
 
 
 datetime_hooks.cls_inject_created_datetime_hook(PathologyDetail)
