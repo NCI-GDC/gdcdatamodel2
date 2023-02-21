@@ -275,7 +275,6 @@ class SimpleGermlineVariation(base.Node):
             "ATAC-Seq",
             "Bisulfite-Seq",
             "ChIP-Seq",
-            "Genotyping Array",
             "RNA-Seq",
             "Targeted Sequencing",
             "WGS",

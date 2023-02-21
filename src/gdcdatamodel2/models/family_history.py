@@ -229,7 +229,6 @@ class FamilyHistory(base.Node):
             "Female Sibling of Adopted Child",
             "First Cousin",
             "First Cousin Once Removed",
-            "First Degree Relative, NOS",
             "Foster Brother",
             "Foster Daughter",
             "Foster Father",

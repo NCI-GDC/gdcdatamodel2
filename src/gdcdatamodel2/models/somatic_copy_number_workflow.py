@@ -68,10 +68,6 @@ class SomaticCopyNumberWorkflow(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "copy_number_auxiliary_files": {
-                "name": "somatic_copy_number_workflows",
-                "src_type": base.Node.get_subclass("copy_number_auxiliary_file"),
-            },
             "copy_number_estimates": {
                 "name": "somatic_copy_number_workflows",
                 "src_type": base.Node.get_subclass("copy_number_estimate"),
@@ -89,10 +85,6 @@ class SomaticCopyNumberWorkflow(base.Node):
             "aligned_reads_files": {
                 "backref": "somatic_copy_number_workflows",
                 "type": base.Node.get_subclass("aligned_reads"),
-            },
-            "copy_number_auxiliary_files": {
-                "backref": "somatic_copy_number_workflows",
-                "type": base.Node.get_subclass("copy_number_auxiliary_file"),
             },
             "copy_number_estimates": {
                 "backref": "somatic_copy_number_workflows",
@@ -246,9 +238,7 @@ class SomaticCopyNumberWorkflow(base.Node):
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum=["ABSOLUTE LiftOver", "ASCAT2", "ASCAT3", "AscatNGS", "GATK4 CNV"]
-    )
+    @psqlgraph.pg_property(str, enum=["ASCAT2", "AscatNGS"])
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase
 

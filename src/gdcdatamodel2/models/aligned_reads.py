@@ -382,7 +382,6 @@ class AlignedReads(base.Node):
             "Validation",
             "WGS",
             "WXS",
-            "m6A MeRIP-Seq",
             "miRNA-Seq",
             "scATAC-Seq",
             "scRNA-Seq",

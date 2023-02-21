@@ -90,9 +90,6 @@ from .annotationannotatesbiospecimensupplement import (
 from .annotationannotatescase import AnnotationAnnotatesCase
 from .annotationannotatescenter import AnnotationAnnotatesCenter
 from .annotationannotatesclinicalsupplement import AnnotationAnnotatesClinicalSupplement
-from .annotationannotatescopynumberauxiliaryfile import (
-    AnnotationAnnotatesCopyNumberAuxiliaryFile,
-)
 from .annotationannotatescopynumberestimate import AnnotationAnnotatesCopyNumberEstimate
 from .annotationannotatescopynumbersegment import AnnotationAnnotatesCopyNumberSegment
 from .annotationannotatesdemographic import AnnotationAnnotatesDemographic
@@ -185,15 +182,10 @@ from .clinicalrelatestocase import ClinicalRelatesToCase
 from .clinicalsupplementderivedfromcase import ClinicalSupplementDerivedFromCase
 from .clinicalsupplementmemberofarchive import ClinicalSupplementMemberOfArchive
 from .clinicalsupplementrelatestocase import ClinicalSupplementRelatesToCase
-from .copy_number_auxiliary_file import CopyNumberAuxiliaryFile
 from .copy_number_estimate import CopyNumberEstimate
 from .copy_number_liftover_workflow import CopyNumberLiftoverWorkflow
 from .copy_number_segment import CopyNumberSegment
 from .copy_number_variation_workflow import CopyNumberVariationWorkflow
-from .copynumberauxiliaryfilederivedfromsomaticcopynumberworkflow import (
-    CopyNumberAuxiliaryFileDerivedFromSomaticCopyNumberWorkflow,
-)
-from .copynumberauxiliaryfilerelatestocase import CopyNumberAuxiliaryFileRelatesToCase
 from .copynumberestimatederivedfromcopynumbervariationworkflow import (
     CopyNumberEstimateDerivedFromCopyNumberVariationWorkflow,
 )
@@ -608,7 +600,6 @@ __all__ = [
     "AnnotationAnnotatesCase",
     "AnnotationAnnotatesCenter",
     "AnnotationAnnotatesClinicalSupplement",
-    "AnnotationAnnotatesCopyNumberAuxiliaryFile",
     "AnnotationAnnotatesCopyNumberEstimate",
     "AnnotationAnnotatesCopyNumberSegment",
     "AnnotationAnnotatesDemographic",
@@ -669,13 +660,10 @@ __all__ = [
     "ClinicalSupplementDerivedFromCase",
     "ClinicalSupplementMemberOfArchive",
     "ClinicalSupplementRelatesToCase",
-    "CopyNumberAuxiliaryFile",
     "CopyNumberEstimate",
     "CopyNumberLiftoverWorkflow",
     "CopyNumberSegment",
     "CopyNumberVariationWorkflow",
-    "CopyNumberAuxiliaryFileDerivedFromSomaticCopyNumberWorkflow",
-    "CopyNumberAuxiliaryFileRelatesToCase",
     "CopyNumberEstimateDerivedFromCopyNumberVariationWorkflow",
     "CopyNumberEstimateDerivedFromGenomicProfileHarmonizationWorkflow",
     "CopyNumberEstimateDerivedFromSomaticCopyNumberWorkflow",

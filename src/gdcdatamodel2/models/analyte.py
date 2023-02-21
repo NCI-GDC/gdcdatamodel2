@@ -257,7 +257,6 @@ class Analyte(base.Node):
             "Repli-G X (Qiagen) DNA",
             "Total RNA",
             "cfDNA",
-            "m6A Enriched RNA",
         ],
     )
     def analyte_type(self, value):

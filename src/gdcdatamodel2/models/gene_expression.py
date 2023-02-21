@@ -285,7 +285,7 @@ class GeneExpression(base.Node):
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["RNA-Seq", "Total RNA-Seq", "m6A MeRIP-Seq", "scRNA-Seq"])
+    @psqlgraph.pg_property(str, enum=["RNA-Seq", "Total RNA-Seq", "scRNA-Seq"])
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 
