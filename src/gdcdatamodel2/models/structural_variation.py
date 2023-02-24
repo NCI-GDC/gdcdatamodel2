@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -99,7 +99,9 @@ class StructuralVariation(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "backref": "structural_variations",
-                "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "somatic_mutation_indexes": {
                 "backref": "structural_variations",
@@ -117,11 +119,15 @@ class StructuralVariation(base.Node):
         cls._pg_links = {
             "genomic_profile_harmonization_workflows": {
                 "edge_out": "_StructuralVariationDataFromGenomicProfileHarmonizationWorkflow_out",
-                "dst_type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "dst_type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "structural_variant_calling_workflows": {
                 "edge_out": "_StructuralVariationDataFromStructuralVariantCallingWorkflow_out",
-                "dst_type": base.Node.get_subclass("structural_variant_calling_workflow"),
+                "dst_type": base.Node.get_subclass(
+                    "structural_variant_calling_workflow"
+                ),
             },
         }
 
@@ -272,7 +278,9 @@ class StructuralVariation(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Somatic Structural Variation", "Structural Variation"])
+    @psqlgraph.pg_property(
+        str, enum=["Somatic Structural Variation", "Structural Variation"]
+    )
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 

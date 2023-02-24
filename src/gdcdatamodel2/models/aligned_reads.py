@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -91,7 +91,9 @@ class AlignedReads(base.Node):
             },
             "germline_mutation_calling_workflows": {
                 "name": "aligned_reads_files",
-                "src_type": base.Node.get_subclass("germline_mutation_calling_workflow"),
+                "src_type": base.Node.get_subclass(
+                    "germline_mutation_calling_workflow"
+                ),
             },
             "mirna_expression_workflows": {
                 "name": "aligned_reads_files",
@@ -111,7 +113,9 @@ class AlignedReads(base.Node):
             },
             "structural_variant_calling_workflows": {
                 "name": "aligned_reads_files",
-                "src_type": base.Node.get_subclass("structural_variant_calling_workflow"),
+                "src_type": base.Node.get_subclass(
+                    "structural_variant_calling_workflow"
+                ),
             },
         }
 

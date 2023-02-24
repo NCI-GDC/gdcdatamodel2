@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -87,7 +87,9 @@ class SubmittedGenomicProfile(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "name": "submitted_genomic_profiles",
-                "src_type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "src_type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
         }
 
@@ -101,7 +103,9 @@ class SubmittedGenomicProfile(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "backref": "submitted_genomic_profiles",
-                "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
+                "type": base.Node.get_subclass(
+                    "genomic_profile_harmonization_workflow"
+                ),
             },
             "read_groups": {
                 "backref": "submitted_genomic_profiles",
@@ -266,11 +270,15 @@ class SubmittedGenomicProfile(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Combined Nucleotide Variation", "Genomic Profiling"])
+    @psqlgraph.pg_property(
+        str, enum=["Combined Nucleotide Variation", "Genomic Profiling"]
+    )
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["FoundationOne Report", "GENIE Report", "Raw CGI Variant"])
+    @psqlgraph.pg_property(
+        str, enum=["FoundationOne Report", "GENIE Report", "Raw CGI Variant"]
+    )
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 

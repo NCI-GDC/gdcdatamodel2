@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -283,7 +283,9 @@ class ReadGroup(base.Node):
     def base_caller_version(self, value):
         self._set_property("base_caller_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Not Applicable", "Unknown", "abcam ab4729 anti-H3K27ac"])
+    @psqlgraph.pg_property(
+        str, enum=["Not Applicable", "Unknown", "abcam ab4729 anti-H3K27ac"]
+    )
     def chipseq_antibody(self, value):
         self._set_property("chipseq_antibody", value)  # type: ignore  # inherited from CommonBase
 

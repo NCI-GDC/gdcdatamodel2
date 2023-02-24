@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Tuple, Union, Optional
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import Session, query
+from sqlalchemy.orm import query, Session
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioned_nodes,
     versioning,
+    versioned_nodes,
 )
 
 
@@ -599,7 +599,9 @@ class Sample(base.Node):
     def biospecimen_anatomic_site(self, value):
         self._set_property("biospecimen_anatomic_site", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Bilateral", "Left", "Not Reported", "Right", "Unknown"])
+    @psqlgraph.pg_property(
+        str, enum=["Bilateral", "Left", "Not Reported", "Right", "Unknown"]
+    )
     def biospecimen_laterality(self, value):
         self._set_property("biospecimen_laterality", value)  # type: ignore  # inherited from CommonBase
 

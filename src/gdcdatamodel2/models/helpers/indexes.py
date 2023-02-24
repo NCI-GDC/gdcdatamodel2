@@ -76,7 +76,9 @@ def get_secondary_key_indexes(cls: Type[psqlgraph.Node]) -> Tuple:
     #: use text_pattern_ops, allows LIKE statements not starting with %
     index_op = "text_pattern_ops"
     secondary_keys = {
-        key for keys in getattr(cls, f"_{cls.__name__}__pg_secondary_keys", []) for key in keys
+        key
+        for keys in getattr(cls, f"_{cls.__name__}__pg_secondary_keys", [])
+        for key in keys
     }
 
     key_indexes = (
@@ -132,7 +134,9 @@ class SecondaryKeyComparator(hybrid.Comparator):
         cls = self.__clause_element__()
         secondary_keys = getattr(cls, f"_{cls.__name__}__pg_secondary_keys", ())
         key_pairs = (
-            (keys, values) for keys, values in zip(secondary_keys, other) if "id" not in keys
+            (keys, values)
+            for keys, values in zip(secondary_keys, other)
+            if "id" not in keys
         )
         for keys, values in key_pairs:
             other_dict = {key: val for key, val in zip(keys, values)}
