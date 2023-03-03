@@ -1,0 +1,18 @@
+---
+include:
+  - project: nci-gdc/gitlab-templates
+    ref: master
+    file:
+      - templates/global/full.yaml
+      - templates/python/full.yaml
+
+default:
+  image: ${BASE_CONTAINER_REGISTRY}/python36-builder:1.4.0
+  services:
+    - name: docker.osdc.io/ncigdc/ci-postgres-13:${BASE_CONTAINER_VERSION}
+      alias: postgres
+  tags:
+    - dind
+
+variables:
+  PG_INDEXD_HOST: postgres
