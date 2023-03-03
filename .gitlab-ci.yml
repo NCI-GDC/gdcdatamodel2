@@ -1,4 +1,9 @@
 ---
+stages:
+  - test
+  - build
+  - release
+
 include:
   - project: nci-gdc/gitlab-templates
     ref: master
@@ -16,3 +21,8 @@ default:
 
 variables:
   PG_INDEXD_HOST: postgres
+
+test:
+  stage: test
+  script:
+    - tox
