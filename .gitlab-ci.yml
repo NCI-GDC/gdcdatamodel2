@@ -42,3 +42,11 @@ test:
     - !reference [.prepareTox, needs]
   script:
     - tox -r
+
+tox:
+  rules:
+    - when: never
+
+docker_build:
+  rules:
+    - when: never
