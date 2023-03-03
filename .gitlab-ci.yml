@@ -22,7 +22,23 @@ default:
 variables:
   PG_INDEXD_HOST: postgres
 
+.prepareTox:
+  script:
+    - !reference [.load_github_key, script]
+    - apt-get update && apt-get install -y gnupg
+    - echo "deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main 13" | tee
+      /etc/apt/sources.list.d/pgdg.list
+    - apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7FCC7D46ACCC4CF8
+    - apt-get update
+    - apt-get install -y postgresql-client-13
+    - pip install "tox<4"
+  needs: [pre-commit]
+
 test:
   stage: test
+  before_script:
+    - !reference [.prepareTox, script]
+  needs:
+    - !reference [.prepareTox, needs]
   script:
-    - tox
+    - tox -r
