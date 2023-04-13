@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -104,9 +104,7 @@ class AnnotatedSomaticMutation(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "backref": "annotated_somatic_mutations",
-                "type": base.Node.get_subclass(
-                    "genomic_profile_harmonization_workflow"
-                ),
+                "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
             },
             "somatic_aggregation_workflows": {
                 "backref": "annotated_somatic_mutations",
@@ -128,9 +126,7 @@ class AnnotatedSomaticMutation(base.Node):
         cls._pg_links = {
             "genomic_profile_harmonization_workflows": {
                 "edge_out": "_AnnotatedSomaticMutationDataFromGenomicProfileHarmonizationWorkflow_out",
-                "dst_type": base.Node.get_subclass(
-                    "genomic_profile_harmonization_workflow"
-                ),
+                "dst_type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
             },
             "somatic_annotation_workflows": {
                 "edge_out": "_AnnotatedSomaticMutationDataFromSomaticAnnotationWorkflow_out",
