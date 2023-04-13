@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -226,9 +226,7 @@ class Treatment(base.Node):
     def days_to_treatment_start(self, value):
         self._set_property("days_to_treatment_start", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum=["Glucocorticoid", "Growth factor", "PARP inhibitor"]
-    )
+    @psqlgraph.pg_property(str, enum=["Glucocorticoid", "Growth factor", "PARP inhibitor"])
     def drug_category(self, value):
         self._set_property("drug_category", value)  # type: ignore  # inherited from CommonBase
 
