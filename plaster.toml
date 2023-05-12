@@ -11,7 +11,7 @@ log_file = "plaster.log"
 [profiles.gdcdictionary]
 url = "https://github.com/NCI-GDC/gdcdictionary.git"
 path = "gdcdictionary/schemas"
-version ="release/franklin"
+version = "release/franklin"
 is_git_tag = false
 overwrite = false
 type = "remote"
