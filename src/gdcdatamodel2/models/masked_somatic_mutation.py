@@ -1,16 +1,16 @@
-from typing import Any, Dict, List, Tuple, Union, Optional
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 import psqlgraph
 from sqlalchemy.ext import hybrid
-from sqlalchemy.orm import query, Session
+from sqlalchemy.orm import Session, query
 
 from .helpers import (
     base,
     datetime_hooks,
     indexes,
     related_cases,
-    versioning,
     versioned_nodes,
+    versioning,
 )
 
 
@@ -96,9 +96,7 @@ class MaskedSomaticMutation(base.Node):
             },
             "genomic_profile_harmonization_workflows": {
                 "backref": "masked_somatic_mutations",
-                "type": base.Node.get_subclass(
-                    "genomic_profile_harmonization_workflow"
-                ),
+                "type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
             },
             "projects": {
                 "backref": "masked_somatic_mutations",
@@ -116,9 +114,7 @@ class MaskedSomaticMutation(base.Node):
         cls._pg_links = {
             "genomic_profile_harmonization_workflows": {
                 "edge_out": "_MaskedSomaticMutationDataFromGenomicProfileHarmonizationWorkflow_out",
-                "dst_type": base.Node.get_subclass(
-                    "genomic_profile_harmonization_workflow"
-                ),
+                "dst_type": base.Node.get_subclass("genomic_profile_harmonization_workflow"),
             },
             "projects": {
                 "edge_out": "_MaskedSomaticMutationDerivedFromProject_out",
