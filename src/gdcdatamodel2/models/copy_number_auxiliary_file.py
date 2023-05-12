@@ -14,8 +14,8 @@ from .helpers import (
 )
 
 
-class SubmittedTangentCopyNumber(base.Node):
-    __tablename__: str = "node_submittedtangentcopynumber"
+class CopyNumberAuxiliaryFile(base.Node):
+    __tablename__: str = "node_copynumberauxiliaryfile"
 
     # this field contains values of uniqueProperties
     __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
@@ -26,12 +26,12 @@ class SubmittedTangentCopyNumber(base.Node):
         "file_state": "registered",
     }
     _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "Submitted Tangent Copy Number",
+        "title": "Copy Number Auxiliary File",
         "namespace": "https://gdc.cancer.gov",
         "category": "data_file",
-        "submittable": True,
-        "downloadable": False,
-        "description": "Data file containing tangent normalized copy number information from an aliquot.",
+        "submittable": False,
+        "downloadable": True,
+        "description": "Data file related to the copy number pipeline that contains any outputs not strictly defined in other nodes",
         "required": [
             "submitter_id",
             "file_name",
@@ -41,6 +41,7 @@ class SubmittedTangentCopyNumber(base.Node):
             "data_format",
             "data_type",
             "experimental_strategy",
+            "platform",
         ],
         "project": "*",
         "program": "*",
@@ -53,7 +54,7 @@ class SubmittedTangentCopyNumber(base.Node):
 
     @classmethod
     def get_label(cls) -> str:
-        return "submitted_tangent_copy_number"
+        return "copy_number_auxiliary_file"
 
     @property
     def id(self):
@@ -81,12 +82,8 @@ class SubmittedTangentCopyNumber(base.Node):
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
             "annotations": {
-                "name": "submitted_tangent_copy_numbers",
+                "name": "copy_number_auxiliary_files",
                 "src_type": base.Node.get_subclass("annotation"),
-            },
-            "copy_number_liftover_workflows": {
-                "name": "submitted_tangent_copy_numbers",
-                "src_type": base.Node.get_subclass("copy_number_liftover_workflow"),
             },
         }
 
@@ -94,17 +91,13 @@ class SubmittedTangentCopyNumber(base.Node):
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "aliquots": {
-                "backref": "submitted_tangent_copy_number",
-                "type": base.Node.get_subclass("aliquot"),
-            },
             "annotations": {
-                "backref": "submitted_tangent_copy_numbers",
+                "backref": "copy_number_auxiliary_files",
                 "type": base.Node.get_subclass("annotation"),
             },
-            "copy_number_liftover_workflows": {
-                "backref": "submitted_tangent_copy_numbers",
-                "type": base.Node.get_subclass("copy_number_liftover_workflow"),
+            "somatic_copy_number_workflows": {
+                "backref": "copy_number_auxiliary_files",
+                "type": base.Node.get_subclass("somatic_copy_number_workflow"),
             },
         }
 
@@ -112,9 +105,9 @@ class SubmittedTangentCopyNumber(base.Node):
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "aliquots": {
-                "edge_out": "_SubmittedTangentCopyNumberDerivedFromAliquot_out",
-                "dst_type": base.Node.get_subclass("aliquot"),
+            "somatic_copy_number_workflows": {
+                "edge_out": "_CopyNumberAuxiliaryFileDerivedFromSomaticCopyNumberWorkflow_out",
+                "dst_type": base.Node.get_subclass("somatic_copy_number_workflow"),
             },
         }
 
@@ -269,18 +262,22 @@ class SubmittedTangentCopyNumber(base.Node):
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Copy Number Estimate"])
+    @psqlgraph.pg_property(str, enum=["Intermediate Analysis Archive"])
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["TXT"])
+    @psqlgraph.pg_property(str, enum=["TAR"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Genotyping Array"])
+    @psqlgraph.pg_property(str, enum=["WGS"])
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str, enum=["Illumina"])
+    def platform(self, value):
+        self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
 
-datetime_hooks.cls_inject_created_datetime_hook(SubmittedTangentCopyNumber)
-datetime_hooks.cls_inject_updated_datetime_hook(SubmittedTangentCopyNumber)
+
+datetime_hooks.cls_inject_created_datetime_hook(CopyNumberAuxiliaryFile)
+datetime_hooks.cls_inject_updated_datetime_hook(CopyNumberAuxiliaryFile)

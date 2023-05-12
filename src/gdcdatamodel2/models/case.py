@@ -271,21 +271,20 @@ class Case(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -306,9 +305,9 @@ class Case(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "Consent by Death",
             "Consent Exemption",
             "Consent Waiver",
+            "Consent by Death",
             "Informed Consent",
         ],
     )
@@ -363,11 +362,13 @@ class Case(base.Node):
             "Myeloid Leukemias",
             "Myomatous Neoplasms",
             "Myxomatous Neoplasms",
-            "Neoplasms, NOS",
             "Neoplasms of Histiocytes and Accessory Lymphoid Cells",
+            "Neoplasms, NOS",
             "Nerve Sheath Tumors",
             "Neuroepitheliomatous Neoplasms",
             "Nevi and Melanomas",
+            "Not Applicable",
+            "Not Reported",
             "Odontogenic Tumors",
             "Osseous and Chondromatous Neoplasms",
             "Other Hematologic Disorders",
@@ -383,8 +384,6 @@ class Case(base.Node):
             "Transitional Cell Papillomas and Carcinomas",
             "Trophoblastic neoplasms",
             "Unknown",
-            "Not Reported",
-            "Not Applicable",
         ],
     )
     def disease_type(self, value):
@@ -405,7 +404,7 @@ class Case(base.Node):
     def index_date(self, value):
         self._set_property("index_date", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Yes", "No", "Unknown"])
+    @psqlgraph.pg_property(str, enum=["No", "Unknown", "Yes"])
     def lost_to_followup(self, value):
         self._set_property("lost_to_followup", value)  # type: ignore  # inherited from CommonBase
 
@@ -442,6 +441,7 @@ class Case(base.Node):
             "Meninges",
             "Nasal cavity and middle ear",
             "Nasopharynx",
+            "Not Reported",
             "Oropharynx",
             "Other and ill-defined digestive organs",
             "Other and ill-defined sites",
@@ -477,12 +477,11 @@ class Case(base.Node):
             "Thyroid gland",
             "Tonsil",
             "Trachea",
+            "Unknown",
             "Ureter",
             "Uterus, NOS",
             "Vagina",
             "Vulva",
-            "Unknown",
-            "Not Reported",
         ],
     )
     def primary_site(self, value):

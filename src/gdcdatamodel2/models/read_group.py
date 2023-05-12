@@ -236,21 +236,20 @@ class ReadGroup(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -284,19 +283,19 @@ class ReadGroup(base.Node):
     def base_caller_version(self, value):
         self._set_property("base_caller_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["abcam ab4729 anti-H3K27ac", "Unknown", "Not Applicable"])
+    @psqlgraph.pg_property(str, enum=["Not Applicable", "Unknown", "abcam ab4729 anti-H3K27ac"])
     def chipseq_antibody(self, value):
         self._set_property("chipseq_antibody", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum=[
+            "H3K27ac",
+            "H3K27me3",
+            "H3K36me3",
             "H3K4me1",
             "H3K4me3",
             "H3K9me3",
-            "H3K27me3",
-            "H3K36me3",
-            "H3K27ac",
             "Input Control",
             "Unknown",
         ],
@@ -332,7 +331,7 @@ class ReadGroup(base.Node):
     def fragment_standard_deviation_length(self, value):
         self._set_property("fragment_standard_deviation_length", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["MboI", "Unknown", "Not Applicable"])
+    @psqlgraph.pg_property(str, enum=["MboI", "Not Applicable", "Unknown"])
     def fragmentation_enzyme(self, value):
         self._set_property("fragmentation_enzyme", value)  # type: ignore  # inherited from CommonBase
 
@@ -361,10 +360,10 @@ class ReadGroup(base.Node):
             "Ion Torrent PGM",
             "Ion Torrent Proton",
             "Ion Torrent S5",
+            "Not Reported",
             "Other",
             "PacBio RS",
             "Unknown",
-            "Not Reported",
         ],
     )
     def instrument_model(self, value):
@@ -403,11 +402,11 @@ class ReadGroup(base.Node):
         enum=[
             "Affinity Enrichment",
             "Hybrid Selection",
-            "miRNA Size Fractionation",
             "Other",
             "PCR",
             "Poly-T Enrichment",
             "Random",
+            "miRNA Size Fractionation",
             "rRNA Depletion",
         ],
     )
@@ -415,7 +414,7 @@ class ReadGroup(base.Node):
         self._set_property("library_selection", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum=["Unstranded", "First_Stranded", "Second_Stranded", "Not Applicable"]
+        str, enum=["First_Stranded", "Not Applicable", "Second_Stranded", "Unstranded"]
     )
     def library_strand(self, value):
         self._set_property("library_strand", value)  # type: ignore  # inherited from CommonBase
@@ -427,14 +426,14 @@ class ReadGroup(base.Node):
             "Bisulfite-Seq",
             "ChIP-Seq",
             "HiChIP",
-            "m6A MeRIP-Seq",
-            "miRNA-Seq",
             "RNA-Seq",
-            "scATAC-Seq",
-            "scRNA-Seq",
             "Targeted Sequencing",
             "WGS",
             "WXS",
+            "m6A MeRIP-Seq",
+            "miRNA-Seq",
+            "scATAC-Seq",
+            "scRNA-Seq",
         ],
     )
     def library_strategy(self, value):
@@ -521,15 +520,16 @@ class ReadGroup(base.Node):
             "Custom MSK IMPACT Panel - 410 Genes",
             "Custom MSK IMPACT Panel - 468 Genes",
             "Custom Myeloid GENIE-VICC Panel - 37 Genes",
-            "Custom Personalis ACEcp VAREPOP-APOLLO Panel v2",
             "Custom PGDX SureSelect CancerSelect VAREPOP-APOLLO Panel - 203 Genes",
             "Custom PGDX SureSelect CancerSelect VAREPOP-APOLLO Panel - 88 Genes",
+            "Custom Personalis ACEcp VAREPOP-APOLLO Panel v2",
             "Custom SeqCap EZ BeatAML Panel - 12.5 Mb",
             "Custom SeqCap EZ HGSC VCRome v2.1 ER Augmented v1",
             "Custom SeqCap EZ HGSC VCRome v2.1 ER Augmented v2",
             "Custom SeqCap EZ TARGET-OS Panel - 7.0 Mb",
             "Custom Solid Tumor GENIE-VICC Panel - 34 Genes",
             "Custom SureSelect CGCI-BLGSP Panel - 4.6 Mb",
+            "Custom SureSelect CGCI-BLGSP Panel - 7.8 Mb",
             "Custom SureSelect CGCI-HTMCP-CC KMT2D And Hotspot Panel - 37.0 Kb",
             "Custom SureSelect CGCI-HTMCP-CC Panel - 19.7 Mb",
             "Custom SureSelect GENIE-UHN Panel - 555 Genes",
@@ -557,8 +557,8 @@ class ReadGroup(base.Node):
             "TruSeq RNA Exome",
             "TruSight Myeloid Sequencing Panel",
             "Twist Human Comprehensive Exome",
-            "xGen Exome Research Panel v1.0",
             "Unknown",
+            "xGen Exome Research Panel v1.0",
         ],
     )
     def target_capture_kit(self, value):

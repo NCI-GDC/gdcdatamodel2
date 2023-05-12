@@ -29,7 +29,13 @@ class Sample(base.Node):
         "submittable": True,
         "downloadable": False,
         "description": "Any material sample taken from a biological entity for testing, diagnostic, propagation, treatment or research purposes, including a sample obtained from a living organism or taken from the biological object after halting of all its life functions. Biospecimen can contain one or more components including but not limited to cellular molecules, cells, tissues, organs, body fluids, embryos, and body excretory products.",
-        "required": ["submitter_id", "sample_type", "tissue_type"],
+        "required": [
+            "preservation_method",
+            "specimen_type",
+            "submitter_id",
+            "tissue_type",
+            "tumor_descriptor",
+        ],
         "project": "*",
         "program": "*",
         "previous_version_downloadable": False,
@@ -263,21 +269,20 @@ class Sample(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -412,8 +417,8 @@ class Sample(base.Node):
             "Gum",
             "Hand",
             "Hard Palate",
-            "Head - Face Or Neck, Nos",
             "Head & Neck",
+            "Head - Face Or Neck, Nos",
             "Heart",
             "Hepatic",
             "Hepatic Duct",
@@ -487,6 +492,7 @@ class Sample(base.Node):
             "Nerve",
             "Nerve(s) Cranial",
             "Not Allowed To Collect",
+            "Not Reported",
             "Occipital Cortex",
             "Ocular Orbits",
             "Omentum",
@@ -574,6 +580,7 @@ class Sample(base.Node):
             "Transverse Colon",
             "Trunk",
             "Umbilical Cord",
+            "Unknown",
             "Ureter",
             "Urethra",
             "Urinary Tract",
@@ -587,14 +594,12 @@ class Sample(base.Node):
             "Vulva",
             "White Blood Cells",
             "Wrist",
-            "Unknown",
-            "Not Reported",
         ],
     )
     def biospecimen_anatomic_site(self, value):
         self._set_property("biospecimen_anatomic_site", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Bilateral", "Left", "Right", "Unknown", "Not Reported"])
+    @psqlgraph.pg_property(str, enum=["Bilateral", "Left", "Not Reported", "Right", "Unknown"])
     def biospecimen_laterality(self, value):
         self._set_property("biospecimen_laterality", value)  # type: ignore  # inherited from CommonBase
 
@@ -627,6 +632,7 @@ class Sample(base.Node):
             "Mixed Adherent Suspension",
             "Mononuclear Cells from Bone Marrow Normal",
             "Not Allowed To Collect",
+            "Not Reported",
             "Peripheral Blood Components NOS",
             "Peripheral Whole Blood",
             "Plasma",
@@ -636,9 +642,8 @@ class Sample(base.Node):
             "Solid Tissue",
             "Sorted Cells",
             "Sputum",
-            "Whole Bone Marrow",
             "Unknown",
-            "Not Reported",
+            "Whole Bone Marrow",
         ],
     )
     def composition(self, value):
@@ -657,13 +662,13 @@ class Sample(base.Node):
         self._set_property("days_to_sample_procurement", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum=["Not Allowed To Collect", "Yes", "No", "Unknown", "Not Reported"]
+        str, enum=["No", "Not Allowed To Collect", "Not Reported", "Unknown", "Yes"]
     )
     def diagnosis_pathologically_confirmed(self, value):
         self._set_property("diagnosis_pathologically_confirmed", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum=["Adjacent (< or = 2cm)", "Distal (>2cm)", "Unknown", "Not Reported"]
+        str, enum=["Adjacent (< or = 2cm)", "Distal (>2cm)", "Not Reported", "Unknown"]
     )
     def distance_normal_to_tumor(self, value):
         self._set_property("distance_normal_to_tumor", value)  # type: ignore  # inherited from CommonBase
@@ -744,6 +749,7 @@ class Sample(base.Node):
             "Modified Radical Mastectomy",
             "Needle Biopsy",
             "Not Allowed To Collect",
+            "Not Reported",
             "Omentectomy",
             "Oophorectomy",
             "Open Craniotomy",
@@ -792,16 +798,15 @@ class Sample(base.Node):
             "Total Nephrectomy",
             "Transoral Laser Excision",
             "Transplant",
-            "Transurethral resection (TURBT)",
             "Transurethral Resection (TURP)",
+            "Transurethral resection (TURBT)",
             "Transverse Colectomy",
             "Tumor Debulking",
             "Tumor Resection",
+            "Unknown",
             "Vertical Hemilaryngectomy",
             "Wedge Resection",
             "Whipple Procedure",
-            "Unknown",
-            "Not Reported",
         ],
     )
     def method_of_sample_procurement(self, value):
@@ -810,6 +815,10 @@ class Sample(base.Node):
     @psqlgraph.pg_property(str)
     def oct_embedded(self, value):
         self._set_property("oct_embedded", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def passage_count(self, value):
+        self._set_property("passage_count", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str)
     def pathology_report_uuid(self, value):
@@ -823,18 +832,14 @@ class Sample(base.Node):
             "Fresh",
             "Frozen",
             "Not Allowed To Collect",
+            "Not Reported",
             "OCT",
             "Snap Frozen",
             "Unknown",
-            "Not Reported",
         ],
     )
     def preservation_method(self, value):
         self._set_property("preservation_method", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(int)
-    def passage_count(self, value):
-        self._set_property("passage_count", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(int)
     def sample_ordinal(self, value):
@@ -875,27 +880,27 @@ class Sample(base.Node):
             "Next Generation Cancer Model",
             "Next Generation Cancer Model Expanded Under Non-conforming Conditions",
             "Not Allowed To Collect",
+            "Not Reported",
             "Pleural Effusion",
             "Post neo-adjuvant therapy",
             "Primary Blood Derived Cancer - Bone Marrow",
             "Primary Blood Derived Cancer - Peripheral Blood",
             "Primary Tumor",
             "Primary Xenograft Tissue",
+            "RNA",
             "Recurrent Blood Derived Cancer - Bone Marrow",
             "Recurrent Blood Derived Cancer - Peripheral Blood",
             "Recurrent Tumor",
             "Repli-G (Qiagen) DNA",
             "Repli-G X (Qiagen) DNA",
-            "RNA",
             "Saliva",
             "Slides",
             "Solid Tissue Normal",
             "Total RNA",
             "Tumor",
             "Tumor Adjacent Normal - Post Neo-adjuvant Therapy",
-            "Xenograft Tissue",
             "Unknown",
-            "Not Reported",
+            "Xenograft Tissue",
         ],
     )
     def sample_type(self, value):
@@ -945,6 +950,49 @@ class Sample(base.Node):
     def shortest_dimension(self, value):
         self._set_property("shortest_dimension", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "2D Classical Conditionally Reprogrammed Cells",
+            "2D Modified Conditionally Reprogrammed Cells",
+            "3D Air-Liquid Interface Organoid",
+            "3D Neurosphere",
+            "3D Organoid",
+            "Adherent Cell Line",
+            "Bone Marrow Components NOS",
+            "Bone Marrow NOS",
+            "Buccal Cells",
+            "Buffy Coat",
+            "Cell",
+            "Control Analyte",
+            "Derived Cell Line",
+            "EBV Immortalized",
+            "Fibroblasts from Bone Marrow",
+            "Granulocytes",
+            "Human Original Cells",
+            "Liquid Suspension Cell Line",
+            "Lymphocytes",
+            "Lymphoid",
+            "Mixed Adherent Suspension",
+            "Mononuclear Cells from Bone Marrow",
+            "Not Reported",
+            "Peripheral Blood Components NOS",
+            "Peripheral Blood NOS",
+            "Peripheral Whole Blood",
+            "Plasma",
+            "Pleural Effusion",
+            "Saliva",
+            "Serum",
+            "Solid Tissue",
+            "Sorted Cells",
+            "Sputum",
+            "Unknown",
+            "Whole Bone Marrow",
+        ],
+    )
+    def specimen_type(self, value):
+        self._set_property("specimen_type", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(float, int)
     def time_between_clamping_and_freezing(self, value):
         self._set_property("time_between_clamping_and_freezing", value)  # type: ignore  # inherited from CommonBase
@@ -960,13 +1008,13 @@ class Sample(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "Tumor",
-            "Normal",
             "Abnormal",
-            "Peritumoral",
+            "Normal",
             "Not Allowed To Collect",
-            "Unknown",
             "Not Reported",
+            "Peritumoral",
+            "Tumor",
+            "Unknown",
         ],
     )
     def tissue_type(self, value):
@@ -979,21 +1027,21 @@ class Sample(base.Node):
             "Acute lymphoblastic leukemia (ALL)",
             "Acute myeloid leukemia (AML)",
             "Anal Cancer (all types)",
-            "Cervical Cancer (all types)",
-            "Clear cell sarcoma of the kidney (CCSK)",
             "CNS, ependymoma",
             "CNS, glioblastoma (GBM)",
             "CNS, low grade glioma (LGG)",
             "CNS, medulloblastoma",
             "CNS, other",
             "CNS, rhabdoid tumor",
+            "Cervical Cancer (all types)",
+            "Clear cell sarcoma of the kidney (CCSK)",
             "Diffuse Large B-Cell Lymphoma (DLBCL)",
             "Ewing sarcoma",
             "Induction Failure AML (AML-IF)",
             "Lung Cancer (all types)",
-            "Neuroblastoma (NBL)",
-            "NHL, anaplastic large cell lymphoma",
             "NHL, Burkitt lymphoma (BL)",
+            "NHL, anaplastic large cell lymphoma",
+            "Neuroblastoma (NBL)",
             "Non cancerous tissue",
             "Osteosarcoma (OS)",
             "Rhabdoid tumor (kidney) (RT)",
@@ -1043,14 +1091,15 @@ class Sample(base.Node):
         enum=[
             "Metastatic",
             "NOS",
+            "New Primary",
             "Not Allowed To Collect",
             "Not Applicable",
+            "Not Reported",
             "Premalignant",
             "Primary",
             "Recurrence",
-            "Xenograft",
             "Unknown",
-            "Not Reported",
+            "Xenograft",
         ],
     )
     def tumor_descriptor(self, value):

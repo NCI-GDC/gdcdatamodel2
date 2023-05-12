@@ -199,21 +199,20 @@ class Analyte(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -246,19 +245,19 @@ class Analyte(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "cfDNA",
             "DNA",
             "EBV Immortalized Normal",
             "FFPE DNA",
             "FFPE RNA",
             "GenomePlex (Rubicon) Amplified DNA",
-            "m6A Enriched RNA",
             "Nuclei RNA",
+            "RNA",
             "Repli-G (Qiagen) DNA",
             "Repli-G Pooled (Qiagen) DNA",
             "Repli-G X (Qiagen) DNA",
-            "RNA",
             "Total RNA",
+            "cfDNA",
+            "m6A Enriched RNA",
         ],
     )
     def analyte_type(self, value):
@@ -279,25 +278,25 @@ class Analyte(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "aDNA Preparation Type",
             "Allprep FFPE DNA",
             "Allprep RNA Extraction",
             "Chemical Lysis DNA Extraction",
             "Genomplex",
             "HighPure miRNA (Allprep DNA) FFPE RNA",
-            "mirVana (Allprep DNA) RNA",
-            "nRNA - Melanoma Protocol",
             "Pre-extracted DNA received by TSS",
             "Repli-G",
             "Repli-G X",
             "Total RNA",
+            "aDNA Preparation Type",
+            "mirVana (Allprep DNA) RNA",
+            "nRNA - Melanoma Protocol",
         ],
     )
     def experimental_protocol_type(self, value):
         self._set_property("experimental_protocol_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
-        str, enum=["Yes", "No", "Unknown", "Not Reported", "Not Allowed To Collect"]
+        str, enum=["No", "Not Allowed To Collect", "Not Reported", "Unknown", "Yes"]
     )
     def normal_tumor_genotype_snp_match(self, value):
         self._set_property("normal_tumor_genotype_snp_match", value)  # type: ignore  # inherited from CommonBase

@@ -166,21 +166,20 @@ class Clinical(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        str,
         enum=[
-            "uploading",
-            "uploaded",
-            "md5summing",
-            "md5summed",
-            "validating",
             "error",
             "invalid",
-            "suppressed",
-            "redacted",
             "live",
-            "validated",
-            "submitted",
+            "md5summed",
+            "md5summing",
+            "redacted",
             "released",
+            "submitted",
+            "suppressed",
+            "uploaded",
+            "uploading",
+            "validated",
+            "validating",
         ],
     )
     def state(self, value):
@@ -221,13 +220,13 @@ class Clinical(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "not reported",
-            "white",
             "american indian or alaska native",
-            "black or african american",
             "asian",
+            "black or african american",
             "native hawaiian or other pacific islander",
+            "not reported",
             "other",
+            "white",
         ],
     )
     def race(self, value):
