@@ -828,6 +828,7 @@ class Sample(base.Node):
         str,
         enum=[
             "Cryopreserved",
+            "EDTA",
             "FFPE",
             "Fresh",
             "Frozen",
@@ -966,6 +967,7 @@ class Sample(base.Node):
             "Cell",
             "Control Analyte",
             "Derived Cell Line",
+            "Derived Cell Lines and Sorted Cells",
             "EBV Immortalized",
             "Fibroblasts from Bone Marrow",
             "Granulocytes",

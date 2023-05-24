@@ -270,13 +270,13 @@ class MethylationBetaValue(base.Node):
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Methylation Beta Value"])
-    def data_type(self, value):
-        self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(str, enum=["TXT"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Methylation Beta Value"])
+    def data_type(self, value):
+        self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str, enum=["Methylation Array"])
     def experimental_strategy(self, value):
@@ -288,6 +288,7 @@ class MethylationBetaValue(base.Node):
             "Illumina Human Methylation 27",
             "Illumina Human Methylation 450",
             "Illumina Methylation Epic",
+            "Illumina Methylation Epic v2",
         ],
     )
     def platform(self, value):

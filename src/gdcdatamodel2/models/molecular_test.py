@@ -231,6 +231,10 @@ class MolecularTest(base.Node):
     def aa_change(self, value):
         self._set_property("aa_change", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str, enum=["Monosomy", "Trisomy"])
+    def aneuploidy(self, value):
+        self._set_property("aneuploidy", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -276,10 +280,6 @@ class MolecularTest(base.Node):
     )
     def antigen(self, value):
         self._set_property("antigen", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Monosomy", "Trisomy"])
-    def aneuploidy(self, value):
-        self._set_property("aneuploidy", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -335,6 +335,23 @@ class MolecularTest(base.Node):
         enum=[
             "Not Reported",
             "Unknown",
+            "t(10;11)(p11.2;q23)",
+            "t(11;19)(q23;p13.1)",
+            "t(3;5)(q25;q34)",
+            "t(6;11)(q27;q23)",
+            "t(6;9)",
+            "t(8;21)",
+            "t(9;11)(p22;q23)",
+        ],
+    )
+    def chromosomal_translocation(self, value):
+        self._set_property("chromosomal_translocation", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Not Reported",
+            "Unknown",
             "chr1",
             "chr10",
             "chr11",
@@ -366,34 +383,17 @@ class MolecularTest(base.Node):
     def chromosome(self, value):
         self._set_property("chromosome", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
-    def copy_number(self, value):
-        self._set_property("copy_number", value)  # type: ignore  # inherited from CommonBase
+    @psqlgraph.pg_property(str, enum=["Not Reported", "p", "q"])
+    def chromosome_arm(self, value):
+        self._set_property("chromosome_arm", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str, enum=["Clonal", "Non-clonal"])
     def clonality(self, value):
         self._set_property("clonality", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Not Reported",
-            "Unknown",
-            "t(10;11)(p11.2;q23)",
-            "t(11;19)(q23;p13.1)",
-            "t(3;5)(q25;q34)",
-            "t(6;11)(q27;q23)",
-            "t(6;9)",
-            "t(8;21)",
-            "t(9;11)(p22;q23)",
-        ],
-    )
-    def chromosomal_translocation(self, value):
-        self._set_property("chromosomal_translocation", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Not Reported", "p", "q"])
-    def chromosome_arm(self, value):
-        self._set_property("chromosome_arm", value)  # type: ignore  # inherited from CommonBase
+    @psqlgraph.pg_property(float, int)
+    def copy_number(self, value):
+        self._set_property("copy_number", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str)
     def cytoband(self, value):
@@ -414,6 +414,7 @@ class MolecularTest(base.Node):
             "ABI1",
             "ABL1",
             "ABL2",
+            "ACACA",
             "ACKR3",
             "ACSL3",
             "ACSL6",
@@ -479,9 +480,11 @@ class MolecularTest(base.Node):
             "BRAF",
             "BRCA1",
             "BRCA2",
+            "BRD1",
             "BRD3",
             "BRD4",
             "BRIP1",
+            "BTBD18",
             "BTG1",
             "BTK",
             "BUB1B",
@@ -494,6 +497,7 @@ class MolecularTest(base.Node):
             "CARD11",
             "CARS",
             "CASP8",
+            "CBFA2T2",
             "CBFA2T3",
             "CBFB",
             "CBL",
@@ -529,6 +533,8 @@ class MolecularTest(base.Node):
             "CDKN2C",
             "CDX2",
             "CEBPA",
+            "CEP164",
+            "CEP170B",
             "CEP89",
             "CHCHD7",
             "CHD2",
@@ -564,6 +570,7 @@ class MolecularTest(base.Node):
             "CSF3R",
             "CSMD3",
             "CTCF",
+            "CTDP1",
             "CTNNA2",
             "CTNNB1",
             "CTNND1",
@@ -592,6 +599,7 @@ class MolecularTest(base.Node):
             "DNM2",
             "DNMT3A",
             "DNTT",
+            "DOT1L",
             "DROSHA",
             "DUX4L1",
             "EBF1",
@@ -677,6 +685,7 @@ class MolecularTest(base.Node):
             "FOXO4",
             "FOXP1",
             "FOXR1",
+            "FRYL",
             "FSTL3",
             "FUBP1",
             "FUS",
@@ -686,6 +695,7 @@ class MolecularTest(base.Node):
             "GATA3",
             "GCET1",
             "GLI1",
+            "GLIS2",
             "GMPS",
             "GNA11",
             "GNAQ",
@@ -708,9 +718,11 @@ class MolecularTest(base.Node):
             "HLF",
             "HMGA1",
             "HMGA2",
+            "HMGB3",
             "HMGN2P46",
             "HNF1A",
             "HNRNPA2B1",
+            "HNRNPH1",
             "HOOK3",
             "HOXA11",
             "HOXA13",
@@ -736,6 +748,7 @@ class MolecularTest(base.Node):
             "IL21R",
             "IL6ST",
             "IL7R",
+            "INO80D",
             "IRF4",
             "IRS4",
             "ISX",
@@ -744,6 +757,7 @@ class MolecularTest(base.Node):
             "JAK1",
             "JAK2",
             "JAK3",
+            "JARID2",
             "JAZF1",
             "JUN",
             "KAT6A",
@@ -908,6 +922,7 @@ class MolecularTest(base.Node):
             "PDPN",
             "PER1",
             "PGR",
+            "PHF23",
             "PHF6",
             "PHOX2B",
             "PICALM",
@@ -915,6 +930,7 @@ class MolecularTest(base.Node):
             "PIK3CB",
             "PIK3R1",
             "PIM1",
+            "PIM3",
             "PLAG1",
             "PLCG1",
             "PML",
@@ -948,6 +964,7 @@ class MolecularTest(base.Node):
             "PTEN",
             "PTGS2",
             "PTK6",
+            "PTP4A1",
             "PTPN11",
             "PTPN13",
             "PTPN6",
@@ -985,6 +1002,7 @@ class MolecularTest(base.Node):
             "RPL22",
             "RPL5",
             "RPN1",
+            "RPS15",
             "RSPO2",
             "RSPO3",
             "RUNX1",
@@ -1003,6 +1021,7 @@ class MolecularTest(base.Node):
             "SEPT9",
             "SET",
             "SETBP1",
+            "SETD1A",
             "SETD2",
             "SF3B1",
             "SFPQ",
@@ -1015,6 +1034,7 @@ class MolecularTest(base.Node):
             "SKI",
             "SLC34A2",
             "SLC45A3",
+            "SLC66A2 (aka PQLC1)",
             "SMAD2",
             "SMAD3",
             "SMAD4",
@@ -1083,6 +1103,7 @@ class MolecularTest(base.Node):
             "TNFRSF14",
             "TNFRSF17",
             "TOP1",
+            "TOP2B",
             "TP53",
             "TP63",
             "TPM3",
@@ -1101,6 +1122,7 @@ class MolecularTest(base.Node):
             "TSC2",
             "TSHR",
             "U2AF1",
+            "UBB",
             "UBR5",
             "USP6",
             "USP8",
@@ -1122,6 +1144,7 @@ class MolecularTest(base.Node):
             "ZBTB16",
             "ZCCHC8",
             "ZEB1",
+            "ZEB2",
             "ZFHX3",
             "ZMYM3",
             "ZNF198",
@@ -1416,6 +1439,7 @@ class MolecularTest(base.Node):
             "ABI1",
             "ABL1",
             "ABL2",
+            "ACACA",
             "ACKR3",
             "ACSL3",
             "ACSL6",
@@ -1480,9 +1504,11 @@ class MolecularTest(base.Node):
             "BRAF",
             "BRCA1",
             "BRCA2",
+            "BRD1",
             "BRD3",
             "BRD4",
             "BRIP1",
+            "BTBD18",
             "BTG1",
             "BTK",
             "BUB1B",
@@ -1494,6 +1520,7 @@ class MolecularTest(base.Node):
             "CARD11",
             "CARS",
             "CASP8",
+            "CBFA2T2",
             "CBFA2T3",
             "CBFB",
             "CBL",
@@ -1529,6 +1556,8 @@ class MolecularTest(base.Node):
             "CDKN2C",
             "CDX2",
             "CEBPA",
+            "CEP164",
+            "CEP170B",
             "CEP89",
             "CHCHD7",
             "CHD2",
@@ -1564,6 +1593,7 @@ class MolecularTest(base.Node):
             "CSF3R",
             "CSMD3",
             "CTCF",
+            "CTDP1",
             "CTNNA2",
             "CTNNB1",
             "CTNND1",
@@ -1591,6 +1621,7 @@ class MolecularTest(base.Node):
             "DNAJB1",
             "DNM2",
             "DNMT3A",
+            "DOT1L",
             "DROSHA",
             "DUX4L1",
             "EBF1",
@@ -1675,6 +1706,7 @@ class MolecularTest(base.Node):
             "FOXO4",
             "FOXP1",
             "FOXR1",
+            "FRYL",
             "FSTL3",
             "FUBP1",
             "FUS",
@@ -1683,6 +1715,7 @@ class MolecularTest(base.Node):
             "GATA2",
             "GATA3",
             "GLI1",
+            "GLIS2",
             "GMPS",
             "GNA11",
             "GNAQ",
@@ -1705,9 +1738,11 @@ class MolecularTest(base.Node):
             "HLF",
             "HMGA1",
             "HMGA2",
+            "HMGB3",
             "HMGN2P46",
             "HNF1A",
             "HNRNPA2B1",
+            "HNRNPH1",
             "HOOK3",
             "HOXA11",
             "HOXA13",
@@ -1732,6 +1767,7 @@ class MolecularTest(base.Node):
             "IL21R",
             "IL6ST",
             "IL7R",
+            "INO80D",
             "IRF4",
             "IRS4",
             "ISX",
@@ -1740,6 +1776,7 @@ class MolecularTest(base.Node):
             "JAK1",
             "JAK2",
             "JAK3",
+            "JARID2",
             "JAZF1",
             "JUN",
             "KAT6A",
@@ -1899,6 +1936,7 @@ class MolecularTest(base.Node):
             "PDGFRB",
             "PER1",
             "PGR",
+            "PHF23",
             "PHF6",
             "PHOX2B",
             "PICALM",
@@ -1906,6 +1944,7 @@ class MolecularTest(base.Node):
             "PIK3CB",
             "PIK3R1",
             "PIM1",
+            "PIM3",
             "PLAG1",
             "PLCG1",
             "PML",
@@ -1938,6 +1977,7 @@ class MolecularTest(base.Node):
             "PTCH1",
             "PTEN",
             "PTK6",
+            "PTP4A1",
             "PTPN11",
             "PTPN13",
             "PTPN6",
@@ -1975,6 +2015,7 @@ class MolecularTest(base.Node):
             "RPL22",
             "RPL5",
             "RPN1",
+            "RPS15",
             "RSPO2",
             "RSPO3",
             "RUNX1",
@@ -1993,6 +2034,7 @@ class MolecularTest(base.Node):
             "SEPT9",
             "SET",
             "SETBP1",
+            "SETD1A",
             "SETD2",
             "SF3B1",
             "SFPQ",
@@ -2005,6 +2047,7 @@ class MolecularTest(base.Node):
             "SKI",
             "SLC34A2",
             "SLC45A3",
+            "SLC66A2 (aka PQLC1)",
             "SMAD2",
             "SMAD3",
             "SMAD4",
@@ -2073,6 +2116,7 @@ class MolecularTest(base.Node):
             "TNFRSF14",
             "TNFRSF17",
             "TOP1",
+            "TOP2B",
             "TP53",
             "TP63",
             "TPM3",
@@ -2091,6 +2135,7 @@ class MolecularTest(base.Node):
             "TSC2",
             "TSHR",
             "U2AF1",
+            "UBB",
             "UBR5",
             "USP6",
             "USP8",
@@ -2112,6 +2157,7 @@ class MolecularTest(base.Node):
             "ZBTB16",
             "ZCCHC8",
             "ZEB1",
+            "ZEB2",
             "ZFHX3",
             "ZMYM3",
             "ZNF198",
@@ -2131,6 +2177,10 @@ class MolecularTest(base.Node):
     @psqlgraph.pg_property(str)
     def specialized_molecular_test(self, value):
         self._set_property("specialized_molecular_test", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["3 Point Scale", "4 Point Scale"])
+    def staining_intensity_scale(self, value):
+        self._set_property("staining_intensity_scale", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -2208,7 +2258,29 @@ class MolecularTest(base.Node):
     def test_value(self, value):
         self._set_property("test_value", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["0-25", "26-50", "51-75", "76-100", "Not Reported"])
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "0-25",
+            "1-49%",
+            "10-19%",
+            "20-29%",
+            "26-50",
+            "30-39%",
+            "40-49%",
+            "50-59%",
+            "51-75",
+            "60-69%",
+            "70-79%",
+            "76-100",
+            "80-89%",
+            "90-99%",
+            "<1%",
+            "<10%",
+            ">=50%",
+            "Not Reported",
+        ],
+    )
     def test_value_range(self, value):
         self._set_property("test_value_range", value)  # type: ignore  # inherited from CommonBase
 
@@ -2219,6 +2291,7 @@ class MolecularTest(base.Node):
             "End of Treatment Course 1",
             "End of Treatment Course 2",
             "Not Reported",
+            "Preoperative",
         ],
     )
     def timepoint_category(self, value):
