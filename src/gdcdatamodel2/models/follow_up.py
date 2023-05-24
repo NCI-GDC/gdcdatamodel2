@@ -1056,12 +1056,12 @@ class FollowUp(base.Node):
         self._set_property("barretts_esophagus_goblet_cells_present", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
-    def body_surface_area(self, value):
-        self._set_property("body_surface_area", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
     def bmi(self, value):
         self._set_property("bmi", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def body_surface_area(self, value):
+        self._set_property("body_surface_area", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str)
     def cause_of_response(self, value):
@@ -1341,6 +1341,10 @@ class FollowUp(base.Node):
     def diabetes_treatment_type(self, value):
         self._set_property("diabetes_treatment_type", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(int)
+    def discontiguous_lesion_count(self, value):
+        self._set_property("discontiguous_lesion_count", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -1425,20 +1429,20 @@ class FollowUp(base.Node):
         self._set_property("eye_color", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
-    def fev1_ref_post_bronch_percent(self, value):
-        self._set_property("fev1_ref_post_bronch_percent", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(float, int)
-    def fev1_ref_pre_bronch_percent(self, value):
-        self._set_property("fev1_ref_pre_bronch_percent", value)  # type: ignore  # inherited from CommonBase
+    def fev1_fvc_post_bronch_percent(self, value):
+        self._set_property("fev1_fvc_post_bronch_percent", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
     def fev1_fvc_pre_bronch_percent(self, value):
         self._set_property("fev1_fvc_pre_bronch_percent", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
-    def fev1_fvc_post_bronch_percent(self, value):
-        self._set_property("fev1_fvc_post_bronch_percent", value)  # type: ignore  # inherited from CommonBase
+    def fev1_ref_post_bronch_percent(self, value):
+        self._set_property("fev1_ref_post_bronch_percent", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def fev1_ref_pre_bronch_percent(self, value):
+        self._set_property("fev1_ref_pre_bronch_percent", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -1452,6 +1456,7 @@ class FollowUp(base.Node):
             "None",
             "Not Reported",
             "Other",
+            "Presented with Metastases",
             "Progression",
             "Relapse",
             "Second Malignant Neoplasm",
@@ -2277,10 +2282,6 @@ class FollowUp(base.Node):
     def risk_factor(self, value):
         self._set_property("risk_factor", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(list)
-    def risk_factors(self, value):
-        self._set_property("risk_factors", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -2296,6 +2297,10 @@ class FollowUp(base.Node):
     @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def risk_factor_treatment(self, value):
         self._set_property("risk_factor_treatment", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(list)
+    def risk_factors(self, value):
+        self._set_property("risk_factors", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str, enum=["Acetate", "Axumin", "Choline", "PSMA", "Sodium Fluoride"])
     def scan_tracer_used(self, value):
@@ -2321,6 +2326,7 @@ class FollowUp(base.Node):
             "Prior to Diagnosis",
             "Prior to Treatment",
             "Recurrence/Progression",
+            "Within 3 Months of Surgery",
         ],
     )
     def timepoint_category(self, value):

@@ -206,14 +206,6 @@ class Exposure(base.Node):
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Daily Drinker", "Weekly Drinker"])
-    def alcohol_frequency(self, value):
-        self._set_property("alcohol_frequency", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Amosite", "Crocidolite"])
-    def asbestos_exposure_type(self, value):
-        self._set_property("asbestos_exposure_type", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(int)
     def age_at_last_exposure(self, value):
         self._set_property("age_at_last_exposure", value)  # type: ignore  # inherited from CommonBase
@@ -229,6 +221,10 @@ class Exposure(base.Node):
     @psqlgraph.pg_property(float, int)
     def alcohol_drinks_per_day(self, value):
         self._set_property("alcohol_drinks_per_day", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Daily Drinker", "Weekly Drinker"])
+    def alcohol_frequency(self, value):
+        self._set_property("alcohol_frequency", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes", "no", "yes"])
     def alcohol_history(self, value):
@@ -260,6 +256,10 @@ class Exposure(base.Node):
     def asbestos_exposure(self, value):
         self._set_property("asbestos_exposure", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str, enum=["Amosite", "Crocidolite"])
+    def asbestos_exposure_type(self, value):
+        self._set_property("asbestos_exposure_type", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(list)
     def chemical_exposure_type(self, value):
         self._set_property("chemical_exposure_type", value)  # type: ignore  # inherited from CommonBase
@@ -280,6 +280,10 @@ class Exposure(base.Node):
     def exposure_duration(self, value):
         self._set_property("exposure_duration", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(float, int)
+    def exposure_duration_hrs_per_day(self, value):
+        self._set_property("exposure_duration_hrs_per_day", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(int)
     def exposure_duration_years(self, value):
         self._set_property("exposure_duration_years", value)  # type: ignore  # inherited from CommonBase
@@ -294,6 +298,7 @@ class Exposure(base.Node):
             "Asbestos",
             "Chemical",
             "Coal Dust",
+            "Dust, NOS",
             "Marijuana",
             "Radiation",
             "Radon",

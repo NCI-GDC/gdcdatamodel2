@@ -301,6 +301,7 @@ class MaskedMethylationArray(base.Node):
             "Illumina Human Methylation 27",
             "Illumina Human Methylation 450",
             "Illumina Methylation Epic",
+            "Illumina Methylation Epic v2",
         ],
     )
     def platform(self, value):

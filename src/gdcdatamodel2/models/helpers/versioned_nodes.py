@@ -12,6 +12,7 @@ T = TypeVar("T", bound="VersionedNode")
 
 
 class VersionedNode(Base):
+
     __tablename__ = "versioned_nodes"
     __table_args__ = (
         Index("submitted_node_id_idx", "node_id"),
