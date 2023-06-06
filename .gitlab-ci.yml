@@ -34,7 +34,7 @@ variables:
     - pip install "tox<4"
   needs: [pre-commit]
 
-test:
+tox:
   stage: test
   before_script:
     - !reference [.prepareTox, script]
@@ -42,11 +42,3 @@ test:
     - !reference [.prepareTox, needs]
   script:
     - tox -r
-
-tox:
-  rules:
-    - when: never
-
-docker_build:
-  rules:
-    - when: never
