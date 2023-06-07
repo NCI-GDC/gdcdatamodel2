@@ -50,7 +50,7 @@ tox:
     - tox -r -e py
 
 
-release_datamodel2_to_nexus:
+release_to_nexus:
   image: docker.osdc.io/ncigdc/python3.6-builder
   stage: release
   script:
@@ -68,6 +68,7 @@ release_datamodel2_to_nexus:
   variables:
     TWINE_USERNAME: ${TWINE_USER}
     TWINE_PASSWORD: ${TWINE_PASSWORD}
+    GIT_STRATEGY: clone   # need full clone for setuptools_scam
   artifacts:
     paths:
       - dist/*.whl
