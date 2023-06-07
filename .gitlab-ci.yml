@@ -37,10 +37,10 @@ variables:
 tox:
   stage: test
   variables:
-    PG_HOST: localhost
+    PG_HOST: postgres
     PG_PASS: test
     PG_USER: test
-    PG_NAME: postgres
+    PG_NAME: gdcdatamodel2
   before_script:
     - !reference [.prepareTox, script]
   needs:
