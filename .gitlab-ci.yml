@@ -54,7 +54,9 @@ release_to_nexus:
   image: docker.osdc.io/ncigdc/python3.6-builder
   stage: release
   script:
+    - !reference [.load_github_key, script]
     - pwd
+    - git fetch --tags    # have to fetch manually while GIT_STRATEGY is not working
     - cat setup.cfg
     - cat dev-requirements.txt
     - whoami
