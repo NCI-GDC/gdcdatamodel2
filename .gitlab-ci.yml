@@ -47,4 +47,4 @@ tox:
   needs:
     - !reference [.prepareTox, needs]
   script:
-    - tox -r -e pytest
+    - tox -r -e py

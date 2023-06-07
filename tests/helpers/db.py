@@ -71,10 +71,10 @@ def init_graph(use_gpas: bool = False) -> psqlgraph.PsqlGraphDriver:
     env = "BIO_" if use_gpas else ""
     ns = "gpas" if use_gpas else None
     graph = psqlgraph.PsqlGraphDriver(
-        os.environ[f"{env}PG_HOST"],
-        os.environ[f"{env}PG_USER"],
-        os.environ[f"{env}PG_PASS"],
-        os.environ[f"{env}PG_NAME"],
+        os.getenv(f"{env}PG_HOST", "localhost"),
+        os.getenv(f"{env}PG_USER", "test"),
+        os.getenv(f"{env}PG_PASS", "test"),
+        os.getenv(f"{env}PG_NAME", "gdcdatamodel2"),
         package_namespace=ns,
     )
 

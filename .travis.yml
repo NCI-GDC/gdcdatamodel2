@@ -55,4 +55,4 @@ jobs:
         - psql -U postgres -c "create user test with superuser password 'test';"
         - psql -U postgres -c "create database gdcdatamodel2 with owner test;"
       script:
-        - tox
+        - tox -e py
