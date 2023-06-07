@@ -31,6 +31,8 @@ variables:
     - apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7FCC7D46ACCC4CF8
     - apt-get update
     - apt-get install -y postgresql-client-13
+    - psql -U postgres -c "create user test with superuser password 'test';"
+    - psql -U postgres -c "create database gdcdatamodel2 with owner test;"
     - pip install "tox<4"
   needs: [pre-commit]
 
