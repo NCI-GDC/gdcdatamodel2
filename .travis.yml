@@ -13,6 +13,13 @@ addons:
       - postgresql-13
       - postgresql-client-13
 
+env:
+  global:
+    - PG_HOST=localhost
+    - PG_PASS=test
+    - PG_USER=test
+    - PG_NAME=gdcdatamodel2
+
 cache:
   - pip
 

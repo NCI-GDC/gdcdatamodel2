@@ -36,6 +36,11 @@ variables:
 
 tox:
   stage: test
+  variables:
+    PG_HOST: localhost
+    PG_PASS: test
+    PG_USER: test
+    PG_NAME: postgres
   before_script:
     - !reference [.prepareTox, script]
   needs:
