@@ -56,7 +56,7 @@ release_to_nexus:
   script:
     - !reference [.load_github_key, script]
     - pwd
-    - git fetch --tags    # have to fetch manually while GIT_STRATEGY is not working
+    - git fetch --all    # have to fetch manually while GIT_STRATEGY is not working
     - cat setup.cfg
     - cat dev-requirements.txt
     - whoami
