@@ -69,6 +69,7 @@ release_to_nexus:
     TWINE_USERNAME: ${TWINE_USER}
     TWINE_PASSWORD: ${TWINE_PASSWORD}
     GIT_STRATEGY: clone   # need full clone for setuptools_scam
+    TWINE_REPOSITORY_URL: https://nexus.osdc.io/repository/pypi-snapshots/
   artifacts:
     paths:
       - dist/*.whl
