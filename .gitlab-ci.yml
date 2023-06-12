@@ -65,6 +65,7 @@ build_python_artifacts:
     - pip3 install -U setuptools_scm build twine setuptools
     - python3 -m setuptools_scm
     - python3 -m build
+    - ls -l dist
   variables:
     GIT_STRATEGY: clone   # need full clone for setuptools_scam
   artifacts:
