@@ -50,9 +50,9 @@ tox:
     - tox -r -e py
 
 
-release_to_nexus:
+build_python_artifacts:
   image: docker.osdc.io/ncigdc/python3.6-builder
-  stage: release
+  stage: build
   script:
     - !reference [.load_github_key, script]
     - pwd
@@ -65,12 +65,23 @@ release_to_nexus:
     - pip3 install -U setuptools_scm build twine setuptools
     - python3 -m setuptools_scm
     - python3 -m build
+  variables:
+    GIT_STRATEGY: clone   # need full clone for setuptools_scam
+  artifacts:
+    paths: dist/*
+    expire_in: 1 week
+  needs: [tox]
+
+release_to_nexus:
+  image: docker.osdc.io/ncigdc/python3.6-builder
+  stage: release
+  script:
+    - ls -la dist
     - twine check dist/*
     - twine upload dist/*
   variables:
     TWINE_USERNAME: ${TWINE_USER}
     TWINE_PASSWORD: ${TWINE_PASSWORD}
-    GIT_STRATEGY: clone   # need full clone for setuptools_scam
     TWINE_REPOSITORY_URL: https://nexus.osdc.io/repository/pypi-snapshots/
   artifacts:
     paths:
@@ -95,4 +106,4 @@ release_to_nexus:
       variables:
         TWINE_REPOSITORY_URL: https://nexus.osdc.io/repository/pypi-releases/
     - when: always
-  needs: [tox]
+  needs: [build_python_artifacts]
