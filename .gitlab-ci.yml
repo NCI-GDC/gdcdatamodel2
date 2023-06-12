@@ -60,8 +60,6 @@ build_python_artifacts:
     - cat setup.cfg
     - cat dev-requirements.txt
     - whoami
-    - apt-get update
-    - apt-get install -y python3-venv
     - pip3 install -U setuptools_scm build setuptools
     - python3 -m setuptools_scm
     - python3 -m build
