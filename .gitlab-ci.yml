@@ -68,7 +68,8 @@ build_python_artifacts:
   variables:
     GIT_STRATEGY: clone   # need full clone for setuptools_scam
   artifacts:
-    paths: dist/*
+    paths:
+      - dist/*
     expire_in: 1 week
   needs: [tox]
 
