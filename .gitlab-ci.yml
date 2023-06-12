@@ -62,7 +62,7 @@ build_python_artifacts:
     - whoami
     - apt-get update
     - apt-get install -y python3-venv
-    - pip3 install -U setuptools_scm build twine setuptools
+    - pip3 install -U setuptools_scm build setuptools
     - python3 -m setuptools_scm
     - python3 -m build
     - ls -l dist
@@ -79,6 +79,7 @@ release_to_nexus:
   stage: release
   script:
     - ls -la dist
+    - pip3 install -U twine
     - twine check dist/*
     - twine upload dist/*
   variables:
