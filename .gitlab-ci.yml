@@ -78,7 +78,7 @@ release_to_nexus:
   image: docker.osdc.io/ncigdc/python3.6-builder
   stage: release
   script:
-    - ls -la dist
+    - ls -l dist
     - pip3 install -U twine
     - twine check dist/*
     - twine upload dist/*
