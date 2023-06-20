@@ -206,6 +206,74 @@ class FamilyHistory(base.Node):
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(float, int)
+    def relationship_age_at_diagnosis(self, value):
+        self._set_property("relationship_age_at_diagnosis", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["female", "male", "not reported", "unknown", "unspecified"])
+    def relationship_gender(self, value):
+        self._set_property("relationship_gender", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Adrenal Gland Cancer",
+            "Basal Cell Cancer",
+            "Bile Duct Cancer",
+            "Bladder Cancer",
+            "Blood Cancer",
+            "Bone Cancer",
+            "Brain Cancer",
+            "Breast Cancer",
+            "CNS Cancer",
+            "Cancer",
+            "Cervical Cancer",
+            "Chondrosarcoma",
+            "Colorectal Cancer",
+            "Esophageal Cancer",
+            "Ewing Sarcoma",
+            "Gallbladder Cancer",
+            "Gastric Cancer",
+            "Glioblastoma",
+            "Gynecologic Cancer",
+            "Head and Neck Cancer",
+            "Hematologic Cancer",
+            "Kaposi Sarcoma",
+            "Kidney Cancer",
+            "Laryngeal Cancer",
+            "Leukemia",
+            "Liver Cancer",
+            "Lung Cancer",
+            "Lymph Node Cancer",
+            "Lymphoma",
+            "Melanoma",
+            "Mesothelioma",
+            "Multiple Myeloma",
+            "Neuroblastoma",
+            "Not Reported",
+            "Osteosarcoma",
+            "Ovarian Cancer",
+            "Pancreas Cancer",
+            "Pediatric Liver Cancer",
+            "Prostate Cancer",
+            "Rectal Cancer",
+            "Rhabdomyosarcoma",
+            "Sarcoma",
+            "Skin Cancer",
+            "Spleen Cancer",
+            "Testicular Cancer",
+            "Throat Cancer",
+            "Thyroid Cancer",
+            "Tongue Cancer",
+            "Tonsillar Cancer",
+            "Unknown",
+            "Uterine Cancer",
+            "Wilms Tumor",
+        ],
+    )
+    def relationship_primary_diagnosis(self, value):
+        self._set_property("relationship_primary_diagnosis", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -332,73 +400,13 @@ class FamilyHistory(base.Node):
     def relationship_type(self, value):
         self._set_property("relationship_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["female", "male", "not reported", "unknown", "unspecified"])
-    def relationship_gender(self, value):
-        self._set_property("relationship_gender", value)  # type: ignore  # inherited from CommonBase
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Yes"])
+    def relative_deceased(self, value):
+        self._set_property("relative_deceased", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
-    def relationship_age_at_diagnosis(self, value):
-        self._set_property("relationship_age_at_diagnosis", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Adrenal Gland Cancer",
-            "Basal Cell Cancer",
-            "Bile Duct Cancer",
-            "Bladder Cancer",
-            "Blood Cancer",
-            "Bone Cancer",
-            "Brain Cancer",
-            "Breast Cancer",
-            "CNS Cancer",
-            "Cancer",
-            "Cervical Cancer",
-            "Chondrosarcoma",
-            "Colorectal Cancer",
-            "Esophageal Cancer",
-            "Ewing Sarcoma",
-            "Gallbladder Cancer",
-            "Gastric Cancer",
-            "Glioblastoma",
-            "Gynecologic Cancer",
-            "Head and Neck Cancer",
-            "Hematologic Cancer",
-            "Kaposi Sarcoma",
-            "Kidney Cancer",
-            "Laryngeal Cancer",
-            "Leukemia",
-            "Liver Cancer",
-            "Lung Cancer",
-            "Lymph Node Cancer",
-            "Lymphoma",
-            "Melanoma",
-            "Mesothelioma",
-            "Multiple Myeloma",
-            "Neuroblastoma",
-            "Not Reported",
-            "Osteosarcoma",
-            "Ovarian Cancer",
-            "Pancreas Cancer",
-            "Pediatric Liver Cancer",
-            "Prostate Cancer",
-            "Rectal Cancer",
-            "Rhabdomyosarcoma",
-            "Sarcoma",
-            "Skin Cancer",
-            "Spleen Cancer",
-            "Testicular Cancer",
-            "Throat Cancer",
-            "Thyroid Cancer",
-            "Tongue Cancer",
-            "Tonsillar Cancer",
-            "Unknown",
-            "Uterine Cancer",
-            "Wilms Tumor",
-        ],
-    )
-    def relationship_primary_diagnosis(self, value):
-        self._set_property("relationship_primary_diagnosis", value)  # type: ignore  # inherited from CommonBase
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Yes"])
+    def relative_smoker(self, value):
+        self._set_property("relative_smoker", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str, enum=["no", "not reported", "unknown", "yes"])
     def relative_with_cancer_history(self, value):
