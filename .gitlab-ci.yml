@@ -7,20 +7,6 @@ include:
       - templates/global/full.yaml
       - templates/python/full.yaml
 
-.prepareTox:
-  script:
-    - !reference [.load_github_key, script]
-    - apt-get update && apt-get install -y gnupg
-    - echo "deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main 13" | tee
-      /etc/apt/sources.list.d/pgdg.list
-    - apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7FCC7D46ACCC4CF8
-    - apt-get update
-    - apt-get install -y postgresql-client-13
-    - psql -U postgres -h postgres -c "create user test with superuser password 'test';"
-    - psql -U postgres -h postgres -c "create database gdcdatamodel2 with owner test;"
-    - pip install "tox<4"
-  needs: [pre-commit]
-
 tox:
   stage: test
   parallel:
@@ -33,15 +19,18 @@ tox:
   tags:
     - dind
   variables:
+    POSTGRES_DB: gdcdatamodel2
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: test
+    POSTGRES_HOST_AUTH_METHOD: trust
     PG_HOST: postgres
     PG_PASS: test
-    PG_USER: test
+    PG_USER: postgres
     PG_NAME: gdcdatamodel2
     PG_INDEXD_HOST: postgres
   before_script:
-    - !reference [.prepareTox, script]
-  needs:
-    - !reference [.prepareTox, needs]
+    - !reference [.load_github_key, script]
+    - pip install "tox<4"
   script:
     - tox -r -e py
 
