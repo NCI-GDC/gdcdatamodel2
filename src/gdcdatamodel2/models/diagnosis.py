@@ -689,6 +689,10 @@ class Diagnosis(base.Node):
     def child_pugh_classification(self, value):
         self._set_property("child_pugh_classification", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str, enum=["I", "II", "III", "IV", "Not Reported", "V"])
+    def clark_level(self, value):
+        self._set_property("clark_level", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -710,17 +714,24 @@ class Diagnosis(base.Node):
 
     @psqlgraph.pg_property(
         str,
-        enum=["High Risk", "Intermediate Risk", "Low Risk", "Not Reported", "Unknown"],
+        enum=[
+            "Not Reported",
+            "Stage I",
+            "Stage II",
+            "Stage III",
+            "Stage IV",
+            "Unknown",
+        ],
     )
-    def cog_neuroblastoma_risk_group(self, value):
-        self._set_property("cog_neuroblastoma_risk_group", value)  # type: ignore  # inherited from CommonBase
+    def cog_liver_stage(self, value):
+        self._set_property("cog_liver_stage", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
         enum=["High Risk", "Intermediate Risk", "Low Risk", "Not Reported", "Unknown"],
     )
-    def cog_rhabdomyosarcoma_risk_group(self, value):
-        self._set_property("cog_rhabdomyosarcoma_risk_group", value)  # type: ignore  # inherited from CommonBase
+    def cog_neuroblastoma_risk_group(self, value):
+        self._set_property("cog_neuroblastoma_risk_group", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -738,17 +749,27 @@ class Diagnosis(base.Node):
 
     @psqlgraph.pg_property(
         str,
+        enum=["High Risk", "Intermediate Risk", "Low Risk", "Not Reported", "Unknown"],
+    )
+    def cog_rhabdomyosarcoma_risk_group(self, value):
+        self._set_property("cog_rhabdomyosarcoma_risk_group", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
         enum=[
+            "Adrenal",
+            "Bladder",
+            "Colon",
+            "Inferior Vena Cava",
+            "Kidney",
+            "Liver",
             "Not Reported",
-            "Stage I",
-            "Stage II",
-            "Stage III",
-            "Stage IV",
-            "Unknown",
+            "Small Bowel",
+            "Spleen",
         ],
     )
-    def cog_liver_stage(self, value):
-        self._set_property("cog_liver_stage", value)  # type: ignore  # inherited from CommonBase
+    def contiguous_organ_invaded(self, value):
+        self._set_property("contiguous_organ_invaded", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(int)
     def days_to_best_overall_response(self, value):
@@ -833,6 +854,22 @@ class Diagnosis(base.Node):
     def enneking_msts_tumor_site(self, value):
         self._set_property("enneking_msts_tumor_site", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str, enum=["M0", "M1"])
+    def ensat_clinical_m(self, value):
+        self._set_property("ensat_clinical_m", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["N0", "N1"])
+    def ensat_pathologic_n(self, value):
+        self._set_property("ensat_pathologic_n", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Stage I", "Stage II", "Stage III", "Stage IV"])
+    def ensat_pathologic_stage(self, value):
+        self._set_property("ensat_pathologic_stage", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["T1", "T2", "T3", "T4"])
+    def ensat_pathologic_t(self, value):
+        self._set_property("ensat_pathologic_t", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -903,6 +940,10 @@ class Diagnosis(base.Node):
     def figo_staging_edition_year(self, value):
         self._set_property("figo_staging_edition_year", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str, enum=["0-30 Days", "31-90 Days", "91-180 Days", ">=181 Days"])
+    def first_symptom_longest_duration(self, value):
+        self._set_property("first_symptom_longest_duration", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -946,6 +987,10 @@ class Diagnosis(base.Node):
     def goblet_cells_columnar_mucosa_present(self, value):
         self._set_property("goblet_cells_columnar_mucosa_present", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str)
+    def icd_10_code(self, value):
+        self._set_property("icd_10_code", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -958,10 +1003,6 @@ class Diagnosis(base.Node):
     )
     def igcccg_stage(self, value):
         self._set_property("igcccg_stage", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str)
-    def icd_10_code(self, value):
-        self._set_property("icd_10_code", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -1168,6 +1209,10 @@ class Diagnosis(base.Node):
     def max_tumor_bulk_site(self, value):
         self._set_property("max_tumor_bulk_site", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str, enum=["Pathologic", "Radiologic"])
+    def measurement_type(self, value):
+        self._set_property("measurement_type", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -1181,6 +1226,10 @@ class Diagnosis(base.Node):
     )
     def medulloblastoma_molecular_classification(self, value):
         self._set_property("medulloblastoma_molecular_classification", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Yes"])
+    def melanoma_known_primary(self, value):
+        self._set_property("melanoma_known_primary", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -1293,13 +1342,13 @@ class Diagnosis(base.Node):
     def micropapillary_features(self, value):
         self._set_property("micropapillary_features", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
-    def mitotic_count(self, value):
-        self._set_property("mitotic_count", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(str, enum=["High", "Intermediate", "Low", "Not Reported", "Unknown"])
     def mitosis_karyorrhexis_index(self, value):
         self._set_property("mitosis_karyorrhexis_index", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(int)
+    def mitotic_count(self, value):
+        self._set_property("mitotic_count", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -2522,10 +2571,6 @@ class Diagnosis(base.Node):
     @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def pregnant_at_diagnosis(self, value):
         self._set_property("pregnant_at_diagnosis", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(bool)
-    def primary_disease(self, value):
-        self._set_property("primary_disease", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -5159,6 +5204,10 @@ class Diagnosis(base.Node):
     def primary_diagnosis(self, value):
         self._set_property("primary_diagnosis", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(bool)
+    def primary_disease(self, value):
+        self._set_property("primary_disease", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str, enum=["Pattern 1", "Pattern 2", "Pattern 3", "Pattern 4", "Pattern 5"]
     )
@@ -5911,6 +5960,10 @@ class Diagnosis(base.Node):
     def tissue_or_organ_of_origin(self, value):
         self._set_property("tissue_or_organ_of_origin", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(float, int)
+    def tumor_burden(self, value):
+        self._set_property("tumor_burden", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def tumor_confined_to_organ_of_origin(self, value):
         self._set_property("tumor_confined_to_organ_of_origin", value)  # type: ignore  # inherited from CommonBase
@@ -6248,6 +6301,10 @@ class Diagnosis(base.Node):
     )
     def uicc_staging_system_edition(self, value):
         self._set_property("uicc_staging_system_edition", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Yes"])
+    def ulceration_indicator(self, value):
+        self._set_property("ulceration_indicator", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(list)
     def weiss_assessment_findings(self, value):

@@ -362,13 +362,13 @@ class AlignedReads(base.Node):
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Aligned Reads"])
-    def data_type(self, value):
-        self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(str, enum=["BAM"])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Aligned Reads"])
+    def data_type(self, value):
+        self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -395,13 +395,13 @@ class AlignedReads(base.Node):
     def mean_coverage(self, value):
         self._set_property("mean_coverage", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["MSI", "MSS"])
-    def msi_status(self, value):
-        self._set_property("msi_status", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(float, int)
     def msi_score(self, value):
         self._set_property("msi_score", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["MSI", "MSS"])
+    def msi_status(self, value):
+        self._set_property("msi_status", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(int)
     def pairs_on_diff_chr(self, value):
@@ -446,6 +446,10 @@ class AlignedReads(base.Node):
     def proportion_targets_no_coverage(self, value):
         self._set_property("proportion_targets_no_coverage", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(int)
+    def total_reads(self, value):
+        self._set_property("total_reads", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(float, int)
     def tumor_ploidy(self, value):
         self._set_property("tumor_ploidy", value)  # type: ignore  # inherited from CommonBase
@@ -454,9 +458,12 @@ class AlignedReads(base.Node):
     def tumor_purity(self, value):
         self._set_property("tumor_purity", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
-    def total_reads(self, value):
-        self._set_property("total_reads", value)  # type: ignore  # inherited from CommonBase
+    @psqlgraph.pg_property(
+        str,
+        enum=["0x-10x", "10x-25x", "150x+", "25x-150x", "Not Applicable", "Unknown"],
+    )
+    def wgs_coverage(self, value):
+        self._set_property("wgs_coverage", value)  # type: ignore  # inherited from CommonBase
 
 
 datetime_hooks.cls_inject_created_datetime_hook(AlignedReads)

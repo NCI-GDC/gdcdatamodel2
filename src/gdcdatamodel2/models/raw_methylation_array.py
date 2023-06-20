@@ -267,33 +267,6 @@ class RawMethylationArray(base.Node):
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["DNA Methylation"])
-    def data_category(self, value):
-        self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Raw Intensities"])
-    def data_type(self, value):
-        self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["IDAT"])
-    def data_format(self, value):
-        self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Methylation Array"])
-    def experimental_strategy(self, value):
-        self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Illumina Human Methylation 27",
-            "Illumina Human Methylation 450",
-            "Illumina Methylation Epic",
-        ],
-    )
-    def platform(self, value):
-        self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(str, enum=["Green", "Red"])
     def channel(self, value):
         self._set_property("channel", value)  # type: ignore  # inherited from CommonBase
@@ -306,6 +279,22 @@ class RawMethylationArray(base.Node):
     def chip_position(self, value):
         self._set_property("chip_position", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str, enum=["DNA Methylation"])
+    def data_category(self, value):
+        self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["IDAT"])
+    def data_format(self, value):
+        self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Raw Intensities"])
+    def data_type(self, value):
+        self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["Methylation Array"])
+    def experimental_strategy(self, value):
+        self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(str)
     def plate_name(self, value):
         self._set_property("plate_name", value)  # type: ignore  # inherited from CommonBase
@@ -313,6 +302,18 @@ class RawMethylationArray(base.Node):
     @psqlgraph.pg_property(str)
     def plate_well(self, value):
         self._set_property("plate_well", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Illumina Human Methylation 27",
+            "Illumina Human Methylation 450",
+            "Illumina Methylation Epic",
+            "Illumina Methylation Epic v2",
+        ],
+    )
+    def platform(self, value):
+        self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
 
 
 datetime_hooks.cls_inject_created_datetime_hook(RawMethylationArray)
