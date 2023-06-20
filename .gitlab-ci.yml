@@ -1,8 +1,4 @@
 ---
-stages:
-  - test
-  - build
-  - release
 
 include:
   - project: nci-gdc/gitlab-templates
