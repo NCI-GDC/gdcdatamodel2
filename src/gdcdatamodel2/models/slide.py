@@ -33,6 +33,554 @@ class Slide(base.Node):
         "project": "*",
         "program": "*",
         "previous_version_downloadable": False,
+        "links": [
+            {
+                "exclusive": False,
+                "required": True,
+                "subgroup": [
+                    {
+                        "name": "portions",
+                        "backref": "slides",
+                        "label": "derived_from",
+                        "target_type": "portion",
+                        "multiplicity": "many_to_many",
+                        "required": False,
+                    },
+                    {
+                        "name": "samples",
+                        "backref": "slides",
+                        "label": "derived_from",
+                        "target_type": "sample",
+                        "multiplicity": "many_to_many",
+                        "required": False,
+                    },
+                ],
+            }
+        ],
+        "properties": {
+            "type": {"type": "string"},
+            "id": {
+                "common": {
+                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                    "termDef": {
+                        "term": "Universally Unique Identifier",
+                        "source": "NCIt",
+                        "cde_id": "C54100",
+                        "cde_version": None,
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                    },
+                },
+                "type": "string",
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "systemAlias": "node_id",
+            },
+            "submitter_id": {
+                "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+                "type": "string",
+            },
+            "batch_id": {
+                "description": "GDC submission batch indicator. It is unique within the context of a project.",
+                "type": "integer",
+            },
+            "state": {
+                "common": {
+                    "description": "The current state of the object.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "default": "validated",
+                "downloadable": [
+                    "uploaded",
+                    "md5summed",
+                    "validating",
+                    "validated",
+                    "error",
+                    "invalid",
+                    "released",
+                ],
+                "public": ["live"],
+                "oneOf": [
+                    {
+                        "enum": [
+                            "uploading",
+                            "uploaded",
+                            "md5summing",
+                            "md5summed",
+                            "validating",
+                            "error",
+                            "invalid",
+                            "suppressed",
+                            "redacted",
+                            "live",
+                        ]
+                    },
+                    {"enum": ["validated", "submitted", "released"]},
+                ],
+            },
+            "project_id": {
+                "common": {
+                    "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "type": "string",
+            },
+            "created_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "updated_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "bone_marrow_malignant_cells": {
+                "description": "The text term used to indicate whether there are malignant cells in the bone marrow.",
+                "termDef": {
+                    "term": "Malignant Bone Marrow Indicator",
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["Yes", "No", "Unknown", "Not Reported"],
+                "enumDef": {
+                    "Yes": {
+                        "description": "The affirmative response to a question.",
+                        "termDef": {
+                            "term": "Yes",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                            "term_id": "C49488",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "No": {
+                        "description": "The non-affirmative response to a question.",
+                        "termDef": {
+                            "term": "No",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                            "term_id": "C49487",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "Unknown": {
+                        "description": "Not known, not observed, not recorded, or refused.",
+                        "termDef": {
+                            "term": "Unknown",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                            "term_id": "C17998",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "Not Reported": {
+                        "description": "Not provided or available.",
+                        "termDef": {
+                            "term": "Not Reported",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                            "term_id": "C43234",
+                            "term_version": "20.05a",
+                        },
+                    },
+                },
+            },
+            "number_proliferating_cells": {
+                "description": "Numeric value that represents the count of proliferating cells determined during pathologic review of the sample slide(s).",
+                "termDef": {
+                    "term": "Pathology Review Slide Proliferating Cell Count",
+                    "source": "caDSR",
+                    "cde_id": 5432636,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5432636&version=1.0",
+                },
+                "type": "integer",
+                "minimum": 0,
+            },
+            "percent_follicular_component": {
+                "description": "Numeric value that represents the percentage of follicular features found in a specific tissue sample.",
+                "termDef": {
+                    "term": "Specimen Follicular Features Percentage Value",
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_rhabdoid_features": {
+                "description": "Numeric value that represents the percentage of rhabdoid features found in a specific tissue sample.",
+                "termDef": {
+                    "term": "Specimen Rhabdoid Features Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 6790120,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=6790120&version=1.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_sarcomatoid_features": {
+                "description": "Numeric value that represents the percentage of sarcomatoid features found in a specific tissue sample.",
+                "termDef": {
+                    "term": "Specimen Sarcomatoid Features Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 2429786,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2429786&version=1.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_tumor_cells": {
+                "description": "Numeric value that represents the percentage of infiltration by tumor cells in a sample.",
+                "termDef": {
+                    "term": "Specimen Tumor Cell Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 5432686,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5432686&version=1.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_tumor_nuclei": {
+                "description": "Numeric value to represent the percentage of tumor nuclei in a malignant neoplasm sample or specimen.",
+                "termDef": {
+                    "term": "Malignant Neoplasm Neoplasm Nucleus Percentage Cell Value",
+                    "source": "caDSR",
+                    "cde_id": 2841225,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2841225&version=1.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_normal_cells": {
+                "description": "Numeric value to represent the percentage of normal cell content in a malignant tumor sample or specimen.",
+                "termDef": {
+                    "term": "Malignant Neoplasm Normal Cell Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 2841233,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2841233&version=1.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_necrosis": {
+                "description": "Numeric value to represent the percentage of cell death in a malignant tumor sample or specimen.",
+                "termDef": {
+                    "term": "Malignant Neoplasm Necrosis Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 2841237,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2841237&version=1.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_stromal_cells": {
+                "description": "Numeric value to represent the percentage of reactive cells that are present in a malignant tumor sample or specimen but are not malignant such as fibroblasts, vascular structures, etc.",
+                "termDef": {
+                    "term": "Malignant Neoplasm Stromal Cell Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 2841241,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2841241&version=1.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_inflam_infiltration": {
+                "description": "Numeric value to represent local response to cellular injury, marked by capillary dilatation, edema and leukocyte infiltration; clinically, inflammation is manifest by reddness, heat, pain, swelling and loss of function, with the need to heal damaged tissue.",
+                "termDef": {
+                    "term": "Specimen Inflammation Change Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 2897695,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2897695&version=1.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_lymphocyte_infiltration": {
+                "description": "Numeric value to represent the percentage of infiltration by lymphocytes in a solid tissue sample or specimen.",
+                "termDef": {
+                    "term": "Specimen Lymphocyte Infiltration Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 2897710,
+                    "cde_version": 2.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2897710&version=2.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_monocyte_infiltration": {
+                "description": "Numeric value to represent the percentage of monocyte infiltration in a sample or specimen.",
+                "termDef": {
+                    "term": "Specimen Monocyte Infiltration Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 5455535,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5455535&version=1.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_granulocyte_infiltration": {
+                "description": "Numeric value to represent the percentage of infiltration by granulocytes in a tumor sample or specimen.",
+                "termDef": {
+                    "term": "Specimen Granulocyte Infiltration Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 2897705,
+                    "cde_version": 2.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2897705&version=2.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_neutrophil_infiltration": {
+                "description": "Numeric value to represent the percentage of infiltration by neutrophils in a tumor sample or specimen.",
+                "termDef": {
+                    "term": "Malignant Neoplasm Neutrophil Infiltration Percentage Cell Value",
+                    "source": "caDSR",
+                    "cde_id": 2841267,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2841267&version=1.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "percent_eosinophil_infiltration": {
+                "description": "Numeric value to represent the percentage of infiltration by eosinophils in a tumor sample or specimen.",
+                "termDef": {
+                    "term": "Specimen Eosinophilia Percentage Value",
+                    "source": "caDSR",
+                    "cde_id": 2897700,
+                    "cde_version": 2.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2897700&version=2.0",
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "prostatic_chips_positive_count": {
+                "description": "The text term used to describe the number of positive prostatic chips, which are generated from transurethral resection of the prostate (TURP) procedures and are generally used for relieving urinary obstruction due to nodular hyperplasia of the prostate (benign prostatic hyperplasia).",
+                "termDef": {
+                    "term": "Prostate Chips Positive Count",
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "number",
+                "minimum": 0,
+            },
+            "prostatic_chips_total_count": {
+                "description": "The text term used to describe the total number of prostatic chips, which are generated from transurethral resection of the prostate (TURP) procedures and are generally used for relieving urinary obstruction due to nodular hyperplasia of the prostate (benign prostatic hyperplasia).",
+                "termDef": {
+                    "term": "Prostate Chips Total Count",
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "number",
+                "minimum": 0,
+            },
+            "prostatic_involvement_percent": {
+                "description": "Numeric value that represents the percentage of prostatic involvement found in a specific tissue sample.",
+                "termDef": {
+                    "term": "Specimen Prostatic Involvement Percentage Value",
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "section_location": {
+                "description": "Tissue source of the slide.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "string",
+            },
+            "tissue_microarray_coordinates": {
+                "description": "The alphanumeric term used to describe the coordinates of a specific tissue located on a tissue microarray slide.",
+                "termDef": {
+                    "term": "Tissue Microarray Coordinates Value",
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "string",
+                "pattern": "^[a-zA-Z]\\d{1,3}(,[a-zA-Z]\\d{1,3})*$",
+            },
+            "portions": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+            "samples": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+        },
     }
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None

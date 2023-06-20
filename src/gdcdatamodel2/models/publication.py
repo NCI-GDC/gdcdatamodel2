@@ -33,6 +33,125 @@ class Publication(base.Node):
         "project": "*",
         "program": "*",
         "previous_version_downloadable": True,
+        "links": [
+            {
+                "name": "files",
+                "backref": "publications",
+                "label": "refers_to",
+                "target_type": "file",
+                "multiplicity": "many_to_many",
+                "required": True,
+            }
+        ],
+        "properties": {
+            "type": {"type": "string"},
+            "id": {
+                "common": {
+                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                    "termDef": {
+                        "term": "Universally Unique Identifier",
+                        "source": "NCIt",
+                        "cde_id": "C54100",
+                        "cde_version": None,
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                    },
+                },
+                "type": "string",
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "systemAlias": "node_id",
+            },
+            "pmid": {"type": "string"},
+            "doi": {"type": "string"},
+            "project_id": {
+                "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "string",
+            },
+            "created_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "updated_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "files": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+        },
     }
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None

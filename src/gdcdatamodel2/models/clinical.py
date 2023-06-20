@@ -33,6 +33,390 @@ class Clinical(base.Node):
         "project": "*",
         "program": "*",
         "previous_version_downloadable": False,
+        "links": [
+            {
+                "name": "cases",
+                "backref": "clinicals",
+                "label": "describes",
+                "target_type": "case",
+                "multiplicity": "one_to_one",
+                "required": True,
+            }
+        ],
+        "properties": {
+            "type": {"type": "string"},
+            "id": {
+                "common": {
+                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                    "termDef": {
+                        "term": "Universally Unique Identifier",
+                        "source": "NCIt",
+                        "cde_id": "C54100",
+                        "cde_version": None,
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                    },
+                },
+                "type": "string",
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "systemAlias": "node_id",
+            },
+            "submitter_id": {
+                "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+                "type": "string",
+            },
+            "batch_id": {
+                "description": "GDC submission batch indicator. It is unique within the context of a project.",
+                "type": "integer",
+            },
+            "state": {
+                "common": {
+                    "description": "The current state of the object.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "default": "validated",
+                "downloadable": [
+                    "uploaded",
+                    "md5summed",
+                    "validating",
+                    "validated",
+                    "error",
+                    "invalid",
+                    "released",
+                ],
+                "public": ["live"],
+                "oneOf": [
+                    {
+                        "enum": [
+                            "uploading",
+                            "uploaded",
+                            "md5summing",
+                            "md5summed",
+                            "validating",
+                            "error",
+                            "invalid",
+                            "suppressed",
+                            "redacted",
+                            "live",
+                        ]
+                    },
+                    {"enum": ["validated", "submitted", "released"]},
+                ],
+            },
+            "project_id": {
+                "common": {
+                    "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "type": "string",
+            },
+            "created_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "updated_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "age_at_diagnosis": {
+                "description": "Age in days at which a condition or disease was first diagnosed. CDE: 3225640. TCGA has the age in years with CDE 2006657, this is converted by ceil(age*365.25) to get days.",
+                "type": "number",
+            },
+            "days_to_death": {
+                "description": "Time interval from a person's date of death to the date of initial pathologic diagnosis, represented as a calculated number of days. CDE: 3165475.",
+                "type": "number",
+            },
+            "gender": {
+                "description": "Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal roles. CDE: 2200604",
+                "enum": ["female", "male", "unknown", "unspecified"],
+                "enumDef": {
+                    "female": {
+                        "description": "A person who belongs to the sex that normally produces ova. The term is used to indicate biological sex distinctions, or cultural gender role distinctions, or both.",
+                        "termDef": {
+                            "term": "Female",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16576",
+                            "term_id": "C16576",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "male": {
+                        "description": "A person who belongs to the sex that normally produces sperm. The term is used to indicate biological sex distinctions, cultural gender role distinctions, or both.",
+                        "termDef": {
+                            "term": "Male",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C20197",
+                            "term_id": "C20197",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "unknown": {
+                        "description": "Not known, not observed, not recorded, or refused.",
+                        "termDef": {
+                            "term": "Unknown",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                            "term_id": "C17998",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "unspecified": {
+                        "description": "Not stated explicitly or in detail.",
+                        "termDef": {
+                            "term": "Unspecified",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38046",
+                            "term_id": "C38046",
+                            "term_version": "19.12e",
+                        },
+                    },
+                },
+            },
+            "ethnicity": {
+                "description": "The text for reporting information about ethnicity based on the Office of Management and Budget (OMB) categories. CDE: 2192217.",
+                "enum": ["hispanic or latino", "not hispanic or latino"],
+                "enumDef": {
+                    "hispanic or latino": {
+                        "description": 'A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race. The term, "Spanish origin," can be used in addition to "Hispanic or Latino." (OMB)',
+                        "termDef": {
+                            "term": "Hispanic or Latino",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17459",
+                            "term_id": "C17459",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "not hispanic or latino": {
+                        "description": "A person not of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race.",
+                        "termDef": {
+                            "term": "Not Hispanic or Latino",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41222",
+                            "term_id": "C41222",
+                            "term_version": "19.12e",
+                        },
+                    },
+                },
+            },
+            "icd_10": {
+                "description": "The tenth version of the International Classification of Disease (ICD), published by the World Health Organization in 1992. A system of numbered categories for representation of data. CDE: 3226287.",
+                "type": "string",
+            },
+            "race": {
+                "description": "The text for reporting information about race based on the Office of Management and Budget (OMB) categories. CDE: 2192199.",
+                "enum": [
+                    "not reported",
+                    "white",
+                    "american indian or alaska native",
+                    "black or african american",
+                    "asian",
+                    "native hawaiian or other pacific islander",
+                    "other",
+                ],
+                "enumDef": {
+                    "not reported": {
+                        "description": "Not provided or available.",
+                        "termDef": {
+                            "term": "Not Reported",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                            "term_id": "C43234",
+                            "term_version": "20.05a",
+                        },
+                    },
+                    "american indian or alaska native": {
+                        "description": "A person having origins in any of the original peoples of North and South America (including Central America) and who maintains tribal affiliation or community attachment. (OMB)",
+                        "termDef": {
+                            "term": "American Indian or Alaska Native",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41259",
+                            "term_id": "C41259",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "black or african american": {
+                        "description": 'A person having origins in any of the Black racial groups of Africa. Terms such as "Haitian" or "Negro" can be used in addition to "Black or African American". (OMB)',
+                        "termDef": {
+                            "term": "Black or African American",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16352",
+                            "term_id": "C16352",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "asian": {
+                        "description": "A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent, including for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam. (OMB)",
+                        "termDef": {
+                            "term": "Asian",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41260",
+                            "term_id": "C41260",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "native hawaiian or other pacific islander": {
+                        "description": "A person having origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands. (OMB)",
+                        "termDef": {
+                            "term": "Native Hawaiian or Other Pacific Islander",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41219",
+                            "term_id": "C41219",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "other": {
+                        "description": "Different than the one(s) previously specified or mentioned.",
+                        "termDef": {
+                            "term": "Other",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649",
+                            "term_id": "C17649",
+                            "term_version": "19.12e",
+                        },
+                    },
+                },
+            },
+            "vital_status": {
+                "description": "The survival state of the person registered on the protocol. CDE: 5.",
+                "enum": ["alive", "dead", "lost to follow-up"],
+                "enumDef": {
+                    "alive": {
+                        "description": "Living; showing characteristics of life.",
+                        "termDef": {
+                            "term": "Alive",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C37987",
+                            "term_id": "C37987",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "dead": {
+                        "description": "The cessation of life.",
+                        "termDef": {
+                            "term": "Dead",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C28554",
+                            "term_id": "C28554",
+                            "term_version": "19.12e",
+                        },
+                    },
+                },
+            },
+            "year_of_diagnosis": {
+                "description": "Numeric value to represent the year of an individual's initial pathologic diagnosis of cancer. CDE: 2896960.",
+                "type": "number",
+            },
+            "cases": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                            "maxItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+        },
     }
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None

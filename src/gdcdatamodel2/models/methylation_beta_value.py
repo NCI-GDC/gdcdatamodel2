@@ -46,6 +46,383 @@ class MethylationBetaValue(base.Node):
         "project": "*",
         "program": "*",
         "previous_version_downloadable": True,
+        "links": [
+            {
+                "exclusive": True,
+                "required": True,
+                "subgroup": [
+                    {
+                        "name": "methylation_array_harmonization_workflows",
+                        "backref": "methylation_beta_values",
+                        "label": "data_from",
+                        "target_type": "methylation_array_harmonization_workflow",
+                        "multiplicity": "many_to_one",
+                        "required": False,
+                    },
+                    {
+                        "name": "methylation_liftover_workflows",
+                        "backref": "methylation_beta_values",
+                        "label": "data_from",
+                        "target_type": "methylation_liftover_workflow",
+                        "multiplicity": "one_to_one",
+                        "required": False,
+                    },
+                ],
+            }
+        ],
+        "properties": {
+            "type": {"type": "string"},
+            "id": {
+                "common": {
+                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                    "termDef": {
+                        "term": "Universally Unique Identifier",
+                        "source": "NCIt",
+                        "cde_id": "C54100",
+                        "cde_version": None,
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                    },
+                },
+                "type": "string",
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "systemAlias": "node_id",
+            },
+            "submitter_id": {
+                "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+                "type": "string",
+            },
+            "batch_id": {
+                "description": "GDC submission batch indicator. It is unique within the context of a project.",
+                "type": "integer",
+            },
+            "state": {
+                "common": {
+                    "description": "The current state of the object.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "default": "validated",
+                "downloadable": [
+                    "uploaded",
+                    "md5summed",
+                    "validating",
+                    "validated",
+                    "error",
+                    "invalid",
+                    "released",
+                ],
+                "public": ["live"],
+                "oneOf": [
+                    {
+                        "enum": [
+                            "uploading",
+                            "uploaded",
+                            "md5summing",
+                            "md5summed",
+                            "validating",
+                            "error",
+                            "invalid",
+                            "suppressed",
+                            "redacted",
+                            "live",
+                        ]
+                    },
+                    {"enum": ["validated", "submitted", "released"]},
+                ],
+            },
+            "project_id": {
+                "common": {
+                    "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "type": "string",
+            },
+            "created_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "updated_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "file_name": {
+                "common": {
+                    "description": "The name (or part of a name) of a file (of any type).",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "type": "string",
+            },
+            "file_size": {
+                "common": {
+                    "description": "The size of the data file (object) in bytes.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "type": "integer",
+            },
+            "md5sum": {
+                "common": {
+                    "description": "The 128-bit hash value expressed as a 32 digit hexadecimal number (in lower case) used as a file's digital fingerprint.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "type": "string",
+                "pattern": "^[a-f0-9]{32}$",
+            },
+            "file_state": {
+                "common": {
+                    "description": "The current state of the data file object.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "default": "registered",
+                "enum": [
+                    "registered",
+                    "uploading",
+                    "uploaded",
+                    "validating",
+                    "validated",
+                    "submitted",
+                    "processing",
+                    "processed",
+                    "released",
+                    "error",
+                    "deleted",
+                ],
+            },
+            "error_type": {
+                "common": {
+                    "description": "Type of error for the data file object.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "enum": ["file_size", "file_format", "md5sum"],
+            },
+            "state_comment": {
+                "description": "Optional comment about why the file is in the current state, mainly for invalid state.",
+                "type": "string",
+            },
+            "data_category": {
+                "description": "Broad categorization of the contents of the data file.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["DNA Methylation"],
+            },
+            "data_type": {
+                "description": "Specific content type of the data file.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["Methylation Beta Value"],
+            },
+            "data_format": {
+                "description": "Format of the data files.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["TXT"],
+            },
+            "experimental_strategy": {
+                "description": "The sequencing strategy used to generate the data file.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["Methylation Array"],
+            },
+            "platform": {
+                "description": "Name of the platform used to obtain data.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": [
+                    "Illumina Human Methylation 27",
+                    "Illumina Human Methylation 450",
+                    "Illumina Methylation Epic",
+                ],
+            },
+            "methylation_array_harmonization_workflows": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                            "maxItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+            "methylation_liftover_workflows": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                            "maxItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+        },
     }
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None

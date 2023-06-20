@@ -33,6 +33,548 @@ class ReadGroupQc(base.Node):
         "project": "*",
         "program": "*",
         "previous_version_downloadable": False,
+        "links": [
+            {
+                "exclusive": True,
+                "required": True,
+                "subgroup": [
+                    {
+                        "name": "submitted_aligned_reads_files",
+                        "backref": "read_group_qcs",
+                        "label": "data_from",
+                        "target_type": "submitted_aligned_reads",
+                        "multiplicity": "one_to_one",
+                        "required": False,
+                    },
+                    {
+                        "name": "submitted_unaligned_reads_files",
+                        "backref": "read_group_qcs",
+                        "label": "data_from",
+                        "target_type": "submitted_unaligned_reads",
+                        "multiplicity": "one_to_many",
+                        "required": False,
+                    },
+                ],
+            },
+            {
+                "name": "read_groups",
+                "backref": "read_group_qcs",
+                "label": "generated_from",
+                "target_type": "read_group",
+                "multiplicity": "many_to_one",
+                "required": True,
+            },
+        ],
+        "properties": {
+            "type": {"type": "string"},
+            "id": {
+                "common": {
+                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                    "termDef": {
+                        "term": "Universally Unique Identifier",
+                        "source": "NCIt",
+                        "cde_id": "C54100",
+                        "cde_version": None,
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                    },
+                },
+                "type": "string",
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "systemAlias": "node_id",
+            },
+            "submitter_id": {
+                "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+                "type": "string",
+            },
+            "batch_id": {
+                "description": "GDC submission batch indicator. It is unique within the context of a project.",
+                "type": "integer",
+            },
+            "state": {
+                "common": {
+                    "description": "The current state of the object.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "default": "validated",
+                "downloadable": [
+                    "uploaded",
+                    "md5summed",
+                    "validating",
+                    "validated",
+                    "error",
+                    "invalid",
+                    "released",
+                ],
+                "public": ["live"],
+                "oneOf": [
+                    {
+                        "enum": [
+                            "uploading",
+                            "uploaded",
+                            "md5summing",
+                            "md5summed",
+                            "validating",
+                            "error",
+                            "invalid",
+                            "suppressed",
+                            "redacted",
+                            "live",
+                        ]
+                    },
+                    {"enum": ["validated", "submitted", "released"]},
+                ],
+            },
+            "project_id": {
+                "common": {
+                    "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "type": "string",
+            },
+            "created_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "updated_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "workflow_link": {
+                "description": "Link to Github hash for the CWL workflow used.",
+                "type": "string",
+            },
+            "workflow_version": {
+                "description": "Major version for a GDC workflow.",
+                "type": "string",
+            },
+            "workflow_start_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "workflow_end_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "adapter_content": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "basic_statistics": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "encoding": {
+                "description": "Version of ASCII encoding of quality values found in the file.",
+                "termDef": {
+                    "term": "Encoding",
+                    "source": "FastQC",
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html",
+                },
+                "type": "string",
+            },
+            "fastq_name": {
+                "description": "The name (or part of a name) of a file (of any type).",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "string",
+            },
+            "kmer_content": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "overrepresented_sequences": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "per_base_sequence_quality": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "per_tile_sequence_quality": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "per_sequence_quality_score": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "per_base_sequence_content": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "per_sequence_gc_content": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "per_base_n_content": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "percent_gc_content": {
+                "description": "The overall %GC of all bases in all sequences.",
+                "termDef": {
+                    "term": "%GC",
+                    "source": "FastQC",
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html",
+                },
+                "type": "integer",
+                "maximum": 100,
+                "minimum": 0,
+            },
+            "sequence_length_distribution": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "sequence_duplication_levels": {
+                "common": {
+                    "description": "State classification given by FASTQC for the metric. Metric specific details about the states are available on their website.",
+                    "termDef": {
+                        "term": "QC Metric State",
+                        "source": "FastQC",
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/",
+                    },
+                },
+                "enum": ["FAIL", "PASS", "WARN", "Unknown", "Not Reported"],
+            },
+            "total_sequences": {
+                "description": "A count of the total number of sequences processed.",
+                "termDef": {
+                    "term": "Total Sequences",
+                    "source": "FastQC",
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html",
+                },
+                "type": "integer",
+            },
+            "workflow_type": {
+                "description": "Generic name for the workflow used to analyze a data set.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["Read Group Quality Control"],
+            },
+            "submitted_aligned_reads_files": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                            "maxItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+            "submitted_unaligned_reads_files": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+            "read_groups": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                            "maxItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+        },
     }
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None

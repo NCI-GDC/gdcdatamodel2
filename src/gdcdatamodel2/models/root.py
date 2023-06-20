@@ -33,6 +33,12 @@ class Root(base.Node):
         "project": "*",
         "program": "*",
         "previous_version_downloadable": False,
+        "links": [],
+        "properties": {
+            "type": {"type": "string"},
+            "id": {"enum": ["root"]},
+            "schema_version": {"type": "string"},
+        },
     }
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None

@@ -33,6 +33,528 @@ class Analyte(base.Node):
         "project": "*",
         "program": "*",
         "previous_version_downloadable": False,
+        "links": [
+            {
+                "exclusive": True,
+                "required": True,
+                "subgroup": [
+                    {
+                        "name": "portions",
+                        "backref": "analytes",
+                        "label": "derived_from",
+                        "target_type": "portion",
+                        "multiplicity": "many_to_one",
+                        "required": False,
+                    },
+                    {
+                        "name": "samples",
+                        "backref": "analytes",
+                        "label": "derived_from",
+                        "target_type": "sample",
+                        "multiplicity": "many_to_one",
+                        "required": False,
+                    },
+                ],
+            }
+        ],
+        "properties": {
+            "type": {"type": "string"},
+            "id": {
+                "common": {
+                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                    "termDef": {
+                        "term": "Universally Unique Identifier",
+                        "source": "NCIt",
+                        "cde_id": "C54100",
+                        "cde_version": None,
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                    },
+                },
+                "type": "string",
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "systemAlias": "node_id",
+            },
+            "submitter_id": {
+                "description": "A project-specific identifier for a node. This property is the calling card/nickname/alias for a unit of submission. It can be used in place of the uuid for identifying or recalling a node.",
+                "type": "string",
+            },
+            "batch_id": {
+                "description": "GDC submission batch indicator. It is unique within the context of a project.",
+                "type": "integer",
+            },
+            "state": {
+                "common": {
+                    "description": "The current state of the object.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "default": "validated",
+                "downloadable": [
+                    "uploaded",
+                    "md5summed",
+                    "validating",
+                    "validated",
+                    "error",
+                    "invalid",
+                    "released",
+                ],
+                "public": ["live"],
+                "oneOf": [
+                    {
+                        "enum": [
+                            "uploading",
+                            "uploaded",
+                            "md5summing",
+                            "md5summed",
+                            "validating",
+                            "error",
+                            "invalid",
+                            "suppressed",
+                            "redacted",
+                            "live",
+                        ]
+                    },
+                    {"enum": ["validated", "submitted", "released"]},
+                ],
+            },
+            "project_id": {
+                "common": {
+                    "description": "Unique ID for any specific defined piece of work that is undertaken or attempted to meet a single requirement.",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "type": "string",
+            },
+            "created_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "updated_datetime": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+            },
+            "a260_a280_ratio": {
+                "description": "Numeric value that represents the sample ratio of nucleic acid absorbance at 260 nm and 280 nm, used to determine a measure of DNA purity.",
+                "termDef": {
+                    "term": "Nucleic Acid Absorbance at 260 And Absorbance at 280 DNA Purity Ratio Value",
+                    "source": "caDSR",
+                    "cde_id": 5432595,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5432595&version=1.0",
+                },
+                "type": "number",
+                "minimum": 0,
+            },
+            "amount": {
+                "description": "Weight in grams or volume in mL.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "number",
+                "minimum": 0,
+            },
+            "analyte_quantity": {
+                "description": "The quantity in micrograms (ug) of the analyte(s) derived from the analyte(s) shipped for sequencing and characterization.",
+                "termDef": {
+                    "term": "Biospecimen Analyte Quantity",
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "number",
+                "minimum": 0,
+            },
+            "analyte_type": {
+                "description": "Text term that represents the kind of molecular specimen analyte.",
+                "termDef": {
+                    "term": "Molecular Specimen Type Text Name",
+                    "source": "caDSR",
+                    "cde_id": 2513915,
+                    "cde_version": 2.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=2513915&version=2.0",
+                },
+                "enum": [
+                    "cfDNA",
+                    "DNA",
+                    "EBV Immortalized Normal",
+                    "FFPE DNA",
+                    "FFPE RNA",
+                    "GenomePlex (Rubicon) Amplified DNA",
+                    "m6A Enriched RNA",
+                    "Nuclei RNA",
+                    "Repli-G (Qiagen) DNA",
+                    "Repli-G Pooled (Qiagen) DNA",
+                    "Repli-G X (Qiagen) DNA",
+                    "RNA",
+                    "Total RNA",
+                ],
+                "enumDef": {
+                    "DNA": {
+                        "description": "A long linear double-stranded polymer formed from nucleotides attached to a deoxyribose backbone and found in the nucleus of a cell; associated with the transmission of genetic information.",
+                        "termDef": {
+                            "term": "DNA",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C449",
+                            "term_id": "C449",
+                            "term_version": "20.10d",
+                        },
+                    },
+                    "Total RNA": {
+                        "description": "A biological sample comprised of all of the RNA collected from an experimental subject.",
+                        "termDef": {
+                            "term": "Total RNA",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C163995",
+                            "term_id": "C163995",
+                            "term_version": "20.10d",
+                        },
+                    },
+                },
+            },
+            "analyte_type_id": {
+                "description": "A single letter code used to identify a type of molecular analyte.",
+                "termDef": {
+                    "term": "Molecular Analyte Identification Code",
+                    "source": "caDSR",
+                    "cde_id": 5432508,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5432508&version=1.0",
+                },
+                "enum": ["D", "E", "G", "H", "R", "S", "T", "W", "X", "Y"],
+            },
+            "analyte_volume": {
+                "description": "The volume in microliters (ul) of the aliquot(s) derived from the analyte(s) shipped for sequencing and characterization.",
+                "termDef": {
+                    "term": "Biospecimen Analyte Volume",
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "number",
+                "minimum": 0,
+            },
+            "concentration": {
+                "description": "Numeric value that represents the concentration of an analyte or aliquot extracted from the sample or sample portion, measured in milligrams per milliliter.",
+                "termDef": {
+                    "term": "Biospecimen Analyte or Aliquot Extracted Concentration Milligram per Milliliter Value",
+                    "source": "caDSR",
+                    "cde_id": 5432594,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5432594&version=1.0",
+                },
+                "type": "number",
+                "minimum": 0,
+            },
+            "experimental_protocol_type": {
+                "description": "The type of experiment used to extract the analyte.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": [
+                    "aDNA Preparation Type",
+                    "Allprep FFPE DNA",
+                    "Allprep RNA Extraction",
+                    "Chemical Lysis DNA Extraction",
+                    "Genomplex",
+                    "HighPure miRNA (Allprep DNA) FFPE RNA",
+                    "mirVana (Allprep DNA) RNA",
+                    "nRNA - Melanoma Protocol",
+                    "Pre-extracted DNA received by TSS",
+                    "Repli-G",
+                    "Repli-G X",
+                    "Total RNA",
+                ],
+                "enumDef": {
+                    "Total RNA": {
+                        "description": "A biological sample comprised of all of the RNA collected from an experimental subject.",
+                        "termDef": {
+                            "term": "Total RNA",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C163995",
+                            "term_id": "C163995",
+                            "term_version": "20.10d",
+                        },
+                    }
+                },
+            },
+            "normal_tumor_genotype_snp_match": {
+                "description": "Text term that represents whether or not the genotype of the normal tumor matches or if the data is not available.",
+                "termDef": {
+                    "term": "Normal Tumor Genotype Match Indicator",
+                    "source": "caDSR",
+                    "cde_id": 4588156,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=4588156&version=1.0",
+                },
+                "enum": [
+                    "Yes",
+                    "No",
+                    "Unknown",
+                    "Not Reported",
+                    "Not Allowed To Collect",
+                ],
+                "enumDef": {
+                    "Yes": {
+                        "description": "The affirmative response to a question.",
+                        "termDef": {
+                            "term": "Yes",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488",
+                            "term_id": "C49488",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "No": {
+                        "description": "The non-affirmative response to a question.",
+                        "termDef": {
+                            "term": "No",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487",
+                            "term_id": "C49487",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "Unknown": {
+                        "description": "Not known, not observed, not recorded, or refused.",
+                        "termDef": {
+                            "term": "Unknown",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                            "term_id": "C17998",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "Not Reported": {
+                        "description": "Not provided or available.",
+                        "termDef": {
+                            "term": "Not Reported",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
+                            "term_id": "C43234",
+                            "term_version": "20.05a",
+                        },
+                    },
+                    "Not Allowed To Collect": {
+                        "description": "An indicator that specifies that a collection event was not permitted.",
+                        "termDef": {
+                            "term": "Not Allowed To Collect",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478",
+                            "term_id": "C141478",
+                            "term_version": "19.12e",
+                        },
+                    },
+                },
+            },
+            "ribosomal_rna_28s_16s_ratio": {
+                "description": "The 28S/18S ribosomal RNA band ratio used to assess the quality of total RNA.",
+                "termDef": {
+                    "term": "28s/18s Ribosomal RNA Ratio",
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "number",
+                "minimum": 0,
+            },
+            "rna_integrity_number": {
+                "description": "A numerical assessment of the integrity of RNA based on the entire electrophoretic trace of the RNA sample, including the presence or absence of degradation products.",
+                "termDef": {
+                    "term": "RNA Integrity Number",
+                    "source": "NCIt",
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C63637",
+                    "term_id": "C63637",
+                    "term_version": "20.10d",
+                },
+                "type": "number",
+                "maximum": 10,
+            },
+            "spectrophotometer_method": {
+                "description": "Name of the method used to determine the concentration of purified nucleic acid within a solution.",
+                "termDef": {
+                    "term": "Purification Nucleic Acid Solution Concentration Determination Method Type",
+                    "source": "caDSR",
+                    "cde_id": 3008378,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=3008378&version=1.0",
+                },
+                "type": "string",
+            },
+            "well_number": {
+                "description": "Numeric value that represents the the well location within a plate for the analyte or aliquot from the sample.",
+                "termDef": {
+                    "term": "Biospecimen Analyte or Aliquot Plate Well Number",
+                    "source": "caDSR",
+                    "cde_id": 5432613,
+                    "cde_version": 1.0,
+                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5432613&version=1.0",
+                },
+                "type": "string",
+            },
+            "portions": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                            "maxItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+            "samples": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                            "maxItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+        },
     }
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None

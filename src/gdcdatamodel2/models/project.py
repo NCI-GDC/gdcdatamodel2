@@ -43,6 +43,169 @@ class Project(base.Node):
         "project": "*",
         "program": "*",
         "previous_version_downloadable": False,
+        "links": [
+            {
+                "name": "programs",
+                "backref": "projects",
+                "label": "member_of",
+                "target_type": "program",
+                "multiplicity": "many_to_one",
+                "required": True,
+            }
+        ],
+        "properties": {
+            "type": {"type": "string"},
+            "id": {
+                "common": {
+                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                    "termDef": {
+                        "term": "Universally Unique Identifier",
+                        "source": "NCIt",
+                        "cde_id": "C54100",
+                        "cde_version": None,
+                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                    },
+                },
+                "type": "string",
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "systemAlias": "node_id",
+                "description": "UUID for the project",
+            },
+            "awg_review": {
+                "description": "Indicates that the project is an AWG project.",
+                "type": "boolean",
+                "default": False,
+            },
+            "code": {"description": "Project code", "type": "string"},
+            "dbgap_accession_number": {
+                "description": "The dbgap accession number for the project.",
+                "type": "string",
+            },
+            "disease_type": {
+                "description": "Full name for the project",
+                "type": "string",
+            },
+            "intended_release_date": {
+                "common": {
+                    "description": "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+                    "termDef": {
+                        "term": None,
+                        "source": None,
+                        "cde_id": None,
+                        "cde_version": None,
+                        "term_url": None,
+                    },
+                },
+                "oneOf": [{"type": "string", "format": "date-time"}, {"type": "null"}],
+                "description": "Tracks a Project's intended release date.",
+            },
+            "in_review": {
+                "description": "Indicates that the project is under review by the submitter. Upload and data modification is disabled.",
+                "type": "boolean",
+                "default": False,
+            },
+            "is_legacy": {
+                "description": "Indicates whether a project will appear in the Legacy Archive.",
+                "type": "boolean",
+                "default": False,
+            },
+            "name": {"description": "Display name for the project", "type": "string"},
+            "primary_site": {
+                "description": "Primary site for the project",
+                "type": "string",
+            },
+            "state": {
+                "description": "The possible states a project can be in.  All but `open` are equivalent to some type of locked state.",
+                "default": "open",
+                "enum": [
+                    "open",
+                    "review",
+                    "submitted",
+                    "processing",
+                    "processed",
+                    "closed",
+                    "legacy",
+                ],
+            },
+            "release_requested": {
+                "description": "User requests that the GDC release the project. Release can only be requested if the project is releasable.",
+                "type": "boolean",
+                "default": False,
+            },
+            "released": {
+                "description": "To release a project is to tell the GDC to include all submitted entities in the next GDC index.",
+                "type": "boolean",
+                "default": False,
+            },
+            "releasable": {
+                "description": "A project can only be released by the user when `releasable` is true.",
+                "type": "boolean",
+                "default": False,
+            },
+            "request_submission": {
+                "description": "Indicates that the user has requested submission to the GDC for harmonization.",
+                "type": "boolean",
+                "default": False,
+            },
+            "submission_enabled": {
+                "description": "Indicates if submission to a project is allowed.",
+                "type": "boolean",
+                "default": True,
+            },
+            "programs": {
+                "anyOf": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": True,
+                            "properties": {
+                                "id": {
+                                    "common": {
+                                        "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                        "termDef": {
+                                            "term": "Universally Unique Identifier",
+                                            "source": "NCIt",
+                                            "cde_id": "C54100",
+                                            "cde_version": None,
+                                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                        },
+                                    },
+                                    "type": "string",
+                                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                    "systemAlias": "node_id",
+                                },
+                                "submitter_id": {"type": "string"},
+                            },
+                            "minItems": 1,
+                            "maxItems": 1,
+                        },
+                    },
+                    {
+                        "type": "object",
+                        "additionalProperties": True,
+                        "properties": {
+                            "id": {
+                                "common": {
+                                    "description": "A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be different. Its relatively small size lends itself well to sorting, ordering, and hashing of all sorts, storing in databases, simple allocation, and ease of programming in general.",
+                                    "termDef": {
+                                        "term": "Universally Unique Identifier",
+                                        "source": "NCIt",
+                                        "cde_id": "C54100",
+                                        "cde_version": None,
+                                        "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100",
+                                    },
+                                },
+                                "type": "string",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "systemAlias": "node_id",
+                            },
+                            "submitter_id": {"type": "string"},
+                        },
+                    },
+                ]
+            },
+        },
     }
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
