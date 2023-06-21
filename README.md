@@ -51,10 +51,19 @@ pytest tests
 
 # Update models
 
-## Update Plaster
+Some times we need to add new data types to our graph. Bio team will update the
+biodictionary and biodatamodels. The bio team or user service team will helps us update
+gdcdictionary. After the gdcditionary is updated and merged, The gdcdatamodel2 should be
+automatically updated and released to nexus by gitlab-ci. But we can also manual update
+gdcdatamodel2 by following steps.
 
-To use a different version of plaster, update the `extras_require.plaster` entry in
-[setup.cfg](setup.cfg).
+
+## Update Plaster
+Plaster is the application used to generate gdcdatamodel2. Most of the time,  for date
+release, we only need to update gdcdictionary and leave the plaster untouched.
+
+To use a different version of plaster, update the plaster entry in
+plaster file in root directory.
 
 ## Update dictionary
 
