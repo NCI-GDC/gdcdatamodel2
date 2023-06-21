@@ -345,17 +345,6 @@ class AlignedReads(base.Node):
                 },
                 "enum": ["Sequencing Reads"],
             },
-            "data_type": {
-                "description": "Specific content type of the data file.",
-                "termDef": {
-                    "term": None,
-                    "source": None,
-                    "cde_id": None,
-                    "cde_version": None,
-                    "term_url": None,
-                },
-                "enum": ["Aligned Reads"],
-            },
             "data_format": {
                 "description": "Format of the data files.",
                 "termDef": {
@@ -366,6 +355,17 @@ class AlignedReads(base.Node):
                     "term_url": None,
                 },
                 "enum": ["BAM"],
+            },
+            "data_type": {
+                "description": "Specific content type of the data file.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["Aligned Reads"],
             },
             "experimental_strategy": {
                 "description": "The sequencing strategy used to generate the data file.",
@@ -441,13 +441,13 @@ class AlignedReads(base.Node):
                 },
                 "type": "number",
             },
-            "msi_status": {
-                "description": "MSIsensor determination of either microsatellite stability or instability.",
-                "enum": ["MSI", "MSS"],
-            },
             "msi_score": {
                 "description": "Numeric score denoting the aligned reads file's MSI score from MSIsensor.",
                 "type": "number",
+            },
+            "msi_status": {
+                "description": "MSIsensor determination of either microsatellite stability or instability.",
+                "enum": ["MSI", "MSS"],
             },
             "pairs_on_diff_chr": {
                 "description": "Pairs on different chromosomes collected from samtools.",
@@ -559,6 +559,17 @@ class AlignedReads(base.Node):
                 },
                 "type": "number",
             },
+            "total_reads": {
+                "description": "Total number of reads collected from samtools.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "type": "integer",
+            },
             "tumor_ploidy": {
                 "description": "Numeric value used to describe the number of sets of chromosomes in a cell or an organism. For example, haploid means one set and diploid means two sets.",
                 "termDef": {
@@ -581,8 +592,8 @@ class AlignedReads(base.Node):
                 },
                 "type": "number",
             },
-            "total_reads": {
-                "description": "Total number of reads collected from samtools.",
+            "wgs_coverage": {
+                "description": "Range of coverage values for WGS aligned reads. Each range is non-inclusive to the lower bound.",
                 "termDef": {
                     "term": None,
                     "source": None,
@@ -590,7 +601,40 @@ class AlignedReads(base.Node):
                     "cde_version": None,
                     "term_url": None,
                 },
-                "type": "integer",
+                "enum": [
+                    "0x-10x",
+                    "10x-25x",
+                    "25x-150x",
+                    "150x+",
+                    "Unknown",
+                    "Not Applicable",
+                ],
+                "enumDef": {
+                    "Unknown": {
+                        "description": "Not known, not observed, not recorded, or refused.",
+                        "termDef": {
+                            "term": "Unknown",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998",
+                            "term_id": "C17998",
+                            "term_version": "19.12e",
+                        },
+                    },
+                    "Not Applicable": {
+                        "description": "Determination of a value is not relevant in the current context.",
+                        "termDef": {
+                            "term": "Not Applicable",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+                            "term_id": "C48660",
+                            "term_version": "20.10d",
+                        },
+                    },
+                },
             },
             "alignment_cocleaning_workflows": {
                 "anyOf": [

@@ -5,7 +5,7 @@ VENV=venv_plaster
 virtualenv $VENV -p python3.8
 source $VENV/bin/activate
 
-python3 -m pip install "plaster @ git+ssh://git@github.com/NCI-GDC/plaster.git@feat/dev-1903-add-schema#egg=plaster" "psqlgml >= 0.2.0" pre-commit
+python3 -m pip install "plaster @ git+ssh://git@github.com/NCI-GDC/plaster.git@1.0.6#egg=plaster" "psqlgml >= 0.2.0" pre-commit
 plaster --version
 psqlgml --version
 plaster generate -p gdcdictionary -o src/gdcdatamodel2/models

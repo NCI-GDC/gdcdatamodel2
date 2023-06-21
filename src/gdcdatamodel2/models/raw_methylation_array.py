@@ -244,65 +244,6 @@ class RawMethylationArray(base.Node):
                 "description": "Optional comment about why the file is in the current state, mainly for invalid state.",
                 "type": "string",
             },
-            "data_category": {
-                "description": "Broad categorization of the contents of the data file.",
-                "termDef": {
-                    "term": None,
-                    "source": None,
-                    "cde_id": None,
-                    "cde_version": None,
-                    "term_url": None,
-                },
-                "enum": ["DNA Methylation"],
-            },
-            "data_type": {
-                "description": "Specific content type of the data file.",
-                "termDef": {
-                    "term": None,
-                    "source": None,
-                    "cde_id": None,
-                    "cde_version": None,
-                    "term_url": None,
-                },
-                "enum": ["Raw Intensities"],
-            },
-            "data_format": {
-                "description": "Format of the data files.",
-                "termDef": {
-                    "term": None,
-                    "source": None,
-                    "cde_id": None,
-                    "cde_version": None,
-                    "term_url": None,
-                },
-                "enum": ["IDAT"],
-            },
-            "experimental_strategy": {
-                "description": "The sequencing strategy used to generate the data file.",
-                "termDef": {
-                    "term": None,
-                    "source": None,
-                    "cde_id": None,
-                    "cde_version": None,
-                    "term_url": None,
-                },
-                "enum": ["Methylation Array"],
-            },
-            "platform": {
-                "description": "Name of the platform used to obtain data.",
-                "termDef": {
-                    "term": None,
-                    "source": None,
-                    "cde_id": None,
-                    "cde_version": None,
-                    "term_url": None,
-                },
-                "enum": [
-                    "Illumina Human Methylation 27",
-                    "Illumina Human Methylation 450",
-                    "Illumina Methylation Epic",
-                ],
-            },
             "channel": {
                 "description": "The corresponding color channel used to generate this data file.",
                 "termDef": {
@@ -336,6 +277,50 @@ class RawMethylationArray(base.Node):
                 },
                 "type": "string",
             },
+            "data_category": {
+                "description": "Broad categorization of the contents of the data file.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["DNA Methylation"],
+            },
+            "data_format": {
+                "description": "Format of the data files.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["IDAT"],
+            },
+            "data_type": {
+                "description": "Specific content type of the data file.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["Raw Intensities"],
+            },
+            "experimental_strategy": {
+                "description": "The sequencing strategy used to generate the data file.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["Methylation Array"],
+            },
             "plate_name": {
                 "description": "User specified identifier of the plate used to prepare the sample for analysis.",
                 "termDef": {
@@ -357,6 +342,22 @@ class RawMethylationArray(base.Node):
                     "term_url": None,
                 },
                 "type": "string",
+            },
+            "platform": {
+                "description": "Name of the platform used to obtain data.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": [
+                    "Illumina Human Methylation 27",
+                    "Illumina Human Methylation 450",
+                    "Illumina Methylation Epic",
+                    "Illumina Methylation Epic v2",
+                ],
             },
             "aliquots": {
                 "anyOf": [

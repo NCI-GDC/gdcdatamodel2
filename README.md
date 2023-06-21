@@ -12,6 +12,7 @@ Repo to keep information about the GDC data model design.
   - [Update Plaster](#Update-Plaster)
   - [Update dictionary](#Update-dictionary)
   - [Generate graph models](#Generate-graph-models)
+    - [Known Issues:](#Known-Issues:)
 - [Visualize Graph](#Visualize-Graph)
 - [Repo Visualizer](#Repo-Visualizer)
 
@@ -67,6 +68,16 @@ Generate graph with:
 ```bash
 bash plaster
 ```
+
+### Known Issues:
+
+1. If you see this error:
+    ```
+    File "/Users/qiaoqiao/gdc/gdcdatamodel2/venv_plaster/lib/python3.8/site-packages/dulwich/refs.py", line 326, in __getitem__
+        raise KeyError(name)
+    KeyError: b'refs/tags/2.6.6'
+   ```
+    run the command to remove the cache `rm -rf ~/.gml/git/gdcdictionary`
 
 # Visualize Graph
 

@@ -191,7 +191,7 @@ class Case(base.Node):
                     "source": "caDSR",
                     "cde_id": 6154721,
                     "cde_version": 1.0,
-                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=6154721&version=1.0",
+                    "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6154721%20and%20ver_nr=1.0",
                 },
                 "type": "integer",
                 "maximum": 32872,
@@ -204,7 +204,7 @@ class Case(base.Node):
                     "source": "caDSR",
                     "cde_id": 6161017,
                     "cde_version": 1.0,
-                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=6161017&version=1.0",
+                    "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161017%20and%20ver_nr=1.0",
                 },
                 "enum": [
                     "Acinar Cell Neoplasms",
@@ -244,8 +244,8 @@ class Case(base.Node):
                     "Myeloid Leukemias",
                     "Myomatous Neoplasms",
                     "Myxomatous Neoplasms",
-                    "Neoplasms, NOS",
                     "Neoplasms of Histiocytes and Accessory Lymphoid Cells",
+                    "Neoplasms, NOS",
                     "Nerve Sheath Tumors",
                     "Neuroepitheliomatous Neoplasms",
                     "Nevi and Melanomas",
@@ -313,7 +313,7 @@ class Case(base.Node):
                     "source": "caDSR",
                     "cde_id": 6154722,
                     "cde_version": 1.0,
-                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=6154722&version=1.0",
+                    "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6154722%20and%20ver_nr=1.0",
                 },
                 "enum": [
                     "Diagnosis",
@@ -332,7 +332,7 @@ class Case(base.Node):
                     "source": "caDSR",
                     "cde_id": 6161018,
                     "cde_version": 1.0,
-                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=6161018&version=1.0",
+                    "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161018%20and%20ver_nr=1.0",
                 },
                 "enum": ["Yes", "No", "Unknown"],
                 "enumDef": {
@@ -381,7 +381,7 @@ class Case(base.Node):
                     "source": "caDSR",
                     "cde_id": 6161019,
                     "cde_version": 1.0,
-                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=6161019&version=1.0",
+                    "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161019%20and%20ver_nr=1.0",
                 },
                 "enum": [
                     "Accessory sinuses",
@@ -455,6 +455,7 @@ class Case(base.Node):
                     "Vulva",
                     "Unknown",
                     "Not Reported",
+                    "Not Applicable",
                 ],
                 "enumDef": {
                     "Unknown": {
@@ -479,6 +480,18 @@ class Case(base.Node):
                             "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234",
                             "term_id": "C43234",
                             "term_version": "20.05a",
+                        },
+                    },
+                    "Not Applicable": {
+                        "description": "Determination of a value is not relevant in the current context.",
+                        "termDef": {
+                            "term": "Not Applicable",
+                            "source": "NCIt",
+                            "cde_id": None,
+                            "cde_version": None,
+                            "term_url": "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660",
+                            "term_id": "C48660",
+                            "term_version": "20.10d",
                         },
                     },
                 },

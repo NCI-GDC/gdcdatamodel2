@@ -139,7 +139,7 @@ class Tag(base.Node):
                             "source": "caDSR",
                             "cde_id": 6142411,
                             "cde_version": 1.0,
-                            "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=6142411&version=1.0",
+                            "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142411%20and%20ver_nr=1.0",
                         },
                     }
                 },

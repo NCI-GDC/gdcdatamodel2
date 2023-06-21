@@ -268,17 +268,6 @@ class MethylationBetaValue(base.Node):
                 },
                 "enum": ["DNA Methylation"],
             },
-            "data_type": {
-                "description": "Specific content type of the data file.",
-                "termDef": {
-                    "term": None,
-                    "source": None,
-                    "cde_id": None,
-                    "cde_version": None,
-                    "term_url": None,
-                },
-                "enum": ["Methylation Beta Value"],
-            },
             "data_format": {
                 "description": "Format of the data files.",
                 "termDef": {
@@ -289,6 +278,17 @@ class MethylationBetaValue(base.Node):
                     "term_url": None,
                 },
                 "enum": ["TXT"],
+            },
+            "data_type": {
+                "description": "Specific content type of the data file.",
+                "termDef": {
+                    "term": None,
+                    "source": None,
+                    "cde_id": None,
+                    "cde_version": None,
+                    "term_url": None,
+                },
+                "enum": ["Methylation Beta Value"],
             },
             "experimental_strategy": {
                 "description": "The sequencing strategy used to generate the data file.",
@@ -314,6 +314,7 @@ class MethylationBetaValue(base.Node):
                     "Illumina Human Methylation 27",
                     "Illumina Human Methylation 450",
                     "Illumina Methylation Epic",
+                    "Illumina Methylation Epic v2",
                 ],
             },
             "methylation_array_harmonization_workflows": {

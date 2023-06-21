@@ -374,7 +374,7 @@ class ReadGroup(base.Node):
                     "source": "caDSR",
                     "cde_id": 5432604,
                     "cde_version": 1.0,
-                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5432604&version=1.0",
+                    "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432604%20and%20ver_nr=1.0",
                 },
                 "enum": [
                     "454 GS FLX Titanium",
@@ -731,7 +731,7 @@ class ReadGroup(base.Node):
                     "source": "caDSR",
                     "cde_id": 5278775,
                     "cde_version": 1.0,
-                    "term_url": "https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search?publicId=5278775&version=1.0",
+                    "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5278775%20and%20ver_nr=1.0",
                 },
                 "type": "number",
                 "maximum": 10,
