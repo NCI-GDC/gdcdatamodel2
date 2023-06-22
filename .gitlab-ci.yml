@@ -6,6 +6,7 @@ include:
     file:
       - templates/global/full.yaml
       - templates/python/full.yaml
+      - templates/common/python.yaml
 
 tox:
   stage: test
@@ -34,62 +35,16 @@ tox:
   script:
     - tox -r -e py
 
+# used by release
+.python_versions:
+  parallel:
+    matrix:
+      - BUILD_PY_VERSION: [python3.6]
+      - RELEASE_PY_VERSION: [python3.6]
 
-build_python_artifacts:
-  image: docker.osdc.io/ncigdc/python3.6-builder
-  stage: build
-  script:
-    - !reference [.load_github_key, script]
-    - pwd
-    - git fetch --unshallow    # have to fetch manually while GIT_STRATEGY is not working
-    - cat setup.cfg
-    - cat dev-requirements.txt
-    - whoami
-    - pip3 install -U setuptools_scm build setuptools
-    - python3 -m setuptools_scm
-    - python3 -m build
-    - ls -l dist
+release:
+  before_script:
+    - git fetch --unshallow
+    - git fetch -t
   variables:
-    GIT_STRATEGY: clone   # need full clone for setuptools_scam
-  artifacts:
-    paths:
-      - dist/*
-    expire_in: 1 week
-  needs: [tox]
-
-release_to_nexus:
-  image: docker.osdc.io/ncigdc/python3.6-builder
-  stage: release
-  script:
-    - ls -l dist
-    - pip3 install -U twine
-    - twine check dist/*
-    - twine upload dist/*
-  variables:
-    TWINE_USERNAME: ${TWINE_USER}
-    TWINE_PASSWORD: ${TWINE_PASSWORD}
-    TWINE_REPOSITORY_URL: https://nexus.osdc.io/repository/pypi-snapshots/
-  artifacts:
-    paths:
-      - dist/*.whl
-    reports:
-      dotenv: vars.env
-  rules: # Override globally-defined RELEASE_REGISTRY
-    - if: $CI_COMMIT_TAG
-      when: always
-      variables:
-        TWINE_REPOSITORY_URL: https://nexus.osdc.io/repository/pypi-releases/
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-      when: always
-      variables:
-        TWINE_REPOSITORY_URL: https://nexus.osdc.io/repository/pypi-releases/
-    - if: $CI_COMMIT_REF_NAME =~ /master/
-      when: always
-      variables:
-        TWINE_REPOSITORY_URL: https://nexus.osdc.io/repository/pypi-releases/
-    - if: $CI_COMMIT_REF_NAME =~ /main/
-      when: always
-      variables:
-        TWINE_REPOSITORY_URL: https://nexus.osdc.io/repository/pypi-releases/
-    - when: always
-  needs: [build_python_artifacts]
+    LEGACY_BASE_CONTAINER_VERSION: 2.3.0
