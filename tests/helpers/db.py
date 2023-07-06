@@ -149,7 +149,7 @@ def mock_data(
     edges: List[hints.EdgeData],
     extension: DataLoaderExtension,
 ) -> List[models.Node]:
-    gdc_factory = graph_factory(active_dictionary)
+    gdc_factory = raph_factory(active_dictionary)
 
     extension.pre()
     with pg_driver.session_scope(can_inherit=False) as s:
