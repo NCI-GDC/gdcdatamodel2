@@ -342,6 +342,16 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - somatic_aggregation_workflows
   aligned_reads:
     links:
       - exclusive: true
@@ -1081,6 +1091,16 @@ schema:
           source:
           term:
           term_url:
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - platform
   aligned_reads_index:
     links:
       - exclusive: true
@@ -1410,6 +1430,14 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
   alignment_cocleaning_workflow:
     links:
       - exclusive: true
@@ -1676,6 +1704,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   alignment_workflow:
     links:
       - exclusive: false
@@ -1954,6 +1986,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   aliquot:
     links:
       - exclusive: true
@@ -2458,6 +2494,8 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
   analysis_metadata:
     links:
       - exclusive: true
@@ -2789,6 +2827,14 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
   analyte:
     links:
       - exclusive: true
@@ -3008,19 +3054,19 @@ schema:
         description: Text term that represents whether or not the genotype of the
           normal tumor matches or if the data is not available.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
           - Not Allowed To Collect
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -3059,13 +3105,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -3299,6 +3345,9 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432613%20and%20ver_nr=1.0
         type: string
+    required:
+      - submitter_id
+      - analyte_type
   annotated_somatic_mutation:
     links:
       - exclusive: true
@@ -3645,6 +3694,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   annotation:
     links:
       - exclusive: false
@@ -6921,6 +6979,9 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - category
   archive:
     links:
       - backref: archives
@@ -7249,6 +7310,14 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - state
+      - revision
+      - projects
   biospecimen_supplement:
     links:
       - backref: biospecimen_supplements
@@ -7580,6 +7649,14 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
   case:
     links:
       - backref: cases
@@ -7797,17 +7874,17 @@ schema:
         description: The yes/no/unknown indicator used to describe whether a patient
           was unable to be contacted or seen for follow-up information.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -7823,13 +7900,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -8135,6 +8212,10 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - disease_type
+      - primary_site
   center:
     links: []
     properties:
@@ -8174,6 +8255,12 @@ schema:
         type: string
       type:
         type: string
+    required:
+      - code
+      - namespace
+      - name
+      - short_name
+      - center_type
   clinical:
     links:
       - backref: clinicals
@@ -8259,8 +8346,9 @@ schema:
             type: string
           - type: 'null'
       days_to_death:
-        description: "Time interval from a person's date of death to the date of initial
-          pathologic diagnosis, represented as a calculated number of days. CDE: 3165475."
+        description: 'Time interval from a person''s date of death to the date of
+          initial pathologic diagnosis, represented as a calculated number of days.
+          CDE: 3165475.'
         type: number
       ethnicity:
         description: 'The text for reporting information about ethnicity based on
@@ -8560,9 +8648,13 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C28554
               term_version: 19.12e
       year_of_diagnosis:
-        description: "Numeric value to represent the year of an individual's initial
-          pathologic diagnosis of cancer. CDE: 2896960."
+        description: 'Numeric value to represent the year of an individual''s initial
+          pathologic diagnosis of cancer. CDE: 2896960.'
         type: number
+    required:
+      - id
+      - submitter_id
+      - cases
   clinical_supplement:
     links:
       - backref: clinical_supplements
@@ -8892,6 +8984,14 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
   copy_number_auxiliary_file:
     links:
       - backref: copy_number_auxiliary_files
@@ -9177,6 +9277,16 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - platform
   copy_number_estimate:
     links:
       - exclusive: true
@@ -9591,6 +9701,16 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - platform
   copy_number_liftover_workflow:
     links:
       - backref: copy_number_liftover_workflows
@@ -9797,6 +9917,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   copy_number_segment:
     links:
       - exclusive: true
@@ -10209,6 +10333,16 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - platform
   copy_number_variation_workflow:
     links:
       - backref: copy_number_variation_workflows
@@ -10417,6 +10551,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   data_format:
     links: []
     properties:
@@ -10443,6 +10581,8 @@ schema:
         type: string
       type:
         type: string
+    required:
+      - name
   data_release:
     links:
       - backref: data_releases
@@ -10578,6 +10718,11 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - name
+      - major_version
+      - minor_version
+      - type
   data_subtype:
     links:
       - backref: data_subtypes
@@ -10663,6 +10808,9 @@ schema:
         type: string
       type:
         type: string
+    required:
+      - name
+      - data_types
   data_type:
     links: []
     properties:
@@ -10689,6 +10837,8 @@ schema:
         type: string
       type:
         type: string
+    required:
+      - name
   demographic:
     links:
       - backref: demographics
@@ -17520,18 +17670,18 @@ schema:
         description: The yes/no/unknown indicator used to describe whether the patient
           was premature (less than 37 weeks gestation) at birth.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -17558,13 +17708,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -17889,6 +18039,12 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2897030%20and%20ver_nr=1.0
         type: integer
+    required:
+      - submitter_id
+      - ethnicity
+      - gender
+      - race
+      - vital_status
   diagnosis:
     links:
       - backref: diagnoses
@@ -17904,17 +18060,17 @@ schema:
           regulate electrolyte balance, blood pressure, inflammation, blood sugar
           balance, and immune system control.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -17930,13 +18086,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -21743,19 +21899,19 @@ schema:
         description: Text term to signify whether lymphoma B-symptoms are present
           as noted in the patient's medical record.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
           - Not Allowed To Collect
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -21794,13 +21950,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -21923,19 +22079,19 @@ schema:
         description: Indicator that identifies whether a patient with malignant lymphoma
           has lymphomatous involvement of an extranodal site.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
           - Not Allowed To Collect
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -21974,13 +22130,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -23577,8 +23733,8 @@ schema:
         description: An immunohistochemical finding indicating the presence of double
           expression of MYC and BCL2 proteins in the neoplastic cells of a tumor sample.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         termDef:
           cde_id: C138900
@@ -23593,8 +23749,8 @@ schema:
           Patients with this type of lymphoma usually respond poorly to standard treatments
           and have a poor prognosis.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         termDef:
           cde_id: C125904
@@ -24259,18 +24415,18 @@ schema:
         description: The yes/no/unknown indicator used to describe whether esophageal
           columnar metaplasia was determined to be present.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -24297,13 +24453,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -25023,18 +25179,18 @@ schema:
         description: The yes/no/unknown/not reported indicator used to describe whether
           the tumor is located across the gastroesophageal junction.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -25061,13 +25217,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -25248,18 +25404,18 @@ schema:
         description: The yes/no/unknown indicator used to describe whether goblet
           cells were determined to be present in the esophageal columnar mucosa.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -25286,13 +25442,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -26657,17 +26813,17 @@ schema:
         description: A melanoma which has metastasized from a known primary anatomic
           site.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -26683,13 +26839,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -40836,11 +40992,11 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C7217
               term_version: 20.05a
           9650/3:
-            description: "A lymphoma, previously known as Hodgkin's disease, characterized
+            description: 'A lymphoma, previously known as Hodgkin''s disease, characterized
               by the presence of large tumor cells in an abundant admixture of nonneoplastic
               cells. There are two distinct subtypes: nodular lymphocyte predominant
               Hodgkin lymphoma and classical Hodgkin lymphoma. Hodgkin lymphoma involves
-              primarily lymph nodes."
+              primarily lymph nodes.'
             termDef:
               cde_id:
               cde_version:
@@ -40920,11 +41076,11 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C6914
               term_version: 20.05a
           9662/3:
-            description: "A lymphoma, previously known as Hodgkin's disease, characterized
+            description: 'A lymphoma, previously known as Hodgkin''s disease, characterized
               by the presence of large tumor cells in an abundant admixture of nonneoplastic
               cells. There are two distinct subtypes: nodular lymphocyte predominant
               Hodgkin lymphoma and classical Hodgkin lymphoma. Hodgkin lymphoma involves
-              primarily lymph nodes."
+              primarily lymph nodes.'
             termDef:
               cde_id:
               cde_version:
@@ -43318,18 +43474,18 @@ schema:
         description: The text term used to indicate whether the patient was pregnant
           at the time they were diagnosed.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -43356,13 +43512,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -59396,11 +59552,11 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3107
               term_version: 20.05a
           Hodgkin disease, NOS:
-            description: "A lymphoma, previously known as Hodgkin's disease, characterized
+            description: 'A lymphoma, previously known as Hodgkin''s disease, characterized
               by the presence of large tumor cells in an abundant admixture of nonneoplastic
               cells. There are two distinct subtypes: nodular lymphocyte predominant
               Hodgkin lymphoma and classical Hodgkin lymphoma. Hodgkin lymphoma involves
-              primarily lymph nodes."
+              primarily lymph nodes.'
             termDef:
               cde_id:
               cde_version:
@@ -59521,11 +59677,11 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C6914
               term_version: 20.05a
           Hodgkin lymphoma, NOS:
-            description: "A lymphoma, previously known as Hodgkin's disease, characterized
+            description: 'A lymphoma, previously known as Hodgkin''s disease, characterized
               by the presence of large tumor cells in an abundant admixture of nonneoplastic
               cells. There are two distinct subtypes: nodular lymphocyte predominant
               Hodgkin lymphoma and classical Hodgkin lymphoma. Hodgkin lymphoma involves
-              primarily lymph nodes."
+              primarily lymph nodes.'
             termDef:
               cde_id:
               cde_version:
@@ -59686,11 +59842,11 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C26956
               term_version: 20.05a
           Hodgkin sarcoma:
-            description: "A lymphoma, previously known as Hodgkin's disease, characterized
+            description: 'A lymphoma, previously known as Hodgkin''s disease, characterized
               by the presence of large tumor cells in an abundant admixture of nonneoplastic
               cells. There are two distinct subtypes: nodular lymphocyte predominant
               Hodgkin lymphoma and classical Hodgkin lymphoma. Hodgkin lymphoma involves
-              primarily lymph nodes."
+              primarily lymph nodes.'
             termDef:
               cde_id:
               cde_version:
@@ -63083,11 +63239,11 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C6985
               term_version: 20.05a
           Malignant lymphoma, Hodgkin:
-            description: "A lymphoma, previously known as Hodgkin's disease, characterized
+            description: 'A lymphoma, previously known as Hodgkin''s disease, characterized
               by the presence of large tumor cells in an abundant admixture of nonneoplastic
               cells. There are two distinct subtypes: nodular lymphocyte predominant
               Hodgkin lymphoma and classical Hodgkin lymphoma. Hodgkin lymphoma involves
-              primarily lymph nodes."
+              primarily lymph nodes.'
             termDef:
               cde_id:
               cde_version:
@@ -78193,8 +78349,8 @@ schema:
         description: The yes/no/unknown indicator used to describe the patient's history
           of prior cancer diagnosis.
         enum:
-          - yes
-          - no
+          - 'yes'
+          - 'no'
           - unknown
           - not reported
           - Not Allowed To Collect
@@ -78211,13 +78367,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
               term_version: 19.12e
-          no:
+          'no':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -78244,13 +78400,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          yes:
+          'yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -78266,19 +78422,19 @@ schema:
         description: A yes/no/unknown/not applicable indicator related to the administration
           of therapeutic agents received before the body specimen was collected.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
           - Not Allowed To Collect
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -78317,13 +78473,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -78340,8 +78496,8 @@ schema:
         description: Indicates whether a patient has a progression or recurrence after
           initial treatment. This can include local, regional, or metastatic disease.
         enum:
-          - yes
-          - no
+          - 'yes'
+          - 'no'
           - unknown
           - not reported
           - Not Allowed To Collect
@@ -78358,13 +78514,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
               term_version: 19.12e
-          no:
+          'no':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -78391,13 +78547,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          yes:
+          'yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -79630,12 +79786,12 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12341
               term_version: 20.05a
           Cornea, NOS:
-            description: "A dome-shaped, transparent, avascular tissue covering the
+            description: 'A dome-shaped, transparent, avascular tissue covering the
               front of the eye. It is composed of five layers: squamous epithelium,
-              Bowman's membrane, stroma, Descemet's membrane, and endothelium. Refraction
-              of light contributing to eye's focusing ability is its characteristic
+              Bowman''s membrane, stroma, Descemet''s membrane, and endothelium. Refraction
+              of light contributing to eye''s focusing ability is its characteristic
               function. It contains unmyelinated nerve endings which are responsible
-              for the high sensitivity of the tissue."
+              for the high sensitivity of the tissue.'
             termDef:
               cde_id:
               cde_version:
@@ -82796,18 +82952,18 @@ schema:
           sequencing was diagnosed. If both tumors were sequenced, both tumors would
           have synchronous malignancies.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -82834,13 +82990,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -83826,12 +83982,12 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12341
               term_version: 20.05a
           Cornea, NOS:
-            description: "A dome-shaped, transparent, avascular tissue covering the
+            description: 'A dome-shaped, transparent, avascular tissue covering the
               front of the eye. It is composed of five layers: squamous epithelium,
-              Bowman's membrane, stroma, Descemet's membrane, and endothelium. Refraction
-              of light contributing to eye's focusing ability is its characteristic
+              Bowman''s membrane, stroma, Descemet''s membrane, and endothelium. Refraction
+              of light contributing to eye''s focusing ability is its characteristic
               function. It contains unmyelinated nerve endings which are responsible
-              for the high sensitivity of the tissue."
+              for the high sensitivity of the tissue.'
             termDef:
               cde_id:
               cde_version:
@@ -86388,18 +86544,18 @@ schema:
           is confined to the organ where it originated and did not spread to a proximal
           or distant location within the body.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -86426,13 +86582,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -87132,17 +87288,17 @@ schema:
       ulceration_indicator:
         description: The formation or development of an ulcer.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -87158,13 +87314,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -87422,6 +87578,14 @@ schema:
           term: Year of initial pathologic diagnosis
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2896960%20and%20ver_nr=1.0
+    required:
+      - submitter_id
+      - age_at_diagnosis
+      - morphology
+      - primary_diagnosis
+      - diagnosis_is_primary_disease
+      - site_of_resection_or_biopsy
+      - tissue_or_organ_of_origin
   experiment_metadata:
     links:
       - exclusive: true
@@ -87750,6 +87914,14 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
   experimental_strategy:
     links: []
     properties:
@@ -87776,6 +87948,8 @@ schema:
         type: string
       type:
         type: string
+    required:
+      - name
   exposure:
     links:
       - backref: exposures
@@ -87846,25 +88020,25 @@ schema:
           term_url:
       alcohol_history:
         deprecated_enum:
-          - no
-          - yes
+          - 'no'
+          - 'yes'
         description: A response to a question that asks whether the participant has
           consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime.
         enum:
-          - Yes
-          - No
-          - yes
-          - no
+          - 'Yes'
+          - 'No'
+          - 'yes'
+          - 'no'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -87891,35 +88065,35 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
               term_version: 19.12e
-          no:
+          'no':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
               term_version: 19.12e
-          yes:
+          'yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -88085,18 +88259,18 @@ schema:
         description: The yes/no/unknown indicator used to describe whether the patient
           was exposed to asbestos.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -88123,13 +88297,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -88262,17 +88436,17 @@ schema:
         description: The yes/no/unknown indicator used to describe whether a patient
           was exposed to fine powder derived by the crushing of coal.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -88288,13 +88462,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -88323,17 +88497,17 @@ schema:
           was exposed to smoke that is emitted from burning tobacco, including cigarettes,
           pipes, and cigars. This includes tobacco smoke exhaled by smokers.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -88349,13 +88523,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -88700,17 +88874,17 @@ schema:
       parent_with_radiation_exposure:
         description: Indicates whether the patient's parent(s) were exposed to radiation
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -88726,13 +88900,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -88758,18 +88932,18 @@ schema:
         description: The yes/no/unknown indicator used to describe whether the patient
           was exposed to radon.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -88796,13 +88970,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -88820,17 +88994,17 @@ schema:
           crystalline metal oxide that consists of different forms including quartz,
           cristobalite, tridymite, tripoli, ganister, chert, and novaculite.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -88846,13 +89020,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -88867,18 +89041,18 @@ schema:
         description: The text term used to indicate whether the patient was exposed
           to secondhand smoke as a child.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -88905,13 +89079,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -90064,6 +90238,8 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3137957%20and%20ver_nr=1.0
         type: number
+    required:
+      - submitter_id
   expression_analysis_workflow:
     links:
       - backref: expression_analysis_workflows
@@ -90271,6 +90447,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   family_history:
     links:
       - backref: family_histories
@@ -92754,17 +92934,17 @@ schema:
         description: The historical fact that a legal or consanguineous family member
           has died.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -92780,13 +92960,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -92804,17 +92984,17 @@ schema:
         description: Indication that a legal or consanguineous family member was a
           smoker.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -92830,13 +93010,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -92851,18 +93031,18 @@ schema:
         description: The yes/no/unknown indicator used to describe whether any of
           the patient's relatives have a history of cancer.
         enum:
-          - yes
-          - no
+          - 'yes'
+          - 'no'
           - unknown
           - not reported
         enumDef:
-          no:
+          'no':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -92889,13 +93069,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          yes:
+          'yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -92974,6 +93154,8 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
   file:
     links:
       - exclusive: false
@@ -94088,6 +94270,12 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - state
   filtered_copy_number_segment:
     links:
       - backref: filtered_copy_number_segments
@@ -94364,6 +94552,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   follow_up:
     links:
       - backref: follow_ups
@@ -95233,18 +95430,18 @@ schema:
           cells were determined to be present in a patient diagnosed with Barrett's
           esophagus.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -95271,13 +95468,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -96448,18 +96645,18 @@ schema:
         description: The text term used to indicate whether the patient received Highly
           Active Antiretroviral Therapy (HAART).
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -96486,13 +96683,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -96518,18 +96715,18 @@ schema:
         description: An indication as to whether sustained virological response was
           obtained in responses to viral hepatitis treatment.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -96556,13 +96753,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -96577,17 +96774,17 @@ schema:
       history_of_tumor:
         description: Indicates whether patient has a history of tumors.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -96603,13 +96800,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -97346,18 +97543,18 @@ schema:
         description: Indicates whether a patient has a progression or recurrence after
           initial treatment. This can include local, regional, or metastatic disease.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -97384,13 +97581,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -98243,18 +98440,18 @@ schema:
           received treatment for a risk factor the patient had at the time of or prior
           to their diagnosis.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -98281,13 +98478,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -98595,17 +98792,17 @@ schema:
       undescended_testis_corrected:
         description: Indicates whether the patient's undescended testis was corrected.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -98621,13 +98818,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -98706,17 +98903,17 @@ schema:
         description: The persistent failure of one or both testes to descend into
           the scrotum.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -98732,13 +98929,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -98854,6 +99051,10 @@ schema:
           term:
           term_url:
         type: integer
+    required:
+      - submitter_id
+      - days_to_follow_up
+      - cases
   gene_expression:
     links:
       - backref: gene_expressions
@@ -99139,6 +99340,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   genomic_profile_harmonization_workflow:
     links:
       - backref: genomic_profile_harmonization_workflows
@@ -99352,6 +99562,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   germline_mutation_calling_workflow:
     links:
       - exclusive: true
@@ -99620,6 +99834,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   masked_methylation_array:
     links:
       - backref: masked_methylation_arrays
@@ -99959,6 +100177,17 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - platform
+      - channel
   masked_somatic_mutation:
     links:
       - backref: masked_somatic_mutations
@@ -100362,6 +100591,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   methylation_array_harmonization_workflow:
     links:
       - backref: methylation_array_harmonization_workflows
@@ -100567,6 +100805,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   methylation_beta_value:
     links:
       - exclusive: true
@@ -100917,6 +101159,16 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - platform
   methylation_liftover_workflow:
     links:
       - backref: methylation_liftover_workflows
@@ -101123,6 +101375,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   mirna_expression:
     links:
       - backref: mirna_expressions
@@ -101402,6 +101658,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   mirna_expression_workflow:
     links:
       - backref: mirna_expression_workflows
@@ -101608,6 +101873,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   molecular_test:
     links:
       - exclusive: false
@@ -113593,18 +113862,18 @@ schema:
           included in molecular testing was known to have an affect on the mismatch
           repair process.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -113631,13 +113900,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -124923,6 +125192,11 @@ schema:
           term: Molecular Laboratory Procedure Genetic Zygosity Type
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142510%20and%20ver_nr=1.0
+    required:
+      - submitter_id
+      - gene_symbol
+      - molecular_analysis_method
+      - test_result
   pathology_detail:
     links:
       - backref: pathology_details
@@ -125055,18 +125329,18 @@ schema:
         description: Yes/no/unknown/not reported indicator used to describe whether
           anaplasia was present at the time of diagnosis.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -125093,13 +125367,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -125176,18 +125450,18 @@ schema:
         description: The text term used to indicate whether there are malignant cells
           in the bone marrow.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -125214,13 +125488,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -125260,18 +125534,18 @@ schema:
         description: Indicator noting whether columnar mucosa was present within the
           tissue.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -125298,13 +125572,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -125319,17 +125593,17 @@ schema:
         description: Indicates whether a recent review of tissue is consistent with
           a prior pathology review.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -125345,13 +125619,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -126206,8 +126480,8 @@ schema:
         description: The number of lymph nodes removed during a biopsy or surgical
           procedure.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         termDef:
           cde_id:
@@ -126231,18 +126505,18 @@ schema:
         description: A yes/no indicator to ask if small or thin-walled vessel invasion
           is present, indicating lymphatic involvement
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -126269,13 +126543,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -126429,18 +126703,18 @@ schema:
       metaplasia_present:
         description: Indicator noting whether metaplasia was present.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -126467,13 +126741,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -126601,8 +126875,8 @@ schema:
       necrosis_present:
         description: Indicator describing whether the presence of necrosis was confirmed.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
           Not Reported:
@@ -126678,18 +126952,18 @@ schema:
           tumor deposits in the pericolic or perirectal fat or in adjacent mesentery
           away from the leading edge of the tumor.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -126716,13 +126990,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -126775,18 +127049,18 @@ schema:
         description: a yes/no indicator to ask if perineural invasion or infiltration
           of tumor or cancer is present.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -126813,13 +127087,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -127011,8 +127285,8 @@ schema:
       rhabdoid_present:
         description: Indicator describing whether rhabdoid features were present.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
           Not Reported:
@@ -127048,8 +127322,8 @@ schema:
       sarcomatoid_present:
         description: Indicator describing whether sarcomatoid features were present.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
           Not Reported:
@@ -127259,7 +127533,9 @@ schema:
               source: NCIt
               term: Few
               term_id: C64942
-              term_url: "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C64942\n"
+              term_url: 'https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C64942
+
+                '
               term_version: 23.03d
           Many:
             description: An indefinite large quantity that is considered to be greater
@@ -127309,7 +127585,9 @@ schema:
               source: NCIt
               term: Few
               term_id: C64942
-              term_url: "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C64942\n"
+              term_url: 'https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C64942
+
+                '
               term_version: 23.03d
           Many:
             description: An indefinite large quantity that is considered to be greater
@@ -127492,18 +127770,18 @@ schema:
         description: The yes/no indicator to ask if large vessel or venous invasion
           was detected by surgery or presence in a tumor specimen.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -127530,13 +127808,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -127614,6 +127892,8 @@ schema:
           source:
           term:
           term_url:
+    required:
+      - submitter_id
   pathology_report:
     links:
       - backref: pathology_reports
@@ -127879,6 +128159,14 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
   platform:
     links: []
     properties:
@@ -127905,6 +128193,8 @@ schema:
         type: string
       type:
         type: string
+    required:
+      - name
   portion:
     links:
       - backref: portions
@@ -128173,6 +128463,8 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432593%20and%20ver_nr=1.0
         type: number
+    required:
+      - submitter_id
   program:
     links: []
     properties:
@@ -128202,6 +128494,9 @@ schema:
         type: string
       type:
         type: string
+    required:
+      - name
+      - dbgap_accession_number
   project:
     links:
       - backref: projects
@@ -128363,6 +128658,12 @@ schema:
         type: boolean
       type:
         type: string
+    required:
+      - code
+      - name
+      - state
+      - programs
+      - dbgap_accession_number
   protein_expression:
     links:
       - exclusive: true
@@ -128710,6 +129011,16 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - platform
   publication:
     links:
       - backref: publications
@@ -128831,6 +129142,10 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - pmid
+      - doi
+      - files
   raw_methylation_array:
     links:
       - backref: raw_methylation_arrays
@@ -129170,6 +129485,17 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - platform
+      - channel
   read_group:
     links:
       - backref: read_groups
@@ -130063,6 +130389,19 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - aliquots
+      - experiment_name
+      - sequencing_center
+      - platform
+      - library_selection
+      - library_strategy
+      - library_name
+      - is_paired_end
+      - read_length
+      - read_group_name
+      - target_capture_kit
   read_group_qc:
     links:
       - exclusive: true
@@ -130634,6 +130973,9 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
   rna_expression_workflow:
     links:
       - exclusive: true
@@ -130977,6 +131319,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   root:
     links: []
     properties:
@@ -130987,6 +131333,8 @@ schema:
         type: string
       type:
         type: string
+    required:
+      - type
   run_metadata:
     links:
       - exclusive: true
@@ -131314,6 +131662,14 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
   sample:
     links:
       - backref: samples
@@ -132136,19 +132492,19 @@ schema:
           pathology review of frozen or formalin fixed slide(s) completed after the
           diagnostic pathology review of the tumor sample used to extract analyte(s).
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
           - Not Allowed To Collect
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -132187,13 +132543,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -133293,6 +133649,12 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - preservation_method
+      - specimen_type
+      - submitter_id
+      - tissue_type
+      - tumor_descriptor
   secondary_expression_analysis:
     links:
       - backref: secondary_expression_analyses
@@ -133570,6 +133932,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   simple_germline_variation:
     links:
       - backref: simple_germline_variations
@@ -133864,6 +134235,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   simple_somatic_mutation:
     links:
       - exclusive: true
@@ -134210,6 +134590,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   slide:
     links:
       - exclusive: false
@@ -134236,18 +134625,18 @@ schema:
         description: The text term used to indicate whether there are malignant cells
           in the bone marrow.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -134274,13 +134663,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -134747,6 +135136,9 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - section_location
   slide_image:
     links:
       - backref: slide_images
@@ -135050,6 +135442,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   somatic_aggregation_workflow:
     links:
       - exclusive: true
@@ -135324,6 +135725,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   somatic_annotation_workflow:
     links:
       - backref: somatic_annotation_workflows
@@ -135537,6 +135942,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   somatic_copy_number_workflow:
     links:
       - exclusive: true
@@ -135807,6 +136216,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   somatic_mutation_calling_workflow:
     links:
       - backref: somatic_mutation_calling_workflows
@@ -136020,6 +136433,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   somatic_mutation_index:
     links:
       - exclusive: true
@@ -136407,6 +136824,14 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
   structural_variant_calling_workflow:
     links:
       - backref: structural_variant_calling_workflows
@@ -136617,6 +137042,10 @@ schema:
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
+    required:
+      - submitter_id
+      - workflow_link
+      - workflow_type
   structural_variation:
     links:
       - exclusive: true
@@ -136967,6 +137396,14 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
   submitted_aligned_reads:
     links:
       - backref: submitted_aligned_reads_files
@@ -137300,6 +137737,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   submitted_genomic_profile:
     links:
       - backref: submitted_genomic_profiles
@@ -137588,6 +138034,16 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - read_groups
   submitted_genotyping_array:
     links:
       - backref: submitted_genotyping_arrays
@@ -137873,6 +138329,16 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - platform
   submitted_methylation_beta_value:
     links:
       - backref: submitted_methylation_beta_values
@@ -138159,6 +138625,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   submitted_tangent_copy_number:
     links:
       - backref: submitted_tangent_copy_number
@@ -138434,6 +138909,15 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
   submitted_unaligned_reads:
     links:
       - backref: submitted_unaligned_reads_files
@@ -138785,6 +139269,16 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
+      - file_name
+      - file_size
+      - md5sum
+      - data_category
+      - data_format
+      - data_type
+      - experimental_strategy
+      - read_pair_number
   tag:
     links: []
     properties:
@@ -138899,6 +139393,8 @@ schema:
                 https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142411%20and%20ver_nr=1.0
       type:
         type: string
+    required:
+      - name
   tissue_source_site:
     links: []
     properties:
@@ -138935,6 +139431,7 @@ schema:
         type: string
       type:
         type: string
+    required: []
   treatment:
     links:
       - backref: treatments
@@ -138952,18 +139449,18 @@ schema:
         description: The text term used to describe whether the patient was receiving
           chemotherapy concurrent to radiation.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -138990,13 +139487,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -139011,17 +139508,17 @@ schema:
         description: Indicator used to describe whether the treatment was part of
           a clinical trial.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -139037,13 +139534,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -159104,18 +159601,18 @@ schema:
         description: The text term used to indicate whether the treatment had an effect
           on the patient.
         enum:
-          - Yes
-          - No
+          - 'Yes'
+          - 'No'
           - Unknown
           - Not Reported
         enumDef:
-          No:
+          'No':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -159142,13 +159639,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          Yes:
+          'Yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -159266,18 +159763,18 @@ schema:
         description: A yes/no/unknown/not applicable indicator related to the administration
           of therapeutic agents received.
         enum:
-          - yes
-          - no
+          - 'yes'
+          - 'no'
           - unknown
           - not reported
         enumDef:
-          no:
+          'no':
             description: The non-affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: No
+              term: 'No'
               term_id: C49487
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
@@ -159304,13 +159801,13 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          yes:
+          'yes':
             description: The affirmative response to a question.
             termDef:
               cde_id:
               cde_version:
               source: NCIt
-              term: Yes
+              term: 'Yes'
               term_id: C49488
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
@@ -159557,4 +160054,6 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+    required:
+      - submitter_id
 version: 2.6.6
