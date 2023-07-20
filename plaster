@@ -6,7 +6,7 @@ virtualenv $VENV -p python3.8
 source $VENV/bin/activate
 
 python3 -m pip install \
-    "plaster @ git+ssh://git@github.com/NCI-GDC/plaster.git@feat/dev-1932-add-module-docstring#egg=plaster" \
+    "plaster @ git+ssh://git@github.com/NCI-GDC/plaster.git@develop#egg=plaster" \
     "psqlgml>=0.2.4" \
     pre-commit
 plaster --version
