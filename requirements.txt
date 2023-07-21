@@ -1,1 +1,1 @@
-psqlgraph @ git+https://git@github.com/NCI-GDC/psqlgraph.git@3.4.2
+psqlgraph==2.0.2
