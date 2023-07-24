@@ -2,9 +2,9 @@ from typing import List, Optional, Union
 
 import psqlgraph
 import pytest
-from gdcdictionary import gdcdictionary
 
 from gdcdatamodel2 import models
+from gdcdatamodel2.partial_dictionary import utils
 from tests.helpers import db, hints
 
 SAMPLE_PROGRAM = "GDC"
@@ -29,6 +29,8 @@ def gdc_graph_mock(gdc_graph: psqlgraph.PsqlGraphDriver) -> db.GraphDataGenerato
     """
     data_cache = db.SampleDataCache(gdc_graph)
 
+    partial_dictionary = utils.get_partial_dictionary()
+
     def mock_graph(
         graph_data: hints.GraphData,
         extension: Optional[db.DataLoaderExtension] = None,
@@ -36,7 +38,7 @@ def gdc_graph_mock(gdc_graph: psqlgraph.PsqlGraphDriver) -> db.GraphDataGenerato
         extension = extension or db.DataLoaderExtension(g=gdc_graph)
         x_nodes = db.mock_data(
             gdc_graph,
-            gdcdictionary,
+            partial_dictionary,
             graph_data["nodes"],
             graph_data["edges"],
             extension=extension,

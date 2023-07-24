@@ -14,6 +14,7 @@ from sqlalchemy import MetaData
 from sqlalchemy import exc as sa_exc
 
 from gdcdatamodel2 import models
+from gdcdatamodel2.partial_dictionary import utils
 from tests.helpers import hints, typing_compat
 
 SAMPLE_PROGRAM = "GDC"
@@ -144,7 +145,7 @@ def load_data_file(source: str, source_type: str = "json") -> hints.GraphData:
 
 def mock_data(
     pg_driver: psqlgraph.PsqlGraphDriver,
-    active_dictionary: hints.DictionaryType,
+    active_dictionary: utils.PartialDictionary,
     nodes: List[hints.NodeData],
     edges: List[hints.EdgeData],
     extension: DataLoaderExtension,
@@ -165,7 +166,7 @@ def mock_data(
 
 
 def graph_factory(
-    active_dictionary: hints.DictionaryType,
+    active_dictionary: utils.PartialDictionary,
     program_name: str = SAMPLE_PROGRAM,
     project_code: str = SAMPLE_PROJECT,
 ) -> mocks.GraphFactory:

@@ -1,2 +1,3 @@
 include LICENSE
+include src/gdcdatamodel2/partial_dictionary/*.yml
 global-exclude *.pyc

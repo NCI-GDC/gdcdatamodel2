@@ -1,10 +1,6 @@
 from typing import Dict, List, Optional
 
-from gdcdictionary import GDCDictionary
-
 from tests.helpers.typing_compat import TypedDict
-
-DictionaryType = GDCDictionary
 
 
 class EdgeData(TypedDict):
