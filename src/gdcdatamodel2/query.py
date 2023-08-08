@@ -1,3 +1,14 @@
+"""union_subq_path is used to get all the paths between 2 nodes.
+
+THis module was used to query a node which is in the same tree as another node type.
+This module automatically generate all paths between any two nodes in gdc graph.
+
+The code is not well optimized. Now it takes too long and is impractical to use.
+
+The code is imported in runners but not used.
+
+Similar code is duplicated in sheepdog and is not used there either.
+"""
 from typing import List
 
 from psqlgraph import Edge, Node
