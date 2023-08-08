@@ -4,6 +4,7 @@ repos:
     rev: v4.1.0 # last version to support py36
     hooks:
       - id: check-json
+        exclude: examples/jupyter_example.ipynb
       - id: check-toml
       - id: check-yaml
         exclude: .gitlab-ci.yml
