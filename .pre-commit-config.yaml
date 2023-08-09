@@ -4,7 +4,6 @@ repos:
     rev: v4.1.0 # last version to support py36
     hooks:
       - id: check-json
-        exclude: examples/jupyter_example.ipynb
       - id: check-toml
       - id: check-yaml
         exclude: .gitlab-ci.yml
@@ -16,6 +15,7 @@ repos:
         args: [--branch, develop, --branch, master, --pattern, release/.*]
       - id: pretty-format-json
         args: [--autofix]
+        exclude: examples/jupyter_example.ipynb
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
         exclude: partial_dictionary/partial_dictionary.yml
