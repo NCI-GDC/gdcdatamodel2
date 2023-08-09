@@ -83,7 +83,9 @@ def union_subq_without_path(q, *args, **kwargs):
     return q.except_(union_subq_path(q, *args, **kwargs))
 
 
-def union_subq_path(q, dst_label: str, post_filters=[]):
+def union_subq_path(q, dst_label: str, post_filters=None):
+    if post_filters is None:
+        post_filters = []
     if traversals == {}:
         construct_traversals_for_all_nodes()
     src_label = q.entity().label
