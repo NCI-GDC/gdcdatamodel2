@@ -160056,4 +160056,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 2.6.6
+version: feat/dev-2061-tag-after-branch-in-sync
