@@ -61,6 +61,16 @@ class GpasDataLoaderExtension(DataLoaderExtension):
             node.gdc_uuid = None
 
 
+def get_graph_driver(env_prefix: str = "", namespace: Optional[str] = None):
+    return psqlgraph.PsqlGraphDriver(
+        os.getenv(f"{env_prefix}PG_HOST", "localhost"),
+        os.getenv(f"{env_prefix}PG_USER", "test"),
+        os.getenv(f"{env_prefix}PG_PASS", "test"),
+        os.getenv(f"{env_prefix}PG_NAME", "gdcdatamodel2"),
+        package_namespace=namespace,
+    )
+
+
 def init_graph(use_gpas: bool = False) -> psqlgraph.PsqlGraphDriver:
     """
     Initializes a psqlgraph driver for the given namespace
@@ -69,20 +79,14 @@ def init_graph(use_gpas: bool = False) -> psqlgraph.PsqlGraphDriver:
     Returns:
         PsqlGraphDriver: instance of psqlgraph driver
     """
-    env = "BIO_" if use_gpas else ""
-    ns = "gpas" if use_gpas else None
-    graph = psqlgraph.PsqlGraphDriver(
-        os.getenv(f"{env}PG_HOST", "localhost"),
-        os.getenv(f"{env}PG_USER", "test"),
-        os.getenv(f"{env}PG_PASS", "test"),
-        os.getenv(f"{env}PG_NAME", "gdcdatamodel2"),
-        package_namespace=ns,
-    )
+    env_prefix = "BIO_" if use_gpas else ""
+    namespace = "gpas" if use_gpas else None
+    graph = get_graph_driver(env_prefix=env_prefix, namespace=namespace)
 
     # Make sure to start with a clean DB
     tear_down_graph(graph)
 
-    base = ext.get_orm_base(ns) if use_gpas else ORMBase
+    base = ext.get_orm_base(namespace) if use_gpas else ORMBase
     create_all(graph.engine, base=base)
     return graph
 
