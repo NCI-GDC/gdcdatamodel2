@@ -160056,4 +160056,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: develop
+version: feat/dev-2097-drop-py36
