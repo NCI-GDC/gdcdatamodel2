@@ -120,4 +120,4 @@ def drop_graph_entries(pg_driver):
     with pg_driver.engine.begin() as txn:
         for table in reversed(base.metadata.sorted_tables + VoidedBase.metadata.sorted_tables):
             # do not clear schema versions so each test does not re-trigger migration.
-            txn.execute("TRUNCATE {} CASCADE;".format(table.name))
+            txn.execute(f"TRUNCATE {table.name} CASCADE;")
