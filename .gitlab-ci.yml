@@ -12,7 +12,7 @@ tox:
   stage: test
   parallel:
     matrix:
-      - PY_VER: ['3.6', '3.7', '3.8', '3.9']
+      - PY_VER: ['3.7', '3.8', '3.9']
   image: ${BASE_CONTAINER_REGISTRY}/python${PY_VER}-builder
   services:
     - name: docker.osdc.io/ncigdc/ci-postgres-13:${BASE_CONTAINER_VERSION}
