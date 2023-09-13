@@ -2,7 +2,7 @@
 
 include:
   - project: nci-gdc/gitlab-templates
-    ref: 0.2.1
+    ref: 0.3.1
     file:
       - templates/global/full.yaml
       - templates/python/full.yaml
@@ -12,13 +12,10 @@ tox:
   stage: test
   parallel:
     matrix:
-      - PY_VER: ['3.7', '3.8', '3.9']
-  image: ${BASE_CONTAINER_REGISTRY}/python${PY_VER}-builder
+      - BUILD_PY_VERSION: [python3.7, python3.8, python3.9, python3.10, python3.11]
   services:
     - name: docker.osdc.io/ncigdc/ci-postgres-13:${BASE_CONTAINER_VERSION}
       alias: postgres
-  tags:
-    - dind
   variables:
     POSTGRES_DB: gdcdatamodel2
     POSTGRES_USER: postgres
@@ -29,19 +26,12 @@ tox:
     PG_USER: postgres
     PG_NAME: gdcdatamodel2
     PG_INDEXD_HOST: postgres
-  before_script:
-    - !reference [.load_github_key, script]
-    - pip install "tox<4"
   script:
+    - pip install "tox<4"
     - tox -r -e py
 
-# used by release
-.python_versions:
-  parallel:
-    matrix:
-      - BUILD_PY_VERSION: [python3.6]
-      - RELEASE_PY_VERSION: [python3.6]
-
 release:
+  variables:
+    RELEASE_PY_VERSION: python3.7
   before_script:
     - git fetch --unshallow || true
