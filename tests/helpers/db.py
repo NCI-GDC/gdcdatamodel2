@@ -130,7 +130,7 @@ def tear_down_graph(graph: psqlgraph.PsqlGraphDriver) -> None:
 
 def load_data_file(source: str, source_type: str = "json") -> hints.GraphData:
     source_type = source_type if source.endswith(".json") else "yaml"
-    with pkg_resources.resource_stream("tests", "data/{}".format(source)) as js:
+    with pkg_resources.resource_stream("tests", f"data/{source}") as js:
         payload: hints.GraphData = (
             yaml.safe_load(js) if source_type == "yaml" else json.loads(js.read())
         )
@@ -187,11 +187,11 @@ def drop_graph_entries(pg_driver: psqlgraph.PsqlGraphDriver, is_gpas: bool = Tru
     with pg_driver.engine.begin() as txn:
         for table in reversed(base.metadata.sorted_tables + VoidedBase.metadata.sorted_tables):
             # do not clear schema versions so each test does not re-trigger migration.
-            txn.execute("TRUNCATE {} CASCADE;".format(table.name))
+            txn.execute(f"TRUNCATE {table.name} CASCADE;")
 
 
 @attr.s
-class SampleDataCache(object):
+class SampleDataCache:
     g = attr.ib(type=psqlgraph.PsqlGraphDriver)
     nodes: List[models.Node] = attr.ib(default=attr.Factory(list))
 

@@ -1,4 +1,4 @@
-class MockSubmissionEntity(object):
+class MockSubmissionEntity:
     def __init__(self):
         self.errors = []
         self.node = None
