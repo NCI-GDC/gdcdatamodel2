@@ -137474,6 +137474,8 @@ schema:
           - file_format
           - md5sum
       experimental_strategy:
+        deprecated_enum:
+          - scRNA-Seq
         description: The sequencing strategy used to generate the data file.
         enum:
           - ATAC-Seq
@@ -160056,4 +160058,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: develop
+version: Inoue---submitted_aligned_reads
