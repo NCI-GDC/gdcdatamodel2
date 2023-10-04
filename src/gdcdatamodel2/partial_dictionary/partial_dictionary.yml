@@ -3204,7 +3204,7 @@ schema:
           of degradation products.
         maximum: 10
         termDef:
-          cde_id:
+          cde_id: C63637
           cde_version:
           source: NCIt
           term: RNA Integrity Number
@@ -17362,7 +17362,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C67137
               term_version: 23.03d
         termDef:
-          cde_id:
+          cde_id: C17953
           cde_version:
           source: NCIt
           term: Education Level
@@ -17646,7 +17646,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C51775
               term_version: 23.03d
         termDef:
-          cde_id:
+          cde_id: C25188
           cde_version:
           source: NCIt
           term: Marital Status
@@ -23035,7 +23035,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C94816
               term_version: 23.03d
         termDef:
-          cde_id:
+          cde_id: C94811
           cde_version:
           source: NCIt
           term: Clark Level Finding
@@ -24132,7 +24132,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C104029
               term_version: 23.03d
         termDef:
-          cde_id:
+          cde_id: C104027
           cde_version:
           source: NCIt
           term: Clinical Distant Metastasis ENSAT Staging Finding v7
@@ -24173,7 +24173,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C104025
               term_version: 23.03d
         termDef:
-          cde_id:
+          cde_id: C104023
           cde_version:
           source: NCIt
           term: Pathologic Lymph Nodes ENSAT Staging Finding v7
@@ -24243,7 +24243,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C104034
               term_version: 23.03d
         termDef:
-          cde_id:
+          cde_id: C141099
           cde_version:
           source: NCIt
           term: ENSAT Stage
@@ -24312,7 +24312,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C104022
               term_version: 23.03d
         termDef:
-          cde_id:
+          cde_id: C104018
           cde_version:
           source: NCIt
           term: Pathologic Primary Tumor ENSAT Staging Finding v7
@@ -25364,7 +25364,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C28089
               term_version: 20.05a
         termDef:
-          cde_id:
+          cde_id: C48605
           cde_version:
           source: NCIt
           term: Gleason Tertiary Score For Prostate Cancer Category
@@ -26522,7 +26522,7 @@ schema:
           and the surgical margin
         minimum: 0
         termDef:
-          cde_id:
+          cde_id: C137815
           cde_version:
           source: NCIt
           term: Distance to Margin Measurement
@@ -86530,7 +86530,7 @@ schema:
           the amount of cancer in the body.
         minimum: 0
         termDef:
-          cde_id:
+          cde_id: C28384
           cde_version:
           source: NCIt
           term: Tumor Burden
@@ -87326,7 +87326,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
               term_version: 19.12e
         termDef:
-          cde_id:
+          cde_id: C25757
           cde_version:
           source: NCIt
           term: Ulceration
@@ -92972,7 +92972,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
               term_version: 19.12e
         termDef:
-          cde_id:
+          cde_id: C81180
           cde_version:
           source: NCIt
           term: Deceased Family Member
@@ -95380,8 +95380,12 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3125302%20and%20ver_nr=1.1
       adverse_event_grade:
-        description: The text term used to describe a specific histone variants, which
-          are proteins that substitute for the core canonical histones.
+        description: Numeric representation of the intensity/severity of an unfavorable
+          and unintended sign (including an abnormal laboratory finding), symptom,
+          syndrome, or disease, temporally associated with the use of a medical product
+          or procedure, regardless of whether or not it is considered related to the
+          product or procedure (attribution of unrelated, unlikely, possible, probable,
+          or definite).
         enum:
           - Grade 1
           - Grade 2
@@ -96386,7 +96390,7 @@ schema:
         description: The number of the discontiguous lesions in a new tumor event.
         minimum: 0
         termDef:
-          cde_id:
+          cde_id: C158639
           cde_version:
           source: NCIt
           term: Number of Discontiguous Lesions (New Tumor Event)
@@ -103236,7 +103240,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C172229
               term_version: 20.10d
         termDef:
-          cde_id:
+          cde_id: C18304
           cde_version:
           source: NCIt
           term: Clonality
@@ -125972,7 +125976,7 @@ schema:
           of the tumor in centimeters.
         minimum: 0
         termDef:
-          cde_id:
+          cde_id: C157135
           cde_version:
           source: NCIt
           term: Tumor Longest Dimension Centimeters Measurement
@@ -126382,7 +126386,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
         termDef:
-          cde_id:
+          cde_id: C33027
           cde_version:
           source: NCIt
           term: Lymph Node Involved Site
@@ -126692,7 +126696,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C28251
               term_version: 23.03d
         termDef:
-          cde_id:
+          cde_id: C42578
           cde_version:
           source: NCIt
           term: Unit of Length
@@ -127451,7 +127455,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
         termDef:
-          cde_id:
+          cde_id: C160996
           cde_version:
           source: NCIt
           term: Transglottic Extension
@@ -127562,7 +127566,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C61376
               term_version: 20.10d
         termDef:
-          cde_id:
+          cde_id: C12546
           cde_version:
           source: NCIt
           term: Tumor Infiltrating Lymphocyte
@@ -127614,7 +127618,7 @@ schema:
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C61376
               term_version: 20.10d
         termDef:
-          cde_id:
+          cde_id: C111027
           cde_version:
           source: NCIt
           term: Tumor Infiltrating Macrophages
@@ -130655,12 +130659,12 @@ schema:
         maximum: 100
         minimum: 0
         termDef:
-          cde_id:
+          cde_id: C181848
           cde_version:
-          source: FastQC
+          source: NCIt
           term: '%GC'
           term_url: 
-            http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181848
         type: integer
       project_id:
         common:
@@ -160056,4 +160060,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: develop
+version: inoue-terms-DICT-351
