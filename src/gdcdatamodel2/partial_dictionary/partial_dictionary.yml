@@ -131705,6 +131705,8 @@ schema:
           of a project.
         type: integer
       biospecimen_anatomic_site:
+        deprecated_enum:
+          - Head - Face Or Neck, Nos
         description: Text term that represents the name of the primary disease site
           of the submitted tumor sample.
         enum:
@@ -131824,6 +131826,7 @@ schema:
           - Hard Palate
           - Head & Neck
           - Head - Face Or Neck, Nos
+          - Head, Face or Neck, NOS
           - Heart
           - Hepatic
           - Hepatic Duct
@@ -160059,4 +160062,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: develop
+version: inoue-sample-DICT-349
