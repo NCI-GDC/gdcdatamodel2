@@ -101950,6 +101950,7 @@ schema:
           - CD30
           - CD33
           - CD34
+          - CD43
           - CD45
           - CD56
           - CD79A
@@ -102215,6 +102216,18 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17280
               term_version: 20.10d
+          CD43:
+            description: Leukosialin (400 aa, ~40 kDa) is encoded by the human SPN
+              gene. This protein is involved in immune cell function.
+            termDef:
+              cde_id: C101153
+              cde_version: 23.08d
+              source: NCIt
+              term: Leukosialin
+              term_id: C101153
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C101153
+              term_version: 23.08d
           CD45:
             description: Receptor-type tyrosine-protein phosphatase C (1304 aa, ~147
               kDa) is encoded by the human PTPRC gene. This protein plays a role in
@@ -113959,6 +113972,7 @@ schema:
           - Karyotype
           - Microarray
           - Microsatellite Analysis
+          - Microscopy, NOS
           - Nuclear Staining
           - PCR
           - RNA Sequencing
@@ -114109,6 +114123,18 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C63331
               term_version: 20.10d
+          Microscopy, NOS:
+            description: The use of various technologies to resolve the structure
+              or features of objects too small or fine to naturally be seen by eye.
+            termDef:
+              cde_id: C16853
+              cde_version: 23.08d
+              source: NCIt
+              term: Microscopy
+              term_id: C16853
+              term_url: 
+                https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16853
+              term_version: 23.08d
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -124274,6 +124300,82 @@ schema:
           source:
           term:
           term_url:
+      staining_intensity_value:
+        description: The degree or magnitude of staining by a dye or reagent within
+          a microscopic specimen.
+        enum:
+          - '0'
+          - 1+
+          - 2+
+          - 3+
+          - 4+
+        enumDef:
+          '0':
+            description: A measurement of the amount or proportion of tissue or cells
+              that have a staining intensity of 0.
+            termDef:
+              cde_id: C186199
+              cde_version: 23.08d
+              source: NCIt
+              term: Staining Intensity 0
+              term_id: C186199
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C186199
+              term_version: 23.08d
+          1+:
+            description: A measurement of the amount or proportion of tissue or cells
+              that have a staining intensity of 1+
+            termDef:
+              cde_id: C186200
+              cde_version: 23.08d
+              source: NCIt
+              term: Staining Intensity 1+
+              term_id: C186200
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C186200
+              term_version: 23.08d
+          2+:
+            description: A measurement of the amount or proportion of tissue or cells
+              that have a staining intensity of 2+
+            termDef:
+              cde_id: C186201
+              cde_version: 23.08d
+              source: NCIt
+              term: Staining Intensity 2+
+              term_id: C186201
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C186201
+              term_version: 23.08d
+          3+:
+            description: A measurement of the amount or proportion of tissue or cells
+              that have a staining intensity of 3+
+            termDef:
+              cde_id: C186202
+              cde_version: 23.08d
+              source: NCIt
+              term: Staining Intensity 3+
+              term_id: C186202
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C186202
+              term_version: 23.08d
+          4+:
+            description: A measurement of the amount or proportion of tissue or cells
+              that have a staining intensity of 4+
+            termDef:
+              cde_id:
+              cde_version:
+              source:
+              term: Staining Intensity 4+
+              term_url:
+        termDef:
+          cde_id: C127762
+          cde_version: 23.08d
+          source: NCIt
+          term: Staining Intensity
+          term_id: C127762
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C127762
+          term_version: 23.08d
       state:
         common:
           description: The current state of the object.
@@ -124436,12 +124538,14 @@ schema:
           - Intermediate
           - Loss of Expression
           - Low
+          - Mitotic Count Reported
           - Negative
           - Normal
           - Not Amplified
           - Overexpressed
           - Positive
           - Stable
+          - Staining Intensity Value Reported
           - Test Value Reported
           - Unknown
           - Not Reported
@@ -124575,13 +124679,10 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142397%20and%20ver_nr=1.0
       test_units:
-        deprecated_enum:
-          - count x10^9/L
         description: The text term used to describe the units of the test value for
           a molecular test. This property is used in conjunction with test_value.
         enum:
           - cells/mL
-          - count x10^9/L
           - g/dL
           - g/L
           - mcg/L
@@ -124656,6 +124757,7 @@ schema:
           - End of Treatment Course 1
           - End of Treatment Course 2
           - Preoperative
+          - Prior to Treatment
           - Not Reported
         enumDef:
           Preoperative:
@@ -160059,4 +160161,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: develop
+version: inoue-molecular_test-DICT-343
