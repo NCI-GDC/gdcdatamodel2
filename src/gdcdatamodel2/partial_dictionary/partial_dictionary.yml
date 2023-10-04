@@ -139937,6 +139937,68 @@ schema:
           term:
           term_url: 
             https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C132299
+      radiosensitizing_agent:
+        description: Indication if an agent that makes tumor cells more sensitive
+          to radiation therapy was used in treatment.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        enumDef:
+          'No':
+            description: The non-affirmative response to a question.
+            termDef:
+              cde_id: C49487
+              cde_version: 19.12e
+              source: NCIt
+              term: 'No'
+              term_id: C49487
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
+              term_version: 19.12e
+          Not Reported:
+            description: Not provided or available.
+            termDef:
+              cde_id: C43234
+              cde_version: 20.05a
+              source: NCIt
+              term: Not Reported
+              term_id: C43234
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
+              term_version: 20.05a
+          Unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+          'Yes':
+            description: The affirmative response to a question.
+            termDef:
+              cde_id: C49488
+              cde_version: 19.12e
+              source: NCIt
+              term: 'Yes'
+              term_id: C49488
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
+              term_version: 19.12e
+        termDef:
+          cde_id: C798
+          cde_version: 23.08d
+          source: NCIt
+          term: Radiosensitizing Agent
+          term_id: C798
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C798
+          term_version: 23.08d
       reason_treatment_ended:
         description: The text term used to describe the reason a specific treatment
           or regimen ended.
@@ -139965,6 +140027,47 @@ schema:
           source:
           term: Treatment Ended Reason
           term_url:
+      reason_treatment_not_given:
+        description: The reason the treatment was not administered.
+        enum:
+          - Adverse Event/Complications
+          - Not Done per Treating Physician's Discretion
+          - Participant Refusal
+          - Scheduling Problems
+          - Unknown
+          - Not Reported
+        enumDef:
+          Not Reported:
+            description: Not provided or available.
+            termDef:
+              cde_id: C43234
+              cde_version: 20.05a
+              source: NCIt
+              term: Not Reported
+              term_id: C43234
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
+              term_version: 20.05a
+          Unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+        termDef:
+          cde_id: C102704
+          cde_version: 23.08d
+          source: NCIt
+          term: Reason Treatment Not Administered
+          term_id: C102704
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C102704
+          term_version: 23.08d
       regimen_or_line_of_therapy:
         description: The text term used to describe the regimen or line of therapy.
         termDef:
@@ -158509,6 +158612,68 @@ schema:
           term:
           term_url:
         type: boolean
+      therapeutic_levels_achieved:
+        description: An indication that the intended level of therapeutic agent was
+          achieved in an individual.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        enumDef:
+          'No':
+            description: The non-affirmative response to a question.
+            termDef:
+              cde_id: C49487
+              cde_version: 19.12e
+              source: NCIt
+              term: 'No'
+              term_id: C49487
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
+              term_version: 19.12e
+          Not Reported:
+            description: Not provided or available.
+            termDef:
+              cde_id: C43234
+              cde_version: 20.05a
+              source: NCIt
+              term: Not Reported
+              term_id: C43234
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
+              term_version: 20.05a
+          Unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+          'Yes':
+            description: The affirmative response to a question.
+            termDef:
+              cde_id: C49488
+              cde_version: 19.12e
+              source: NCIt
+              term: 'Yes'
+              term_id: C49488
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
+              term_version: 19.12e
+        termDef:
+          cde_id: C198198
+          cde_version: 23.08d
+          source: NCIt
+          term: Therapeutic Agent Level Achieved Indicator
+          term_id: C198198
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C198198
+          term_version: 23.08d
       therapeutic_target_level:
         description: Describes a specific target for an administered treatment.
         enum:
@@ -158526,11 +158691,13 @@ schema:
           - End of Consolidation Therapy
           - End of Treatment Course
           - First Complete Response
+          - First Treatment
           - Postoperative
           - Preoperative
           - Prior to Diagnosis
           - Prior to Procurement
           - Prior to Study Registration
+          - Prior to Treatment
           - Progression
           - Recurrence
           - Not Reported
@@ -158996,6 +159163,8 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5615611%20and%20ver_nr=1.0
       treatment_anatomic_sites:
+        deprecated_enum:
+          - Head - Face Or Neck, Nos
         description: The anatomic site or field targeted by a treatment regimen or
           single agent therapy.
         enumDef:
@@ -159271,6 +159440,7 @@ schema:
             - Hard Palate
             - Head - Face Or Neck, Nos
             - Head and Neck
+            - Head, Face or Neck, NOS
             - Heart
             - Hepatic
             - Hepatic Duct
@@ -160059,4 +160229,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: develop
+version: inoue-treatment_detail-DICT-346
