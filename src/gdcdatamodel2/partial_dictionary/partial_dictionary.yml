@@ -26699,23 +26699,6 @@ schema:
           source:
           term:
           term_url:
-      measurement_type:
-        description: The method used to measure tumor size.
-        enum:
-          - Pathologic
-          - Radiologic
-        enumDef:
-          Radiologic:
-            description: Imaging results obtained through a radiology procedure.
-            termDef:
-              cde_id: C35869
-              cde_version: 23.03d
-              source: NCIt
-              term: Radiologic Finding
-              term_id: C35869
-              term_url: 
-                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C35869
-              term_version: 23.03d
       medulloblastoma_molecular_classification:
         description: The text term used to describe the classification of medulloblastoma
           tumors based on molecular features.
@@ -28670,6 +28653,7 @@ schema:
           - 8974/1
           - 8975/1
           - 8980/3
+          - 8980/6
           - 8981/3
           - 8982/0
           - 8982/3
@@ -44197,6 +44181,7 @@ schema:
           - Diffuse melanocytosis
           - Diffuse meningiomatosis
           - Diffuse midline glioma, H3 K27M-mutant
+          - Diffuse Pediatric-type High Grade Glioma
           - Digital papillary adenocarcinoma
           - Diktyoma, benign
           - Diktyoma, malignant
@@ -82559,6 +82544,20 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12464
               term_version: 20.05a
+          Thyroid Gland Isthmus:
+            description: The narrow, central portion of the thyroid gland that crosses
+              the trachea anteriorly and connects the lateral lobes of the gland.
+              When present, the normal variant pyramidal lobe may extend from the
+              isthmus.
+            termDef:
+              cde_id: C32887
+              cde_version: 23.08d
+              source: NCIt
+              term: Thyroid Gland Isthmus
+              term_id: C32887
+              term_url: 
+                https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C32887
+              term_version: 23.08d
           Urethra:
             description: The tube carrying urine from the bladder to outside of the
               body.
@@ -82725,6 +82724,7 @@ schema:
             - Testes
             - Thorax, NOS
             - Thyroid
+            - Thyroid Gland Isthmus
             - Tongue
             - Tonsil
             - Trachea
@@ -86672,8 +86672,6 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3174022%20and%20ver_nr=1.0
       tumor_grade:
-        deprecated_enum:
-          - not reported
         description: Numeric value to express the degree of abnormality of cancer
           cells, a measure of differentiation and aggressiveness.
         enum:
@@ -86688,7 +86686,6 @@ schema:
           - Low Grade
           - Unknown
           - Not Reported
-          - not reported
         enumDef:
           G1:
             description: A morphologic qualifier indicating that a cancerous lesion
@@ -86822,17 +86819,6 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          not reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: 
-                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
         termDef:
           cde_id: 2785839
           cde_version: 2.0
@@ -160059,4 +160045,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: develop
+version: inoue-diagnosis-DICT-341
