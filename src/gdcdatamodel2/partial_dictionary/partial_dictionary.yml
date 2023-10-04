@@ -96957,74 +96957,6 @@ schema:
           source:
           term:
           term_url:
-      hpv_positive_type:
-        description: Text classification to represent the strain or type of human
-          papillomavirus identified in an individual.
-        enum:
-          - '16'
-          - '18'
-          - '26'
-          - '31'
-          - '33'
-          - '35'
-          - '39'
-          - '45'
-          - '51'
-          - '52'
-          - '53'
-          - '56'
-          - '58'
-          - '59'
-          - '63'
-          - '66'
-          - '68'
-          - '70'
-          - '73'
-          - '82'
-          - Other
-          - Unknown
-          - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: 
-                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: 
-                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: 
-                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-        termDef:
-          cde_id: 2922649
-          cde_version: 1.0
-          source: caDSR
-          term: Human Papillomavirus Type
-          term_url: 
-            https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2922649%20and%20ver_nr=1.0
       hysterectomy_margins_involved:
         description: The text term used to indicate whether the patient's disease
           was determined to be involved based on the surgical margins of the hysterectomy.
@@ -97135,9 +97067,25 @@ schema:
         type: string
       imaging_anatomic_site:
         description: The named location(s) within the body where an image was taken.
+        enumDef:
+          Lymph Node:
+            description: A bean-shaped organ surrounded by a connective tissue capsule.
+              It is part of the lymphatic system and is found throughout the body.
+              It is composed predominantly of lymphocytes and its main function is
+              immune protection.
+            termDef:
+              cde_id: C12745
+              cde_version: 20.05a
+              source: NCIt
+              term: Lymph Node
+              term_id: C12745
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12745
+              term_version: 20.05a
         items:
           enum:
             - Abdomen
+            - Lymph Node
             - Pelvis
         termDef:
           cde_id: C13717
@@ -97264,6 +97212,20 @@ schema:
           - CT Scan
           - MRI
           - PET
+          - Ultrasound
+        enumDef:
+          Ultrasound:
+            description: The use of high-frequency sound waves to generate images
+              of the body.
+            termDef:
+              cde_id: C17230
+              cde_version: 23.08d
+              source: NCIt
+              term: Ultrasound Imaging
+              term_id: C17230
+              term_url: 
+                https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17230
+              term_version: 23.08d
         termDef:
           cde_id:
           cde_version:
@@ -160059,4 +160021,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: develop
+version: inoue-follow_up-DICT-342
