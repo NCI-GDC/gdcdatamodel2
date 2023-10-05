@@ -1531,6 +1531,37 @@ class FollowUp(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
+            "16",
+            "18",
+            "26",
+            "31",
+            "33",
+            "35",
+            "39",
+            "45",
+            "51",
+            "52",
+            "53",
+            "56",
+            "58",
+            "59",
+            "63",
+            "66",
+            "68",
+            "70",
+            "73",
+            "82",
+            "Not Reported",
+            "Other",
+            "Unknown",
+        ],
+    )
+    def hpv_positive_type(self, value):
+        self._set_property("hpv_positive_type", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
             "Bladder",
             "Macroscopic Parametrium",
             "Microscopic Parametrium",
