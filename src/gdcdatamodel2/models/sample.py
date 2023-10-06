@@ -425,6 +425,7 @@ class Sample(base.Node):
             "Hard Palate",
             "Head & Neck",
             "Head - Face Or Neck, Nos",
+            "Head, Face or Neck, NOS",
             "Heart",
             "Hepatic",
             "Hepatic Duct",

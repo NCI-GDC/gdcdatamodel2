@@ -316,6 +316,10 @@ class PathologyDetail(base.Node):
     def consistent_pathology_review(self, value):
         self._set_property("consistent_pathology_review", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(int)
+    def days_to_pathology_detail(self, value):
+        self._set_property("days_to_pathology_detail", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=[
@@ -357,6 +361,10 @@ class PathologyDetail(base.Node):
     def extracapsular_extension(self, value):
         self._set_property("extracapsular_extension", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(str, enum=["No", "Unknown", "Yes"])
+    def extracapsular_extension_present(self, value):
+        self._set_property("extracapsular_extension_present", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(
         str,
         enum=["Gross Extension", "Microscopic Extension", "No Extranodal Extension"],
@@ -368,6 +376,19 @@ class PathologyDetail(base.Node):
     def extrascleral_extension(self, value):
         self._set_property("extrascleral_extension", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Minimal (T3)",
+            "Moderate/Advanced (T4a)",
+            "None",
+            "Unknown",
+            "Very Advanced (T4b)",
+        ],
+    )
+    def extrathyroid_extension(self, value):
+        self._set_property("extrathyroid_extension", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(float, int)
     def greatest_tumor_dimension(self, value):
         self._set_property("greatest_tumor_dimension", value)  # type: ignore  # inherited from CommonBase
@@ -375,6 +396,12 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(float, int)
     def gross_tumor_weight(self, value):
         self._set_property("gross_tumor_weight", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str, enum=["Anaplastic", "Not Reported", "Poorly differentiated", "Unknown"]
+    )
+    def histologic_progression_type(self, value):
+        self._set_property("histologic_progression_type", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -410,6 +437,9 @@ class PathologyDetail(base.Node):
             "Aortic",
             "Axillary",
             "Cervical",
+            "Cervical, Central",
+            "Cervical, Lateral",
+            "Cervical, NOS",
             "Epitrochlear",
             "Femoral",
             "Hilar",
@@ -464,7 +494,7 @@ class PathologyDetail(base.Node):
     def margin_status(self, value):
         self._set_property("margin_status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Pathologic", "Radiologic"])
+    @psqlgraph.pg_property(str, enum=["Echographic", "Pathologic", "Radiologic"])
     def measurement_type(self, value):
         self._set_property("measurement_type", value)  # type: ignore  # inherited from CommonBase
 
@@ -475,6 +505,10 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
     def metaplasia_present(self, value):
         self._set_property("metaplasia_present", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
+    def micrometastasis_present(self, value):
+        self._set_property("micrometastasis_present", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -609,10 +643,6 @@ class PathologyDetail(base.Node):
     @psqlgraph.pg_property(list)
     def tumor_level_prostate(self, value):
         self._set_property("tumor_level_prostate", value)  # type: ignore  # inherited from CommonBase
-
-    @psqlgraph.pg_property(str, enum=["Echographic", "Pathologic"])
-    def tumor_measurement_method(self, value):
-        self._set_property("tumor_measurement_method", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(str, enum=["Diffuse", "Dome", "Mushroom", "Unknown"])
     def tumor_shape(self, value):

@@ -363,6 +363,7 @@ class ReadGroup(base.Node):
             "Illumina MiSeq",
             "Illumina NextSeq",
             "Illumina NovaSeq 6000",
+            "Illumina NovaSeq X",
             "Ion Torrent PGM",
             "Ion Torrent Proton",
             "Ion Torrent S5",

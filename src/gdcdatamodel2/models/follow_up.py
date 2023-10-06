@@ -1630,7 +1630,9 @@ class FollowUp(base.Node):
     def imaging_suv_max(self, value):
         self._set_property("imaging_suv_max", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["99mTc Bone Scintigraphy", "CT Scan", "MRI", "PET"])
+    @psqlgraph.pg_property(
+        str, enum=["99mTc Bone Scintigraphy", "CT Scan", "MRI", "PET", "Ultrasound"]
+    )
     def imaging_type(self, value):
         self._set_property("imaging_type", value)  # type: ignore  # inherited from CommonBase
 

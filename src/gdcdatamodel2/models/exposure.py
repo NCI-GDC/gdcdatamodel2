@@ -294,7 +294,9 @@ class Exposure(base.Node):
     def exposure_duration_years(self, value):
         self._set_property("exposure_duration_years", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Occupational", "Secondary", "Unknown"])
+    @psqlgraph.pg_property(
+        str, enum=["Home", "Occupational", "Secondary", "Social", "Unknown", "Work"]
+    )
     def exposure_source(self, value):
         self._set_property("exposure_source", value)  # type: ignore  # inherited from CommonBase
 

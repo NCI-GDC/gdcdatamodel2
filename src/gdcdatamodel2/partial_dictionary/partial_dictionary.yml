@@ -26699,23 +26699,6 @@ schema:
           source:
           term:
           term_url:
-      measurement_type:
-        description: The method used to measure tumor size.
-        enum:
-          - Pathologic
-          - Radiologic
-        enumDef:
-          Radiologic:
-            description: Imaging results obtained through a radiology procedure.
-            termDef:
-              cde_id: C35869
-              cde_version: 23.03d
-              source: NCIt
-              term: Radiologic Finding
-              term_id: C35869
-              term_url: 
-                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C35869
-              term_version: 23.03d
       medulloblastoma_molecular_classification:
         description: The text term used to describe the classification of medulloblastoma
           tumors based on molecular features.
@@ -28670,6 +28653,7 @@ schema:
           - 8974/1
           - 8975/1
           - 8980/3
+          - 8980/6
           - 8981/3
           - 8982/0
           - 8982/3
@@ -44197,6 +44181,7 @@ schema:
           - Diffuse melanocytosis
           - Diffuse meningiomatosis
           - Diffuse midline glioma, H3 K27M-mutant
+          - Diffuse Pediatric-type High Grade Glioma
           - Digital papillary adenocarcinoma
           - Diktyoma, benign
           - Diktyoma, malignant
@@ -82559,6 +82544,20 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12464
               term_version: 20.05a
+          Thyroid Gland Isthmus:
+            description: The narrow, central portion of the thyroid gland that crosses
+              the trachea anteriorly and connects the lateral lobes of the gland.
+              When present, the normal variant pyramidal lobe may extend from the
+              isthmus.
+            termDef:
+              cde_id: C32887
+              cde_version: 23.08d
+              source: NCIt
+              term: Thyroid Gland Isthmus
+              term_id: C32887
+              term_url: 
+                https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C32887
+              term_version: 23.08d
           Urethra:
             description: The tube carrying urine from the bladder to outside of the
               body.
@@ -82725,6 +82724,7 @@ schema:
             - Testes
             - Thorax, NOS
             - Thyroid
+            - Thyroid Gland Isthmus
             - Tongue
             - Tonsil
             - Trachea
@@ -86672,8 +86672,6 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3174022%20and%20ver_nr=1.0
       tumor_grade:
-        deprecated_enum:
-          - not reported
         description: Numeric value to express the degree of abnormality of cancer
           cells, a measure of differentiation and aggressiveness.
         enum:
@@ -86688,7 +86686,6 @@ schema:
           - Low Grade
           - Unknown
           - Not Reported
-          - not reported
         enumDef:
           G1:
             description: A morphologic qualifier indicating that a cancerous lesion
@@ -86822,17 +86819,6 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
-          not reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: 
-                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
         termDef:
           cde_id: 2785839
           cde_version: 2.0
@@ -88611,9 +88597,47 @@ schema:
       exposure_source:
         description: The source or location where the patient was exposed.
         enum:
+          - Home
           - Occupational
           - Secondary
+          - Social
+          - Work
           - Unknown
+        enumDef:
+          Home:
+            description: A person's place of residence.
+            termDef:
+              cde_id: C18002
+              cde_version: 23.08d
+              source: NCIt
+              term: Home
+              term_id: C18002
+              term_url: 
+                https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C18002
+              term_version: 23.08d
+          Social:
+            description: The surroundings or environment in which social activities
+              occur.
+            termDef:
+              cde_id: C102712
+              cde_version: 23.08d
+              source: NCIt
+              term: Social Setting
+              term_id: C102712
+              term_url: 
+                https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C102712
+              term_version: 23.08d
+          Work:
+            description: The physical location where work or employment takes place.
+            termDef:
+              cde_id: C17556
+              cde_version: 23.08d
+              source: NCIt
+              term: Worksite
+              term_id: C17556
+              term_url: 
+                https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17556
+              term_version: 23.08d
         termDef:
           cde_id:
           cde_version:
@@ -97135,9 +97159,25 @@ schema:
         type: string
       imaging_anatomic_site:
         description: The named location(s) within the body where an image was taken.
+        enumDef:
+          Lymph Node:
+            description: A bean-shaped organ surrounded by a connective tissue capsule.
+              It is part of the lymphatic system and is found throughout the body.
+              It is composed predominantly of lymphocytes and its main function is
+              immune protection.
+            termDef:
+              cde_id: C12745
+              cde_version: 20.05a
+              source: NCIt
+              term: Lymph Node
+              term_id: C12745
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12745
+              term_version: 20.05a
         items:
           enum:
             - Abdomen
+            - Lymph Node
             - Pelvis
         termDef:
           cde_id: C13717
@@ -97264,6 +97304,20 @@ schema:
           - CT Scan
           - MRI
           - PET
+          - Ultrasound
+        enumDef:
+          Ultrasound:
+            description: The use of high-frequency sound waves to generate images
+              of the body.
+            termDef:
+              cde_id: C17230
+              cde_version: 23.08d
+              source: NCIt
+              term: Ultrasound Imaging
+              term_id: C17230
+              term_url: 
+                https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17230
+              term_version: 23.08d
         termDef:
           cde_id:
           cde_version:
@@ -101950,6 +102004,7 @@ schema:
           - CD30
           - CD33
           - CD34
+          - CD43
           - CD45
           - CD56
           - CD79A
@@ -102215,6 +102270,18 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17280
               term_version: 20.10d
+          CD43:
+            description: Leukosialin (400 aa, ~40 kDa) is encoded by the human SPN
+              gene. This protein is involved in immune cell function.
+            termDef:
+              cde_id: C101153
+              cde_version: 23.08d
+              source: NCIt
+              term: Leukosialin
+              term_id: C101153
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C101153
+              term_version: 23.08d
           CD45:
             description: Receptor-type tyrosine-protein phosphatase C (1304 aa, ~147
               kDa) is encoded by the human PTPRC gene. This protein plays a role in
@@ -113959,6 +114026,7 @@ schema:
           - Karyotype
           - Microarray
           - Microsatellite Analysis
+          - Microscopy, NOS
           - Nuclear Staining
           - PCR
           - RNA Sequencing
@@ -114109,6 +114177,18 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C63331
               term_version: 20.10d
+          Microscopy, NOS:
+            description: The use of various technologies to resolve the structure
+              or features of objects too small or fine to naturally be seen by eye.
+            termDef:
+              cde_id: C16853
+              cde_version: 23.08d
+              source: NCIt
+              term: Microscopy
+              term_id: C16853
+              term_url: 
+                https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16853
+              term_version: 23.08d
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -124274,6 +124354,82 @@ schema:
           source:
           term:
           term_url:
+      staining_intensity_value:
+        description: The degree or magnitude of staining by a dye or reagent within
+          a microscopic specimen.
+        enum:
+          - '0'
+          - 1+
+          - 2+
+          - 3+
+          - 4+
+        enumDef:
+          '0':
+            description: A measurement of the amount or proportion of tissue or cells
+              that have a staining intensity of 0.
+            termDef:
+              cde_id: C186199
+              cde_version: 23.08d
+              source: NCIt
+              term: Staining Intensity 0
+              term_id: C186199
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C186199
+              term_version: 23.08d
+          1+:
+            description: A measurement of the amount or proportion of tissue or cells
+              that have a staining intensity of 1+
+            termDef:
+              cde_id: C186200
+              cde_version: 23.08d
+              source: NCIt
+              term: Staining Intensity 1+
+              term_id: C186200
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C186200
+              term_version: 23.08d
+          2+:
+            description: A measurement of the amount or proportion of tissue or cells
+              that have a staining intensity of 2+
+            termDef:
+              cde_id: C186201
+              cde_version: 23.08d
+              source: NCIt
+              term: Staining Intensity 2+
+              term_id: C186201
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C186201
+              term_version: 23.08d
+          3+:
+            description: A measurement of the amount or proportion of tissue or cells
+              that have a staining intensity of 3+
+            termDef:
+              cde_id: C186202
+              cde_version: 23.08d
+              source: NCIt
+              term: Staining Intensity 3+
+              term_id: C186202
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C186202
+              term_version: 23.08d
+          4+:
+            description: A measurement of the amount or proportion of tissue or cells
+              that have a staining intensity of 4+
+            termDef:
+              cde_id:
+              cde_version:
+              source:
+              term: Staining Intensity 4+
+              term_url:
+        termDef:
+          cde_id: C127762
+          cde_version: 23.08d
+          source: NCIt
+          term: Staining Intensity
+          term_id: C127762
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C127762
+          term_version: 23.08d
       state:
         common:
           description: The current state of the object.
@@ -124436,12 +124592,14 @@ schema:
           - Intermediate
           - Loss of Expression
           - Low
+          - Mitotic Count Reported
           - Negative
           - Normal
           - Not Amplified
           - Overexpressed
           - Positive
           - Stable
+          - Staining Intensity Value Reported
           - Test Value Reported
           - Unknown
           - Not Reported
@@ -124575,13 +124733,10 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142397%20and%20ver_nr=1.0
       test_units:
-        deprecated_enum:
-          - count x10^9/L
         description: The text term used to describe the units of the test value for
           a molecular test. This property is used in conjunction with test_value.
         enum:
           - cells/mL
-          - count x10^9/L
           - g/dL
           - g/L
           - mcg/L
@@ -124656,6 +124811,7 @@ schema:
           - End of Treatment Course 1
           - End of Treatment Course 2
           - Preoperative
+          - Prior to Treatment
           - Not Reported
         enumDef:
           Preoperative:
@@ -125652,6 +125808,12 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+      days_to_pathology_detail:
+        description: Number of days between the date used for index and the date a
+          pathologic review of a specific sample or slide was performed.
+        maximum: 32872
+        minimum: -32872
+        type: integer
       diagnoses:
         anyOf:
           - items:
@@ -125947,6 +126109,45 @@ schema:
           term: Extracapsular
           term_url: 
             https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25502
+      extracapsular_extension_present:
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+        enumDef:
+          'No':
+            description: The non-affirmative response to a question.
+            termDef:
+              cde_id: C49487
+              cde_version: 19.12e
+              source: NCIt
+              term: 'No'
+              term_id: C49487
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
+              term_version: 19.12e
+          Unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+          'Yes':
+            description: The affirmative response to a question.
+            termDef:
+              cde_id: C49488
+              cde_version: 19.12e
+              source: NCIt
+              term: 'Yes'
+              term_id: C49488
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
+              term_version: 19.12e
       extranodal_extension:
         description: Extension of a malignant neoplasm beyond the lymph node capsule.
         enum:
@@ -125970,6 +126171,86 @@ schema:
           term_url: 
             https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028
         type: boolean
+      extrathyroid_extension:
+        description: Text term to describe the degree to which the primary tumor has
+          extra thyroid extension.
+        enum:
+          - None
+          - Minimal (T3)
+          - Moderate/Advanced (T4a)
+          - Very Advanced (T4b)
+          - Unknown
+        enumDef:
+          Minimal (T3):
+            description: Thyroid cancer with a tumor size greater than 4 cm in greatest
+              dimension and limited to the thyroid gland, or a tumor of any size with
+              minimal extrathyroid extension (e.g., extension to sternothyroid muscle
+              or perithyroid soft tissues). (from AJCC 6th and 7th Eds.)
+            termDef:
+              cde_id: C60864
+              cde_version: 23.08d
+              source: NCIt
+              term: Thyroid Cancer pT3 TNM Finding v6 and v7
+              term_id: C60864
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C60864
+              term_version: 23.08d
+          Moderate/Advanced (T4a):
+            description: Thyroid cancer with moderately advanced local disease. Tumor
+              of any size extending beyond the thyroid gland capsule to invade subcutaneous
+              soft tissues, larynx, trachea, esophagus, or recurrent laryngeal nerve.
+              (from AJCC 7th Ed.)
+            termDef:
+              cde_id: C89150
+              cde_version: 23.08d
+              source: NCIt
+              term: Thyroid Cancer pT4a TNM Finding v7
+              term_id: C89150
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C89150
+              term_version: 23.08d
+          None:
+            description: No person or thing, nobody, not any.
+            termDef:
+              cde_id: C41132
+              cde_version: 20.10d
+              source: NCIt
+              term: None
+              term_id: C41132
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41132
+              term_version: 20.10d
+          Unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+          Very Advanced (T4b):
+            description: Thyroid cancer with very advanced disease. Tumor invades
+              prevertebral fascia or encases carotid artery or mediastinal vessels.
+              (from AJCC 7th Ed.)
+            termDef:
+              cde_id: C89152
+              cde_version: 23.08d
+              source: NCIt
+              term: Thyroid Cancer pT4b TNM Finding v7
+              term_id: C89152
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C89152
+              term_version: 23.08d
+        termDef:
+          cde_id: 3179452
+          cde_version: 1.0
+          source: caDSR
+          term: Extrathyroid Carcinoma Present Extension Status
+          term_url: 
+            https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3179452%20and%20ver_nr=1
       greatest_tumor_dimension:
         description: Numeric value that represents the measurement of the widest portion
           of the tumor in centimeters.
@@ -125996,6 +126277,57 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6133606%20and%20ver_nr=1.0
         type: number
+      histologic_progression_type:
+        description: Text term to describe the disease progression as determined by
+          microscopic review of cells and their surrounding extracellular environment
+          in tissues.
+        enum:
+          - Anaplastic
+          - Poorly differentiated
+          - Unknown
+          - Not Reported
+        enumDef:
+          Not Reported:
+            description: Not provided or available.
+            termDef:
+              cde_id: C43234
+              cde_version: 20.05a
+              source: NCIt
+              term: Not Reported
+              term_id: C43234
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
+              term_version: 20.05a
+          Poorly differentiated:
+            description: Describes tumor cells that generally have lost most of the
+              appearance of normal cells. They tend to grow and spread.
+            termDef:
+              cde_id: C14167
+              cde_version: 23.03d
+              source: NCIt
+              term: Poorly Differentiated
+              term_id: C14167
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C14167
+              term_version: 23.03d
+          Unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+        termDef:
+          cde_id: 3181384
+          cde_version: 1.0
+          source: caDSR
+          term: Histologic Disease Progression Present Type
+          term_url: 
+            https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3181384%20and%20ver_nr=1
       id:
         common:
           description: A 128-bit identifier. Depending on the mechanism used to generate
@@ -126101,12 +126433,17 @@ schema:
           term:
           term_url:
       lymph_node_involved_site:
+        deprecated_enum:
+          - Cervical
         description: The text term used to describe the anatomic site of lymph node
           involvement.
         enum:
           - Aortic
           - Axillary
           - Cervical
+          - Cervical, Central
+          - Cervical, Lateral
+          - Cervical, NOS
           - Epitrochlear
           - Femoral
           - Hilar
@@ -126642,6 +126979,7 @@ schema:
       measurement_type:
         description: The method used to measure tumor size.
         enum:
+          - Echographic
           - Pathologic
           - Radiologic
         enumDef:
@@ -126761,6 +127099,59 @@ schema:
           source:
           term:
           term_url:
+      micrometastasis_present:
+        description: Indication of metastasis in the form of small clusters of malignant
+          cells identifiable only under the microscope.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        enumDef:
+          'No':
+            description: The non-affirmative response to a question.
+            termDef:
+              cde_id: C49487
+              cde_version: 19.12e
+              source: NCIt
+              term: 'No'
+              term_id: C49487
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
+              term_version: 19.12e
+          Not Reported:
+            description: Not provided or available.
+            termDef:
+              cde_id: C43234
+              cde_version: 20.05a
+              source: NCIt
+              term: Not Reported
+              term_id: C43234
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
+              term_version: 20.05a
+          Unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+          'Yes':
+            description: The affirmative response to a question.
+            termDef:
+              cde_id: C49488
+              cde_version: 19.12e
+              source: NCIt
+              term: 'Yes'
+              term_id: C49488
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
+              term_version: 19.12e
       morphologic_architectural_pattern:
         description: A specific morphologic or pathologic architectural pattern was
           discovered within the sample studied.
@@ -127661,17 +128052,6 @@ schema:
           term:
           term_url:
         type: array
-      tumor_measurement_method:
-        description: The method used to measure tumor size.
-        enum:
-          - Echographic
-          - Pathologic
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
       tumor_shape:
         description: Text term to represent the description of the shape of a tumor
           determined by clinical or pathological techniques.
@@ -129798,6 +130178,7 @@ schema:
           - Illumina MiSeq
           - Illumina NextSeq
           - Illumina NovaSeq 6000
+          - Illumina NovaSeq X
           - Ion Torrent PGM
           - Ion Torrent Proton
           - Ion Torrent S5
@@ -131705,6 +132086,8 @@ schema:
           of a project.
         type: integer
       biospecimen_anatomic_site:
+        deprecated_enum:
+          - Head - Face Or Neck, Nos
         description: Text term that represents the name of the primary disease site
           of the submitted tumor sample.
         enum:
@@ -131824,6 +132207,7 @@ schema:
           - Hard Palate
           - Head & Neck
           - Head - Face Or Neck, Nos
+          - Head, Face or Neck, NOS
           - Heart
           - Hepatic
           - Hepatic Duct
@@ -137477,6 +137861,8 @@ schema:
           - file_format
           - md5sum
       experimental_strategy:
+        deprecated_enum:
+          - scRNA-Seq
         description: The sequencing strategy used to generate the data file.
         enum:
           - ATAC-Seq
@@ -139937,6 +140323,68 @@ schema:
           term:
           term_url: 
             https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C132299
+      radiosensitizing_agent:
+        description: Indication if an agent that makes tumor cells more sensitive
+          to radiation therapy was used in treatment.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        enumDef:
+          'No':
+            description: The non-affirmative response to a question.
+            termDef:
+              cde_id: C49487
+              cde_version: 19.12e
+              source: NCIt
+              term: 'No'
+              term_id: C49487
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
+              term_version: 19.12e
+          Not Reported:
+            description: Not provided or available.
+            termDef:
+              cde_id: C43234
+              cde_version: 20.05a
+              source: NCIt
+              term: Not Reported
+              term_id: C43234
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
+              term_version: 20.05a
+          Unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+          'Yes':
+            description: The affirmative response to a question.
+            termDef:
+              cde_id: C49488
+              cde_version: 19.12e
+              source: NCIt
+              term: 'Yes'
+              term_id: C49488
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
+              term_version: 19.12e
+        termDef:
+          cde_id: C798
+          cde_version: 23.08d
+          source: NCIt
+          term: Radiosensitizing Agent
+          term_id: C798
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C798
+          term_version: 23.08d
       reason_treatment_ended:
         description: The text term used to describe the reason a specific treatment
           or regimen ended.
@@ -139965,6 +140413,47 @@ schema:
           source:
           term: Treatment Ended Reason
           term_url:
+      reason_treatment_not_given:
+        description: The reason the treatment was not administered.
+        enum:
+          - Adverse Event/Complications
+          - Not Done per Treating Physician's Discretion
+          - Participant Refusal
+          - Scheduling Problems
+          - Unknown
+          - Not Reported
+        enumDef:
+          Not Reported:
+            description: Not provided or available.
+            termDef:
+              cde_id: C43234
+              cde_version: 20.05a
+              source: NCIt
+              term: Not Reported
+              term_id: C43234
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
+              term_version: 20.05a
+          Unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+        termDef:
+          cde_id: C102704
+          cde_version: 23.08d
+          source: NCIt
+          term: Reason Treatment Not Administered
+          term_id: C102704
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C102704
+          term_version: 23.08d
       regimen_or_line_of_therapy:
         description: The text term used to describe the regimen or line of therapy.
         termDef:
@@ -158509,6 +158998,68 @@ schema:
           term:
           term_url:
         type: boolean
+      therapeutic_levels_achieved:
+        description: An indication that the intended level of therapeutic agent was
+          achieved in an individual.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        enumDef:
+          'No':
+            description: The non-affirmative response to a question.
+            termDef:
+              cde_id: C49487
+              cde_version: 19.12e
+              source: NCIt
+              term: 'No'
+              term_id: C49487
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
+              term_version: 19.12e
+          Not Reported:
+            description: Not provided or available.
+            termDef:
+              cde_id: C43234
+              cde_version: 20.05a
+              source: NCIt
+              term: Not Reported
+              term_id: C43234
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
+              term_version: 20.05a
+          Unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+          'Yes':
+            description: The affirmative response to a question.
+            termDef:
+              cde_id: C49488
+              cde_version: 19.12e
+              source: NCIt
+              term: 'Yes'
+              term_id: C49488
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
+              term_version: 19.12e
+        termDef:
+          cde_id: C198198
+          cde_version: 23.08d
+          source: NCIt
+          term: Therapeutic Agent Level Achieved Indicator
+          term_id: C198198
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C198198
+          term_version: 23.08d
       therapeutic_target_level:
         description: Describes a specific target for an administered treatment.
         enum:
@@ -158526,11 +159077,13 @@ schema:
           - End of Consolidation Therapy
           - End of Treatment Course
           - First Complete Response
+          - First Treatment
           - Postoperative
           - Preoperative
           - Prior to Diagnosis
           - Prior to Procurement
           - Prior to Study Registration
+          - Prior to Treatment
           - Progression
           - Recurrence
           - Not Reported
@@ -158996,6 +159549,8 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5615611%20and%20ver_nr=1.0
       treatment_anatomic_sites:
+        deprecated_enum:
+          - Head - Face Or Neck, Nos
         description: The anatomic site or field targeted by a treatment regimen or
           single agent therapy.
         enumDef:
@@ -159271,6 +159826,7 @@ schema:
             - Hard Palate
             - Head - Face Or Neck, Nos
             - Head and Neck
+            - Head, Face or Neck, NOS
             - Heart
             - Hepatic
             - Hepatic Duct
