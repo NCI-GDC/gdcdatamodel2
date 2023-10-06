@@ -195,6 +195,10 @@ class Annotation(base.Node):
                 "backref": "annotations",
                 "type": base.Node.get_subclass("molecular_test"),
             },
+            "other_clinical_attributes": {
+                "backref": "annotations",
+                "type": base.Node.get_subclass("other_clinical_attribute"),
+            },
             "pathology_details": {
                 "backref": "annotations",
                 "type": base.Node.get_subclass("pathology_detail"),
@@ -412,6 +416,10 @@ class Annotation(base.Node):
             "molecular_tests": {
                 "edge_out": "_AnnotationAnnotatesMolecularTest_out",
                 "dst_type": base.Node.get_subclass("molecular_test"),
+            },
+            "other_clinical_attributes": {
+                "edge_out": "_AnnotationAnnotatesOtherClinicalAttribute_out",
+                "dst_type": base.Node.get_subclass("other_clinical_attribute"),
             },
             "pathology_details": {
                 "edge_out": "_AnnotationAnnotatesPathologyDetail_out",

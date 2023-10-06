@@ -118,6 +118,10 @@ class Case(base.Node):
                 "name": "cases",
                 "src_type": base.Node.get_subclass("follow_up"),
             },
+            "other_clinical_attributes": {
+                "name": "cases",
+                "src_type": base.Node.get_subclass("other_clinical_attribute"),
+            },
             "samples": {
                 "name": "cases",
                 "src_type": base.Node.get_subclass("sample"),
@@ -171,6 +175,10 @@ class Case(base.Node):
             "follow_ups": {
                 "backref": "cases",
                 "type": base.Node.get_subclass("follow_up"),
+            },
+            "other_clinical_attributes": {
+                "backref": "cases",
+                "type": base.Node.get_subclass("other_clinical_attribute"),
             },
             "projects": {
                 "backref": "cases",

@@ -117,6 +117,9 @@ from .annotationannotatesmethylationbetavalue import (
 )
 from .annotationannotatesmirnaexpression import AnnotationAnnotatesMirnaExpression
 from .annotationannotatesmoleculartest import AnnotationAnnotatesMolecularTest
+from .annotationannotatesotherclinicalattribute import (
+    AnnotationAnnotatesOtherClinicalAttribute,
+)
 from .annotationannotatespathologydetail import AnnotationAnnotatesPathologyDetail
 from .annotationannotatespathologyreport import AnnotationAnnotatesPathologyReport
 from .annotationannotatesportion import AnnotationAnnotatesPortion
@@ -366,6 +369,12 @@ from .moleculartestperformedatfollowup import MolecularTestPerformedAtFollowUp
 from .moleculartestrelatedtodiagnosis import MolecularTestRelatedToDiagnosis
 from .moleculartestrelatedtoslide import MolecularTestRelatedToSlide
 from .moleculartestrelatestocase import MolecularTestRelatesToCase
+from .other_clinical_attribute import OtherClinicalAttribute
+from .otherclinicalattributedescribescase import OtherClinicalAttributeDescribesCase
+from .otherclinicalattributedescribesfollowup import (
+    OtherClinicalAttributeDescribesFollowUp,
+)
+from .otherclinicalattributerelatestocase import OtherClinicalAttributeRelatesToCase
 from .pathology_detail import PathologyDetail
 from .pathology_report import PathologyReport
 from .pathologydetaildescribesdiagnosis import PathologyDetailDescribesDiagnosis
@@ -625,6 +634,7 @@ __all__ = [
     "AnnotationAnnotatesMethylationBetaValue",
     "AnnotationAnnotatesMirnaExpression",
     "AnnotationAnnotatesMolecularTest",
+    "AnnotationAnnotatesOtherClinicalAttribute",
     "AnnotationAnnotatesPathologyDetail",
     "AnnotationAnnotatesPathologyReport",
     "AnnotationAnnotatesPortion",
@@ -779,6 +789,10 @@ __all__ = [
     "MolecularTestRelatedToDiagnosis",
     "MolecularTestRelatedToSlide",
     "MolecularTestRelatesToCase",
+    "OtherClinicalAttribute",
+    "OtherClinicalAttributeDescribesCase",
+    "OtherClinicalAttributeDescribesFollowUp",
+    "OtherClinicalAttributeRelatesToCase",
     "PathologyDetail",
     "PathologyReport",
     "PathologyDetailDescribesDiagnosis",
