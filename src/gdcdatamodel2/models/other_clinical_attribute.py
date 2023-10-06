@@ -313,7 +313,7 @@ class OtherClinicalAttribute(base.Node):
     def dlco_ref_predictive_percent(self, value):
         self._set_property("dlco_ref_predictive_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["1 to 2 days", "3 to 4 days", "5 or more days", "None"])
+    @psqlgraph.pg_property(str, enum=["1 to 2 Days", "3 to 4 Days", "5 or More Days", "None"])
     def exercise_frequency_weekly(self, value):
         self._set_property("exercise_frequency_weekly", value)  # type: ignore  # inherited from CommonBase
 
