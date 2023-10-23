@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# remove ~/.gml if plaster failed to get new dictionary.
+# rm -rf ~/.gml
+
 VENV=venv_plaster
 # needs python >= 3.8
 virtualenv $VENV -p python3.8
