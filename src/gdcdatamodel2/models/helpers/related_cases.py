@@ -56,9 +56,7 @@ def get_edge_dst(edge: psqlgraph.Edge, allow_query: bool = False) -> Optional[ps
     return dst
 
 
-def get_related_cases_from_cache(
-    node: psqlgraph.Node,
-) -> Generator[psqlgraph.Node, None, None]:
+def get_related_cases_from_cache(node: psqlgraph.Node) -> Generator[psqlgraph.Node, None, None]:
     """Get the cached related case ids from this node's case shortcut edges.
 
     Args:
@@ -136,7 +134,7 @@ def update_cache_edges(node: psqlgraph.Node, correct_cases: Dict[str, psqlgraph.
 
     # Get information about the existing edges
     edge_name = get_related_case_edge_cls_name(node)
-    existing_edges = getattr(node, "_{}_out".format(edge_name))
+    existing_edges = getattr(node, f"_{edge_name}_out")
 
     existing_edge_dst_case_dict = {e.dst_id: e.dst for e in existing_edges}
 
