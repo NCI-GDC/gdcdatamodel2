@@ -9,7 +9,8 @@ virtualenv $VENV -p python3.8
 source $VENV/bin/activate
 
 python3 -m pip install \
-    "plaster @ git+ssh://git@github.com/NCI-GDC/plaster.git@feat/dev-2011-update-docstring#egg=plaster" \
+    --index-url https://nexus.osdc.io/repository/pypi-all/simple \
+    plaster \
     "psqlgml>=0.2.4" \
     pre-commit
 plaster --version
