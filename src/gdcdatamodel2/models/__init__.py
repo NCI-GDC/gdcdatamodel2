@@ -7,25 +7,19 @@ from .aggregatedsomaticmutationdatafromsomaticaggregationworkflow import (
 from .aggregatedsomaticmutationderivedfromproject import (
     AggregatedSomaticMutationDerivedFromProject,
 )
-from .aggregatedsomaticmutationrelatestocase import (
-    AggregatedSomaticMutationRelatesToCase,
-)
+from .aggregatedsomaticmutationrelatestocase import AggregatedSomaticMutationRelatesToCase
 from .aligned_reads import AlignedReads
 from .aligned_reads_index import AlignedReadsIndex
 from .alignedreadsdatafromalignmentcocleaningworkflow import (
     AlignedReadsDataFromAlignmentCocleaningWorkflow,
 )
 from .alignedreadsdatafromalignmentworkflow import AlignedReadsDataFromAlignmentWorkflow
-from .alignedreadsindexderivedfromalignedreads import (
-    AlignedReadsIndexDerivedFromAlignedReads,
-)
+from .alignedreadsindexderivedfromalignedreads import AlignedReadsIndexDerivedFromAlignedReads
 from .alignedreadsindexderivedfromsubmittedalignedreads import (
     AlignedReadsIndexDerivedFromSubmittedAlignedReads,
 )
 from .alignedreadsindexrelatestocase import AlignedReadsIndexRelatesToCase
-from .alignedreadsmatchedtosubmittedalignedreads import (
-    AlignedReadsMatchedToSubmittedAlignedReads,
-)
+from .alignedreadsmatchedtosubmittedalignedreads import AlignedReadsMatchedToSubmittedAlignedReads
 from .alignedreadsmatchedtosubmittedunalignedreads import (
     AlignedReadsMatchedToSubmittedUnalignedReads,
 )
@@ -38,9 +32,7 @@ from .alignmentcocleaningworkflowperformedonsubmittedalignedreads import (
 from .alignmentcocleaningworkflowperformedonsubmittedunalignedreads import (
     AlignmentCocleaningWorkflowPerformedOnSubmittedUnalignedReads,
 )
-from .alignmentcocleaningworkflowrelatestocase import (
-    AlignmentCocleaningWorkflowRelatesToCase,
-)
+from .alignmentcocleaningworkflowrelatestocase import AlignmentCocleaningWorkflowRelatesToCase
 from .alignmentworkflowperformedonsubmittedalignedreads import (
     AlignmentWorkflowPerformedOnSubmittedAlignedReads,
 )
@@ -84,15 +76,11 @@ from .annotationannotatesannotatedsomaticmutation import (
     AnnotationAnnotatesAnnotatedSomaticMutation,
 )
 from .annotationannotatesarchive import AnnotationAnnotatesArchive
-from .annotationannotatesbiospecimensupplement import (
-    AnnotationAnnotatesBiospecimenSupplement,
-)
+from .annotationannotatesbiospecimensupplement import AnnotationAnnotatesBiospecimenSupplement
 from .annotationannotatescase import AnnotationAnnotatesCase
 from .annotationannotatescenter import AnnotationAnnotatesCenter
 from .annotationannotatesclinicalsupplement import AnnotationAnnotatesClinicalSupplement
-from .annotationannotatescopynumberauxiliaryfile import (
-    AnnotationAnnotatesCopyNumberAuxiliaryFile,
-)
+from .annotationannotatescopynumberauxiliaryfile import AnnotationAnnotatesCopyNumberAuxiliaryFile
 from .annotationannotatescopynumberestimate import AnnotationAnnotatesCopyNumberEstimate
 from .annotationannotatescopynumbersegment import AnnotationAnnotatesCopyNumberSegment
 from .annotationannotatesdemographic import AnnotationAnnotatesDemographic
@@ -106,27 +94,17 @@ from .annotationannotatesfilteredcopynumbersegment import (
 )
 from .annotationannotatesfollowup import AnnotationAnnotatesFollowUp
 from .annotationannotatesgeneexpression import AnnotationAnnotatesGeneExpression
-from .annotationannotatesmaskedmethylationarray import (
-    AnnotationAnnotatesMaskedMethylationArray,
-)
-from .annotationannotatesmaskedsomaticmutation import (
-    AnnotationAnnotatesMaskedSomaticMutation,
-)
-from .annotationannotatesmethylationbetavalue import (
-    AnnotationAnnotatesMethylationBetaValue,
-)
+from .annotationannotatesmaskedmethylationarray import AnnotationAnnotatesMaskedMethylationArray
+from .annotationannotatesmaskedsomaticmutation import AnnotationAnnotatesMaskedSomaticMutation
+from .annotationannotatesmethylationbetavalue import AnnotationAnnotatesMethylationBetaValue
 from .annotationannotatesmirnaexpression import AnnotationAnnotatesMirnaExpression
 from .annotationannotatesmoleculartest import AnnotationAnnotatesMolecularTest
-from .annotationannotatesotherclinicalattribute import (
-    AnnotationAnnotatesOtherClinicalAttribute,
-)
+from .annotationannotatesotherclinicalattribute import AnnotationAnnotatesOtherClinicalAttribute
 from .annotationannotatespathologydetail import AnnotationAnnotatesPathologyDetail
 from .annotationannotatespathologyreport import AnnotationAnnotatesPathologyReport
 from .annotationannotatesportion import AnnotationAnnotatesPortion
 from .annotationannotatesproteinexpression import AnnotationAnnotatesProteinExpression
-from .annotationannotatesrawmethylationarray import (
-    AnnotationAnnotatesRawMethylationArray,
-)
+from .annotationannotatesrawmethylationarray import AnnotationAnnotatesRawMethylationArray
 from .annotationannotatesreadgroup import AnnotationAnnotatesReadGroup
 from .annotationannotatesreadgroupqc import AnnotationAnnotatesReadGroupQc
 from .annotationannotatesrunmetadata import AnnotationAnnotatesRunMetadata
@@ -134,26 +112,14 @@ from .annotationannotatessample import AnnotationAnnotatesSample
 from .annotationannotatessecondaryexpressionanalysis import (
     AnnotationAnnotatesSecondaryExpressionAnalysis,
 )
-from .annotationannotatessimplegermlinevariation import (
-    AnnotationAnnotatesSimpleGermlineVariation,
-)
-from .annotationannotatessimplesomaticmutation import (
-    AnnotationAnnotatesSimpleSomaticMutation,
-)
+from .annotationannotatessimplegermlinevariation import AnnotationAnnotatesSimpleGermlineVariation
+from .annotationannotatessimplesomaticmutation import AnnotationAnnotatesSimpleSomaticMutation
 from .annotationannotatesslide import AnnotationAnnotatesSlide
 from .annotationannotatesslideimage import AnnotationAnnotatesSlideImage
-from .annotationannotatessomaticmutationindex import (
-    AnnotationAnnotatesSomaticMutationIndex,
-)
-from .annotationannotatesstructuralvariation import (
-    AnnotationAnnotatesStructuralVariation,
-)
-from .annotationannotatessubmittedalignedreads import (
-    AnnotationAnnotatesSubmittedAlignedReads,
-)
-from .annotationannotatessubmittedgenomicprofile import (
-    AnnotationAnnotatesSubmittedGenomicProfile,
-)
+from .annotationannotatessomaticmutationindex import AnnotationAnnotatesSomaticMutationIndex
+from .annotationannotatesstructuralvariation import AnnotationAnnotatesStructuralVariation
+from .annotationannotatessubmittedalignedreads import AnnotationAnnotatesSubmittedAlignedReads
+from .annotationannotatessubmittedgenomicprofile import AnnotationAnnotatesSubmittedGenomicProfile
 from .annotationannotatessubmittedgenotypingarray import (
     AnnotationAnnotatesSubmittedGenotypingArray,
 )
@@ -163,9 +129,7 @@ from .annotationannotatessubmittedmethylationbetavalue import (
 from .annotationannotatessubmittedtangentcopynumber import (
     AnnotationAnnotatesSubmittedTangentCopyNumber,
 )
-from .annotationannotatessubmittedunalignedreads import (
-    AnnotationAnnotatesSubmittedUnalignedReads,
-)
+from .annotationannotatessubmittedunalignedreads import AnnotationAnnotatesSubmittedUnalignedReads
 from .annotationannotatestissuesourcesite import AnnotationAnnotatesTissueSourceSite
 from .annotationannotatestreatment import AnnotationAnnotatesTreatment
 from .annotationrelatestocase import AnnotationRelatesToCase
@@ -210,9 +174,7 @@ from .copynumberestimaterelatestocase import CopyNumberEstimateRelatesToCase
 from .copynumberliftoverworkflowperformedonsubmittedtangentcopynumber import (
     CopyNumberLiftoverWorkflowPerformedOnSubmittedTangentCopyNumber,
 )
-from .copynumberliftoverworkflowrelatestocase import (
-    CopyNumberLiftoverWorkflowRelatesToCase,
-)
+from .copynumberliftoverworkflowrelatestocase import CopyNumberLiftoverWorkflowRelatesToCase
 from .copynumbersegmentderivedfromcopynumberliftoverworkflow import (
     CopyNumberSegmentDerivedFromCopyNumberLiftoverWorkflow,
 )
@@ -226,9 +188,7 @@ from .copynumbersegmentrelatestocase import CopyNumberSegmentRelatesToCase
 from .copynumbervariationworkflowperformedoncopynumbersegment import (
     CopyNumberVariationWorkflowPerformedOnCopyNumberSegment,
 )
-from .copynumbervariationworkflowrelatestocase import (
-    CopyNumberVariationWorkflowRelatesToCase,
-)
+from .copynumbervariationworkflowrelatestocase import CopyNumberVariationWorkflowRelatesToCase
 from .data_format import DataFormat
 from .data_release import DataRelease
 from .data_subtype import DataSubtype
@@ -245,9 +205,7 @@ from .diagnosisrelatestocase import DiagnosisRelatesToCase
 from .experiment_metadata import ExperimentMetadata
 from .experimental_strategy import ExperimentalStrategy
 from .experimentmetadataderivedfromfile import ExperimentMetadataDerivedFromFile
-from .experimentmetadataderivedfromreadgroup import (
-    ExperimentMetadataDerivedFromReadGroup,
-)
+from .experimentmetadataderivedfromreadgroup import ExperimentMetadataDerivedFromReadGroup
 from .experimentmetadatarelatestocase import ExperimentMetadataRelatesToCase
 from .exposure import Exposure
 from .exposuredescribescase import ExposureDescribesCase
@@ -256,9 +214,7 @@ from .expression_analysis_workflow import ExpressionAnalysisWorkflow
 from .expressionanalysisworkflowperformedongeneexpression import (
     ExpressionAnalysisWorkflowPerformedOnGeneExpression,
 )
-from .expressionanalysisworkflowrelatestocase import (
-    ExpressionAnalysisWorkflowRelatesToCase,
-)
+from .expressionanalysisworkflowrelatestocase import ExpressionAnalysisWorkflowRelatesToCase
 from .family_history import FamilyHistory
 from .familyhistorydescribescase import FamilyHistoryDescribesCase
 from .familyhistoryrelatestocase import FamilyHistoryRelatesToCase
@@ -284,9 +240,7 @@ from .filtered_copy_number_segment import FilteredCopyNumberSegment
 from .filteredcopynumbersegmentdatafromcopynumberliftoverworkflow import (
     FilteredCopyNumberSegmentDataFromCopyNumberLiftoverWorkflow,
 )
-from .filteredcopynumbersegmentrelatestocase import (
-    FilteredCopyNumberSegmentRelatesToCase,
-)
+from .filteredcopynumbersegmentrelatestocase import FilteredCopyNumberSegmentRelatesToCase
 from .follow_up import FollowUp
 from .followupdescribescase import FollowUpDescribesCase
 from .followupdescribesdiagnosis import FollowUpDescribesDiagnosis
@@ -326,13 +280,9 @@ from .maskedsomaticmutationdatafromgenomicprofileharmonizationworkflow import (
 from .maskedsomaticmutationdatafromsomaticaggregationworkflow import (
     MaskedSomaticMutationDataFromSomaticAggregationWorkflow,
 )
-from .maskedsomaticmutationderivedfromproject import (
-    MaskedSomaticMutationDerivedFromProject,
-)
+from .maskedsomaticmutationderivedfromproject import MaskedSomaticMutationDerivedFromProject
 from .maskedsomaticmutationrelatestocase import MaskedSomaticMutationRelatesToCase
-from .methylation_array_harmonization_workflow import (
-    MethylationArrayHarmonizationWorkflow,
-)
+from .methylation_array_harmonization_workflow import MethylationArrayHarmonizationWorkflow
 from .methylation_beta_value import MethylationBetaValue
 from .methylation_liftover_workflow import MethylationLiftoverWorkflow
 from .methylationarrayharmonizationworkflowperformedonrawmethylationarray import (
@@ -351,9 +301,7 @@ from .methylationbetavaluerelatestocase import MethylationBetaValueRelatesToCase
 from .methylationliftoverworkflowperformedonsubmittedmethylationbetavalue import (
     MethylationLiftoverWorkflowPerformedOnSubmittedMethylationBetaValue,
 )
-from .methylationliftoverworkflowrelatestocase import (
-    MethylationLiftoverWorkflowRelatesToCase,
-)
+from .methylationliftoverworkflowrelatestocase import MethylationLiftoverWorkflowRelatesToCase
 from .mirna_expression import MirnaExpression
 from .mirna_expression_workflow import MirnaExpressionWorkflow
 from .mirnaexpressiondatafrommirnaexpressionworkflow import (
@@ -371,9 +319,7 @@ from .moleculartestrelatedtoslide import MolecularTestRelatedToSlide
 from .moleculartestrelatestocase import MolecularTestRelatesToCase
 from .other_clinical_attribute import OtherClinicalAttribute
 from .otherclinicalattributedescribescase import OtherClinicalAttributeDescribesCase
-from .otherclinicalattributedescribesfollowup import (
-    OtherClinicalAttributeDescribesFollowUp,
-)
+from .otherclinicalattributedescribesfollowup import OtherClinicalAttributeDescribesFollowUp
 from .otherclinicalattributerelatestocase import OtherClinicalAttributeRelatesToCase
 from .pathology_detail import PathologyDetail
 from .pathology_report import PathologyReport
@@ -401,12 +347,8 @@ from .rawmethylationarrayrelatestocase import RawMethylationArrayRelatesToCase
 from .read_group import ReadGroup
 from .read_group_qc import ReadGroupQc
 from .readgroupderivedfromaliquot import ReadGroupDerivedFromAliquot
-from .readgroupqcdatafromsubmittedalignedreads import (
-    ReadGroupQcDataFromSubmittedAlignedReads,
-)
-from .readgroupqcdatafromsubmittedunalignedreads import (
-    ReadGroupQcDataFromSubmittedUnalignedReads,
-)
+from .readgroupqcdatafromsubmittedalignedreads import ReadGroupQcDataFromSubmittedAlignedReads
+from .readgroupqcdatafromsubmittedunalignedreads import ReadGroupQcDataFromSubmittedUnalignedReads
 from .readgroupqcgeneratedfromreadgroup import ReadGroupQcGeneratedFromReadGroup
 from .readgroupqcrelatestocase import ReadGroupQcRelatesToCase
 from .readgrouprelatestocase import ReadGroupRelatesToCase
@@ -437,9 +379,7 @@ from .secondary_expression_analysis import SecondaryExpressionAnalysis
 from .secondaryexpressionanalysisdatafromexpressionanalysisworkflow import (
     SecondaryExpressionAnalysisDataFromExpressionAnalysisWorkflow,
 )
-from .secondaryexpressionanalysisrelatestocase import (
-    SecondaryExpressionAnalysisRelatesToCase,
-)
+from .secondaryexpressionanalysisrelatestocase import SecondaryExpressionAnalysisRelatesToCase
 from .simple_germline_variation import SimpleGermlineVariation
 from .simple_somatic_mutation import SimpleSomaticMutation
 from .simplegermlinevariationdatafromgermlinemutationcallingworkflow import (
@@ -471,24 +411,18 @@ from .somaticaggregationworkflowperformedonannotatedsomaticmutation import (
 from .somaticaggregationworkflowperformedonsimplesomaticmutation import (
     SomaticAggregationWorkflowPerformedOnSimpleSomaticMutation,
 )
-from .somaticaggregationworkflowrelatestocase import (
-    SomaticAggregationWorkflowRelatesToCase,
-)
+from .somaticaggregationworkflowrelatestocase import SomaticAggregationWorkflowRelatesToCase
 from .somaticannotationworkflowperformedonsimplesomaticmutation import (
     SomaticAnnotationWorkflowPerformedOnSimpleSomaticMutation,
 )
-from .somaticannotationworkflowrelatestocase import (
-    SomaticAnnotationWorkflowRelatesToCase,
-)
+from .somaticannotationworkflowrelatestocase import SomaticAnnotationWorkflowRelatesToCase
 from .somaticcopynumberworkflowperformedonalignedreads import (
     SomaticCopyNumberWorkflowPerformedOnAlignedReads,
 )
 from .somaticcopynumberworkflowperformedonsubmittedgenotypingarray import (
     SomaticCopyNumberWorkflowPerformedOnSubmittedGenotypingArray,
 )
-from .somaticcopynumberworkflowrelatestocase import (
-    SomaticCopyNumberWorkflowRelatesToCase,
-)
+from .somaticcopynumberworkflowrelatestocase import SomaticCopyNumberWorkflowRelatesToCase
 from .somaticmutationcallingworkflowperformedonalignedreads import (
     SomaticMutationCallingWorkflowPerformedOnAlignedReads,
 )
@@ -526,33 +460,21 @@ from .submitted_genotyping_array import SubmittedGenotypingArray
 from .submitted_methylation_beta_value import SubmittedMethylationBetaValue
 from .submitted_tangent_copy_number import SubmittedTangentCopyNumber
 from .submitted_unaligned_reads import SubmittedUnalignedReads
-from .submittedalignedreadsdatafromreadgroup import (
-    SubmittedAlignedReadsDataFromReadGroup,
-)
+from .submittedalignedreadsdatafromreadgroup import SubmittedAlignedReadsDataFromReadGroup
 from .submittedalignedreadsrelatestocase import SubmittedAlignedReadsRelatesToCase
-from .submittedgenomicprofiledatafromreadgroup import (
-    SubmittedGenomicProfileDataFromReadGroup,
-)
+from .submittedgenomicprofiledatafromreadgroup import SubmittedGenomicProfileDataFromReadGroup
 from .submittedgenomicprofilerelatestocase import SubmittedGenomicProfileRelatesToCase
-from .submittedgenotypingarrayderivedfromaliquot import (
-    SubmittedGenotypingArrayDerivedFromAliquot,
-)
+from .submittedgenotypingarrayderivedfromaliquot import SubmittedGenotypingArrayDerivedFromAliquot
 from .submittedgenotypingarrayrelatestocase import SubmittedGenotypingArrayRelatesToCase
 from .submittedmethylationbetavaluederivedfromaliquot import (
     SubmittedMethylationBetaValueDerivedFromAliquot,
 )
-from .submittedmethylationbetavaluerelatestocase import (
-    SubmittedMethylationBetaValueRelatesToCase,
-)
+from .submittedmethylationbetavaluerelatestocase import SubmittedMethylationBetaValueRelatesToCase
 from .submittedtangentcopynumberderivedfromaliquot import (
     SubmittedTangentCopyNumberDerivedFromAliquot,
 )
-from .submittedtangentcopynumberrelatestocase import (
-    SubmittedTangentCopyNumberRelatesToCase,
-)
-from .submittedunalignedreadsdatafromreadgroup import (
-    SubmittedUnalignedReadsDataFromReadGroup,
-)
+from .submittedtangentcopynumberrelatestocase import SubmittedTangentCopyNumberRelatesToCase
+from .submittedunalignedreadsdatafromreadgroup import SubmittedUnalignedReadsDataFromReadGroup
 from .submittedunalignedreadsrelatestocase import SubmittedUnalignedReadsRelatesToCase
 from .tag import Tag
 from .tissue_source_site import TissueSourceSite
