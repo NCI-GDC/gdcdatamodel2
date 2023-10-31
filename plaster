@@ -10,11 +10,11 @@ source $VENV/bin/activate
 
 python3 -m pip install \
     --index-url https://nexus.osdc.io/repository/pypi-all/simple \
-    plaster \
+    "plaster>=1.0.7,<1.1" \
     "psqlgml>=0.2.4" \
     pre-commit \
-    isort==5.12.0 \  # match version of pre-commit-config
-    black==23.10.1   # match version of pre-commit-config
+    isort \
+    black
 plaster --version
 psqlgml --version
 plaster generate -p gdcdictionary -o src/gdcdatamodel2/models -s src/gdcdatamodel2/partial_dictionary
