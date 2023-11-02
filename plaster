@@ -12,14 +12,10 @@ python3 -m pip install \
     --index-url https://nexus.osdc.io/repository/pypi-all/simple \
     "plaster>=1.0.7,<1.1" \
     "psqlgml>=0.2.4" \
-    pre-commit \
-    isort \
-    black
+    pre-commit
 plaster --version
 psqlgml --version
 plaster generate -p gdcdictionary -o src/gdcdatamodel2/models -s src/gdcdatamodel2/partial_dictionary
-isort src
-black src
 pre-commit run -a
 
 rm -rf $VENV
