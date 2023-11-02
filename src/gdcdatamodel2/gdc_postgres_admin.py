@@ -14,10 +14,8 @@ import random
 import time
 
 import sqlalchemy as sa
-from psqlgraph import create_all, ext
-from psqlgraph.base import ORMBase
-from sqlalchemy import create_engine
-from sqlalchemy.exc import OperationalError
+from psqlgraph import base, create_all, ext
+from sqlalchemy import create_engine, exc
 
 #: Required but 'unused' import to register GDC models
 from gdcdatamodel2 import models  # noqa
@@ -112,7 +110,7 @@ def create_graph_tables(engine, timeout, namespace=None):
     timeout_str = f"{int(timeout + 1)}s"
     connection.execute("SET LOCAL lock_timeout = %s;", timeout_str)
 
-    orm_base = ext.get_orm_base(namespace) if namespace else ORMBase
+    orm_base = ext.get_orm_base(namespace) if namespace else base.ORMBase
     create_all(connection, base=orm_base)
     trans.commit()
 
@@ -129,7 +127,7 @@ def create_tables(engine, delay, retries, namespace=None):
     try:
         return create_graph_tables(engine, delay, namespace=namespace)
 
-    except OperationalError as e:
+    except exc.OperationalError as e:
         if "timeout" in str(e):
             logger.warning("Attempt timed out")
         else:
