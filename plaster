@@ -8,6 +8,7 @@ VENV=venv_plaster
 virtualenv $VENV -p python3.8
 source $VENV/bin/activate
 
+# limit plaster version to avoid plaster from pypi
 python3 -m pip install \
     --index-url https://nexus.osdc.io/repository/pypi-all/simple \
     "plaster>=1.0.7,<1.1" \
