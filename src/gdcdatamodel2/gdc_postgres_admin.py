@@ -12,10 +12,13 @@ import argparse
 import logging
 import random
 import time
+from typing import Optional
 
 import sqlalchemy as sa
 from psqlgraph import base, create_all, ext
-from sqlalchemy import create_engine, exc
+from sqlalchemy import create_engine
+from sqlalchemy import engine as sqlalchemy_engine
+from sqlalchemy import exc
 
 #: Required but 'unused' import to register GDC models
 from gdcdatamodel2 import models  # noqa
@@ -53,13 +56,17 @@ COMMIT;
 """
 
 
-def execute(engine, sql, *args, **kwargs):
+def execute(
+    engine: sqlalchemy_engine.base.Engine, sql: str, *args, **kwargs
+) -> sqlalchemy_engine.result.ResultProxy:
     statement = sa.sql.text(sql)
     logger.debug(statement)
     return engine.execute(statement, *args, **kwargs)
 
 
-def get_engine(host, user, password, database):
+def get_engine(
+    host: str, user: str, password: str, database: str
+) -> sqlalchemy_engine.base.Engine:
     connect_args = {"application_name": app_name}
     con_str = "postgres://{user}:{pwd}@{host}/{db}".format(
         user=user, host=host, pwd=password, db=database
@@ -67,7 +74,9 @@ def get_engine(host, user, password, database):
     return create_engine(con_str, connect_args=connect_args)
 
 
-def execute_for_all_graph_tables(engine, sql, namespace=None, **kwargs):
+def execute_for_all_graph_tables(
+    engine: sqlalchemy_engine.base.Engine, sql: str, namespace=None, **kwargs
+) -> None:
     """Execute a SQL statement for all nodes and edges in graph.
 
     Execute a SQL statement that has a python format variable {table}
@@ -83,23 +92,33 @@ def execute_for_all_graph_tables(engine, sql, namespace=None, **kwargs):
         execute(engine, statement)
 
 
-def grant_read_permissions_to_graph(engine, user, namespace=None):
+def grant_read_permissions_to_graph(
+    engine: sqlalchemy_engine.base.Engine, user: str, namespace: Optional[str] = None
+):
     execute_for_all_graph_tables(engine, GRANT_READ_PRIVS_SQL, namespace, user=user)
 
 
-def grant_write_permissions_to_graph(engine, user, namespace=None):
+def grant_write_permissions_to_graph(
+    engine: sqlalchemy_engine.base.Engine, user: str, namespace: Optional[str] = None
+):
     execute_for_all_graph_tables(engine, GRANT_WRITE_PRIVS_SQL, namespace, user=user)
 
 
-def revoke_read_permissions_to_graph(engine, user, namespace=None):
+def revoke_read_permissions_to_graph(
+    engine: sqlalchemy_engine.base.Engine, user: str, namespace: Optional[str] = None
+):
     execute_for_all_graph_tables(engine, REVOKE_READ_PRIVS_SQL, namespace, user=user)
 
 
-def revoke_write_permissions_to_graph(engine, user, namespace=None):
+def revoke_write_permissions_to_graph(
+    engine: sqlalchemy_engine.base.Engine, user: str, namespace: Optional[str] = None
+):
     execute_for_all_graph_tables(engine, REVOKE_WRITE_PRIVS_SQL, namespace, user=user)
 
 
-def create_graph_tables(engine, timeout, namespace=None):
+def create_graph_tables(
+    engine: sqlalchemy_engine.base.Engine, timeout: int, namespace: Optional[str] = None
+):
     """Create a table."""
     logger.info("Creating tables (timeout: %d)", timeout)
 
@@ -115,7 +134,9 @@ def create_graph_tables(engine, timeout, namespace=None):
     trans.commit()
 
 
-def create_tables(engine, delay, retries, namespace=None):
+def create_tables(
+    engine: sqlalchemy_engine.base.Engine, delay: int, retries: int, namespace=None
+):
     """Create the tables but do not kill any blocking processes.
 
     This command will catch OperationalErrors signalling timeouts from
@@ -142,7 +163,7 @@ def create_tables(engine, delay, retries, namespace=None):
         create_tables(engine, delay, retries - 1, namespace=namespace)
 
 
-def subcommand_create(args):
+def subcommand_create(args: argparse.Namespace) -> None:
     """Idempotently/safely create ALL tables in graph.
 
     Idempotently/safely create ALL tables in database that are required
@@ -155,7 +176,7 @@ def subcommand_create(args):
     return create_tables(**kwargs)
 
 
-def subcommand_grant(args):
+def subcommand_grant(args: argparse.Namespace) -> None:
     """Grant permissions to a user.
 
     Argument ``--read`` will grant users read permissions
@@ -177,7 +198,7 @@ def subcommand_grant(args):
             grant_write_permissions_to_graph(engine, user, args.namespace)
 
 
-def subcommand_revoke(args):
+def subcommand_revoke(args: argparse.Namespace) -> None:
     """Grant permissions to a user.
 
     Argument ``--read`` will revoke users' read permissions
@@ -197,7 +218,7 @@ def subcommand_revoke(args):
             revoke_write_permissions_to_graph(engine, user, args.namespace)
 
 
-def add_base_args(subparser):
+def add_base_args(subparser: argparse.ArgumentParser) -> argparse.ArgumentParser:
     subparser.add_argument(
         "-H", "--host", type=str, action="store", required=True, help="psql-server host"
     )
@@ -282,7 +303,7 @@ def add_subcommand_revoke(subparsers):
     )
 
 
-def get_parser():
+def get_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest="subcommand")
     add_subcommand_create(subparsers)
@@ -291,7 +312,7 @@ def get_parser():
     return parser
 
 
-def main(args=None):
+def main(args: Optional[argparse.ArgumentParser] = None) -> None:
     args = args or get_parser().parse_args()
 
     logger.info("[ HOST     : %-10s ]", args.host)
@@ -307,3 +328,7 @@ def main(args=None):
 
     logger.info("Done.")
     return return_value
+
+
+if __name__ == "__main__":
+    main()
