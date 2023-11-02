@@ -1,6 +1,6 @@
 """Script to migrate database after dictionary update.
 
-Is module is migrated from gdcdatamodel.
+This module is migrated from gdcdatamodel.
 
 More information about how to use this module is here:
 https://gdc-ctds.atlassian.net/wiki/spaces/GDC/pages/19402891/Database+migration
