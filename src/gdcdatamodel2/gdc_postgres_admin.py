@@ -59,6 +59,7 @@ COMMIT;
 def execute(
     engine: sqlalchemy_engine.base.Engine, sql: str, *args, **kwargs
 ) -> sqlalchemy_engine.result.ResultProxy:
+    """Execute single sql query."""
     statement = sa.sql.text(sql)
     logger.debug(statement)
     return engine.execute(statement, *args, **kwargs)
@@ -67,6 +68,7 @@ def execute(
 def get_engine(
     host: str, user: str, password: str, database: str
 ) -> sqlalchemy_engine.base.Engine:
+    """Get sqlalchemy engine."""
     connect_args = {"application_name": app_name}
     con_str = "postgres://{user}:{pwd}@{host}/{db}".format(
         user=user, host=host, pwd=password, db=database
@@ -95,31 +97,35 @@ def execute_for_all_graph_tables(
 def grant_read_permissions_to_graph(
     engine: sqlalchemy_engine.base.Engine, user: str, namespace: Optional[str] = None
 ):
+    """Grant read permissions of tables in graph to user."""
     execute_for_all_graph_tables(engine, GRANT_READ_PRIVS_SQL, namespace, user=user)
 
 
 def grant_write_permissions_to_graph(
     engine: sqlalchemy_engine.base.Engine, user: str, namespace: Optional[str] = None
 ):
+    """Grant write permissions of tables in graph to user."""
     execute_for_all_graph_tables(engine, GRANT_WRITE_PRIVS_SQL, namespace, user=user)
 
 
 def revoke_read_permissions_to_graph(
     engine: sqlalchemy_engine.base.Engine, user: str, namespace: Optional[str] = None
 ):
+    """Revoke read permissions of tables in graph to user."""
     execute_for_all_graph_tables(engine, REVOKE_READ_PRIVS_SQL, namespace, user=user)
 
 
 def revoke_write_permissions_to_graph(
     engine: sqlalchemy_engine.base.Engine, user: str, namespace: Optional[str] = None
 ):
+    """Revoke write permissions of tables in graph to user."""
     execute_for_all_graph_tables(engine, REVOKE_WRITE_PRIVS_SQL, namespace, user=user)
 
 
 def create_graph_tables(
     engine: sqlalchemy_engine.base.Engine, timeout: int, namespace: Optional[str] = None
 ):
-    """Create a table."""
+    """Create all tables in graph."""
     logger.info("Creating tables (timeout: %d)", timeout)
 
     connection = engine.connect()
