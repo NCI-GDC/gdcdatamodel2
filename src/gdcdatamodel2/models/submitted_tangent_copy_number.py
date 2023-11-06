@@ -10,14 +10,7 @@ import psqlgraph
 from sqlalchemy.ext import hybrid
 from sqlalchemy.orm import Session, query
 
-from .helpers import (
-    base,
-    datetime_hooks,
-    indexes,
-    related_cases,
-    versioned_nodes,
-    versioning,
-)
+from .helpers import base, datetime_hooks, indexes, related_cases, versioned_nodes, versioning
 
 
 class SubmittedTangentCopyNumber(base.Node):
