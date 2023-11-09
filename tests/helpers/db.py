@@ -8,7 +8,7 @@ import attr
 import pkg_resources
 import psqlgraph
 import yaml
-from psqlgraph import create_all, ext, mocks
+from psqlgraph import create_all, ext, hydrator
 from psqlgraph.base import ORMBase, VoidedBase
 from sqlalchemy import MetaData
 from sqlalchemy import exc as sa_exc
@@ -169,14 +169,14 @@ def graph_factory(
     active_dictionary: utils.PartialDictionary,
     program_name: str = SAMPLE_PROGRAM,
     project_code: str = SAMPLE_PROJECT,
-) -> mocks.GraphFactory:
+) -> hydrator.GraphFactory:
     global_props = {
         "properties": {
             "project_id": f"{program_name}-{project_code}",
             "state": "submitted",
         }
     }
-    factory = mocks.GraphFactory(
+    factory = hydrator.GraphFactory(
         models=models, dictionary=active_dictionary, graph_globals=global_props
     )
     return factory
