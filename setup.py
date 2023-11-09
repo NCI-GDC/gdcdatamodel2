@@ -5,7 +5,16 @@ from setuptools import setup
 from setuptools_scm import Configuration, _do_parse
 
 
-def get_version():
+def get_version() -> str:
+    """Create version string based on branch name.
+
+    release branch -> 1.2.3rc4
+    develop branch -> 1.2.3a4
+    other branch -> 1.2.3.dev4+<branch_name
+
+    Returns:
+        version
+    """
     config = Configuration()
     version = _do_parse(config)
     if version.distance == 0:
