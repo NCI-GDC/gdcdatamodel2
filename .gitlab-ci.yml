@@ -12,7 +12,7 @@ include:
       - templates/global/full.yaml
       - templates/python/full.yaml
       - templates/common/python.yaml
-      - templates/common/trigger.yaml
+      - templates/common/trigger.yml
 
 tox:
   parallel:
