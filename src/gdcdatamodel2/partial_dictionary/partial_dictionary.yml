@@ -163176,4 +163176,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: develop
+version: feat/dev-2459-update-gitlab-ci
