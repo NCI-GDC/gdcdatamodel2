@@ -154082,4 +154082,4 @@ schema:
         - type: 'null'
     required:
     - submitter_id
-version: feat/dev-2459-update-gitlab-ci
+version: 3.0.2.dev16
