@@ -94,24 +94,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -154,16 +152,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -659,24 +656,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -719,16 +714,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       mean_coverage:
         description: Mean coverage for whole genome sequencing, or mean target coverage
@@ -1235,24 +1229,22 @@ schema:
           - file_format
           - md5sum
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -1295,16 +1287,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -1676,7 +1667,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -1692,17 +1692,30 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - BWA with Mark Duplicates and Cocleaning
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -1947,7 +1960,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -1963,7 +1985,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - BWA
           - BWA with BQSR
@@ -1978,13 +2001,25 @@ schema:
           - STAR 2-Pass Transcriptome
           - zUMIs - Smart-Seq2
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -2581,24 +2616,22 @@ schema:
           - file_format
           - md5sum
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -2693,16 +2726,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -3446,24 +3478,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -3559,16 +3589,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -7118,24 +7147,22 @@ schema:
           - file_format
           - md5sum
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -7178,16 +7205,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -7565,24 +7591,22 @@ schema:
           - file_format
           - md5sum
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -7625,16 +7649,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -8900,24 +8923,22 @@ schema:
           - file_format
           - md5sum
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -8960,16 +8981,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -9130,24 +9150,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -9190,16 +9208,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -9499,24 +9516,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -9612,16 +9627,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -9947,7 +9961,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -9963,17 +9986,30 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - DNAcopy
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -10132,24 +10168,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -10245,16 +10279,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -10578,7 +10611,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -10594,20 +10636,33 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - GISTIC - Copy Number Score
           - GISTIC - Arm Level Copy Number
           - GISTIC - Focal Deletion
           - GISTIC - Focal Amplification
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -22027,7 +22082,7 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2902402%20and%20ver_nr=1.0
       ann_arbor_b_symptoms_described:
-        description: Text descibing the specific lymphoma B-symptoms present.
+        description: Text describing the specific lymphoma B-symptoms present.
         enum:
           - Fever
           - Night Sweats
@@ -87711,24 +87766,22 @@ schema:
           - file_format
           - md5sum
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -87823,16 +87876,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -90499,7 +90551,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -90515,18 +90576,31 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Seurat - 10x Chromium
           - Seurat - Smart-Seq2
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -93896,24 +93970,22 @@ schema:
                 type: string
             type: object
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -93956,16 +94028,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       platforms:
         anyOf:
@@ -94491,24 +94562,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -94551,16 +94620,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -99260,24 +99328,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -99320,16 +99386,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -99642,7 +99707,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -99658,7 +99732,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - FM Copy Number Variation
           - FM Simple Somatic Mutation
@@ -99669,13 +99744,25 @@ schema:
           - MuTect2
           - VCF LiftOver
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -99920,7 +100007,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -99936,18 +100032,31 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Birdseed
           - HaplotypeCaller
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -100064,24 +100173,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -100124,16 +100231,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       methylation_array_harmonization_workflows:
         anyOf:
@@ -100406,24 +100512,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -100518,16 +100622,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -100892,7 +100995,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -100908,17 +101020,30 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - SeSAMe Methylation Beta Estimation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -101013,24 +101138,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -101073,16 +101196,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       methylation_array_harmonization_workflows:
         anyOf:
@@ -101462,7 +101584,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -101478,17 +101609,30 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Liftover
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -101578,24 +101722,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -101638,16 +101780,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       mirna_expression_workflows:
         anyOf:
@@ -101960,7 +102101,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -101976,17 +102126,30 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - BCGSC miRNA Profiling
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -130908,24 +131071,22 @@ schema:
           - file_format
           - md5sum
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -130968,16 +131129,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -131697,24 +131857,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -131757,16 +131915,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -132254,24 +132411,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -132314,16 +132469,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       plate_name:
         description: User specified identifier of the plate used to prepare the sample
@@ -133423,14 +133577,17 @@ schema:
             type: string
           - type: 'null'
       encoding:
-        description: Version of ASCII encoding of quality values found in the file.
+        description: The version of ASCII used to encode the read group quality control
+          data.
         termDef:
-          cde_id:
-          cde_version:
-          source: FastQC
-          term: Encoding
+          cde_id: C181705
+          cde_version: 23.11d
+          source: NCIt
+          term: ASCII Encoding Version for Read Group QC
+          term_id: C181705
           term_url: 
-            http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181705
+          term_version: 23.11d
         type: string
       fastq_name:
         description: The name (or part of a name) of a file (of any type).
@@ -133852,14 +134009,16 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       total_sequences:
-        description: A count of the total number of sequences processed.
+        description: The total number of nucleotide sequences processed.
         termDef:
-          cde_id:
-          cde_version:
-          source: FastQC
-          term: Total Sequences
+          cde_id: C181855
+          cde_version: 23.11d
+          source: NCIt
+          term: Total Number of Nucleotide Sequences Processed
+          term_id: C181855
           term_url: 
-            http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181855
+          term_version: 23.11d
         type: integer
       type:
         type: string
@@ -133890,7 +134049,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -133906,17 +134074,30 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Read Group Quality Control
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -134220,7 +134401,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -134236,7 +134426,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - CellRanger - 10x Filtered Counts
           - CellRanger - 10x Raw Counts
@@ -134256,13 +134447,25 @@ schema:
           - STAR - Smart-Seq2 Filtered Counts
           - zUMIs - Smart-Seq2 Counts
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -134360,24 +134563,22 @@ schema:
           - file_format
           - md5sum
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -134472,16 +134673,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -136738,24 +136938,22 @@ schema:
                 type: string
             type: object
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -136798,16 +136996,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -136978,24 +137175,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -137091,16 +137286,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -137290,24 +137484,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -137403,16 +137595,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -138169,24 +138360,22 @@ schema:
           - Diagnostic Slide
           - Tissue Slide
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -138245,16 +138434,15 @@ schema:
         description: Magnification used to capture the image.
         type: number
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -138637,7 +138825,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -138653,7 +138850,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Aliquot Ensemble Somatic Variant Merging and Masking
           - CaVEMan Variant Aggregation and Masking
@@ -138665,13 +138863,25 @@ schema:
           - SomaticSniper Variant Aggregation and Masking
           - VarScan2 Variant Aggregation and Masking
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -138854,7 +139064,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -138870,7 +139089,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - CaVEMan Annotation
           - FoundationOne Annotation
@@ -138882,13 +139102,25 @@ schema:
           - SomaticSniper Annotation
           - VarScan2 Annotation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -139132,7 +139364,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -139148,7 +139389,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - ABSOLUTE LiftOver
           - ASCAT3
@@ -139156,13 +139398,25 @@ schema:
           - AscatNGS
           - GATK4 CNV
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -139345,7 +139599,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -139361,7 +139624,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - CaVEMan
           - GATK4 MuTect2
@@ -139373,13 +139637,25 @@ schema:
           - Strelka2 RNA
           - VarScan2
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -139524,24 +139800,22 @@ schema:
           - file_format
           - md5sum
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -139584,16 +139858,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -139957,7 +140230,16 @@ schema:
             type: string
           - type: 'null'
       workflow_link:
-        description: Link to Github hash for the CWL workflow used.
+        description: A URL-formatted web address for a data analysis workflow.
+        termDef:
+          cde_id: C182116
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow URL
+          term_id: C182116
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182116
+          term_version: 23.11d
         type: string
       workflow_start_datetime:
         common:
@@ -139973,7 +140255,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Arriba
           - BRASS
@@ -139982,13 +140265,25 @@ schema:
           - STAR-Fusion
           - SvABA
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
-        description: Major version for a GDC workflow.
+        description: The version of the workflow used in data analysis.
+        termDef:
+          cde_id: C182117
+          cde_version: 23.11d
+          source: NCIt
+          term: Data Analysis Workflow Version
+          term_id: C182117
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C182117
+          term_version: 23.11d
         type: string
     required:
       - submitter_id
@@ -140096,24 +140391,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -140209,16 +140502,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -140483,24 +140775,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -140543,16 +140833,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       proc_internal:
         description: Internal data processing flag
@@ -140789,24 +141078,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -140849,16 +141136,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -141127,24 +141413,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -141187,16 +141471,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -141422,24 +141705,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -141482,16 +141763,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -141717,24 +141997,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -141777,16 +142055,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -141998,24 +142275,22 @@ schema:
           term:
           term_url:
       file_name:
-        common:
-          description: The name (or part of a name) of a file (of any type).
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The name (or part of a name) of a file (of any type).
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       file_size:
-        common:
-          description: The size of the data file (object) in bytes.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The size of the data file (object) in bytes.
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: integer
       file_state:
         common:
@@ -142058,16 +142333,15 @@ schema:
         systemAlias: node_id
         type: string
       md5sum:
-        common:
-          description: The 128-bit hash value expressed as a 32 digit hexadecimal
-            number (in lower case) used as a file's digital fingerprint.
-          termDef:
-            cde_id:
-            cde_version:
-            source:
-            term:
-            term_url:
+        description: The 128-bit hash value expressed as a 32 digit hexadecimal number
+          (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
         type: string
       project_id:
         common:
@@ -163176,4 +163450,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.3
+version: 3.0.4.dev6
