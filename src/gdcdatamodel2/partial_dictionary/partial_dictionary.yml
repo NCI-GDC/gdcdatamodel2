@@ -1692,15 +1692,19 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - BWA with Mark Duplicates and Cocleaning
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -1963,7 +1967,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - BWA
           - BWA with BQSR
@@ -1978,11 +1983,14 @@ schema:
           - STAR 2-Pass Transcriptome
           - zUMIs - Smart-Seq2
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -9963,15 +9971,19 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - DNAcopy
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -10594,18 +10606,22 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - GISTIC - Copy Number Score
           - GISTIC - Arm Level Copy Number
           - GISTIC - Focal Deletion
           - GISTIC - Focal Amplification
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -22027,7 +22043,7 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2902402%20and%20ver_nr=1.0
       ann_arbor_b_symptoms_described:
-        description: Text descibing the specific lymphoma B-symptoms present.
+        description: Text describing the specific lymphoma B-symptoms present.
         enum:
           - Fever
           - Night Sweats
@@ -90515,16 +90531,20 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Seurat - 10x Chromium
           - Seurat - Smart-Seq2
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -99658,7 +99678,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - FM Copy Number Variation
           - FM Simple Somatic Mutation
@@ -99669,11 +99690,14 @@ schema:
           - MuTect2
           - VCF LiftOver
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -99936,16 +99960,20 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Birdseed
           - HaplotypeCaller
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -100908,15 +100936,19 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - SeSAMe Methylation Beta Estimation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -101478,15 +101510,19 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Liftover
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -101976,15 +102012,19 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - BCGSC miRNA Profiling
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -133425,10 +133465,11 @@ schema:
       encoding:
         description: Version of ASCII encoding of quality values found in the file.
         termDef:
-          cde_id:
+          cde_id: Encoding
           cde_version:
           source: FastQC
           term: Encoding
+          term_id: Encoding
           term_url: 
             http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html
         type: string
@@ -133854,10 +133895,11 @@ schema:
       total_sequences:
         description: A count of the total number of sequences processed.
         termDef:
-          cde_id:
+          cde_id: Total Sequences
           cde_version:
           source: FastQC
           term: Total Sequences
+          term_id: Total Sequences
           term_url: 
             http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html
         type: integer
@@ -133906,15 +133948,19 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Read Group Quality Control
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -134236,7 +134282,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - CellRanger - 10x Filtered Counts
           - CellRanger - 10x Raw Counts
@@ -134256,11 +134303,14 @@ schema:
           - STAR - Smart-Seq2 Filtered Counts
           - zUMIs - Smart-Seq2 Counts
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -138653,7 +138703,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Aliquot Ensemble Somatic Variant Merging and Masking
           - CaVEMan Variant Aggregation and Masking
@@ -138665,11 +138716,14 @@ schema:
           - SomaticSniper Variant Aggregation and Masking
           - VarScan2 Variant Aggregation and Masking
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -138870,7 +138924,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - CaVEMan Annotation
           - FoundationOne Annotation
@@ -138882,11 +138937,14 @@ schema:
           - SomaticSniper Annotation
           - VarScan2 Annotation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -139148,7 +139206,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - ABSOLUTE LiftOver
           - ASCAT3
@@ -139156,11 +139215,14 @@ schema:
           - AscatNGS
           - GATK4 CNV
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -139361,7 +139423,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - CaVEMan
           - GATK4 MuTect2
@@ -139373,11 +139436,14 @@ schema:
           - Strelka2 RNA
           - VarScan2
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -139973,7 +140039,8 @@ schema:
             type: string
           - type: 'null'
       workflow_type:
-        description: Generic name for the workflow used to analyze a data set.
+        description: The name of the workflow used to process and/or analyze a data
+          set.
         enum:
           - Arriba
           - BRASS
@@ -139982,11 +140049,14 @@ schema:
           - STAR-Fusion
           - SvABA
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181725
+          cde_version: 1.0
+          source: NCIt
           term:
-          term_url:
+          term_id: C181725
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181725
+          term_version: 23.11d
       workflow_version:
         description: Major version for a GDC workflow.
         type: string
@@ -163176,4 +163246,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.3
+version: 3.0.4.dev1
