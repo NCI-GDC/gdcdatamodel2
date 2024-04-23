@@ -133463,15 +133463,17 @@ schema:
             type: string
           - type: 'null'
       encoding:
-        description: Version of ASCII encoding of quality values found in the file.
+        description: The version of ASCII used to encode the read group quality control
+          data.
         termDef:
-          cde_id: Encoding
-          cde_version:
-          source: FastQC
-          term: Encoding
-          term_id: Encoding
+          cde_id: C181705
+          cde_version: 23.11d
+          source: NCIt
+          term: ASCII Encoding Version for Read Group QC
+          term_id: C181705
           term_url: 
-            http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181705
+          term_version: 23.11d
         type: string
       fastq_name:
         description: The name (or part of a name) of a file (of any type).
@@ -133893,15 +133895,16 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       total_sequences:
-        description: A count of the total number of sequences processed.
+        description: The total number of nucleotide sequences processed.
         termDef:
-          cde_id: Total Sequences
-          cde_version:
-          source: FastQC
-          term: Total Sequences
-          term_id: Total Sequences
+          cde_id: C181855
+          cde_version: 23.11d
+          source: NCIt
+          term: Total Number of Nucleotide Sequences Processed
+          term_id: C181855
           term_url: 
-            http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/1%20Basic%20Statistics.html
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181855
+          term_version: 23.11d
         type: integer
       type:
         type: string
@@ -163246,4 +163249,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev1
+version: 3.0.4.dev4
