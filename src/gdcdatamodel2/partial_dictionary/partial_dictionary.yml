@@ -139392,9 +139392,11 @@ schema:
         description: The name of the workflow used to process and/or analyze a data
           set.
         enum:
+          - ABSOLUTE GATK4 CNV Auto
+          - ABSOLUTE GATK4 CNV Curated
           - ABSOLUTE LiftOver
-          - ASCAT3
           - ASCAT2
+          - ASCAT3
           - AscatNGS
           - GATK4 CNV
         termDef:
@@ -163450,4 +163452,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev7
+version: 3.0.4.dev8
