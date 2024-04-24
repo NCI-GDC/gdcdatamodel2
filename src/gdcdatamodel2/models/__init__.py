@@ -119,6 +119,9 @@ from .annotationannotatesslideimage import AnnotationAnnotatesSlideImage
 from .annotationannotatessomaticmutationindex import AnnotationAnnotatesSomaticMutationIndex
 from .annotationannotatesstructuralvariation import AnnotationAnnotatesStructuralVariation
 from .annotationannotatessubmittedalignedreads import AnnotationAnnotatesSubmittedAlignedReads
+from .annotationannotatessubmittedexpressionarray import (
+    AnnotationAnnotatesSubmittedExpressionArray,
+)
 from .annotationannotatessubmittedgenomicprofile import AnnotationAnnotatesSubmittedGenomicProfile
 from .annotationannotatessubmittedgenotypingarray import (
     AnnotationAnnotatesSubmittedGenotypingArray,
@@ -455,6 +458,7 @@ from .structuralvariationdatafromstructuralvariantcallingworkflow import (
 )
 from .structuralvariationrelatestocase import StructuralVariationRelatesToCase
 from .submitted_aligned_reads import SubmittedAlignedReads
+from .submitted_expression_array import SubmittedExpressionArray
 from .submitted_genomic_profile import SubmittedGenomicProfile
 from .submitted_genotyping_array import SubmittedGenotypingArray
 from .submitted_methylation_beta_value import SubmittedMethylationBetaValue
@@ -462,6 +466,8 @@ from .submitted_tangent_copy_number import SubmittedTangentCopyNumber
 from .submitted_unaligned_reads import SubmittedUnalignedReads
 from .submittedalignedreadsdatafromreadgroup import SubmittedAlignedReadsDataFromReadGroup
 from .submittedalignedreadsrelatestocase import SubmittedAlignedReadsRelatesToCase
+from .submittedexpressionarrayderivedfromaliquot import SubmittedExpressionArrayDerivedFromAliquot
+from .submittedexpressionarrayrelatestocase import SubmittedExpressionArrayRelatesToCase
 from .submittedgenomicprofiledatafromreadgroup import SubmittedGenomicProfileDataFromReadGroup
 from .submittedgenomicprofilerelatestocase import SubmittedGenomicProfileRelatesToCase
 from .submittedgenotypingarrayderivedfromaliquot import SubmittedGenotypingArrayDerivedFromAliquot
@@ -574,6 +580,7 @@ __all__ = [
     "AnnotationAnnotatesSomaticMutationIndex",
     "AnnotationAnnotatesStructuralVariation",
     "AnnotationAnnotatesSubmittedAlignedReads",
+    "AnnotationAnnotatesSubmittedExpressionArray",
     "AnnotationAnnotatesSubmittedGenomicProfile",
     "AnnotationAnnotatesSubmittedGenotypingArray",
     "AnnotationAnnotatesSubmittedMethylationBetaValue",
@@ -807,6 +814,7 @@ __all__ = [
     "StructuralVariationDataFromStructuralVariantCallingWorkflow",
     "StructuralVariationRelatesToCase",
     "SubmittedAlignedReads",
+    "SubmittedExpressionArray",
     "SubmittedGenomicProfile",
     "SubmittedGenotypingArray",
     "SubmittedMethylationBetaValue",
@@ -814,6 +822,8 @@ __all__ = [
     "SubmittedUnalignedReads",
     "SubmittedAlignedReadsDataFromReadGroup",
     "SubmittedAlignedReadsRelatesToCase",
+    "SubmittedExpressionArrayDerivedFromAliquot",
+    "SubmittedExpressionArrayRelatesToCase",
     "SubmittedGenomicProfileDataFromReadGroup",
     "SubmittedGenomicProfileRelatesToCase",
     "SubmittedGenotypingArrayDerivedFromAliquot",
