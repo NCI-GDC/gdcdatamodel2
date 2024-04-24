@@ -490,6 +490,7 @@ schema:
             type: object
       average_base_quality:
         description: Average base quality collected from samtools.
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -499,6 +500,7 @@ schema:
         type: number
       average_insert_size:
         description: Average insert size collected from samtools.
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -508,6 +510,7 @@ schema:
         type: integer
       average_read_length:
         description: Average read length collected from samtools.
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -522,6 +525,8 @@ schema:
       contamination:
         description: Fraction of reads coming from cross-sample contamination collected
           from GATK4.
+        maximum: 1
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -532,6 +537,7 @@ schema:
       contamination_error:
         description: Estimation error of cross-sample contamination collected from
           GATK4.
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -727,6 +733,7 @@ schema:
       mean_coverage:
         description: Mean coverage for whole genome sequencing, or mean target coverage
           for whole exome and targeted sequencing, collected from Picard Tools.
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -737,6 +744,7 @@ schema:
       msi_score:
         description: Numeric score denoting the aligned reads file's MSI score from
           MSIsensor.
+        minimum: 0
         type: number
       msi_status:
         description: MSIsensor determination of either microsatellite stability or
@@ -746,6 +754,7 @@ schema:
           - MSS
       pairs_on_diff_chr:
         description: Pairs on different chromosomes collected from samtools.
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -794,6 +803,8 @@ schema:
         type: string
       proportion_base_mismatch:
         description: Proportion of mismatched bases collected from samtools.
+        maximum: 1
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -805,6 +816,8 @@ schema:
         description: Proportion of all reference bases for whole genome sequencing,
           or targeted bases for whole exome and targeted sequencing, that achieves
           10X or greater coverage from Picard Tools.
+        maximum: 1
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -816,6 +829,8 @@ schema:
         description: Proportion of all reference bases for whole genome sequencing,
           or targeted bases for whole exome and targeted sequencing, that achieves
           30X or greater coverage from Picard Tools.
+        maximum: 1
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -825,6 +840,7 @@ schema:
         type: number
       proportion_reads_duplicated:
         description: Proportion of duplicated reads collected from samtools.
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -834,6 +850,8 @@ schema:
         type: number
       proportion_reads_mapped:
         description: Proportion of mapped reads collected from samtools.
+        maximum: 1
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -844,6 +862,8 @@ schema:
       proportion_targets_no_coverage:
         description: Proportion of targets that did not reach 1X coverage over any
           base from Picard Tools.
+        maximum: 1
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -1003,6 +1023,7 @@ schema:
         type: string
       total_reads:
         description: Total number of reads collected from samtools.
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -1014,6 +1035,7 @@ schema:
         description: Numeric value used to describe the number of sets of chromosomes
           in a cell or an organism. For example, haploid means one set and diploid
           means two sets.
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -1024,6 +1046,8 @@ schema:
       tumor_purity:
         description: Numeric value used to describe the ratio of tumor cells compared
           to total cells present in a sample.
+        maximum: 1
+        minimum: 0
         termDef:
           cde_id:
           cde_version:
@@ -163450,4 +163474,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev7
+version: 3.0.4.dev8
