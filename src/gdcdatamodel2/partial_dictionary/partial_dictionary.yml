@@ -10043,6 +10043,17 @@ schema:
         description: GDC submission batch indicator. It is unique within the context
           of a project.
         type: integer
+      cancer_dna_fraction:
+        description: Fraction of cancer DNA in the tumor tissue.
+        maximum: 1
+        minimum: 0
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Cancer DNA Fraction
+          term_url:
+        type: number
       copy_number_liftover_workflows:
         anyOf:
           - items:
@@ -10207,6 +10218,16 @@ schema:
           - released
           - error
           - deleted
+      genome_doubling:
+        description: Number of genome doubling events.
+        minimum: 0
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Genome Doubling Events
+          term_url:
+        type: integer
       genomic_profile_harmonization_workflows:
         anyOf:
           - items:
@@ -10404,11 +10425,46 @@ schema:
         description: Optional comment about why the file is in the current state,
           mainly for invalid state.
         type: string
+      subclonal_genome_fraction:
+        description: Fraction of subclonal genome in the tumor tissue.
+        maximum: 1
+        minimum: 0
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Subclonal DNA Fraction
+          term_url:
+        type: number
       submitter_id:
         description: A project-specific identifier for a node. This property is the
           calling card/nickname/alias for a unit of submission. It can be used in
           place of the uuid for identifying or recalling a node.
         type: string
+      tumor_ploidy:
+        description: Numeric value used to describe the number of sets of chromosomes
+          in a cell or an organism. For example, haploid means one set and diploid
+          means two sets.
+        minimum: 0
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Tumor Ploidy Value
+          term_url:
+        type: number
+      tumor_purity:
+        description: Numeric value used to describe the ratio of tumor cells compared
+          to total cells present in a sample.
+        maximum: 1
+        minimum: 0
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Tumor Purity Ratio
+          term_url:
+        type: number
       type:
         type: string
       updated_datetime:
@@ -163450,4 +163506,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev7
+version: 3.0.4.dev8
