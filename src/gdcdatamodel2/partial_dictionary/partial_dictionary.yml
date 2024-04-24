@@ -100037,6 +100037,7 @@ schema:
         enum:
           - Birdseed
           - HaplotypeCaller
+          - Strelka2 Germline
         termDef:
           cde_id: C181725
           cde_version: 1.0
@@ -163450,4 +163451,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev7
+version: 3.0.4.dev8
