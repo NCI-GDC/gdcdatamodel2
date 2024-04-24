@@ -94,6 +94,7 @@ from .annotationannotatesfilteredcopynumbersegment import (
 )
 from .annotationannotatesfollowup import AnnotationAnnotatesFollowUp
 from .annotationannotatesgeneexpression import AnnotationAnnotatesGeneExpression
+from .annotationannotatesgermlinemutationindex import AnnotationAnnotatesGermlineMutationIndex
 from .annotationannotatesmaskedmethylationarray import AnnotationAnnotatesMaskedMethylationArray
 from .annotationannotatesmaskedsomaticmutation import AnnotationAnnotatesMaskedSomaticMutation
 from .annotationannotatesmethylationbetavalue import AnnotationAnnotatesMethylationBetaValue
@@ -258,6 +259,7 @@ from .genomicprofileharmonizationworkflowrelatestocase import (
     GenomicProfileHarmonizationWorkflowRelatesToCase,
 )
 from .germline_mutation_calling_workflow import GermlineMutationCallingWorkflow
+from .germline_mutation_index import GermlineMutationIndex
 from .germlinemutationcallingworkflowperformedonalignedreads import (
     GermlineMutationCallingWorkflowPerformedOnAlignedReads,
 )
@@ -267,6 +269,10 @@ from .germlinemutationcallingworkflowperformedonsubmittedgenotypingarray import 
 from .germlinemutationcallingworkflowrelatestocase import (
     GermlineMutationCallingWorkflowRelatesToCase,
 )
+from .germlinemutationindexderivedfromsimplegermlinevariation import (
+    GermlineMutationIndexDerivedFromSimpleGermlineVariation,
+)
+from .germlinemutationindexrelatestocase import GermlineMutationIndexRelatesToCase
 from .helpers import base, indexes, related_cases, versioned_nodes, versioning
 from .masked_methylation_array import MaskedMethylationArray
 from .masked_somatic_mutation import MaskedSomaticMutation
@@ -551,6 +557,7 @@ __all__ = [
     "AnnotationAnnotatesFilteredCopyNumberSegment",
     "AnnotationAnnotatesFollowUp",
     "AnnotationAnnotatesGeneExpression",
+    "AnnotationAnnotatesGermlineMutationIndex",
     "AnnotationAnnotatesMaskedMethylationArray",
     "AnnotationAnnotatesMaskedSomaticMutation",
     "AnnotationAnnotatesMethylationBetaValue",
@@ -679,9 +686,12 @@ __all__ = [
     "GenomicProfileHarmonizationWorkflowPerformedOnSubmittedGenomicProfile",
     "GenomicProfileHarmonizationWorkflowRelatesToCase",
     "GermlineMutationCallingWorkflow",
+    "GermlineMutationIndex",
     "GermlineMutationCallingWorkflowPerformedOnAlignedReads",
     "GermlineMutationCallingWorkflowPerformedOnSubmittedGenotypingArray",
     "GermlineMutationCallingWorkflowRelatesToCase",
+    "GermlineMutationIndexDerivedFromSimpleGermlineVariation",
+    "GermlineMutationIndexRelatesToCase",
     "MaskedMethylationArray",
     "MaskedSomaticMutation",
     "MaskedMethylationArrayDataFromMethylationArrayHarmonizationWorkflow",
