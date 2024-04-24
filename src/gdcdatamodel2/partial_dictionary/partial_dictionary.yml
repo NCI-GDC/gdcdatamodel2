@@ -138861,6 +138861,7 @@ schema:
           - MuTect2 Variant Aggregation and Masking
           - Pindel Variant Aggregation and Masking
           - SomaticSniper Variant Aggregation and Masking
+          - Tumor-Only Somatic Variant Merging and Masking
           - VarScan2 Variant Aggregation and Masking
         termDef:
           cde_id: C181725
@@ -163450,4 +163451,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev7
+version: 3.0.4.dev8
