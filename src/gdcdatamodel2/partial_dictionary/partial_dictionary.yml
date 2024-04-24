@@ -137006,6 +137006,17 @@ schema:
           term:
           term_url:
         type: string
+      platform:
+        description: Name of the platform used to obtain data.
+        enum:
+          - Illumina
+          - Other
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
       project_id:
         common:
           description: Unique ID for any specific defined piece of work that is undertaken
@@ -163450,4 +163461,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev7
+version: 3.0.4.dev8
