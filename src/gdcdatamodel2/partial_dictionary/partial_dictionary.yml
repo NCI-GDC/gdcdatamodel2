@@ -139096,10 +139096,13 @@ schema:
           - FoundationOne Annotation
           - GATK4 MuTect2 Annotation
           - GATK4 MuTect2 Tumor-Only Annotation
+          - Manta Indel Annotation
           - MuSE Annotation
           - MuTect2 Annotation
           - Pindel Annotation
           - SomaticSniper Annotation
+          - Strelka2 Annotation
+          - SvABA Indel Annotation
           - VarScan2 Annotation
         termDef:
           cde_id: C181725
@@ -163450,4 +163453,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev7
+version: 3.0.4.dev8
