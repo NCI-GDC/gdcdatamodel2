@@ -162,6 +162,34 @@ schema:
           term:
           term_url:
         type: string
+      platform:
+        description: Name of the platform used to obtain data.
+        enum:
+          - Complete Genomics
+          - Illumina
+          - Ion Torrent
+          - LS454
+          - Other
+          - PacBio
+          - SOLiD
+        enumDef:
+          Other:
+            description: Different than the one(s) previously specified or mentioned.
+            termDef:
+              cde_id: C17649
+              cde_version: 19.12e
+              source: NCIt
+              term: Other
+              term_id: C17649
+              term_url: 
+                https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
+              term_version: 19.12e
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
       project_id:
         common:
           description: Unique ID for any specific defined piece of work that is undertaken
@@ -163450,4 +163478,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev7
+version: 3.0.4.dev8
