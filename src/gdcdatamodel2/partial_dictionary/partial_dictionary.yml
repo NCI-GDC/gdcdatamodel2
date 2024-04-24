@@ -140261,6 +140261,7 @@ schema:
           - Arriba
           - BRASS
           - Fusion Catcher
+          - Manta
           - Pizzly
           - STAR-Fusion
           - SvABA
@@ -163450,4 +163451,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev7
+version: 3.0.4.dev8
