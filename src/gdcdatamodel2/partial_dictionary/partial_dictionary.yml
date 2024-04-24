@@ -100328,6 +100328,7 @@ schema:
         enum:
           - Birdseed
           - HaplotypeCaller
+          - Strelka2 Germline
         termDef:
           cde_id: C181725
           cde_version: 1.0
@@ -137764,8 +137765,9 @@ schema:
       data_format:
         description: Format of the data files.
         enum:
-          - VCF
+          - gVCF
           - TSV
+          - VCF
         termDef:
           cde_id:
           cde_version:
@@ -137939,6 +137941,7 @@ schema:
         description: Name of the platform used to obtain data.
         enum:
           - Affymetrix SNP 6.0
+          - Illumina
         termDef:
           cde_id:
           cde_version:
@@ -140063,9 +140066,11 @@ schema:
         description: The name of the workflow used to process and/or analyze a data
           set.
         enum:
+          - ABSOLUTE GATK4 CNV Auto
+          - ABSOLUTE GATK4 CNV Curated
           - ABSOLUTE LiftOver
-          - ASCAT3
           - ASCAT2
+          - ASCAT3
           - AscatNGS
           - GATK4 CNV
         termDef:
@@ -164430,4 +164435,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev45
+version: 3.0.4.dev48
