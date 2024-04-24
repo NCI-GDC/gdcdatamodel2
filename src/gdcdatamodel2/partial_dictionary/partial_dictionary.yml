@@ -9096,6 +9096,16 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
+      curated_model_index:
+        description: Index number of the curated model.
+        minimum: 1
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Curated Model Index
+          term_url:
+        type: integer
       data_category:
         description: Broad categorization of the contents of the data file.
         enum:
@@ -9109,6 +9119,7 @@ schema:
       data_format:
         description: Format of the data files.
         enum:
+          - PDF
           - TAR
         termDef:
           cde_id:
@@ -9119,6 +9130,7 @@ schema:
       data_type:
         description: Specific content type of the data file.
         enum:
+          - CNV Model
           - Intermediate Analysis Archive
         termDef:
           cde_id:
@@ -163450,4 +163462,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev7
+version: 3.0.4.dev8
