@@ -368,6 +368,9 @@ from .rnaexpressionworkflowperformedonalignedreads import (
 from .rnaexpressionworkflowperformedonsubmittedalignedreads import (
     RnaExpressionWorkflowPerformedOnSubmittedAlignedReads,
 )
+from .rnaexpressionworkflowperformedonsubmittedexpressionarray import (
+    RnaExpressionWorkflowPerformedOnSubmittedExpressionArray,
+)
 from .rnaexpressionworkflowperformedonsubmittedunalignedreads import (
     RnaExpressionWorkflowPerformedOnSubmittedUnalignedReads,
 )
@@ -766,6 +769,7 @@ __all__ = [
     "RnaExpressionWorkflow",
     "RnaExpressionWorkflowPerformedOnAlignedReads",
     "RnaExpressionWorkflowPerformedOnSubmittedAlignedReads",
+    "RnaExpressionWorkflowPerformedOnSubmittedExpressionArray",
     "RnaExpressionWorkflowPerformedOnSubmittedUnalignedReads",
     "RnaExpressionWorkflowRelatesToCase",
     "Root",
