@@ -93463,6 +93463,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -93513,6 +93514,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -164830,4 +164832,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev49
+version: 3.0.4.dev48
