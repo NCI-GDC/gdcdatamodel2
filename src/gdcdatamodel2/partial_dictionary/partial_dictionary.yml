@@ -129287,6 +129287,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -129634,6 +129635,7 @@ schema:
         enum:
           - Extensive
           - Focal
+          - Unknown
           - Not Reported
         termDef:
           cde_id: C25502
@@ -129647,6 +129649,7 @@ schema:
           - 'Yes'
           - 'No'
           - Unknown
+          - Not Reported
         enumDef:
           'No':
             description: The non-affirmative response to a question.
@@ -129687,6 +129690,8 @@ schema:
           - Gross Extension
           - Microscopic Extension
           - No Extranodal Extension
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: C117309
           cde_version: 22.11d
@@ -129713,6 +129718,7 @@ schema:
           - Moderate/Advanced (T4a)
           - Very Advanced (T4b)
           - Unknown
+          - Not Reported
         enumDef:
           Minimal (T3):
             description: Thyroid cancer with a tumor size greater than 4 cm in greatest
@@ -129959,6 +129965,8 @@ schema:
           - Neck, Left
           - Neck, NOS
           - Neck, Right
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -130355,6 +130363,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -130515,6 +130524,8 @@ schema:
           - Echographic
           - Pathologic
           - Radiologic
+          - Unknown
+          - Not Reported
         enumDef:
           Radiologic:
             description: Imaging results obtained through a radiology procedure.
@@ -130539,6 +130550,8 @@ schema:
         enum:
           - Centimeters
           - Millimeters
+          - Unknown
+          - Not Reported
         enumDef:
           Centimeters:
             description: A basic unit of length in the former CGS version of metric
@@ -130697,6 +130710,8 @@ schema:
           - Papillary, NOS
           - Solid
           - Tubular
+          - Unknown
+          - Not Reported
         enumDef:
           Cribiform:
             description: A morphologic finding indicating the presence of sheets of
@@ -130804,6 +130819,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -131119,6 +131135,24 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6050944%20and%20ver_nr=1.0
         type: integer
+      prcc_type:
+        description: The type of papillary renal cell carcinoma. It is classified
+          as type 1 or 2, based on the cytoplasmic volume and the thickness of the
+          lining neoplastic cells.
+        enum:
+          - Type 1
+          - Type 2
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C6975
+          cde_version: 23.11d
+          source: NCIt
+          term: Papillary Renal Cell Carcinoma
+          term_id: C6975
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C6975
+          term_version: 23.11d
       project_id:
         common:
           description: Unique ID for any specific defined piece of work that is undertaken
@@ -131175,6 +131209,8 @@ schema:
           - R1
           - R2
           - RX
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: C4809
           cde_version: 21.04d
@@ -131190,6 +131226,8 @@ schema:
           - 11-20 mm
           - '>20 mm'
           - No macroscopic disease
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -131214,6 +131252,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -131251,6 +131290,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -131386,12 +131426,27 @@ schema:
           term_url: 
             https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C160996
           term_version: 19.12e
+      tumor_burden:
+        description: Refers to the number of cancer cells, the size of a tumor, or
+          the amount of cancer in the body.
+        minimum: 0
+        termDef:
+          cde_id: C28384
+          cde_version: 23.03d
+          source: NCIt
+          term: Tumor Burden
+          term_id: C28384
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C28384
+          term_version: 23.03d
+        type: number
       tumor_depth_descriptor:
         description: Text term for the degree to which a tumor has penetrated into
           organ or tissue.
         enum:
           - Deep
           - Superficial
+          - Unknown
           - Not Reported
         enumDef:
           Deep:
@@ -131451,6 +131506,8 @@ schema:
           - Few
           - Many
           - Moderate
+          - Unknown
+          - Not Reported
         enumDef:
           Few:
             description: An indefinite but relatively small number.
@@ -131503,6 +131560,8 @@ schema:
           - Few
           - Many
           - Moderate
+          - Unknown
+          - Not Reported
         enumDef:
           Few:
             description: An indefinite but relatively small number.
@@ -131593,6 +131652,7 @@ schema:
           - Dome
           - Mushroom
           - Unknown
+          - Not Reported
         enumDef:
           Diffuse:
             description: Widely spread; not localized or confined.
@@ -131802,6 +131862,7 @@ schema:
           - Peripheral zone
           - Transition zone
           - Unknown zone
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -164830,4 +164891,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev49
+version: 3.0.4.dev48
