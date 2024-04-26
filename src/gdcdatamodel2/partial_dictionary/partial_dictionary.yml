@@ -96,20 +96,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -156,11 +162,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -692,20 +701,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -752,11 +767,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       mean_coverage:
         description: Mean coverage for whole genome sequencing, or mean target coverage
@@ -1283,20 +1301,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -1343,11 +1367,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -2670,20 +2697,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -2782,11 +2815,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -3532,20 +3568,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -3645,11 +3687,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -7345,20 +7390,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -7405,11 +7456,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -7789,20 +7843,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -7849,11 +7909,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -9121,20 +9184,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -9181,11 +9250,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -9360,20 +9432,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -9420,11 +9498,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -9726,20 +9807,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -9839,11 +9926,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -10389,20 +10479,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -10512,11 +10608,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -88032,20 +88131,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -88144,11 +88249,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -94236,20 +94344,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -94296,11 +94410,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platforms:
         anyOf:
@@ -94828,20 +94945,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -94888,11 +95011,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -99607,20 +99733,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -99667,11 +99799,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -100426,20 +100561,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -100486,11 +100627,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -100748,20 +100892,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -100808,11 +100958,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       methylation_array_harmonization_workflows:
         anyOf:
@@ -101087,20 +101240,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -101199,11 +101358,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -101741,20 +101903,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -101801,11 +101969,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       methylation_array_harmonization_workflows:
         anyOf:
@@ -102325,20 +102496,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -102385,11 +102562,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       mirna_expression_workflows:
         anyOf:
@@ -104337,7 +104517,7 @@ schema:
             type: object
       gene_symbol:
         description: The text term used to describe a gene targeted or included in
-          molecular analysis. For rearrangements, this is shold be used to represent
+          molecular analysis. For rearrangements, this should be used to represent
           the reference gene.
         enum:
           - A1CF
@@ -115916,8 +116096,8 @@ schema:
         type: string
       second_gene_symbol:
         description: The text term used to describe a secondary gene targeted or included
-          in molecular analysis. For rearrangements, this is should represent the
-          location of the variant.
+          in molecular analysis. For rearrangements, this should represent the location
+          of the variant.
         enum:
           - A1CF
           - ABI1
@@ -131702,20 +131882,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -131762,11 +131948,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -132488,20 +132677,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -132548,11 +132743,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -133042,20 +133240,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -133102,11 +133306,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       plate_name:
         description: User specified identifier of the plate used to prepare the sample
@@ -134221,11 +134428,14 @@ schema:
       fastq_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       id:
         common:
@@ -135253,20 +135463,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -135365,11 +135581,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -135537,8 +135756,8 @@ schema:
       biospecimen_anatomic_site:
         deprecated_enum:
           - Head - Face Or Neck, Nos
-        description: Text term that represents the name of the primary disease site
-          of the submitted tumor sample.
+        description: Text term that represents the name of the organ or tissue site
+          of the submitted sample.
         enum:
           - Abdomen
           - Abdominal Wall
@@ -136243,7 +136462,7 @@ schema:
         type: number
       days_to_collection:
         description: The number of days from the index date to the date a sample was
-          collected for a specific study or project.
+          received by the Biospecimen Core Resource (BCR) or other center for processing.
         maximum: 32872
         minimum: -32872
         termDef:
@@ -136257,8 +136476,8 @@ schema:
         type: integer
       days_to_sample_procurement:
         description: The number of days from the index date to the date a patient
-          underwent a procedure (e.g. surgical resection) yielding a sample that was
-          eventually used for research.
+          underwent a procedure (e.g. surgical resection) to yield or remove from
+          the patient a sample that was eventually used for research.
         maximum: 32872
         minimum: -32872
         termDef:
@@ -137628,20 +137847,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -137688,11 +137913,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -137877,20 +138105,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -137990,11 +138224,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -138187,20 +138424,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -138300,11 +138543,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -139091,20 +139337,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -139167,11 +139419,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -140540,20 +140795,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -140600,11 +140861,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -141132,20 +141396,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -141245,11 +141515,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -141528,20 +141801,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -141588,11 +141867,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       proc_internal:
         description: Internal data processing flag
@@ -141871,20 +142153,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -141931,11 +142219,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -142124,20 +142415,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -142184,11 +142481,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -142459,20 +142759,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -142519,11 +142825,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -142751,20 +143060,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -142811,11 +143126,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       platform:
         description: Name of the platform used to obtain data.
@@ -143043,20 +143361,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -143103,11 +143427,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -143321,20 +143648,26 @@ schema:
       file_name:
         description: The name (or part of a name) of a file (of any type).
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171191
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Name
+          term_id: C171191
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171191
+          term_version: 23.11d
         type: string
       file_size:
         description: The size of the data file (object) in bytes.
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171192
+          cde_version: 23.11d
+          source: NCIt
+          term: Electronic File Size
+          term_id: C171192
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171192
+          term_version: 23.11d
         type: integer
       file_state:
         common:
@@ -143381,11 +143714,14 @@ schema:
           (in lower case) used as a file's digital fingerprint.
         pattern: ^[a-f0-9]{32}$
         termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
+          cde_id: C171276
+          cde_version: 23.11d
+          source: NCIt
+          term: MD5 Checksum
+          term_id: C171276
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171276
+          term_version: 23.11d
         type: string
       project_id:
         common:
@@ -164494,4 +164830,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev47
+version: 3.0.4.dev45
