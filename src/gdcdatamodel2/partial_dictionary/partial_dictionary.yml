@@ -18538,7 +18538,6 @@ schema:
         enum:
           - 'Yes'
           - 'No'
-          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -22452,8 +22451,6 @@ schema:
           - Night Sweats
           - Weight Loss
           - Other
-          - Unknown
-          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -22753,8 +22750,6 @@ schema:
           - SPD-Surgical Progression
           - TE-Too Early
           - VGPR-Very Good Partial Response
-          - Unknown
-          - Not Reported
         enumDef:
           AJ-Adjuvant Therapy:
             description: Any therapy that is administered to augment or stimulate
@@ -23177,34 +23172,12 @@ schema:
           term: Burkitt Lymphoma Clinical Variant Type
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3770421%20and%20ver_nr=1.0
-      calgb_risk_group:
-        description: A classification strategy for Acute Myeloid Leukemia (AML) developed
-          by the cancer research cooperative group Cancer And Leukemia Group B that
-          assigns a rating based on the cytogenetic and molecular features of a particular
-          disease.
-        enum:
-          - Favorable
-          - Intermediate/Normal
-          - Poor
-          - N/A
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id: C159229
-          cde_version: 23.11d
-          source: NCIt
-          term: Cytogenetic Risk Group-CALGB Criteria for AML
-          term_id: C159229
-          term_url: 
-            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C159229
-          term_version: 23.11d
       cancer_detection_method:
         description: The method used to detect disease.
         enum:
           - Screening
           - Surveillance
           - Symptomatic
-          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -23462,7 +23435,6 @@ schema:
           - III
           - IV
           - V
-          - Unknown
           - Not Reported
         enumDef:
           I:
@@ -23557,7 +23529,6 @@ schema:
           - Prior primary
           - Progression
           - recurrence
-          - Subsequent Primary
           - Synchronous primary
           - other
           - Unknown
@@ -24012,7 +23983,6 @@ schema:
           - Liver
           - Small Bowel
           - Spleen
-          - Unknown
           - Not Reported
         enumDef:
           Adrenal:
@@ -24241,7 +24211,6 @@ schema:
         enum:
           - 'Yes'
           - 'No'
-          - Unknown
           - Not Reported
         termDef:
           cde_id: C138900
@@ -24258,7 +24227,6 @@ schema:
         enum:
           - 'Yes'
           - 'No'
-          - Unknown
           - Not Reported
         termDef:
           cde_id: C125904
@@ -24614,8 +24582,6 @@ schema:
         enum:
           - M0
           - M1
-          - Unknown
-          - Not Reported
         enumDef:
           M0:
             description: Adrenal cancer with no involvement of distant organs or tissues.
@@ -24657,8 +24623,6 @@ schema:
         enum:
           - N0
           - N1
-          - Unknown
-          - Not Reported
         enumDef:
           N0:
             description: Adrenal cancer with no involvement of regional lymph nodes.
@@ -24701,8 +24665,6 @@ schema:
           - Stage II
           - Stage III
           - Stage IV
-          - Unknown
-          - Not Reported
         enumDef:
           Stage I:
             description: 'Stage I includes: T1, N0, M0. Tumor 5 cm or less in greatest
@@ -24774,8 +24736,6 @@ schema:
           - T2
           - T3
           - T4
-          - Unknown
-          - Not Reported
         enumDef:
           T1:
             description: Adrenal cancer with tumor size equal or less than 5.0 cm.
@@ -25763,7 +25723,6 @@ schema:
           - Group 3
           - Group 4
           - Group 5
-          - Unknown
           - Not Reported
         enumDef:
           Group 1:
@@ -25854,8 +25813,6 @@ schema:
         enum:
           - Pattern 4
           - Pattern 5
-          - Unknown
-          - Not Reported
         enumDef:
           Pattern 4:
             description: A pattern of prostate carcinoma characterized by the presence
@@ -26404,8 +26361,6 @@ schema:
           - High-Intermediate Risk
           - Low Risk
           - Low-Intermediate Risk
-          - Unknown
-          - Not Reported
         enumDef:
           High Risk:
             description: A risk group associated with a total score of 4 or 5 on the
@@ -27064,8 +27019,6 @@ schema:
           - Renal Sinus
           - Renal Vein
           - Ureter
-          - Unknown
-          - Not Reported
         enumDef:
           Ureter:
             description: The thick-walled tube that carries urine from each kidney
@@ -27096,8 +27049,6 @@ schema:
           - Stage III
           - Stage IVa
           - Stage IVb
-          - Unknown
-          - Not Reported
         enumDef:
           Stage I:
             description: The tumor is completely encapsulated.
@@ -27323,7 +27274,6 @@ schema:
         enum:
           - 'Yes'
           - 'No'
-          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -43877,7 +43827,6 @@ schema:
             metastasis
           - Tumor biopsied only at diagnosis; distant metastasis identified at diagnosis
           - Tumor biopsied only at diagnosis; no distant metastasis
-          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -44702,7 +44651,6 @@ schema:
           - Diffuse astrocytoma, low grade
           - Diffuse cutaneous mastocytosis
           - Diffuse intraductal papillomatosis
-          - Diffuse Intrinsic Pontine Glioma, H3 K27M-Mutant
           - Diffuse large B-cell lymphoma associated with chronic inflammation
           - Diffuse large B-cell lymphoma, NOS
           - Diffuse leptomeningeal glioneuronal tumor
@@ -45062,6 +45010,7 @@ schema:
           - Gynandroblastoma
           - Haemangioblastoma
           - Haemangiosarcoma
+          - Hairy cell leukaemia variant
           - Hairy cell leukemia
           - Hairy cell leukemia variant
           - Hairy nevus
@@ -78780,8 +78729,6 @@ schema:
           - Pattern 3
           - Pattern 4
           - Pattern 5
-          - Unknown
-          - Not Reported
         enumDef:
           Pattern 1:
             description: A pattern of prostate carcinoma characterized by the presence
@@ -79249,8 +79196,6 @@ schema:
           - Pattern 3
           - Pattern 4
           - Pattern 5
-          - Unknown
-          - Not Reported
         enumDef:
           Pattern 1:
             description: A pattern of prostate carcinoma characterized by the presence
@@ -82846,9 +82791,6 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161034%20and%20ver_nr=1.0
       sites_of_involvement:
-        deprecated_enum:
-          - Esophagus
-          - Pancreas
         description: The anatomic sites of disease involvement in addition to the
           primary anatomic site.
         enumDef:
@@ -83177,14 +83119,9 @@ schema:
             - Diaphragm
             - Distant Nodes
             - Distant Organ
-            - Dura Mater
             - Ear
             - Epididymis
             - Esophagus
-            - Esophagus, Lower Third
-            - Esophagus, Middle Third
-            - Esophagus, NOS
-            - Esophagus, Upper Third
             - Eye
             - Fallopian Tube, Left
             - Fallopian Tube, NOS
@@ -83207,22 +83144,10 @@ schema:
             - Lower lobe, lung
             - Lung, NOS
             - Lymph Node, Axillary
-            - Lymph Node, Cervical
-            - Lymph Node, Femoral
-            - Lymph Node, Hilar
-            - Lymph Node, Iliac-Common
-            - Lymph Node, Iliac-External
             - Lymph Node, Inguinal
-            - Lymph Node, Mediastinal
-            - Lymph Node, Mesenteric
             - Lymph node, NOS
-            - Lymph Node, Para-Aortic
             - Lymph Node, Regional
-            - Lymph Node, Retroperitoneal
-            - Lymph Node, Splenic
             - Lymph Node, Subcarinal
-            - Lymph Node, Submandibular
-            - Lymph Node, Supraclavicular
             - Mandible
             - Maxilla
             - Mediastinal soft tissue
@@ -83241,13 +83166,7 @@ schema:
             - Ovary, NOS
             - Ovary, Right
             - Pancreas
-            - Pancreas Body
-            - Pancreas Duct
-            - Pancreas Head
-            - Pancreas Tail
-            - Pancreas, NOS
             - Parametrium, Left
-            - Parametrium, NOS
             - Parametrium, Right
             - Parotid gland
             - Pelvic Lymph Node(s)
@@ -87389,7 +87308,6 @@ schema:
         enum:
           - Four Tier
           - Three Tier
-          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -87397,15 +87315,6 @@ schema:
           source:
           term:
           term_url:
-      tumor_of_origin:
-        description: The submitter_id string of the primary diagnosis node.
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: Tumor of Origin Diagnosis Node
-          term_url:
-        type: string
       tumor_regression_grade:
         description: A numeric value used to measure therapeutic response of the primary
           tumor and predict patient outcomes based on a three-point tumor regression
@@ -87843,7 +87752,6 @@ schema:
         enum:
           - 'Yes'
           - 'No'
-          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -87914,7 +87822,6 @@ schema:
             - Nuclear Grade III or IV
             - Sinusoid Invasion
             - Venous Invasion
-            - Unknown
             - Not Reported
         termDef:
           cde_id: C104015
@@ -87944,8 +87851,6 @@ schema:
           - '7'
           - '8'
           - '9'
-          - Unknown
-          - Not Reported
         termDef:
           cde_id: 3648744
           cde_version: 1.0
@@ -103100,6 +103005,8 @@ schema:
         enum:
           - Monosomy
           - Trisomy
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: C2873
           cde_version: 22.11d
@@ -103946,12 +103853,16 @@ schema:
           to another chromosome.
         enum:
           - t(3;5)(q25;q34)
+          - t(4;11)
           - t(6;9)
           - t(6;11)(q27;q23)
           - t(8;21)
+          - t(9;11)
           - t(9;11)(p22;q23)
+          - t(9;22)
           - t(10;11)(p11.2;q23)
           - t(11;19)(q23;p13.1)
+          - t(15;17)
           - Unknown
           - Not Reported
         termDef:
@@ -104390,6 +104301,7 @@ schema:
         enum:
           - p
           - q
+          - Unknown
           - Not Reported
         termDef:
           cde_id: C13355
@@ -104404,6 +104316,8 @@ schema:
         enum:
           - Clonal
           - Non-clonal
+          - Unknown
+          - Not Reported
         enumDef:
           Clonal:
             description: A population of cells or organisms that are identifiable
@@ -105043,6 +104957,7 @@ schema:
           - MN1
           - MNX1
           - MPL
+          - MPO
           - MSH2
           - MSH6
           - MSI2
@@ -105186,6 +105101,7 @@ schema:
           - RANBP2
           - RAP1GDS1
           - RARA
+          - RAS, NOS
           - RB1
           - RBM10
           - RBM15
@@ -114298,6 +114214,8 @@ schema:
           - HPV66
           - HPV68
           - HPV73
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -114340,6 +114258,7 @@ schema:
           treat or further understand a patient's disease.
         enum:
           - 5-Hydroxyindoleacetic Acid
+          - Abnormal Cells
           - Absolute Neutrophil
           - Albumin
           - Alpha Fetoprotein
@@ -115147,6 +115066,7 @@ schema:
           - Flow Cytometry
           - IHC
           - Immunofluorescence
+          - Immunophenotyping, NOS
           - ISH
           - Karyotype
           - Microarray
@@ -115518,6 +115438,8 @@ schema:
           - Transcript Ablation
           - Transcript Amplification
           - Upstream Gene Variant
+          - Unknown
+          - Not Reported
         enumDef:
           3 Prime UTR Variant:
             description: Any mutation in a gene occurring in the 3' end which contains
@@ -115967,6 +115889,8 @@ schema:
           - '12'
           - '13'
           - '61'
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -115983,6 +115907,8 @@ schema:
           - Likely Pathogenic
           - Pathogenic
           - Uncertain Significance
+          - Unknown
+          - Not Reported
         enumDef:
           Benign:
             description: A genetic variant that is known to not contribute to the
@@ -116613,6 +116539,7 @@ schema:
           - MN1
           - MNX1
           - MPL
+          - MPO
           - MSH2
           - MSH6
           - MSI2
@@ -116754,6 +116681,7 @@ schema:
           - RANBP2
           - RAP1GDS1
           - RARA
+          - RAS, NOS
           - RB1
           - RBM10
           - RBM15
@@ -125473,6 +125401,8 @@ schema:
         enum:
           - 3 Point Scale
           - 4 Point Scale
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -125488,6 +125418,8 @@ schema:
           - 2+
           - 3+
           - 4+
+          - Unknown
+          - Not Reported
         enumDef:
           '0':
             description: A measurement of the amount or proportion of tissue or cells
@@ -125864,6 +125796,7 @@ schema:
           - cells/mL
           - g/dL
           - g/L
+          - IU
           - mcg/L
           - mcg/mL
           - mg/24 hr
@@ -125873,13 +125806,16 @@ schema:
           - mmol/L
           - mU/mol Hb
           - ng/mL
+          - nmol/L
           - percent
+          - Seconds
           - U/g Hb
           - U/L
           - U/mL
           - ukat/L
           - umol/L
           - x10^3 cells/mcL
+          - x10^6 cells/mcL
           - x10^9 cells/L
           - Unknown
           - Not Reported
@@ -125902,6 +125838,11 @@ schema:
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142524%20and%20ver_nr=1.0
         type: number
       test_value_range:
+        deprecated_enum:
+          - 0-25
+          - 26-50
+          - 51-75
+          - 76-100
         description: The range of values within which the subject's results fall.
         enum:
           - 0-25
@@ -125921,6 +125862,11 @@ schema:
           - <1%
           - 1-49%
           - '>=50%'
+          - 0-25%
+          - 26-50%
+          - 51-75%
+          - 76-100%
+          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -125935,8 +125881,11 @@ schema:
           - End of Consolidation Therapy
           - End of Treatment Course 1
           - End of Treatment Course 2
+          - Initial Diagnosis
           - Preoperative
           - Prior to Treatment
+          - Sample Procurement
+          - Unknown
           - Not Reported
         enumDef:
           Preoperative:
@@ -125992,6 +125941,7 @@ schema:
           - Germline
           - Somatic
           - Unknown
+          - Not Reported
         enumDef:
           Germline:
             description: Any mutation that appears in the gametes and which will therefore
@@ -144360,8 +144310,6 @@ schema:
           - Glucocorticoid
           - Growth factor
           - PARP inhibitor
-          - Unknown
-          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -144381,8 +144329,6 @@ schema:
           - Y-90 Sirsphere
           - Y-90 Therasphere
           - Other
-          - Unknown
-          - Not Reported
         termDef:
           cde_id: C97229
           cde_version: 22.05e
@@ -144490,42 +144436,6 @@ schema:
           term:
           term_url:
         type: number
-      prescribed_dose_units:
-        description: The units of the amount of agent or medication formally prescribed
-          to an individual.
-        enum:
-          - AUC
-          - cGy
-          - g/day
-          - g/m2
-          - Gy
-          - IU/kg
-          - IU/mg
-          - mCi
-          - mEq
-          - mg
-          - mg/day
-          - mg/dL
-          - mg/kg
-          - mg/kg/day
-          - mg/m2
-          - mg/m2/day
-          - mg/m2/wk
-          - mg/mL
-          - mg/wk
-          - mIU
-          - mL
-          - ug
-          - ug/m2
-          - Wafer
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: Prescribed Dose Units
-          term_url:
       project_id:
         common:
           description: Unique ID for any specific defined piece of work that is undertaken
@@ -144653,6 +144563,7 @@ schema:
           - N891
           - NWTS-4
           - NWTS-5
+          - Not Reported
           - OSTEO 2006
           - P9407
           - P9462
@@ -144665,8 +144576,6 @@ schema:
           - S31
           - S921
           - STB
-          - Unknown
-          - Not Reported
         termDef:
           cde_id: C132299
           cde_version: 22.05e
@@ -144746,8 +144655,6 @@ schema:
           - Disease Progression
           - Withdrawal by Subject
           - Other
-          - Unknown
-          - Not Reported
         enumDef:
           Other:
             description: Different than the one(s) previously specified or mentioned.
@@ -144772,7 +144679,6 @@ schema:
           - Adverse Event/Complications
           - Not Done per Treating Physician's Discretion
           - Participant Refusal
-          - Patient Ineligible
           - Scheduling Problems
           - Unknown
           - Not Reported
@@ -144825,7 +144731,6 @@ schema:
           - R1
           - R2
           - RX
-          - Unknown
           - Not Reported
         termDef:
           cde_id: C4809
@@ -163419,8 +163324,6 @@ schema:
         description: Describes a specific target for an administered treatment.
         enum:
           - '>14 mg/L'
-          - Unknown
-          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -163443,7 +163346,6 @@ schema:
           - Prior to Treatment
           - Progression
           - Recurrence
-          - Unknown
           - Not Reported
         termDef:
           cde_id: C68568
@@ -164443,8 +164345,6 @@ schema:
           - ug
           - ug/m2
           - Wafer
-          - Unknown
-          - Not Reported
         enumDef:
           mg:
             description: A metric unit of mass equal to one thousandth of a gram or
@@ -164806,7 +164706,6 @@ schema:
           - Surgery
         description: Text term that describes the kind of treatment administered.
         enum:
-          - Ablation or Embolization, NOS
           - Ablation, Cryo
           - Ablation, Ethanol Injection
           - Ablation, Microwave
@@ -164976,4 +164875,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev50
+version: 3.0.4.dev47
