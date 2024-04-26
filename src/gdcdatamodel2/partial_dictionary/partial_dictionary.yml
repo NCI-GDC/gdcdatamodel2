@@ -11896,6 +11896,8 @@ schema:
           - Yemen
           - Zambia
           - Zimbabwe
+          - Unknown
+          - Not Reported
         enumDef:
           Afghanistan:
             description: A country in southern Asia, north and west of Pakistan, east
@@ -14935,6 +14937,8 @@ schema:
           - Yemen
           - Zambia
           - Zimbabwe
+          - Unknown
+          - Not Reported
         enumDef:
           Afghanistan:
             description: A country in southern Asia, north and west of Pakistan, east
@@ -17788,6 +17792,7 @@ schema:
           - Professional or Graduate Degree
           - Some High School or Less
           - Vocational College or Some College
+          - Unknown
           - Not Reported
         enumDef:
           College Degree:
@@ -18046,6 +18051,8 @@ schema:
           - Never Married
           - Separated
           - Widowed
+          - Unknown
+          - Not Reported
         enumDef:
           Divorced:
             description: Indicates a person whose marriage has been legally dissolved
@@ -164830,4 +164837,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev49
+version: 3.0.4.dev48
