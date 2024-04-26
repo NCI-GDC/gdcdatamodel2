@@ -95232,6 +95232,7 @@ schema:
           - Carbon Monoxide Diffusing Capacity Decreased
           - Cardiac Arrest
           - Cardiac Disorders - Other
+          - Cardiac Ischemia
           - Cardiac Troponin I Increased
           - Cardiac Troponin T Increased
           - Cataract
@@ -95408,6 +95409,7 @@ schema:
           - GGT Increased
           - Gingival Pain
           - Glaucoma
+          - Glomerular Filtration Rate Decreased
           - Glossopharyngeal Nerve Disorder
           - Glucose Intolerance
           - Growth Accelerated
@@ -95528,6 +95530,7 @@ schema:
           - Jejunal Ulcer
           - Joint Effusion
           - Joint Infection
+          - Joint Pain
           - Joint Range of Motion Decreased
           - Joint Range of Motion Decreased Cervical Spine
           - Joint Range of Motion Decreased Lumbar Spine
@@ -95730,6 +95733,7 @@ schema:
           - Rash Acneiform
           - Rash Maculo-Papular
           - Rash Pustular
+          - Rash/Desquamation
           - Rectal Anastomotic Leak
           - Rectal Fistula
           - Rectal Hemorrhage
@@ -95744,6 +95748,7 @@ schema:
           - Renal and Urinary Disorders - Other
           - Renal Calculi
           - Renal Colic
+          - Renal Failure
           - Renal Hemorrhage
           - Reproductive System and Breast Disorders - Other
           - Respiratory Failure
@@ -95855,6 +95860,7 @@ schema:
           - Unintended Pregnancy
           - Upper Gastrointestinal Hemorrhage
           - Upper Respiratory Infection
+          - Ureteral Obstruction
           - Ureteric Anastomotic Leak
           - Urethral Anastomotic Leak
           - Urethral Infection
@@ -95922,6 +95928,8 @@ schema:
           - Wound Dehiscence
           - Wound Infection
           - Wrist Fracture
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: 3125302
           cde_version: 1.1
@@ -95943,6 +95951,8 @@ schema:
           - Grade 3
           - Grade 4
           - Grade 5
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: 2944515
           cde_version: 1.0
@@ -97078,6 +97088,8 @@ schema:
         enum:
           - Convincing Image Source
           - Histologic Confirmation
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -97093,6 +97105,8 @@ schema:
           - Histologic Confirmation
           - Physical Examination
           - Positive Biomarker(s)
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -97186,9 +97200,11 @@ schema:
           - None
           - Presented with Metastases
           - Progression
+          - Recurrence
           - Relapse
           - Second Malignant Neoplasm
           - Other
+          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -97331,6 +97347,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -97378,6 +97395,8 @@ schema:
           - Colorectal Cancer
           - Lower Grade Glioma
           - Phenochromocytoma or Paraganglioma
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -97707,6 +97726,9 @@ schema:
             - Abdomen
             - Lymph Node
             - Pelvis
+            - Pleura
+            - Unknown
+            - Not Reported
         termDef:
           cde_id: C13717
           cde_version: 22.11d
@@ -97720,12 +97742,18 @@ schema:
           image.
         enum:
           - Carcinomatosis
+          - Distant Metastasis
+          - Equivocal
+          - Extraprostatic Extension, Localized
+          - Extraprostatic Extension, Regional Lymphadenopathy
           - Kidney Involvement
           - Liver Involvement
           - Lung Involvement
+          - No Evidence of Extraprostatic Extension
           - Normal
           - Retroperitoneal Lymph Node Involvement
           - Vena Cava Involvement/Thrombus
+          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -97829,10 +97857,13 @@ schema:
           on the patient.
         enum:
           - 99mTc Bone Scintigraphy
+          - Bone Scan, NOS
           - CT Scan
           - MRI
           - PET
           - Ultrasound
+          - Unknown
+          - Not Reported
         enumDef:
           Ultrasound:
             description: The use of high-frequency sound waves to generate images
@@ -98029,6 +98060,7 @@ schema:
         enum:
           - Negative
           - Positive
+          - Unknown
           - Not Reported
         termDef:
           cde_id: C159340
@@ -99296,6 +99328,8 @@ schema:
           - Choline
           - PSMA
           - Sodium Fluoride
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -99359,11 +99393,14 @@ schema:
           - Post Secondary Therapy
           - Postoperative
           - Preoperative
+          - Prior to Adjuvant Therapy
           - Prior to Diagnosis
           - Prior to Treatment
           - Recurrence/Progression
+          - Within 2 Months After Completion of First-Course Treatment
           - Within 3 Months of Surgery
           - Other
+          - Unknown
           - Not Reported
         termDef:
           cde_id: C68568
@@ -99372,6 +99409,26 @@ schema:
           term: Timepoint
           term_url: 
             https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C68568
+      treatment_emergent_adverse_event:
+        description: A situation that emerges during treatment, having been absent
+          pretreatment, or worsens relative to the pretreatment state.
+        enum:
+          - Definitely
+          - Possibly
+          - Probably
+          - Unlikely
+          - Unrelated
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C142733
+          cde_version: 23.11d
+          source: NCIt
+          term: Treatment-Emergent Adverse Event
+          term_id: C142733
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C142733
+          term_version: 23.11d
       type:
         type: string
       undescended_testis_corrected:
@@ -164830,4 +164887,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev49
+version: 3.0.4.dev48
