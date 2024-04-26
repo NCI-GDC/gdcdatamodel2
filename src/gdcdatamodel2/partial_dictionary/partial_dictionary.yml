@@ -83181,7 +83181,10 @@ schema:
             - Ear
             - Epididymis
             - Esophagus
+            - Esophagus, Lower Third
+            - Esophagus, Middle Third
             - Esophagus, NOS
+            - Esophagus, Upper Third
             - Eye
             - Fallopian Tube, Left
             - Fallopian Tube, NOS
@@ -83202,7 +83205,6 @@ schema:
             - Leptomeninges
             - Liver
             - Lower lobe, lung
-            - Lower Third Esophagus
             - Lung, NOS
             - Lymph Node, Axillary
             - Lymph Node, Cervical
@@ -83228,7 +83230,6 @@ schema:
             - Mesentery
             - Mesothelium
             - Middle lobe, lung
-            - Middle Third Esophagus
             - Mouth
             - Nasal soft tissue
             - Nasopharynx
@@ -83287,7 +83288,6 @@ schema:
             - Transplanted kidney
             - Transverse colon
             - Upper lobe, lung
-            - Upper Third Esophagus
             - Urethra
             - Uterus
             - Vagina
@@ -164925,4 +164925,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev48
+version: 3.0.4.dev47
