@@ -144265,6 +144265,8 @@ schema:
           - Glucocorticoid
           - Growth factor
           - PARP inhibitor
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -144284,6 +144286,8 @@ schema:
           - Y-90 Sirsphere
           - Y-90 Therasphere
           - Other
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: C97229
           cde_version: 22.05e
@@ -144391,6 +144395,42 @@ schema:
           term:
           term_url:
         type: number
+      prescribed_dose_units:
+        description: The units of the amount of agent or medication formally prescribed
+          to an individual.
+        enum:
+          - AUC
+          - cGy
+          - g/day
+          - g/m2
+          - Gy
+          - IU/kg
+          - IU/mg
+          - mCi
+          - mEq
+          - mg
+          - mg/day
+          - mg/dL
+          - mg/kg
+          - mg/kg/day
+          - mg/m2
+          - mg/m2/day
+          - mg/m2/wk
+          - mg/mL
+          - mg/wk
+          - mIU
+          - mL
+          - ug
+          - ug/m2
+          - Wafer
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Prescribed Dose Units
+          term_url:
       project_id:
         common:
           description: Unique ID for any specific defined piece of work that is undertaken
@@ -144518,7 +144558,6 @@ schema:
           - N891
           - NWTS-4
           - NWTS-5
-          - Not Reported
           - OSTEO 2006
           - P9407
           - P9462
@@ -144531,6 +144570,8 @@ schema:
           - S31
           - S921
           - STB
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: C132299
           cde_version: 22.05e
@@ -144610,6 +144651,8 @@ schema:
           - Disease Progression
           - Withdrawal by Subject
           - Other
+          - Unknown
+          - Not Reported
         enumDef:
           Other:
             description: Different than the one(s) previously specified or mentioned.
@@ -144634,6 +144677,7 @@ schema:
           - Adverse Event/Complications
           - Not Done per Treating Physician's Discretion
           - Participant Refusal
+          - Patient Ineligible
           - Scheduling Problems
           - Unknown
           - Not Reported
@@ -144686,6 +144730,7 @@ schema:
           - R1
           - R2
           - RX
+          - Unknown
           - Not Reported
         termDef:
           cde_id: C4809
@@ -163279,6 +163324,8 @@ schema:
         description: Describes a specific target for an administered treatment.
         enum:
           - '>14 mg/L'
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -163301,6 +163348,7 @@ schema:
           - Prior to Treatment
           - Progression
           - Recurrence
+          - Unknown
           - Not Reported
         termDef:
           cde_id: C68568
@@ -164300,6 +164348,8 @@ schema:
           - ug
           - ug/m2
           - Wafer
+          - Unknown
+          - Not Reported
         enumDef:
           mg:
             description: A metric unit of mass equal to one thousandth of a gram or
@@ -164661,6 +164711,7 @@ schema:
           - Surgery
         description: Text term that describes the kind of treatment administered.
         enum:
+          - Ablation or Embolization, NOS
           - Ablation, Cryo
           - Ablation, Ethanol Injection
           - Ablation, Microwave

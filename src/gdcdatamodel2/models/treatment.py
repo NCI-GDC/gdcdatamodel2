@@ -227,7 +227,9 @@ class Treatment(base.Node):
     def days_to_treatment_start(self, value):
         self._set_property("days_to_treatment_start", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Glucocorticoid", "Growth factor", "PARP inhibitor"])
+    @psqlgraph.pg_property(
+        str, enum=["Glucocorticoid", "Growth factor", "Not Reported", "PARP inhibitor", "Unknown"]
+    )
     def drug_category(self, value):
         self._set_property("drug_category", value)  # type: ignore  # inherited from CommonBase
 
@@ -236,10 +238,12 @@ class Treatment(base.Node):
         enum=[
             "Gelfoam",
             "Lipiodol",
+            "Not Reported",
             "Other",
             "PVA Particles",
             "Plastic Beads",
             "Spherical Particles",
+            "Unknown",
             "Y-90 Sirsphere",
             "Y-90 Therasphere",
         ],
@@ -278,6 +282,40 @@ class Treatment(base.Node):
     @psqlgraph.pg_property(float, int)
     def prescribed_dose(self, value):
         self._set_property("prescribed_dose", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "AUC",
+            "Gy",
+            "IU/kg",
+            "IU/mg",
+            "Not Reported",
+            "Unknown",
+            "Wafer",
+            "cGy",
+            "g/day",
+            "g/m2",
+            "mCi",
+            "mEq",
+            "mIU",
+            "mL",
+            "mg",
+            "mg/dL",
+            "mg/day",
+            "mg/kg",
+            "mg/kg/day",
+            "mg/m2",
+            "mg/m2/day",
+            "mg/m2/wk",
+            "mg/mL",
+            "mg/wk",
+            "ug",
+            "ug/m2",
+        ],
+    )
+    def prescribed_dose_units(self, value):
+        self._set_property("prescribed_dose_units", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -407,6 +445,7 @@ class Treatment(base.Node):
             "S31",
             "S921",
             "STB",
+            "Unknown",
         ],
     )
     def protocol_identifier(self, value):
@@ -423,7 +462,9 @@ class Treatment(base.Node):
             "Course of Therapy Completed",
             "Death",
             "Disease Progression",
+            "Not Reported",
             "Other",
+            "Unknown",
             "Withdrawal by Subject",
         ],
     )
@@ -437,6 +478,7 @@ class Treatment(base.Node):
             "Not Done per Treating Physician's Discretion",
             "Not Reported",
             "Participant Refusal",
+            "Patient Ineligible",
             "Scheduling Problems",
             "Unknown",
         ],
@@ -448,7 +490,7 @@ class Treatment(base.Node):
     def regimen_or_line_of_therapy(self, value):
         self._set_property("regimen_or_line_of_therapy", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Not Reported", "R0", "R1", "R2", "RX"])
+    @psqlgraph.pg_property(str, enum=["Not Reported", "R0", "R1", "R2", "RX", "Unknown"])
     def residual_disease(self, value):
         self._set_property("residual_disease", value)  # type: ignore  # inherited from CommonBase
 
@@ -4950,7 +4992,7 @@ class Treatment(base.Node):
     def therapeutic_levels_achieved(self, value):
         self._set_property("therapeutic_levels_achieved", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=[">14 mg/L"])
+    @psqlgraph.pg_property(str, enum=[">14 mg/L", "Not Reported", "Unknown"])
     def therapeutic_target_level(self, value):
         self._set_property("therapeutic_target_level", value)  # type: ignore  # inherited from CommonBase
 
@@ -4970,6 +5012,7 @@ class Treatment(base.Node):
             "Prior to Treatment",
             "Progression",
             "Recurrence",
+            "Unknown",
         ],
     )
     def timepoint_category(self, value):
@@ -5308,6 +5351,8 @@ class Treatment(base.Node):
             "Gy",
             "IU/kg",
             "IU/mg",
+            "Not Reported",
+            "Unknown",
             "Wafer",
             "cGy",
             "g/day",
@@ -5429,6 +5474,7 @@ class Treatment(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
+            "Ablation or Embolization, NOS",
             "Ablation, Cryo",
             "Ablation, Ethanol Injection",
             "Ablation, Microwave",
