@@ -127163,6 +127163,18 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6154729%20and%20ver_nr=1.0
         type: integer
+      days_to_risk_factor:
+        description: The number of days from the index date to the date the patient
+          was diagnosed with a specific risk factor.
+        maximum: 32872
+        minimum: -32872
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
+        type: integer
       diabetes_treatment_type:
         description: Text term used to describe the types of treatment used to manage
           diabetes.
@@ -127223,7 +127235,6 @@ schema:
       dlco_ref_predictive_percent:
         description: The value, as a percentage of predicted lung volume, measuring
           the amount of carbon monoxide detected in a patient's lungs.
-        maximum: 100
         minimum: 0
         termDef:
           cde_id: 2180255
@@ -127265,6 +127276,7 @@ schema:
           - Hazel
           - Red & Violet
           - Other
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -127299,7 +127311,6 @@ schema:
       fev1_fvc_post_bronch_percent:
         description: Percentage value to represent result of Forced Expiratory Volume
           in 1 second (FEV1) divided by the Forced Vital Capacity (FVC) post-bronchodilator.
-        maximum: 100
         minimum: 0
         termDef:
           cde_id: 3302956
@@ -127312,7 +127323,6 @@ schema:
       fev1_fvc_pre_bronch_percent:
         description: Percentage value to represent result of Forced Expiratory Volume
           in 1 second (FEV1) divided by the Forced Vital Capacity (FVC) pre-bronchodilator.
-        maximum: 100
         minimum: 0
         termDef:
           cde_id: 3302955
@@ -127326,7 +127336,6 @@ schema:
         description: The percentage comparison to a normal value reference range of
           the volume of air that a patient can forcibly exhale from the lungs in one
           second post-bronchodilator.
-        maximum: 100
         minimum: 0
         termDef:
           cde_id: 3302948
@@ -127341,7 +127350,6 @@ schema:
         description: The percentage comparison to a normal value reference range of
           the volume of air that a patient can forcibly exhale from the lungs in one
           second pre-bronchodilator.
-        maximum: 100
         minimum: 0
         termDef:
           cde_id: 3302947
@@ -127622,6 +127630,20 @@ schema:
           source:
           term: Hormonal Contraceptive Use Text Term
           term_url:
+      hormonal_replacement_therapy_status:
+        description: Indicates whether the patient has ever received hormone replacement
+          therapy.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Hormone Replacement Therapy Status
+          term_url:
       hormone_replacement_therapy_type:
         description: The specific type of hormone replacement therapy received by
           the patient.
@@ -127775,8 +127797,10 @@ schema:
           - Anti-TNF Therapy
           - Azathioprine
           - Cyclophosphamide
+          - Immunoglobulin
           - Methotrexate
           - None
+          - Prednisone
           - Other
           - Unknown
           - Not Reported
@@ -127970,6 +127994,8 @@ schema:
           - Aspirin
           - Metformin
           - Statin, NOS
+          - Unknown
+          - Not Reported
         enumDef:
           Acetaminophen:
             description: A p-aminophenol derivative with analgesic and antipyretic
@@ -128021,6 +128047,25 @@ schema:
               term_url: 
                 https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C61612
               term_version: 23.08d
+      number_of_pregnancies:
+        description: A measurement of the total number of pregnancy events experienced
+          by the female subject.
+        enum:
+          - '1'
+          - '2'
+          - '3'
+          - 4+
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C106551
+          cde_version: 23.11d
+          source: NCIt
+          term: Number of Pregnancies
+          term_id: C106551
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C106551
+          term_version: 23.11d
       oxygen_use_indicator:
         description: An indication whether administration of oxygen to an individual
           occurred.
@@ -128087,6 +128132,8 @@ schema:
         enum:
           - Continuous
           - Intermittent
+          - Unknown
+          - Not Reported
         enumDef:
           Continuous:
             description: Remain in force or carry on without letup; keep or maintain
@@ -128145,6 +128192,7 @@ schema:
           had.
         enum:
           - Ectopic Pregnancy
+          - Full Term Birth, NOS
           - Induced Abortion
           - Live Birth
           - Miscarriage
@@ -128372,6 +128420,7 @@ schema:
           - Biochemical Assessment
           - Both Clinical and Biochemical Assessments
           - Clinical Assessment
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -128544,6 +128593,7 @@ schema:
             - Benign Prostatic Hyperplasia
             - Benign Thyroid Nodule
             - Birt-Hogg-Dube Syndrome
+            - BK Virus
             - BRCA Family History
             - Cancer
             - Chlamydia
@@ -128571,6 +128621,7 @@ schema:
             - Diabetes, Type II
             - Diet
             - Diverticulitis
+            - Diverticulosis
             - Down Syndrome
             - EBV Lymphoproliferation
             - Eczema
@@ -128621,7 +128672,9 @@ schema:
             - Human Herpesvirus-6 (HHV-6)
             - Human Herpesvirus-8 (HHV-8)
             - Human Papillomavirus Infection
+            - Hypercholesterolemia
             - Hyperparathyroidism
+            - Hypertension
             - Hyperthyroidism
             - Hypospadias
             - Hypothyroidism
@@ -128664,6 +128717,7 @@ schema:
             - Rubella
             - Rubinstein-Taybi Syndrome
             - Sarcoidosis
+            - Scarlet Fever
             - Seizure
             - Sensory Changes
             - Serous Tubal Intraepithelial Carcinoma (STIC)
@@ -128687,6 +128741,7 @@ schema:
             - Tubulointerstitial Disease
             - Tumor-associated Lymphoid Proliferation
             - Turcot Syndrome
+            - Ulcerative Colitis
             - Undescended Testis
             - Varicella Zoster Virus
             - Vascular Disease
@@ -128763,8 +128818,10 @@ schema:
           - Prior to Diagnosis
           - Prior to Treatment
           - Recurrence/Progression
+          - Sample Procurement
           - Within 3 Months of Surgery
           - Other
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -128850,6 +128907,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -128909,6 +128967,7 @@ schema:
           - Bilateral
           - Left
           - Right
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -128936,6 +128995,7 @@ schema:
           - Orchiopexy
           - Spontaneous Descent
           - Testis Removed
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -128961,6 +129021,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -129009,6 +129070,7 @@ schema:
           - Bilateral
           - Left
           - Right
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -129085,6 +129147,32 @@ schema:
           term: Viral Hepatitis Laboratory Procedure Serology Test Method Type
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=4395982%20and%20ver_nr=1.0
+      viral_hepatitis_serology_tests:
+        description: A set of tests that is used to determine if a subject has been
+          or is currently infected with a Hepatitis virus, is shedding Hepatitis virus
+          or has immunity to Hepatitis viruses.
+        items:
+          enum:
+            - HBV Core Antibody
+            - HBV DNA
+            - HBV Genotype
+            - HBV Surface Antibody
+            - HCV Genotype
+            - Hepatitis B Surface Antigen
+            - Hepatitis C Antibody
+            - Hepatitis C Virus RNA
+            - Unknown
+            - Not Reported
+        termDef:
+          cde_id: C177609
+          cde_version: 23.11d
+          source: NCIt
+          term: Hepatitis Serology
+          term_id: C177609
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C177609
+          term_version: 23.11d
+        type: array
       weeks_gestation_at_birth:
         description: Numeric value used to describe the number of weeks starting from
           the approximate date of the biological mother's last menstrual period and
@@ -165164,4 +165252,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev64
+version: 3.0.4.dev66
