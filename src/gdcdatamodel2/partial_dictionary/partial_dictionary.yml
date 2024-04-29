@@ -88582,6 +88582,8 @@ schema:
         enum:
           - Daily Drinker
           - Weekly Drinker
+          - Not Reported
+          - Unknown
         termDef:
           cde_id:
           cde_version:
@@ -88890,6 +88892,8 @@ schema:
         enum:
           - Amosite
           - Crocidolite
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -88982,6 +88986,7 @@ schema:
             - Solvent
             - Tetrachloroethylene
             - Toluene
+            - Unknown
             - Not Reported
         termDef:
           cde_id: C36290
@@ -89070,6 +89075,7 @@ schema:
           - 'Yes'
           - 'No'
           - Unknown
+          - Not Reported
         enumDef:
           'No':
             description: The non-affirmative response to a question.
@@ -89187,6 +89193,7 @@ schema:
           - Social
           - Work
           - Unknown
+          - Not Reported
         enumDef:
           Home:
             description: A person's place of residence.
@@ -89243,6 +89250,8 @@ schema:
           - Smokeless Tobacco
           - Tobacco
           - Wood Dust
+          - Unknown
+          - Not Reported
         enumDef:
           Dust, NOS:
             description: A fine powdery material such as dry earth or pollen that
@@ -89457,6 +89466,9 @@ schema:
             - Waiters and Bartenders
             - Wood Processing and Papermaking Plant Operators
             - Wood Treaters, Cabinet-makers and Related Trades Workers
+            - Other
+            - Unknown
+            - Not Reported
         termDef:
           cde_id: C25193
           cde_version: 22.11d
@@ -89483,6 +89495,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -89711,6 +89724,7 @@ schema:
           - Every day
           - Some days
           - Unknown
+          - Not Reported
         enumDef:
           Every day:
             description: Occurring or done each day.
@@ -89803,6 +89817,7 @@ schema:
           - 31-60 Minutes
           - After 60 Minutes
           - Unknown
+          - Not Reported
         enumDef:
           31-60 Minutes:
             description: An indication that between 31 and 60 minutes passes between
@@ -90105,6 +90120,7 @@ schema:
           - Work-related smoke, plumbing
           - Work-related smoke, soldering/welding
           - Unknown
+          - Not Reported
         enumDef:
           Accidental building fire smoke:
             description: Environmental or occupational exposure to airborne gases
@@ -165148,4 +165164,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev63
+version: 3.0.4.dev64
