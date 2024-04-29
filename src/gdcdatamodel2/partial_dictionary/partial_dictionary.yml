@@ -11896,6 +11896,8 @@ schema:
           - Yemen
           - Zambia
           - Zimbabwe
+          - Unknown
+          - Not Reported
         enumDef:
           Afghanistan:
             description: A country in southern Asia, north and west of Pakistan, east
@@ -14935,6 +14937,8 @@ schema:
           - Yemen
           - Zambia
           - Zimbabwe
+          - Unknown
+          - Not Reported
         enumDef:
           Afghanistan:
             description: A country in southern Asia, north and west of Pakistan, east
@@ -17788,6 +17792,7 @@ schema:
           - Professional or Graduate Degree
           - Some High School or Less
           - Vocational College or Some College
+          - Unknown
           - Not Reported
         enumDef:
           College Degree:
@@ -18046,6 +18051,8 @@ schema:
           - Never Married
           - Separated
           - Widowed
+          - Unknown
+          - Not Reported
         enumDef:
           Divorced:
             description: Indicates a person whose marriage has been legally dissolved
@@ -93558,6 +93565,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -93608,6 +93616,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -95327,6 +95336,7 @@ schema:
           - Carbon Monoxide Diffusing Capacity Decreased
           - Cardiac Arrest
           - Cardiac Disorders - Other
+          - Cardiac Ischemia
           - Cardiac Troponin I Increased
           - Cardiac Troponin T Increased
           - Cataract
@@ -95503,6 +95513,7 @@ schema:
           - GGT Increased
           - Gingival Pain
           - Glaucoma
+          - Glomerular Filtration Rate Decreased
           - Glossopharyngeal Nerve Disorder
           - Glucose Intolerance
           - Growth Accelerated
@@ -95623,6 +95634,7 @@ schema:
           - Jejunal Ulcer
           - Joint Effusion
           - Joint Infection
+          - Joint Pain
           - Joint Range of Motion Decreased
           - Joint Range of Motion Decreased Cervical Spine
           - Joint Range of Motion Decreased Lumbar Spine
@@ -95825,6 +95837,7 @@ schema:
           - Rash Acneiform
           - Rash Maculo-Papular
           - Rash Pustular
+          - Rash/Desquamation
           - Rectal Anastomotic Leak
           - Rectal Fistula
           - Rectal Hemorrhage
@@ -95839,6 +95852,7 @@ schema:
           - Renal and Urinary Disorders - Other
           - Renal Calculi
           - Renal Colic
+          - Renal Failure
           - Renal Hemorrhage
           - Reproductive System and Breast Disorders - Other
           - Respiratory Failure
@@ -95950,6 +95964,7 @@ schema:
           - Unintended Pregnancy
           - Upper Gastrointestinal Hemorrhage
           - Upper Respiratory Infection
+          - Ureteral Obstruction
           - Ureteric Anastomotic Leak
           - Urethral Anastomotic Leak
           - Urethral Infection
@@ -96017,6 +96032,8 @@ schema:
           - Wound Dehiscence
           - Wound Infection
           - Wrist Fracture
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: 3125302
           cde_version: 1.1
@@ -96038,6 +96055,8 @@ schema:
           - Grade 3
           - Grade 4
           - Grade 5
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: 2944515
           cde_version: 1.0
@@ -97173,6 +97192,8 @@ schema:
         enum:
           - Convincing Image Source
           - Histologic Confirmation
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -97188,6 +97209,8 @@ schema:
           - Histologic Confirmation
           - Physical Examination
           - Positive Biomarker(s)
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -97281,9 +97304,11 @@ schema:
           - None
           - Presented with Metastases
           - Progression
+          - Recurrence
           - Relapse
           - Second Malignant Neoplasm
           - Other
+          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -97426,6 +97451,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -97473,6 +97499,8 @@ schema:
           - Colorectal Cancer
           - Lower Grade Glioma
           - Phenochromocytoma or Paraganglioma
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -97802,6 +97830,9 @@ schema:
             - Abdomen
             - Lymph Node
             - Pelvis
+            - Pleura
+            - Unknown
+            - Not Reported
         termDef:
           cde_id: C13717
           cde_version: 22.11d
@@ -97815,12 +97846,18 @@ schema:
           image.
         enum:
           - Carcinomatosis
+          - Distant Metastasis
+          - Equivocal
+          - Extraprostatic Extension, Localized
+          - Extraprostatic Extension, Regional Lymphadenopathy
           - Kidney Involvement
           - Liver Involvement
           - Lung Involvement
+          - No Evidence of Extraprostatic Extension
           - Normal
           - Retroperitoneal Lymph Node Involvement
           - Vena Cava Involvement/Thrombus
+          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -97924,10 +97961,13 @@ schema:
           on the patient.
         enum:
           - 99mTc Bone Scintigraphy
+          - Bone Scan, NOS
           - CT Scan
           - MRI
           - PET
           - Ultrasound
+          - Unknown
+          - Not Reported
         enumDef:
           Ultrasound:
             description: The use of high-frequency sound waves to generate images
@@ -98124,6 +98164,7 @@ schema:
         enum:
           - Negative
           - Positive
+          - Unknown
           - Not Reported
         termDef:
           cde_id: C159340
@@ -99391,6 +99432,8 @@ schema:
           - Choline
           - PSMA
           - Sodium Fluoride
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -99454,11 +99497,14 @@ schema:
           - Post Secondary Therapy
           - Postoperative
           - Preoperative
+          - Prior to Adjuvant Therapy
           - Prior to Diagnosis
           - Prior to Treatment
           - Recurrence/Progression
+          - Within 2 Months After Completion of First-Course Treatment
           - Within 3 Months of Surgery
           - Other
+          - Unknown
           - Not Reported
         termDef:
           cde_id: C68568
@@ -99467,6 +99513,26 @@ schema:
           term: Timepoint
           term_url: 
             https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C68568
+      treatment_emergent_adverse_event:
+        description: A situation that emerges during treatment, having been absent
+          pretreatment, or worsens relative to the pretreatment state.
+        enum:
+          - Definitely
+          - Possibly
+          - Probably
+          - Unlikely
+          - Unrelated
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C142733
+          cde_version: 23.11d
+          source: NCIt
+          term: Treatment-Emergent Adverse Event
+          term_id: C142733
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C142733
+          term_version: 23.11d
       type:
         type: string
       undescended_testis_corrected:
@@ -103100,6 +103166,8 @@ schema:
         enum:
           - Monosomy
           - Trisomy
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: C2873
           cde_version: 22.11d
@@ -103946,12 +104014,16 @@ schema:
           to another chromosome.
         enum:
           - t(3;5)(q25;q34)
+          - t(4;11)
           - t(6;9)
           - t(6;11)(q27;q23)
           - t(8;21)
+          - t(9;11)
           - t(9;11)(p22;q23)
+          - t(9;22)
           - t(10;11)(p11.2;q23)
           - t(11;19)(q23;p13.1)
+          - t(15;17)
           - Unknown
           - Not Reported
         termDef:
@@ -104390,6 +104462,7 @@ schema:
         enum:
           - p
           - q
+          - Unknown
           - Not Reported
         termDef:
           cde_id: C13355
@@ -104404,6 +104477,8 @@ schema:
         enum:
           - Clonal
           - Non-clonal
+          - Unknown
+          - Not Reported
         enumDef:
           Clonal:
             description: A population of cells or organisms that are identifiable
@@ -105043,6 +105118,7 @@ schema:
           - MN1
           - MNX1
           - MPL
+          - MPO
           - MSH2
           - MSH6
           - MSI2
@@ -105186,6 +105262,7 @@ schema:
           - RANBP2
           - RAP1GDS1
           - RARA
+          - RAS, NOS
           - RB1
           - RBM10
           - RBM15
@@ -114298,6 +114375,8 @@ schema:
           - HPV66
           - HPV68
           - HPV73
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -114340,6 +114419,7 @@ schema:
           treat or further understand a patient's disease.
         enum:
           - 5-Hydroxyindoleacetic Acid
+          - Abnormal Cells
           - Absolute Neutrophil
           - Albumin
           - Alpha Fetoprotein
@@ -115147,6 +115227,7 @@ schema:
           - Flow Cytometry
           - IHC
           - Immunofluorescence
+          - Immunophenotyping, NOS
           - ISH
           - Karyotype
           - Microarray
@@ -115518,6 +115599,8 @@ schema:
           - Transcript Ablation
           - Transcript Amplification
           - Upstream Gene Variant
+          - Unknown
+          - Not Reported
         enumDef:
           3 Prime UTR Variant:
             description: Any mutation in a gene occurring in the 3' end which contains
@@ -115967,6 +116050,8 @@ schema:
           - '12'
           - '13'
           - '61'
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -115983,6 +116068,8 @@ schema:
           - Likely Pathogenic
           - Pathogenic
           - Uncertain Significance
+          - Unknown
+          - Not Reported
         enumDef:
           Benign:
             description: A genetic variant that is known to not contribute to the
@@ -116613,6 +116700,7 @@ schema:
           - MN1
           - MNX1
           - MPL
+          - MPO
           - MSH2
           - MSH6
           - MSI2
@@ -116754,6 +116842,7 @@ schema:
           - RANBP2
           - RAP1GDS1
           - RARA
+          - RAS, NOS
           - RB1
           - RBM10
           - RBM15
@@ -125473,6 +125562,8 @@ schema:
         enum:
           - 3 Point Scale
           - 4 Point Scale
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -125488,6 +125579,8 @@ schema:
           - 2+
           - 3+
           - 4+
+          - Unknown
+          - Not Reported
         enumDef:
           '0':
             description: A measurement of the amount or proportion of tissue or cells
@@ -125864,6 +125957,7 @@ schema:
           - cells/mL
           - g/dL
           - g/L
+          - IU
           - mcg/L
           - mcg/mL
           - mg/24 hr
@@ -125873,13 +125967,16 @@ schema:
           - mmol/L
           - mU/mol Hb
           - ng/mL
+          - nmol/L
           - percent
+          - Seconds
           - U/g Hb
           - U/L
           - U/mL
           - ukat/L
           - umol/L
           - x10^3 cells/mcL
+          - x10^6 cells/mcL
           - x10^9 cells/L
           - Unknown
           - Not Reported
@@ -125902,6 +125999,11 @@ schema:
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142524%20and%20ver_nr=1.0
         type: number
       test_value_range:
+        deprecated_enum:
+          - 0-25
+          - 26-50
+          - 51-75
+          - 76-100
         description: The range of values within which the subject's results fall.
         enum:
           - 0-25
@@ -125921,6 +126023,11 @@ schema:
           - <1%
           - 1-49%
           - '>=50%'
+          - 0-25%
+          - 26-50%
+          - 51-75%
+          - 76-100%
+          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -125935,8 +126042,11 @@ schema:
           - End of Consolidation Therapy
           - End of Treatment Course 1
           - End of Treatment Course 2
+          - Initial Diagnosis
           - Preoperative
           - Prior to Treatment
+          - Sample Procurement
+          - Unknown
           - Not Reported
         enumDef:
           Preoperative:
@@ -125992,6 +126102,7 @@ schema:
           - Germline
           - Somatic
           - Unknown
+          - Not Reported
         enumDef:
           Germline:
             description: Any mutation that appears in the gametes and which will therefore
@@ -129382,6 +129493,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           'No':
@@ -129729,6 +129841,7 @@ schema:
         enum:
           - Extensive
           - Focal
+          - Unknown
           - Not Reported
         termDef:
           cde_id: C25502
@@ -129742,6 +129855,7 @@ schema:
           - 'Yes'
           - 'No'
           - Unknown
+          - Not Reported
         enumDef:
           'No':
             description: The non-affirmative response to a question.
@@ -129782,6 +129896,8 @@ schema:
           - Gross Extension
           - Microscopic Extension
           - No Extranodal Extension
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: C117309
           cde_version: 22.11d
@@ -129808,6 +129924,7 @@ schema:
           - Moderate/Advanced (T4a)
           - Very Advanced (T4b)
           - Unknown
+          - Not Reported
         enumDef:
           Minimal (T3):
             description: Thyroid cancer with a tumor size greater than 4 cm in greatest
@@ -130054,6 +130171,8 @@ schema:
           - Neck, Left
           - Neck, NOS
           - Neck, Right
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -130450,6 +130569,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         termDef:
           cde_id:
@@ -130610,6 +130730,8 @@ schema:
           - Echographic
           - Pathologic
           - Radiologic
+          - Unknown
+          - Not Reported
         enumDef:
           Radiologic:
             description: Imaging results obtained through a radiology procedure.
@@ -130634,6 +130756,8 @@ schema:
         enum:
           - Centimeters
           - Millimeters
+          - Unknown
+          - Not Reported
         enumDef:
           Centimeters:
             description: A basic unit of length in the former CGS version of metric
@@ -130792,6 +130916,8 @@ schema:
           - Papillary, NOS
           - Solid
           - Tubular
+          - Unknown
+          - Not Reported
         enumDef:
           Cribiform:
             description: A morphologic finding indicating the presence of sheets of
@@ -130899,6 +131025,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -131214,6 +131341,24 @@ schema:
           term_url: 
             https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6050944%20and%20ver_nr=1.0
         type: integer
+      prcc_type:
+        description: The type of papillary renal cell carcinoma. It is classified
+          as type 1 or 2, based on the cytoplasmic volume and the thickness of the
+          lining neoplastic cells.
+        enum:
+          - Type 1
+          - Type 2
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C6975
+          cde_version: 23.11d
+          source: NCIt
+          term: Papillary Renal Cell Carcinoma
+          term_id: C6975
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C6975
+          term_version: 23.11d
       project_id:
         common:
           description: Unique ID for any specific defined piece of work that is undertaken
@@ -131270,6 +131415,8 @@ schema:
           - R1
           - R2
           - RX
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: C4809
           cde_version: 21.04d
@@ -131285,6 +131432,8 @@ schema:
           - 11-20 mm
           - '>20 mm'
           - No macroscopic disease
+          - Unknown
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -131309,6 +131458,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -131346,6 +131496,7 @@ schema:
         enum:
           - 'Yes'
           - 'No'
+          - Unknown
           - Not Reported
         enumDef:
           Not Reported:
@@ -131481,12 +131632,27 @@ schema:
           term_url: 
             https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C160996
           term_version: 19.12e
+      tumor_burden:
+        description: Refers to the number of cancer cells, the size of a tumor, or
+          the amount of cancer in the body.
+        minimum: 0
+        termDef:
+          cde_id: C28384
+          cde_version: 23.03d
+          source: NCIt
+          term: Tumor Burden
+          term_id: C28384
+          term_url: 
+            https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C28384
+          term_version: 23.03d
+        type: number
       tumor_depth_descriptor:
         description: Text term for the degree to which a tumor has penetrated into
           organ or tissue.
         enum:
           - Deep
           - Superficial
+          - Unknown
           - Not Reported
         enumDef:
           Deep:
@@ -131546,6 +131712,8 @@ schema:
           - Few
           - Many
           - Moderate
+          - Unknown
+          - Not Reported
         enumDef:
           Few:
             description: An indefinite but relatively small number.
@@ -131598,6 +131766,8 @@ schema:
           - Few
           - Many
           - Moderate
+          - Unknown
+          - Not Reported
         enumDef:
           Few:
             description: An indefinite but relatively small number.
@@ -131688,6 +131858,7 @@ schema:
           - Dome
           - Mushroom
           - Unknown
+          - Not Reported
         enumDef:
           Diffuse:
             description: Widely spread; not localized or confined.
@@ -131897,6 +132068,7 @@ schema:
           - Peripheral zone
           - Transition zone
           - Unknown zone
+          - Not Reported
         termDef:
           cde_id:
           cde_version:
@@ -164976,4 +165148,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev50
+version: 3.0.4.dev63
