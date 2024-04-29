@@ -127408,6 +127408,20 @@ schema:
           source:
           term: Hormonal Contraceptive Use Text Term
           term_url:
+      hormonal_replacement_therapy_status:
+        description: Indicates whether the patient has ever received hormone replacement
+          therapy.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Hormone Replacement Therapy Status
+          term_url:
       hormone_replacement_therapy_type:
         description: The specific type of hormone replacement therapy received by
           the patient.
@@ -164904,4 +164918,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.0.4.dev47
+version: 3.0.4.dev46
