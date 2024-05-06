@@ -99,7 +99,7 @@ class Aliquot(base.Node):
             },
             "submitted_genotyping_arrays": {
                 "name": "aliquots",
-                "src_type": base.Node.get_subclass("submitted_genotyping_array"),
+                "src_type": base.Node.get_subclass("submitted_expression_array"),
             },
             "submitted_methylation_beta_values": {
                 "name": "aliquots",
@@ -145,7 +145,7 @@ class Aliquot(base.Node):
             },
             "submitted_genotyping_arrays": {
                 "backref": "aliquots",
-                "type": base.Node.get_subclass("submitted_genotyping_array"),
+                "type": base.Node.get_subclass("submitted_expression_array"),
             },
             "submitted_methylation_beta_values": {
                 "backref": "aliquots",
