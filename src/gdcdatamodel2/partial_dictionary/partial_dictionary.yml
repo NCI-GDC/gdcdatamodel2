@@ -142391,7 +142391,7 @@ schema:
       - experimental_strategy
   submitted_expression_array:
     links:
-      - backref: submitted_genotyping_arrays
+      - backref: submitted_expression_arrays
         label: derived_from
         multiplicity: many_to_one
         name: aliquots
@@ -165252,4 +165252,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.1.1.dev3
+version: 3.1.1.dev4
