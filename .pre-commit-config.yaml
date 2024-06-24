@@ -47,7 +47,7 @@ repos:
         types: [pyi]
         args: [--profile, black]
   - repo: https://github.com/qiaouchicago/markdown-toc
-    rev: 0.1.1
+    rev: 0.1.0
     hooks:
       - id: markdown-toc
   - repo: https://github.com/pycqa/pydocstyle
