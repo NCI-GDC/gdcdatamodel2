@@ -45,8 +45,7 @@ class DataLoaderExtension:
         if hasattr(node, "project_id"):
             node.project_id = "GDC-MISC"
 
-    def post(self) -> None:
-        ...
+    def post(self) -> None: ...
 
 
 @attr.s(auto_attribs=True)
@@ -204,5 +203,4 @@ class GraphDataGenerator(typing_compat.Protocol):
         self,
         resource: Union[str, hints.GraphData],
         extension: Optional[DataLoaderExtension] = None,
-    ) -> List[models.Node]:
-        ...
+    ) -> List[models.Node]: ...

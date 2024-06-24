@@ -15,6 +15,7 @@ To speed up the query, indexes are built based on secondary keys.
     "index_node_case_project_id_lower",
     "index_node_case_submitter_id_lower",
 """
+
 import hashlib
 import logging
 import sys
@@ -55,8 +56,12 @@ def index_name(cls: Type[psqlgraph.Node], description: str) -> str:
         old_name = name
         logger.debug(f"index name '{old_name}' too long, shortening")
 
+        __name = cls.__tablename__.encode("utf-8")
         extras = {} if sys.version_info < (3, 9) else {"usedforsecurity": False}
-        short_md5 = hashlib.md5(cls.__tablename__.encode("utf-8"), **extras).hexdigest()[:8]
+
+        # hash is not used for security, only used to generate unique names,
+        # and all data used are internally generated.
+        short_md5 = hashlib.md5(__name, **extras).hexdigest()[:8]  # nosec
         short_label = "".join([a[:4] for a in cls.get_label().split("_")])[:20]
         short_description = "_".join([a[:8] for a in description.split("_")])[:25]
 

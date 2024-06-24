@@ -1,23 +1,11 @@
 ---
-stages:
-  - .pre
-  - test
-  - build
-  - stage_trigger
-
 include:
   - project: nci-gdc/gitlab-templates
-    ref: 0.6.0
+    ref: feat/dev-2804-exclude-external-prs
     file:
-      - templates/global/full.yaml
-      - templates/python/full.yaml
-      - templates/common/python.yaml
-      - templates/common/trigger.yml
+      - templates/artifacts/python-library.yaml
 
 tox:
-  parallel:
-    matrix:
-      - BUILD_PY_VERSION: [python3.7, python3.8, python3.9, python3.10, python3.11]
   services:
     - name: docker.osdc.io/ncigdc/ci-postgres-13:${BASE_CONTAINER_VERSION}
       alias: postgres
@@ -26,24 +14,7 @@ tox:
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: test
     POSTGRES_HOST_AUTH_METHOD: trust
-    PG_HOST: postgres
     PG_PASS: test
+    PG_HOST: postgres
     PG_USER: postgres
     PG_NAME: gdcdatamodel2
-    PG_INDEXD_HOST: postgres
-  script:
-    - pip install "tox<4"
-    - tox -r -e py
-
-release:
-  variables:
-    RELEASE_PY_VERSION: python3.7
-  before_script:
-    - git fetch --unshallow || true
-  after_script:
-    - pip install "setuptools_scm>=6.2,<8" "setuptools-git-versioning<2"
-    - python -m setuptools_git_versioning | tee VERSION.txt
-  artifacts:
-    paths:
-      - VERSION.txt
-    expire_in: 1 week
