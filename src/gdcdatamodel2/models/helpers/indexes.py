@@ -57,7 +57,8 @@ def index_name(cls: Type[psqlgraph.Node], description: str) -> str:
         logger.debug(f"index name '{old_name}' too long, shortening")
 
         extras = {} if sys.version_info < (3, 9) else {"usedforsecurity": False}
-        short_md5 = hashlib.md5(cls.__tablename__.encode("utf-8"), **extras).hexdigest()[:8]
+        _name = cls.__tablename__.encode("utf-8")
+        short_md5 = hashlib.md5(_name, **extras).hexdigest()[:8]  # nosec
         short_label = "".join([a[:4] for a in cls.get_label().split("_")])[:20]
         short_description = "_".join([a[:8] for a in description.split("_")])[:25]
 

@@ -62,9 +62,6 @@ repos:
     hooks:
       - id: bandit
         args: [--skip, 'B101,B303,B404,B603', --exclude, tests]
-      # if a .bandit-baseline exists in repo
-      # - id: bandit
-      #   args: [--skip, "B101,B303,B404,B603", --exclude, tests, -b, .bandit-baseline]
   - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
     rev: 0.2.3
     hooks:
