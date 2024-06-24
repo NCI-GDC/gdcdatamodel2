@@ -1,6 +1,24 @@
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm==7.1.0", "setuptools_git_versioning<2"]
+requires = ["setuptools>=68", "wheel", "setuptools_scm>=7.1.0", "versionista>=1.1.0"]
 build-backend = "setuptools.build_meta"
+name = "gdcdatamodel2"
+dynamic = [
+  "version",
+  "description",
+  "readme",
+  "requires-python",
+  "license",
+  "authors",
+  "maintainers",
+  "keywords",
+  "classifiers",
+  "urls",
+  "scripts",
+  "gui-scripts",
+  "entry-points",
+  "dependencies",
+  "optional-dependencies"
+]
 
 [tool.black]
 line-length = 98
@@ -21,8 +39,29 @@ profile = "black"
 line_length = 98 # match black config
 known_first_party = ["gdcdatamodel2"]
 
-[tool.towncrier]
-package = "gdcdatamodel2"
-package_dir = "src"
-filename = "changelog.rst"
-directory = "changelog"
+[tool.pytest.ini_options]
+minversion = 6.0
+# Silence warning by opting in to use pytest 6's new default value
+junit_family = "xunit2"
+junit_logging = "system-out"
+console_output_style = "classic"
+log_cli_level = "INFO"
+log_cli = "true"
+addopts = "-rfE --color=yes --cov=gdcdatamodel2 --cov-report term"
+norecursedirs = [
+  ".git",
+  ".tox",
+  "dist",
+  "build",
+  "docs",
+  "examples",
+  "images"
+]
+testpaths = [
+  "tests/unit",
+  "tests/integration"
+]
+
+[tool.setuptools_scm]
+local_scheme = "versionista-local-format"
+version_scheme = "versionista-format"

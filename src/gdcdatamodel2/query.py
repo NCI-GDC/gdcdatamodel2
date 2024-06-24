@@ -9,6 +9,7 @@ The code is imported in runners but not used.
 
 Similar code is duplicated in sheepdog and is not used there either.
 """
+
 from typing import List
 
 from psqlgraph import Edge, Node
