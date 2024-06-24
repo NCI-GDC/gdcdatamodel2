@@ -3,7 +3,7 @@ include:
   - project: nci-gdc/gitlab-templates
     ref: master
     file:
-      - templates/artifacts/python-library.yml
+      - templates/artifacts/python-library.yaml
 
 tox:
   services:
