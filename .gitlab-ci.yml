@@ -2,7 +2,7 @@
 ---
 include:
   - project: nci-gdc/gitlab-templates
-    ref: feat/dev-2804-exclude-external-prs
+    ref: 0.7.11
     file:
       - templates/artifacts/python-library.yaml
 
