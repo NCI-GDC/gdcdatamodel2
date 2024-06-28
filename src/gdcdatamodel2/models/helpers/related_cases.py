@@ -1,4 +1,5 @@
 """This file only contains helper functions about related cases."""
+
 import itertools
 from typing import Collection, Dict, Generator, Iterator, Optional, Set, Union
 
