@@ -22037,8 +22037,8 @@ schema:
         enum:
           - Favorable
           - Intermediate/Normal
-          - Poor
           - N/A
+          - Poor
           - Unknown
           - Not Reported
         termDef:
@@ -26501,6 +26501,7 @@ schema:
           - Incisional Biopsy
           - Laparoscopy
           - Laparotomy
+          - Orchiectomy
           - Pap Smear
           - Pathologic Review
           - Physical Exam
@@ -41665,6 +41666,8 @@ schema:
           term: Pregnant at Diagnosis Indicator
           term_url:
       primary_diagnosis:
+        deprecated_enum:
+          - Adenocarcinoma in tubolovillous adenoma
         description: Text term used to describe the patient's histologic diagnosis,
           as described by the World Health Organization's (WHO) International Classification
           of Diseases for Oncology (ICD-O).
@@ -41778,6 +41781,7 @@ schema:
           - Adenocarcinoma in situ, NOS
           - Adenocarcinoma in tubolovillous adenoma
           - Adenocarcinoma in tubular adenoma
+          - Adenocarcinoma in tubulovillous adenoma
           - Adenocarcinoma in villous adenoma
           - Adenocarcinoma of anal ducts
           - Adenocarcinoma of anal glands
@@ -43435,6 +43439,7 @@ schema:
           - Myoma
           - Myosarcoma
           - Myxofibroma, NOS
+          - Myxofibrosarcoma
           - Myxoid chondrosarcoma
           - Myxoid fibroma
           - Myxoid leiomyosarcoma
@@ -56059,19 +56064,6 @@ schema:
               term: Angiosarcoma
               term_id: C3088
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3088
-              term_version: 20.05a
-          Hairy cell leukaemia variant:
-            description: An indolent chronic B-cell leukemia resembling classic hairy
-              cell leukemia but shows variant cytologic, hematologic, and immunophenotypic
-              features and is resistant to the conventional therapy applied to hairy
-              cell leukemia.  Biologically, it is not related to hairy cell leukemia.
-            termDef:
-              cde_id: C7401
-              cde_version: 20.05a
-              source: NCIt
-              term: Hairy Cell Leukemia Variant
-              term_id: C7401
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C7401
               term_version: 20.05a
           Hairy cell leukemia:
             description: A neoplasm of small B-lymphocytes with "hairy" projections
@@ -78201,7 +78193,15 @@ schema:
             - Brain, Parietal
             - Brain, Temporal lobe
             - Brain, Ventricle, NOS
+            - Breast, Left Lower Inner
+            - Breast, Left Lower Outer
+            - Breast, Left Upper Inner
+            - Breast, Left Upper Outer
             - Breast, NOS
+            - Breast, Right Lower Inner
+            - Breast, Right Lower Outer
+            - Breast, Right Upper Inner
+            - Breast, Right Upper Outer
             - Bronchus
             - Buccal mucosa
             - Central Lung
@@ -78223,6 +78223,9 @@ schema:
             - Esophagus, NOS
             - Esophagus, Upper Third
             - Eye
+            - Eye, Choroid
+            - Eye, Ciliary Body
+            - Eye, Iris
             - Fallopian Tube, Left
             - Fallopian Tube, NOS
             - Fallopian Tube, Right
@@ -78310,6 +78313,10 @@ schema:
             - Sigmoid colon
             - Sinus
             - Skin
+            - Skin, Extremities
+            - Skin, Groin
+            - Skin, Head and Neck
+            - Skin, Trunk
             - Small intestine
             - Soft tissue
             - Spinal Cord
@@ -156174,4 +156181,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.2
+version: 3.2.3.dev1
