@@ -107614,8 +107614,10 @@ schema:
           - HPV56
           - HPV58
           - HPV59
+          - HPV63
           - HPV66
           - HPV68
+          - HPV70
           - HPV73
           - Unknown
           - Not Reported
@@ -118356,10 +118358,6 @@ schema:
           - 76-100
         description: The range of values within which the subject's results fall.
         enum:
-          - 0-25
-          - 26-50
-          - 51-75
-          - 76-100
           - <10%
           - 10-19%
           - 20-29%
@@ -118379,6 +118377,12 @@ schema:
           - 76-100%
           - Unknown
           - Not Reported
+          - 0-25
+          - 26-50
+          - 51-75
+          - 76-100
+          - 1-4%
+          - 5-9%
         termDef:
           cde_id:
           cde_version:
@@ -118389,13 +118393,41 @@ schema:
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
+          - Adjuvant Therapy
+          - Adolescence
+          - Adulthood
+          - After Chemotherapy
+          - After Study Enrollment
+          - Childhood
           - End of Consolidation Therapy
+          - End of Treatment Course
           - End of Treatment Course 1
           - End of Treatment Course 2
+          - First Complete Response
+          - First Treatment
+          - Follow-up
           - Initial Diagnosis
+          - Last Contact
+          - Post Adjuvant Therapy
+          - Post Hormone Therapy
+          - Post Initial Treatment
+          - Post Secondary Therapy
+          - Postoperative
           - Preoperative
+          - Prior to Adjuvant Therapy
+          - Prior to Chemotherapy
+          - Prior to Diagnosis
+          - Prior to Procurement
+          - Prior to Study Enrollment
+          - Prior to Study Registration
           - Prior to Treatment
+          - Progression
+          - Recurrence
+          - Recurrence/Progression
           - Sample Procurement
+          - Within 2 Months After Completion of First-Course Treatment
+          - Within 3 Months of Surgery
+          - Other
           - Unknown
           - Not Reported
         enumDef:
@@ -156174,4 +156206,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.2
+version: 3.2.3.dev1
