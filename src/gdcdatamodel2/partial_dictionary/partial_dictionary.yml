@@ -128041,6 +128041,7 @@ schema:
           - Bowel
           - Brain
           - Brain Stem
+          - Brainstem
           - Breast
           - Broad Ligament
           - Bronchiole
@@ -128072,6 +128073,7 @@ schema:
           - Clitoris
           - Colon
           - Colon - Mucosa Only
+          - Common Bile Duct
           - Common Duct
           - Conjunctiva
           - Connective Tissue
@@ -128949,6 +128951,8 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432602%20and%20ver_nr=1.0
         type: number
       method_of_sample_procurement:
+        deprecated_enum:
+          - Indeterminant
         description: The method used to procure the sample used to extract analyte(s).
         enum:
           - Abdomino-perineal Resection of Rectum
@@ -128977,6 +128981,7 @@ schema:
           - Hysterectomy NOS
           - Incisional Biopsy
           - Indeterminant
+          - Indeterminate
           - Laparoscopic Biopsy
           - Laparoscopic Partial Nephrectomy
           - Laparoscopic Radical Nephrectomy
@@ -156174,4 +156179,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.2
+version: 3.2.3.dev1
