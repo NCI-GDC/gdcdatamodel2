@@ -118358,6 +118358,12 @@ schema:
           - 76-100
         description: The range of values within which the subject's results fall.
         enum:
+          - 0-25
+          - 26-50
+          - 51-75
+          - 76-100
+          - 1-4%
+          - 5-9%
           - <10%
           - 10-19%
           - 20-29%
@@ -118377,12 +118383,6 @@ schema:
           - 76-100%
           - Unknown
           - Not Reported
-          - 0-25
-          - 26-50
-          - 51-75
-          - 76-100
-          - 1-4%
-          - 5-9%
         termDef:
           cde_id:
           cde_version:
@@ -156206,4 +156206,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev1
+version: 3.2.3.dev3
