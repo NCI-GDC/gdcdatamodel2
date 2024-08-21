@@ -128001,6 +128001,8 @@ schema:
         type: integer
       biospecimen_anatomic_site:
         deprecated_enum:
+          - Brain Stem
+          - Common Duct
           - Head - Face Or Neck, Nos
         description: Text term that represents the name of the organ or tissue site
           of the submitted sample.
@@ -156179,4 +156181,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev1
+version: 3.2.3.dev2
