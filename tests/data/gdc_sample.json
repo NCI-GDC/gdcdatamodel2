@@ -58,7 +58,7 @@
     },
     {
       "dst": "file_x1",
-      "src": "experimental_metadata_x1"
+      "src": "experiment_metadata_x1"
     },
     {
       "dst": "read_group_x1",
@@ -157,7 +157,7 @@
       "src": "aligned_reads_index_x4"
     },
     {
-      "dst": "aligned_reads_index_x1",
+      "dst": "aligned_reads_x1",
       "src": "rna_expression_workflow_x1"
     },
     {

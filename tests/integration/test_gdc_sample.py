@@ -32,7 +32,7 @@ def test_traverse(
 ) -> None:
     with gdc_graph.session_scope():
         case_x1 = gdc_graph.nodes(models.Case).props(submitter_id="case_x1").one()
-        assert len(list(case_x1.traverse())) == 35
+        assert len(list(case_x1.traverse())) == 38
 
 
 def test_counts(
