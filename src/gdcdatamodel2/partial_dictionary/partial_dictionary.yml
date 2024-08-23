@@ -22037,8 +22037,8 @@ schema:
         enum:
           - Favorable
           - Intermediate/Normal
-          - Poor
           - N/A
+          - Poor
           - Unknown
           - Not Reported
         termDef:
@@ -26501,6 +26501,7 @@ schema:
           - Incisional Biopsy
           - Laparoscopy
           - Laparotomy
+          - Orchiectomy
           - Pap Smear
           - Pathologic Review
           - Physical Exam
@@ -41665,6 +41666,8 @@ schema:
           term: Pregnant at Diagnosis Indicator
           term_url:
       primary_diagnosis:
+        deprecated_enum:
+          - Adenocarcinoma in tubolovillous adenoma
         description: Text term used to describe the patient's histologic diagnosis,
           as described by the World Health Organization's (WHO) International Classification
           of Diseases for Oncology (ICD-O).
@@ -41778,6 +41781,7 @@ schema:
           - Adenocarcinoma in situ, NOS
           - Adenocarcinoma in tubolovillous adenoma
           - Adenocarcinoma in tubular adenoma
+          - Adenocarcinoma in tubulovillous adenoma
           - Adenocarcinoma in villous adenoma
           - Adenocarcinoma of anal ducts
           - Adenocarcinoma of anal glands
@@ -43435,6 +43439,7 @@ schema:
           - Myoma
           - Myosarcoma
           - Myxofibroma, NOS
+          - Myxofibrosarcoma
           - Myxoid chondrosarcoma
           - Myxoid fibroma
           - Myxoid leiomyosarcoma
@@ -56059,19 +56064,6 @@ schema:
               term: Angiosarcoma
               term_id: C3088
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3088
-              term_version: 20.05a
-          Hairy cell leukaemia variant:
-            description: An indolent chronic B-cell leukemia resembling classic hairy
-              cell leukemia but shows variant cytologic, hematologic, and immunophenotypic
-              features and is resistant to the conventional therapy applied to hairy
-              cell leukemia.  Biologically, it is not related to hairy cell leukemia.
-            termDef:
-              cde_id: C7401
-              cde_version: 20.05a
-              source: NCIt
-              term: Hairy Cell Leukemia Variant
-              term_id: C7401
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C7401
               term_version: 20.05a
           Hairy cell leukemia:
             description: A neoplasm of small B-lymphocytes with "hairy" projections
@@ -78201,7 +78193,15 @@ schema:
             - Brain, Parietal
             - Brain, Temporal lobe
             - Brain, Ventricle, NOS
+            - Breast, Left Lower Inner
+            - Breast, Left Lower Outer
+            - Breast, Left Upper Inner
+            - Breast, Left Upper Outer
             - Breast, NOS
+            - Breast, Right Lower Inner
+            - Breast, Right Lower Outer
+            - Breast, Right Upper Inner
+            - Breast, Right Upper Outer
             - Bronchus
             - Buccal mucosa
             - Central Lung
@@ -78223,6 +78223,9 @@ schema:
             - Esophagus, NOS
             - Esophagus, Upper Third
             - Eye
+            - Eye, Choroid
+            - Eye, Ciliary Body
+            - Eye, Iris
             - Fallopian Tube, Left
             - Fallopian Tube, NOS
             - Fallopian Tube, Right
@@ -78310,6 +78313,10 @@ schema:
             - Sigmoid colon
             - Sinus
             - Skin
+            - Skin, Extremities
+            - Skin, Groin
+            - Skin, Head and Neck
+            - Skin, Trunk
             - Small intestine
             - Soft tissue
             - Spinal Cord
@@ -107614,8 +107621,10 @@ schema:
           - HPV56
           - HPV58
           - HPV59
+          - HPV63
           - HPV66
           - HPV68
+          - HPV70
           - HPV73
           - Unknown
           - Not Reported
@@ -118360,6 +118369,8 @@ schema:
           - 26-50
           - 51-75
           - 76-100
+          - 1-4%
+          - 5-9%
           - <10%
           - 10-19%
           - 20-29%
@@ -118389,13 +118400,41 @@ schema:
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
+          - Adjuvant Therapy
+          - Adolescence
+          - Adulthood
+          - After Chemotherapy
+          - After Study Enrollment
+          - Childhood
           - End of Consolidation Therapy
+          - End of Treatment Course
           - End of Treatment Course 1
           - End of Treatment Course 2
+          - First Complete Response
+          - First Treatment
+          - Follow-up
           - Initial Diagnosis
+          - Last Contact
+          - Post Adjuvant Therapy
+          - Post Hormone Therapy
+          - Post Initial Treatment
+          - Post Secondary Therapy
+          - Postoperative
           - Preoperative
+          - Prior to Adjuvant Therapy
+          - Prior to Chemotherapy
+          - Prior to Diagnosis
+          - Prior to Procurement
+          - Prior to Study Enrollment
+          - Prior to Study Registration
           - Prior to Treatment
+          - Progression
+          - Recurrence
+          - Recurrence/Progression
           - Sample Procurement
+          - Within 2 Months After Completion of First-Course Treatment
+          - Within 3 Months of Surgery
+          - Other
           - Unknown
           - Not Reported
         enumDef:
@@ -119105,6 +119144,13 @@ schema:
           term: CDC HIV Risk Factor Text Term
           term_url:
       comorbidities:
+        deprecated_enum:
+          - Alpha-1 Antitrypsin
+          - Diabetes
+          - Gastroesophageal Reflux Disease
+          - Hepatitis
+          - Kidney Disease
+          - Smoking
         description: The text term used to describe a comorbidity disease, which coexists
           with the patient's malignant disease.
         enumDef:
@@ -119183,9 +119229,30 @@ schema:
             - Acute Renal Failure
             - Adenocarcinoma
             - Adenomatous Polyposis Coli
+            - Adenomyosis
+            - Adenosis (Atypical Adenomatous Hyperplasia)
             - Adrenocortical Insufficiency
+            - Alcoholic Liver Disease
             - Allergies
+            - Allergy, Animal, NOS
+            - Allergy, Ant
+            - Allergy, Bee
+            - Allergy, Cat
+            - Allergy, Dairy or Lactose
+            - Allergy, Dog
+            - Allergy, Eggs
+            - Allergy, Food, NOS
+            - Allergy, Fruit
+            - Allergy, Meat
+            - Allergy, Mold or Dust
+            - Allergy, Nuts
+            - Allergy, Processed Foods
+            - Allergy, Seafood
+            - Allergy, Wasp
             - Alpha-1 Antitrypsin
+            - Alpha-1 Antitrypsin Deficiency
+            - Altered Mental Status
+            - Androgen Excess
             - Anemia
             - Anxiety
             - Arrhythmia
@@ -119193,15 +119260,20 @@ schema:
             - Asthma
             - Ataxia-Telangiectasia
             - Atrial Fibrillation
+            - Autoimmune Atrophic Chronic Gastritis
             - Autoimmune Lymphoproliferative Syndrome (ALPS)
             - Avascular Necrosis
             - Bacteroides fragilis
+            - BAP1 Tumor Predisposition Syndrome
             - Barrett's Esophagus
             - Basal Cell Carcinoma
             - Beckwith-Wiedemann
             - Behcet's Disease
+            - Benign Prostatic Hyperplasia
             - Benign Thyroid Nodule
             - Biliary Disorder
+            - Birt-Hogg-Dube Syndrome
+            - BK Virus
             - Blood Clots
             - Bone Fracture(s)
             - Bronchitis
@@ -119214,6 +119286,7 @@ schema:
             - Chloroma
             - Cholelithiasis
             - Chronic Fatigue Syndrome
+            - Chronic Kidney Disease
             - Chronic Pancreatitis
             - Chronic Renal Failure
             - Chronic Systemic Steroid Use
@@ -119222,41 +119295,58 @@ schema:
             - Clonal Hematopoiesis
             - CNS Infection
             - Colon Polyps
+            - Colonization, Bacterial
+            - Colonization, Fungal
+            - Common Variable Immune Deficiency (CVID)
             - Common Variable Immunodeficiency
             - Congestive Heart Failure (CHF)
             - Connective Tissue Disorder
             - COPD
             - Coronary Artery Disease
+            - Cortisol Excess
+            - Cowden Syndrome
             - Crohn's Disease
             - Cryptococcal Meningitis
             - Cryptogenic Organizing Pneumonia
+            - Cyst(s)
             - Cytomegalovirus (CMV)
             - Deep Vein Thrombosis / Thromboembolism
             - Denys-Drash Syndrome
             - Depression
             - Dermatomyosis
             - Diabetes
+            - Diabetes, NOS
+            - Diabetes, Type I
             - Diabetes, Type II
             - Diabetic Neuropathy
             - Diet Controlled Diabetes
             - Diverticulitis
+            - Diverticulosis
             - Down Syndrome
             - DVT/PE
             - Dyslipidemia
             - EBV Lymphoproliferation
             - Eczema
+            - Endometriosis
+            - Endosalpingiosis
             - Epilepsy
+            - Epithelial Dysplasia
+            - Epithelial Hyperplasia
             - Epstein-Barr Virus
             - Escherichia coli
+            - Estrogen Excess
             - Familial Adenomatous Polyposis
             - Fanconi Anemia
             - Fibromyalgia
             - Fibrosis
             - Follicular Adenoma
+            - Gastric Polyp(s)
             - Gastritis
             - Gastroesophageal Reflux Disease
             - GERD
+            - Gilbert's Syndrome
             - Glaucoma
+            - Glomerular Disease
             - Glycogen Storage Disease
             - Goiter
             - Gonadal Dysfunction
@@ -119264,22 +119354,40 @@ schema:
             - Gout
             - Graves' Disease
             - Hashimoto's Thyroiditis
+            - Hay Fever
             - Headache
             - Heart Disease
             - Helicobacter pylori Infection
+            - Helicobacter pylori-Associated Gastritis
+            - Hematologic Disorder, NOS
             - Hemihypertrophy
+            - Hemochromatosis
             - Hemorrhagic Cystitis
+            - Hepatic Encephalopathy
             - Hepatitis
             - Hepatitis A Infection
             - Hepatitis B Infection
             - Hepatitis C Infection
             - Hepatitis, Chronic
+            - Hepatitis, NOS
+            - Hereditary Breast Cancer
+            - Hereditary Hemorrhagic Telangiectasia
+            - Hereditary Kidney Oncocytoma
+            - Hereditary Leiomyomatosis and Renal Cell Carcinoma
             - Hereditary Non-Polyposis Colon Cancer
+            - Hereditary Ovarian Cancer
+            - Hereditary Papillary Renal Cell Carcinoma
+            - Hereditary Prostate Cancer
+            - Hereditary Renal Cell Carcinoma
             - Herpes
             - Herpes Zoster
+            - High Grade Dysplasia
             - High Grade Liver Dysplastic Nodule
+            - High-grade Prostatic Intraepithelial Neoplasia (PIN)
             - HIV/AIDS
             - Hodgkin Lymphoma
+            - Human Herpesvirus-6 (HHV-6)
+            - Human Herpesvirus-8 (HHV-8)
             - Human Papillomavirus Infection
             - HUS/TTP
             - Hypercalcemia
@@ -119291,9 +119399,13 @@ schema:
             - Hyperthyroidism
             - Hypospadias
             - Hypothyroidism
+            - Inflammation
+            - Inflammation, Hyperkeratosis
             - Inflammatory Bowel Disease
+            - Inherited Genetic Syndrome, NOS
             - Insulin Controlled Diabetes
             - Interstitial Pneumonitis or ARDS
+            - Intestinal Metaplasia
             - Intraductal Papillary Mucinous Neoplasm
             - Iron Overload
             - Ischemic Heart Disease
@@ -119303,6 +119415,7 @@ schema:
             - Li-Fraumeni Syndrome
             - Liver Cirrhosis (Liver Disease)
             - Liver Toxicity (Non-Infectious)
+            - Low Grade Dysplasia
             - Low Grade Liver Dysplastic Nodule
             - Lupus
             - Lymphamatoid Papulosis
@@ -119314,11 +119427,17 @@ schema:
             - Malaria
             - Metabolic Syndrome
             - Methicillin-Resistant Staphylococcus aureus (MRSA)
+            - Mineralcorticoids Excess
+            - Motor / Movement Change
             - Myasthenia Gravis
             - Mycobacterium avium Complex
+            - Myelodysplastic Syndrome
             - Myocardial Infarction
+            - Neurocystericerosis
             - Neuroendocrine Tumor
             - Nodular Hyperplasia
+            - Nodular Prostatic Hyperplasia
+            - Nonalcoholic Fatty Liver Disease
             - Nonalcoholic Steatohepatitis
             - Obesity
             - Organ Transplant (Site)
@@ -119329,6 +119448,7 @@ schema:
             - Other Pulmonary Complications
             - Pain (Various)
             - Pancreatitis
+            - Parasitic Disease of Biliary Tract
             - Peptic Ulcer (Ulcer)
             - Peripheral Neuropathy
             - Peripheral Vascular Disease
@@ -119341,32 +119461,52 @@ schema:
             - Psoriasis
             - Pulmonary Fibrosis
             - Pulmonary Hemorrhage
+            - Recurrent Pyogenic Cholangitis
             - Renal Dialysis
             - Renal Failure (Requiring Dialysis)
             - Renal Insufficiency
             - Rheumatoid Arthritis
             - Rheumatologic Disease
+            - Rubella
             - Rubinstein-Taybi Syndrome
             - Sarcoidosis
+            - Scarlet Fever
             - Seizure
+            - Sensory Changes
+            - Serous Tubal Intraepithelial Carcinoma (STIC)
             - Shingles
+            - Sialadenitis
             - Sjogren's Syndrome
+            - Skin Rash
             - Sleep Apnea
             - Smoking
+            - Squamous Metaplasia
             - Staph Osteomyelitis
             - Staphylococcus aureus
             - Steatosis
             - Stroke
+            - Succinate Dehydrogenase-Deficient Renal Cell Carcinoma
             - Syphilis
             - Thyroid Disease, Non-Cancer
+            - Thyroid Nodular Hyperplasia
+            - Tobacco, NOS
+            - Tobacco, Smokeless
+            - Tobacco, Smoking
             - Transient Ischemic Attack
             - Treponema pallidum
             - Tuberculosis
+            - Tuberous Sclerosis
+            - Tubulointerstitial Disease
+            - Tumor-Associated Lymphoid Proliferation
             - Turcot Syndrome
             - Tyrosinemia
             - Ulcerative Colitis
+            - Undescended Testis
             - Urinary Tract Infection
             - Varicella Zoster Virus
+            - Vascular Disease
+            - Vision Changes
+            - Von Hippel-Lindau Syndrome
             - Wagr Syndrome
             - Other
             - Unknown
@@ -120273,6 +120413,7 @@ schema:
         description: A measurement of the total number of pregnancy events experienced
           by the female subject.
         enum:
+          - '0'
           - '1'
           - '2'
           - '3'
@@ -120693,6 +120834,11 @@ schema:
           term: Risk Factor Treatment Indicator
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6514356%20and%20ver_nr=1.0
       risk_factors:
+        deprecated_enum:
+          - Chronic Hepatitis
+          - Cirrhosis
+          - HIV
+          - Reflux Disease
         description: The text term used to describe a risk factor the patient had
           at the time of or prior to their diagnosis.
         enumDef:
@@ -120744,10 +120890,13 @@ schema:
         items:
           enum:
             - Abnormal Glucose Level
+            - Adenocarcinoma
+            - Adenomatous Polyposis Coli
             - Adenomyosis
             - Adenosis (Atypical Adenomatous Hyperplasia)
             - Alcohol Consumption
             - Alcoholic Liver Disease
+            - Allergies
             - Allergy, Animal, NOS
             - Allergy, Ant
             - Allergy, Bee
@@ -120767,37 +120916,56 @@ schema:
             - Altered Mental Status
             - Androgen Excess
             - Anemia
+            - Arthritis
             - Asthma
             - Ataxia-Telangiectasia
+            - Atrial Fibrillation
             - Autoimmune Atrophic Chronic Gastritis
             - Autoimmune Lymphoproliferative Syndrome (ALPS)
             - Bacteroides fragilis
             - BAP1 Tumor Predisposition Syndrome
             - Barrett's Esophagus
+            - Basal Cell Carcinoma
             - Beckwith-Wiedemann
             - Behcet's Disease
             - Benign Prostatic Hyperplasia
             - Benign Thyroid Nodule
+            - Biliary Disorder
             - Birt-Hogg-Dube Syndrome
             - BK Virus
             - BRCA Family History
+            - Bronchitis
+            - Calcium Channel Blockers
             - Cancer
+            - Cataracts
+            - Celiac Disease
+            - Cerebrovascular Disease
             - Chlamydia
             - Chloroma
             - Cholelithiasis
+            - Chronic Fatigue Syndrome
             - Chronic Hepatitis
             - Chronic Kidney Disease
             - Chronic Pancreatitis
             - Chronic Systemic Steroid Use
             - Chronic Thyroiditis
             - Cirrhosis
+            - Clonal Hematopoiesis
+            - CNS Infection
             - Colon Polyps
             - Colonization, Bacterial
             - Colonization, Fungal
             - Common Variable Immune Deficiency (CVID)
+            - Common Variable Immunodeficiency
+            - Congestive Heart Failure (CHF)
+            - Connective Tissue Disorder
+            - COPD
+            - Coronary Artery Disease
             - Cortisol Excess
             - Cowden Syndrome
+            - Crohn's Disease
             - Cryptococcal Meningitis
+            - Cryptogenic Organizing Pneumonia
             - Cyst(s)
             - Cytomegalovirus (CMV)
             - Denys-Drash Syndrome
@@ -120809,6 +120977,7 @@ schema:
             - Diverticulitis
             - Diverticulosis
             - Down Syndrome
+            - Dyslipidemia
             - EBV Lymphoproliferation
             - Eczema
             - Endometriosis
@@ -120824,14 +120993,19 @@ schema:
             - Follicular Adenoma
             - Gastric Polyp(s)
             - Gastritis
+            - GERD
             - Gilbert's Syndrome
+            - Glaucoma
             - Glomerular Disease
+            - Glycogen Storage Disease
             - Goiter
             - Gorlin Syndrome
+            - Gout
             - Graves' Disease
             - Hashimoto's Thyroiditis
             - Hay Fever
             - Headache
+            - Heart Disease
             - Helicobacter pylori Infection
             - Helicobacter pylori-Associated Gastritis
             - Hematologic Disorder, NOS
@@ -120841,24 +121015,32 @@ schema:
             - Hepatitis A Infection
             - Hepatitis B Infection
             - Hepatitis C Infection
+            - Hepatitis, Chronic
             - Hepatitis, NOS
             - Hereditary Breast Cancer
             - Hereditary Hemorrhagic Telangiectasia
             - Hereditary Kidney Oncocytoma
             - Hereditary Leiomyomatosis and Renal Cell Carcinoma
+            - Hereditary Non-Polyposis Colon Cancer
             - Hereditary Ovarian Cancer
             - Hereditary Papillary Renal Cell Carcinoma
             - Hereditary Prostate Cancer
             - Hereditary Renal Cell Carcinoma
+            - Herpes
+            - Herpes Simplex Virus
             - Herpes Zoster
             - High Grade Dysplasia
+            - High Grade Liver Dysplastic Nodule
             - High-grade Prostatic Intraepithelial Neoplasia (PIN)
             - HIV
+            - HIV/AIDS
             - Hodgkin Lymphoma
             - Human Herpesvirus-6 (HHV-6)
             - Human Herpesvirus-8 (HHV-8)
             - Human Papillomavirus Infection
             - Hypercholesterolemia
+            - Hyperglycemia
+            - Hyperlipidemia
             - Hyperparathyroidism
             - Hypertension
             - Hyperthyroidism
@@ -120866,11 +121048,19 @@ schema:
             - Hypothyroidism
             - Inflammation
             - Inflammation, Hyperkeratosis
+            - Inflammatory Bowel Disease
             - Inherited Genetic Syndrome, NOS
+            - Interstitial Pneumonitis or ARDS
             - Intestinal Metaplasia
+            - Intraductal Papillary Mucinous Neoplasm
             - Iron Overload
+            - Ischemic Heart Disease
+            - ITP
             - Li-Fraumeni Syndrome
+            - Liver Cirrhosis (Liver Disease)
             - Low Grade Dysplasia
+            - Low Grade Liver Dysplastic Nodule
+            - Lupus
             - Lymphamatoid Papulosis
             - Lymphocytic Meningitis
             - Lymphocytic Thyroiditis
@@ -120883,7 +121073,9 @@ schema:
             - Myasthenia Gravis
             - Mycobacterium avium Complex
             - Myelodysplastic Syndrome
+            - Myocardial Infarction
             - Neurocystericerosis
+            - Neuroendocrine Tumor
             - Nodular Hyperplasia
             - Nodular Prostatic Hyperplasia
             - Nonalcoholic Fatty Liver Disease
@@ -120891,15 +121083,26 @@ schema:
             - None
             - Obesity
             - Oral Contraceptives
+            - Organ Transplant (Site)
+            - Osteoarthritis
             - Pancreatitis
             - Parasitic Disease of Biliary Tract
+            - Peptic Ulcer (Ulcer)
+            - Peripheral Vascular Disease
+            - Peutz-Jeghers Disease
             - Pneumocystis Pneumonia
             - Pneumonia, NOS
             - Polycystic Ovarian Syndrome (PCOS)
+            - Pregnancy in Patient or Partner
             - Primary Sclerosing Cholangitis
+            - Psoriasis
+            - Pulmonary Fibrosis
             - Recurrent Pyogenic Cholangitis
             - Reflux Disease
+            - Renal Failure (Requiring Dialysis)
+            - Renal Insufficiency
             - Rheumatoid Arthritis
+            - Rheumatologic Disease
             - Rubella
             - Rubinstein-Taybi Syndrome
             - Sarcoidosis
@@ -120911,12 +121114,15 @@ schema:
             - Sialadenitis
             - Sjogren's Syndrome
             - Skin Rash
+            - Sleep Apnea
             - Squamous Metaplasia
+            - Staph Osteomyelitis
             - Staphylococcus aureus
             - Steatosis
             - Succinate Dehydrogenase-Deficient Renal Cell Carcinoma
             - Syphilis
             - Tattoo
+            - Thyroid Disease, Non-Cancer
             - Thyroid Nodular Hyperplasia
             - Tobacco, NOS
             - Tobacco, Smokeless
@@ -120927,8 +121133,10 @@ schema:
             - Tubulointerstitial Disease
             - Tumor-associated Lymphoid Proliferation
             - Turcot Syndrome
+            - Tyrosinemia
             - Ulcerative Colitis
             - Undescended Testis
+            - Urinary Tract Infection
             - Varicella Zoster Virus
             - Vascular Disease
             - Vision Changes
@@ -120991,19 +121199,36 @@ schema:
           - Adjuvant Therapy
           - Adolescence
           - Adulthood
+          - After Chemotherapy
+          - After Study Enrollment
           - Childhood
+          - End of Consolidation Therapy
+          - End of Treatment Course
+          - End of Treatment Course 1
+          - End of Treatment Course 2
+          - First Complete Response
+          - First Treatment
           - Follow-up
           - Initial Diagnosis
           - Last Contact
           - Post Adjuvant Therapy
           - Post Hormone Therapy
+          - Post Initial Treatment
           - Post Secondary Therapy
           - Postoperative
           - Preoperative
+          - Prior to Adjuvant Therapy
+          - Prior to Chemotherapy
           - Prior to Diagnosis
+          - Prior to Procurement
+          - Prior to Study Enrollment
+          - Prior to Study Registration
           - Prior to Treatment
+          - Progression
+          - Recurrence
           - Recurrence/Progression
           - Sample Procurement
+          - Within 2 Months After Completion of First-Course Treatment
           - Within 3 Months of Surgery
           - Other
           - Unknown
@@ -128001,6 +128226,8 @@ schema:
         type: integer
       biospecimen_anatomic_site:
         deprecated_enum:
+          - Brain Stem
+          - Common Duct
           - Head - Face Or Neck, Nos
         description: Text term that represents the name of the organ or tissue site
           of the submitted sample.
@@ -128041,6 +128268,7 @@ schema:
           - Bowel
           - Brain
           - Brain Stem
+          - Brainstem
           - Breast
           - Broad Ligament
           - Bronchiole
@@ -128072,6 +128300,7 @@ schema:
           - Clitoris
           - Colon
           - Colon - Mucosa Only
+          - Common Bile Duct
           - Common Duct
           - Conjunctiva
           - Connective Tissue
@@ -128949,6 +129178,8 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432602%20and%20ver_nr=1.0
         type: number
       method_of_sample_procurement:
+        deprecated_enum:
+          - Indeterminant
         description: The method used to procure the sample used to extract analyte(s).
         enum:
           - Abdomino-perineal Resection of Rectum
@@ -128977,6 +129208,7 @@ schema:
           - Hysterectomy NOS
           - Incisional Biopsy
           - Indeterminant
+          - Indeterminate
           - Laparoscopic Biopsy
           - Laparoscopic Partial Nephrectomy
           - Laparoscopic Radical Nephrectomy
@@ -136264,6 +136496,7 @@ schema:
           - Glucocorticoid
           - Growth factor
           - PARP inhibitor
+          - Platinum
           - Unknown
           - Not Reported
         termDef:
@@ -138300,6 +138533,7 @@ schema:
           - CXCR4 Inhibitor Q-122
           - CXCR4 Peptide Antagonist LY2510924
           - CXCR4/E-selectin Antagonist GMI-1359
+          - Cyanocobalamin
           - Cyclin-dependent Kinase 8/19 Inhibitor BCD 115
           - Cyclin-dependent Kinase Inhibitor PF-06873600
           - Cyclodextrin-Based Polymer-Camptothecin CRLX101
@@ -154688,18 +154922,41 @@ schema:
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
+          - Adjuvant Therapy
+          - Adolescence
+          - Adulthood
+          - After Chemotherapy
+          - After Study Enrollment
+          - Childhood
           - End of Consolidation Therapy
           - End of Treatment Course
+          - End of Treatment Course 1
+          - End of Treatment Course 2
           - First Complete Response
           - First Treatment
+          - Follow-up
+          - Initial Diagnosis
+          - Last Contact
+          - Post Adjuvant Therapy
+          - Post Hormone Therapy
+          - Post Initial Treatment
+          - Post Secondary Therapy
           - Postoperative
           - Preoperative
+          - Prior to Adjuvant Therapy
+          - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
+          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
           - Recurrence
+          - Recurrence/Progression
+          - Sample Procurement
+          - Within 2 Months After Completion of First-Course Treatment
+          - Within 3 Months of Surgery
+          - Other
           - Unknown
           - Not Reported
         termDef:
@@ -155381,6 +155638,7 @@ schema:
             - Endocrine Gland
             - Epididymis
             - Epidural Space
+            - Epiglottis
             - Epitrochlear
             - Esophagogastric Junction
             - Esophagus
@@ -155852,6 +156110,7 @@ schema:
           - Palliative
           - Prevention
           - Radiation Boost
+          - Re-Excision
           - Unknown
           - Not Reported
         enumDef:
@@ -156037,6 +156296,7 @@ schema:
           - Ethanol Injection Ablation
           - External Beam Radiation
           - Hormone Therapy
+          - Hysterectomy, NOS
           - I-131 Radiation Therapy
           - Immunotherapy (Including Vaccines)
           - Internal Radiation
@@ -156174,4 +156434,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.2
+version: 3.2.3.dev5
