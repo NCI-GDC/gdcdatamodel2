@@ -92088,6 +92088,7 @@ schema:
         items:
           enum:
             - Abdomen
+            - Cervix Uteri
             - Lymph Node
             - Pelvis
             - Pleura
@@ -92104,9 +92105,11 @@ schema:
         description: Recorded findings noted during the review of a specific medical
           image.
         enum:
+          - Bladder Involvement
           - Carcinomatosis
           - Distant Metastasis
           - Equivocal
+          - Extra-Pelvic Metastatic Disease
           - Extraprostatic Extension, Localized
           - Extraprostatic Extension, Regional Lymphadenopathy
           - Kidney Involvement
@@ -92114,7 +92117,11 @@ schema:
           - Lung Involvement
           - No Evidence of Extraprostatic Extension
           - Normal
+          - Paraaortic Lymph Node Involvement
+          - Parametrium Involvement
+          - Pelvic Lymph Node Involvement
           - Retroperitoneal Lymph Node Involvement
+          - Supraclavicular Lymph Node Involvement
           - Vena Cava Involvement/Thrombus
           - Unknown
           - Not Reported
@@ -93689,19 +93696,35 @@ schema:
           - Adjuvant Therapy
           - Adolescence
           - Adulthood
+          - After Chemotherapy
+          - After Study Enrollment
           - Childhood
+          - End of Consolidation Therapy
+          - End of Treatment Course
+          - End of Treatment Course 1
+          - End of Treatment Course 2
+          - First Complete Response
+          - First Treatment
           - Follow-up
           - Initial Diagnosis
           - Last Contact
           - Post Adjuvant Therapy
           - Post Hormone Therapy
+          - Post Initial Treatment
           - Post Secondary Therapy
           - Postoperative
           - Preoperative
           - Prior to Adjuvant Therapy
+          - Prior to Chemotherapy
           - Prior to Diagnosis
+          - Prior to Procurement
+          - Prior to Study Enrollment
+          - Prior to Study Registration
           - Prior to Treatment
+          - Progression
+          - Recurrence
           - Recurrence/Progression
+          - Sample Procurement
           - Within 2 Months After Completion of First-Course Treatment
           - Within 3 Months of Surgery
           - Other
@@ -122596,6 +122619,7 @@ schema:
           - Neck, Left
           - Neck, NOS
           - Neck, Right
+          - Retroperitoneal
           - Unknown
           - Not Reported
         termDef:
@@ -122623,6 +122647,7 @@ schema:
           - Iliac-common
           - Iliac-external
           - Inguinal
+          - Intra-Abdominal, NOS
           - Mediastinal
           - Mesenteric
           - None
@@ -156434,4 +156459,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev5
+version: 3.2.3.dev10
