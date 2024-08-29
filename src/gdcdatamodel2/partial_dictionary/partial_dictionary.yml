@@ -90647,7 +90647,7 @@ schema:
           term_url:
       comorbidities:
         description: The text term used to describe a patient with one or more diseases
-          or conditions, which coexists with the patient's malignant disease at the
+          or conditions, which coexist with the patient's malignant disease at the
           same time.
         enumDef:
           Pneumonia, NOS:
@@ -119186,7 +119186,7 @@ schema:
           - Kidney Disease
           - Smoking
         description: The text term used to describe a patient with one or more diseases
-          or conditions, which coexists with the patient's malignant disease at the
+          or conditions, which coexist with the patient's malignant disease at the
           same time.
         enumDef:
           Cancer:
@@ -156483,4 +156483,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev13
+version: 3.2.3.dev14
