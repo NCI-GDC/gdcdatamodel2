@@ -90598,7 +90598,7 @@ schema:
         type: number
       cdc_hiv_risk_factors:
         description: The text term used to describe a risk factor for human immunodeficiency
-          virus, as described by the Center for Disease Control.
+          virus, as described by the Centers for Disease Control.
         enum:
           - Hemophiliac
           - Heterosexual Contact
@@ -119130,7 +119130,7 @@ schema:
         type: number
       cdc_hiv_risk_factors:
         description: The text term used to describe a risk factor for human immunodeficiency
-          virus, as described by the Center for Disease Control.
+          virus, as described by the Centers for Disease Control.
         enum:
           - Hemophiliac
           - Heterosexual Contact
@@ -156483,4 +156483,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev12
+version: 3.2.3.dev13
