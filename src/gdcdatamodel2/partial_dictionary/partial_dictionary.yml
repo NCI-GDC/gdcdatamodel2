@@ -122325,6 +122325,25 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200471
           term_version: 24.07e
         type: number
+      epithelioid_cell_percent_range:
+        description: A quantitative measurement of the percent of epithelioid melanocytes
+          compared to the number of total cells present in a sample.
+        enum:
+          - 0%
+          - 1-30%
+          - 31-60%
+          - 61-90%
+          - '>90%'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C200471
+          cde_version: 24.07e
+          source: NCIt
+          term: Percent of Epithelioid Melanocytes
+          term_id: C200471
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200471
+          term_version: 24.07e
       extracapsular_extension:
         description: The extension of malignant tissue situated outside of a specific
           capsule.
@@ -122390,6 +122409,21 @@ schema:
           source: NCIt
           term: Extranodal Involvement
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C117309
+      extraocular_nodule_size:
+        description: The size of the nodule that is outside the eye.
+        enum:
+          - <=5mm
+          - '>5mm'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C185261
+          cde_version: 24.07e
+          source: NCIt
+          term: Extraocular Nodule Size
+          term_id: C185261
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C185261
+          term_version: 24.07e
       extrascleral_extension:
         description: Spread of uveal melanoma beyond the sclera.
         termDef:
@@ -122399,6 +122433,19 @@ schema:
           term: Extrascleral Extension of Uveal Melanoma
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028
         type: boolean
+      extrascleral_extension_present:
+        description: Spread of uveal melanoma beyond the sclera.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C111028
+          cde_version: 22.11d
+          source: NCIt
+          term: Extrascleral Extension of Uveal Melanoma
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028
       extrathyroid_extension:
         description: Text term to describe the degree to which the primary tumor has
           extra thyroid extension.
@@ -122562,6 +122609,20 @@ schema:
         pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
         systemAlias: node_id
         type: string
+      intratubular_germ_cell_neoplasia_present:
+        description: Text term to indicate whether the intratubular germ cell neoplasm
+          is present or absent.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Testicular Intratubular Germ Cell Neoplasia Indicator
+          term_url:
       largest_extrapelvic_peritoneal_focus:
         description: The text term used to describe the diameter of the largest focus
           originating outside of the pelvic peritoneal region.
@@ -123923,6 +123984,25 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200472
           term_version: 24.07e
         type: number
+      spindle_cell_percent_range:
+        description: A quantitative measurement of the percent of spindle-shaped melanocytes
+          compared to the number of total cells present in a sample.
+        enum:
+          - 0%
+          - 1-30%
+          - 31-60%
+          - 61-90%
+          - '>90%'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C200472
+          cde_version: 24.07e
+          source: NCIt
+          term: Percent of Spindle-Shaped Melanocytes
+          term_id: C200472
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200472
+          term_version: 24.07e
       state:
         common:
           description: The current state of the object.
@@ -123964,6 +124044,53 @@ schema:
           calling card/nickname/alias for a unit of submission. It can be used in
           place of the uuid for identifying or recalling a node.
         type: string
+      timepoint_category:
+        description: Category describing a specific point in the time continuum, including
+          those established relative to an event.
+        enum:
+          - Adjuvant Therapy
+          - Adolescence
+          - Adulthood
+          - After Chemotherapy
+          - After Study Enrollment
+          - Childhood
+          - End of Consolidation Therapy
+          - End of Treatment Course
+          - End of Treatment Course 1
+          - End of Treatment Course 2
+          - First Complete Response
+          - First Treatment
+          - Follow-up
+          - Initial Diagnosis
+          - Last Contact
+          - Post Adjuvant Therapy
+          - Post Hormone Therapy
+          - Post Initial Treatment
+          - Post Secondary Therapy
+          - Postoperative
+          - Preoperative
+          - Prior to Adjuvant Therapy
+          - Prior to Chemotherapy
+          - Prior to Diagnosis
+          - Prior to Procurement
+          - Prior to Study Enrollment
+          - Prior to Study Registration
+          - Prior to Treatment
+          - Progression
+          - Recurrence
+          - Recurrence/Progression
+          - Sample Procurement
+          - Within 2 Months After Completion of First-Course Treatment
+          - Within 3 Months of Surgery
+          - Other
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C68568
+          cde_version: 22.11d
+          source: NCIt
+          term: Timepoint
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C68568
       transglottic_extension:
         description: The text term used to describe an extension of the tumor beyond
           the opening into the ventricles and vocal cords.
@@ -124012,6 +124139,16 @@ schema:
           term_id: C160996
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C160996
           term_version: 19.12e
+      tumor_basal_diameter:
+        description: Numeric value in millimeters for the lowest layer of a tumor.
+        minimum: 0
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Tumor Basal Diameter
+          term_url:
+        type: number
       tumor_burden:
         description: Refers to the number of cancer cells, the size of a tumor, or
           the amount of cancer in the body.
@@ -156483,4 +156620,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev15
+version: 3.2.3.dev16
