@@ -78335,7 +78335,7 @@ schema:
             - Prostate
             - Rectum
             - Renal Vein
-            - Rete testis
+            - Rete Testis
             - Retroperitoneum
             - Salivary gland
             - Scalp
@@ -78362,8 +78362,8 @@ schema:
             - Trachea
             - Transplanted kidney
             - Transverse colon
-            - Tunica albuginea
-            - Tunica vaginalis
+            - Tunica Albuginea
+            - Tunica Vaginalis
             - Upper lobe, lung
             - Urethra
             - Uterus
@@ -156508,4 +156508,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev18
+version: 3.2.3.dev19
