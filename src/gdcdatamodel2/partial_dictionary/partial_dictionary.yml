@@ -9093,11 +9093,13 @@ schema:
         description: Index number of the curated model.
         minimum: 1
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C206456
+          cde_version: 24.07e
+          source: NCIt
           term: Curated Model Index
-          term_url:
+          term_id: C206456
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206456
+          term_version: 24.07e
         type: integer
       data_category:
         description: Broad categorization of the contents of the data file.
@@ -10049,11 +10051,13 @@ schema:
         maximum: 1
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C206454
+          cde_version: 24.07e
+          source: NCIt
           term: Cancer DNA Fraction
-          term_url:
+          term_id: C206454
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206454
+          term_version: 24.07e
         type: number
       copy_number_liftover_workflows:
         anyOf:
@@ -10225,11 +10229,13 @@ schema:
         description: Number of genome doubling events.
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C206453
+          cde_version: 24.07e
+          source: NCIt
           term: Genome Doubling Events
-          term_url:
+          term_id: C206453
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206453
+          term_version: 24.07e
         type: integer
       genomic_profile_harmonization_workflows:
         anyOf:
@@ -10430,11 +10436,13 @@ schema:
         maximum: 1
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C206455
+          cde_version: 24.07e
+          source: NCIt
           term: Subclonal DNA Fraction
-          term_url:
+          term_id: C206455
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206455
+          term_version: 24.07e
         type: number
       submitter_id:
         description: A project-specific identifier for a node. This property is the
@@ -90406,7 +90414,7 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2944515%20and%20ver_nr=1.0
       aids_risk_factors:
         description: The text term used to describe a risk factor of the acquired
-          immunodeficiency syndrome (AIDS) that the patient either had at time time
+          immunodeficiency syndrome (AIDS) that the patient either had at the time
           of the study or experienced in the past.
         enum:
           - Candidiasis
@@ -90506,8 +90514,8 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2006410%20and%20ver_nr=3.0
         type: number
       body_surface_area:
-        description: Numeric value used to represent the 2-dimensional extent of the
-          body surface relating height to weight.
+        description: Numeric value used to represent the two-dimensional extent of
+          the body surface relating height to weight.
         minimum: 0
         termDef:
           cde_id: 653
@@ -90590,7 +90598,7 @@ schema:
         type: number
       cdc_hiv_risk_factors:
         description: The text term used to describe a risk factor for human immunodeficiency
-          virus, as described by the Center for Disease Control.
+          virus, as described by the Centers for Disease Control.
         enum:
           - Hemophiliac
           - Heterosexual Contact
@@ -90638,8 +90646,9 @@ schema:
           term: CDC HIV Risk Factor Text Term
           term_url:
       comorbidities:
-        description: The text term used to describe a comorbidity disease, which coexists
-          with the patient's malignant disease.
+        description: The text term used to describe a patient with one or more diseases
+          or conditions, which coexist with the patient's malignant disease at the
+          same time.
         enumDef:
           Pneumonia, NOS:
             description: An acute, acute and chronic, or chronic inflammation focally
@@ -91093,7 +91102,7 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2970715%20and%20ver_nr=1.0
       comorbidity_method_of_diagnosis:
         description: The text term used to describe the method used to diagnose the
-          patient's comorbidity disease.
+          patient's comorbid disease.
         enum:
           - Histology
           - Pathology
@@ -92247,8 +92256,8 @@ schema:
           term: Imaging Type
           term_url:
       immunosuppressive_treatment_type:
-        description: The text term used to describe the type of immunosuppresive treatment
-          the patient received.
+        description: The text term used to describe the type of immunosuppressive
+          treatment the patient received.
         enum:
           - Anti-TNF Therapy
           - Azathioprine
@@ -93805,11 +93814,13 @@ schema:
         maximum: 89
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181721
+          cde_version: 24.07e
+          source: NCIt
           term: Undescended Testis Corrected Age
-          term_url:
+          term_id: C181721
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181721
+          term_version: 24.07e
         type: integer
       undescended_testis_corrected_laterality:
         description: Describes the lateral location of the patient's undescended testis
@@ -118986,7 +118997,7 @@ schema:
     properties:
       aids_risk_factors:
         description: The text term used to describe a risk factor of the acquired
-          immunodeficiency syndrome (AIDS) that the patient either had at time time
+          immunodeficiency syndrome (AIDS) that the patient either had at the time
           of the study or experienced in the past.
         enum:
           - Candidiasis
@@ -119045,8 +119056,8 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2006410%20and%20ver_nr=3.0
         type: number
       body_surface_area:
-        description: Numeric value used to represent the 2-dimensional extent of the
-          body surface relating height to weight.
+        description: Numeric value used to represent the two-dimensional extent of
+          the body surface relating height to weight.
         minimum: 0
         termDef:
           cde_id: 653
@@ -119119,7 +119130,7 @@ schema:
         type: number
       cdc_hiv_risk_factors:
         description: The text term used to describe a risk factor for human immunodeficiency
-          virus, as described by the Center for Disease Control.
+          virus, as described by the Centers for Disease Control.
         enum:
           - Hemophiliac
           - Heterosexual Contact
@@ -119174,8 +119185,9 @@ schema:
           - Hepatitis
           - Kidney Disease
           - Smoking
-        description: The text term used to describe a comorbidity disease, which coexists
-          with the patient's malignant disease.
+        description: The text term used to describe a patient with one or more diseases
+          or conditions, which coexist with the patient's malignant disease at the
+          same time.
         enumDef:
           Cancer:
             description: A tumor composed of atypical neoplastic, often pleomorphic
@@ -119543,7 +119555,7 @@ schema:
         type: array
       comorbidity_method_of_diagnosis:
         description: The text term used to describe the method used to diagnose the
-          patient's comorbidity disease.
+          patient's comorbid disease.
         enum:
           - Histology
           - Pathology
@@ -120048,11 +120060,13 @@ schema:
           - Unknown
           - Not Reported
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C206479
+          cde_version: 24.07e
+          source: NCIt
           term: Hormone Replacement Therapy Status
-          term_url:
+          term_id: C206479
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206479
+          term_version: 24.07e
       hormone_replacement_therapy_type:
         description: The specific type of hormone replacement therapy received by
           the patient.
@@ -120192,8 +120206,8 @@ schema:
         systemAlias: node_id
         type: string
       immunosuppressive_treatment_type:
-        description: The text term used to describe the type of immunosuppresive treatment
-          the patient received.
+        description: The text term used to describe the type of immunosuppressive
+          treatment the patient received.
         enum:
           - Anti-TNF Therapy
           - Azathioprine
@@ -120291,7 +120305,7 @@ schema:
         description: A finding associated with a patient with myasthenia gravis that
           is based on the classification system developed by the Myasthenia Gravis
           Foundation of America (MGFA) for grading myasthenia gravis that divides
-          the disease into 5 main classes and several subclasses.
+          the disease into five main classes and several subclasses.
         enum:
           - Class I
           - Class II
@@ -121379,11 +121393,13 @@ schema:
         maximum: 89
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C181721
+          cde_version: 24.07e
+          source: NCIt
           term: Undescended Testis Corrected Age
-          term_url:
+          term_id: C181721
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181721
+          term_version: 24.07e
         type: integer
       undescended_testis_corrected_laterality:
         description: Describes the lateral location of the patient's undescended testis
@@ -122296,16 +122312,18 @@ schema:
           term:
           term_url:
       epithelioid_cell_percent:
-        description: The percent of uveal melanoma characterized by the presence of
-          malignant large epithelioid melanocytes.
+        description: A quantitative measurement of the percent of epithelioid melanocytes
+          compared to the number of total cells present in a sample.
         maximum: 100
         minimum: 0
         termDef:
-          cde_id: 7292253
-          cde_version: 1.0
-          source: caDSR
-          term: Cell Morphology Percent Uveal Epithelioid Cell Melanoma Integer
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=7292253%20and%20ver_nr=1.0
+          cde_id: C200471
+          cde_version: 24.07e
+          source: NCIt
+          term: Percent of Epithelioid Melanocytes
+          term_id: C200471
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200471
+          term_version: 24.07e
         type: number
       extracapsular_extension:
         description: The extension of malignant tissue situated outside of a specific
@@ -123883,23 +123901,27 @@ schema:
         description: The size of the nodule that is outside the eye.
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C185261
+          cde_version: 24.07e
+          source: NCIt
           term: Extraocular Nodule Size
-          term_url:
+          term_id: C185261
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C185261
+          term_version: 24.07e
         type: number
       spindle_cell_percent:
-        description: The percent of uveal melanoma arising from the choroid, ciliary
-          body, or the iris and characterized by the presence of spindle-shaped melanocytes.
+        description: A quantitative measurement of the percent of spindle-shaped melanocytes
+          compared to the number of total cells present in a sample.
         maximum: 100
         minimum: 0
         termDef:
-          cde_id: 7292254
-          cde_version: 1.0
-          source: caDSR
-          term: Cell Morphology Percent Uveal Spindle Cell Melanoma Integer
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=7292254%20and%20ver_nr=1.0
+          cde_id: C200472
+          cde_version: 24.07e
+          source: NCIt
+          term: Percent of Spindle-Shaped Melanocytes
+          term_id: C200472
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200472
+          term_version: 24.07e
         type: number
       state:
         common:
@@ -129825,7 +129847,7 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432612%20and%20ver_nr=1.0
         type: number
       tissue_collection_type:
-        description: The text term used to describe the tyoe of collection used to
+        description: The text term used to describe the type of collection used to
           obtain tissue.
         enum:
           - Prospective
@@ -136679,11 +136701,13 @@ schema:
           - Unknown
           - Not Reported
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: C206478
+          cde_version: 24.07e
+          source: NCIt
           term: Prescribed Dose Units
-          term_url:
+          term_id: C206478
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206478
+          term_version: 24.07e
       project_id:
         common:
           description: Unique ID for any specific defined piece of work that is undertaken
@@ -156459,4 +156483,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev10
+version: 3.2.3.dev15
