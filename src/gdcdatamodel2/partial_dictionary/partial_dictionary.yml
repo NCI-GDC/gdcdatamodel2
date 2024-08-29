@@ -21048,21 +21048,15 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48732
               term_version: 20.05a
           T4a:
-            description: A general term that refers to a TNM finding of a primary
-              tumor with direct invasion of adjacent structures. The definition of
-              T4a TNM finding depends on the specific type of cancer that it refers
-              to; for example, for bladder cancer it refers to a primary tumor that
-              invades the prostatic stroma, uterus, and vagina; for gastric cancer
-              it refers to a primary tumor that invades the serosa (visceral peritoneum);
-              for colorectal cancer it refers to a primary tumor that penetrates to
-              the surface of the visceral peritoneum.
+            description: A clinical and/or pathologic primary tumor TNM finding indicating
+              direct invasion of adjacent structures by cancer.
             termDef:
-              cde_id: C48733
+              cde_id: C48732
               cde_version: 20.05a
               source: NCIt
-              term: T4a Stage Finding
-              term_id: C48733
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48733
+              term: T4 Stage Finding
+              term_id: C48732
+              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48732
               term_version: 20.05a
           T4b:
             description: A general term that refers to a TNM finding of a primary
@@ -21213,6 +21207,25 @@ schema:
           source: caDSR
           term: American Joint Committee on Cancer Tumor Stage Code
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3045435%20and%20ver_nr=1.0
+      ajcc_serum_tumor_markers:
+        description: A laboratory test result in which markers for testicular cancer
+          are tested in a blood sample for staging purposes.
+        enum:
+          - S0
+          - S1
+          - S2
+          - S3
+          - SX
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C111067
+          cde_version: 24.07e
+          source: NCIt
+          term: Testicular Cancer Serum Markers Test Result
+          term_id: C111067
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111067
+          term_version: 24.07e
       ajcc_staging_system_edition:
         description: The text term used to describe the version or edition of the
           American Joint Committee on Cancer Staging Handbooks, a publication by the
@@ -78244,6 +78257,7 @@ schema:
             - Groin
             - Head, Face or Neck, NOS
             - Heart
+            - Hilar Fat
             - Inferior Vena Cava
             - Kidney, Lower Pole
             - Kidney, Middle
@@ -78315,9 +78329,11 @@ schema:
             - Prostate
             - Rectum
             - Renal Vein
+            - Rete testis
             - Retroperitoneum
             - Salivary gland
             - Scalp
+            - Scrotum
             - Sigmoid colon
             - Sinus
             - Skin
@@ -78327,6 +78343,7 @@ schema:
             - Skin, Trunk
             - Small intestine
             - Soft tissue
+            - Spermatic Cord
             - Spinal Cord
             - Spleen
             - Stomach
@@ -78339,6 +78356,8 @@ schema:
             - Trachea
             - Transplanted kidney
             - Transverse colon
+            - Tunica albuginea
+            - Tunica vaginalis
             - Upper lobe, lung
             - Urethra
             - Uterus
@@ -156483,4 +156502,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev15
+version: 3.2.3.dev17
