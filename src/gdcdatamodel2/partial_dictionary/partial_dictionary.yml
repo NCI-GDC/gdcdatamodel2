@@ -136672,7 +136672,7 @@ schema:
         description: The text term used to describe the anatomic sites that were involved
           in the survival margins.
         enum:
-          - Cervix uteri
+          - Cervix Uteri
           - Gerota Fascia
           - Parenchyma
           - Perinephric Fat
@@ -156553,4 +156553,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev16
+version: 3.2.3.dev17
