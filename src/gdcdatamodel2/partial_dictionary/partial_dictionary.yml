@@ -17321,6 +17321,19 @@ schema:
           term: Person Occupation Years Number
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2435424%20and%20ver_nr=1.0
         type: integer
+      population_group:
+        description: A group of individuals united by a common factor (e.g., geographic
+          location, ethnicity, disease, age, gender).
+        enum:
+          - Ashkenazi Jew
+        termDef:
+          cde_id: C17005
+          cde_version: 24.07e
+          source: NCIt
+          term: Population Group
+          term_id: C17005
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17005
+          term_version: 24.07e
       premature_at_birth:
         description: The yes/no/unknown indicator used to describe whether the patient
           was premature (less than 37 weeks gestation) at birth.
@@ -156483,4 +156496,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev15
+version: 3.2.3.dev16
