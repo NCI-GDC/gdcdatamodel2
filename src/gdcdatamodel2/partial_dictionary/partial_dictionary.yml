@@ -21226,6 +21226,25 @@ schema:
           source: caDSR
           term: American Joint Committee on Cancer Tumor Stage Code
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3045435%20and%20ver_nr=1.0
+      ajcc_serum_tumor_markers:
+        description: A laboratory test result in which markers for testicular cancer
+          are tested in a blood sample for staging purposes.
+        enum:
+          - S0
+          - S1
+          - S2
+          - S3
+          - SX
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C111067
+          cde_version: 24.07e
+          source: NCIt
+          term: Testicular Cancer Serum Markers Test Result
+          term_id: C111067
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111067
+          term_version: 24.07e
       ajcc_staging_system_edition:
         description: The text term used to describe the version or edition of the
           American Joint Committee on Cancer Staging Handbooks, a publication by the
@@ -78257,6 +78276,7 @@ schema:
             - Groin
             - Head, Face or Neck, NOS
             - Heart
+            - Hilar Fat
             - Inferior Vena Cava
             - Kidney, Lower Pole
             - Kidney, Middle
@@ -78328,9 +78348,11 @@ schema:
             - Prostate
             - Rectum
             - Renal Vein
+            - Rete Testis
             - Retroperitoneum
             - Salivary gland
             - Scalp
+            - Scrotum
             - Sigmoid colon
             - Sinus
             - Skin
@@ -78340,6 +78362,7 @@ schema:
             - Skin, Trunk
             - Small intestine
             - Soft tissue
+            - Spermatic Cord
             - Spinal Cord
             - Spleen
             - Stomach
@@ -78352,6 +78375,8 @@ schema:
             - Trachea
             - Transplanted kidney
             - Transverse colon
+            - Tunica Albuginea
+            - Tunica Vaginalis
             - Upper lobe, lung
             - Urethra
             - Uterus
@@ -156743,4 +156768,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev26
+version: 3.2.3.dev31
