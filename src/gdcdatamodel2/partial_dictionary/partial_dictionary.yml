@@ -17321,6 +17321,19 @@ schema:
           term: Person Occupation Years Number
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2435424%20and%20ver_nr=1.0
         type: integer
+      population_group:
+        description: A group of individuals united by a common factor (e.g., geographic
+          location, ethnicity, disease, age, gender).
+        enum:
+          - Ashkenazi Jew
+        termDef:
+          cde_id: C17005
+          cde_version: 24.07e
+          source: NCIt
+          term: Population Group
+          term_id: C17005
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17005
+          term_version: 24.07e
       premature_at_birth:
         description: The yes/no/unknown indicator used to describe whether the patient
           was premature (less than 37 weeks gestation) at birth.
@@ -91495,8 +91508,11 @@ schema:
         description: The text term used to describe the type of evidence used to determine
           whether the patient's disease progressed.
         enum:
+          - Biopsy with Histologic Confirmation
           - Convincing Image Source
           - Histologic Confirmation
+          - Physical Examination
+          - Positive Biomarker(s)
           - Unknown
           - Not Reported
         termDef:
@@ -91736,6 +91752,22 @@ schema:
           source: caDSR
           term: Viral Hepatitis Sustained Virologic Response Post Treatment Indicator
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6423783%20and%20ver_nr=1.0
+      histologic_progression:
+        description: The evolution of a low-grade neoplastic pathologic process to
+          a high grade malignancy.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C99318
+          cde_version: 24.07e
+          source: NCIt
+          term: Histologic Progression
+          term_id: C99318
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C99318
+          term_version: 24.07e
       history_of_tumor:
         description: Indicates whether patient has a history of tumors.
         enum:
@@ -119346,6 +119378,7 @@ schema:
             - Cyst(s)
             - Cytomegalovirus (CMV)
             - Deep Vein Thrombosis / Thromboembolism
+            - Dementia
             - Denys-Drash Syndrome
             - Depression
             - Dermatomyosis
@@ -119470,6 +119503,7 @@ schema:
             - Myocardial Infarction
             - Neurocystericerosis
             - Neuroendocrine Tumor
+            - Nevus of Ota
             - Nodular Hyperplasia
             - Nodular Prostatic Hyperplasia
             - Nonalcoholic Fatty Liver Disease
@@ -119484,6 +119518,7 @@ schema:
             - Pain (Various)
             - Pancreatitis
             - Parasitic Disease of Biliary Tract
+            - Parkinson's Disease
             - Peptic Ulcer (Ulcer)
             - Peripheral Neuropathy
             - Peripheral Vascular Disease
@@ -121113,6 +121148,7 @@ schema:
             - Myocardial Infarction
             - Neurocystericerosis
             - Neuroendocrine Tumor
+            - Nevus of Ota
             - Nodular Hyperplasia
             - Nodular Prostatic Hyperplasia
             - Nonalcoholic Fatty Liver Disease
@@ -121401,6 +121437,23 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181721
           term_version: 24.07e
         type: integer
+      undescended_testis_corrected_age_range:
+        description: The patient's age when their undescended testis was corrected.
+        enum:
+          - 2-11 months
+          - 1-2 years
+          - 3-9 years
+          - 10-14 years
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C181721
+          cde_version: 24.07e
+          source: NCIt
+          term: Undescended Testis Corrected Age
+          term_id: C181721
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181721
+          term_version: 24.07e
       undescended_testis_corrected_laterality:
         description: Describes the lateral location of the patient's undescended testis
           correction.
@@ -122325,6 +122378,25 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200471
           term_version: 24.07e
         type: number
+      epithelioid_cell_percent_range:
+        description: A quantitative measurement of the percent of epithelioid melanocytes
+          compared to the number of total cells present in a sample.
+        enum:
+          - 0%
+          - 1-30%
+          - 31-60%
+          - 61-90%
+          - '>90%'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C200471
+          cde_version: 24.07e
+          source: NCIt
+          term: Percent of Epithelioid Melanocytes
+          term_id: C200471
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200471
+          term_version: 24.07e
       extracapsular_extension:
         description: The extension of malignant tissue situated outside of a specific
           capsule.
@@ -122390,6 +122462,21 @@ schema:
           source: NCIt
           term: Extranodal Involvement
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C117309
+      extraocular_nodule_size:
+        description: The size of the nodule that is outside the eye.
+        enum:
+          - <=5mm
+          - '>5mm'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C185261
+          cde_version: 24.07e
+          source: NCIt
+          term: Extraocular Nodule Size
+          term_id: C185261
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C185261
+          term_version: 24.07e
       extrascleral_extension:
         description: Spread of uveal melanoma beyond the sclera.
         termDef:
@@ -122399,6 +122486,19 @@ schema:
           term: Extrascleral Extension of Uveal Melanoma
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028
         type: boolean
+      extrascleral_extension_present:
+        description: Spread of uveal melanoma beyond the sclera.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C111028
+          cde_version: 22.11d
+          source: NCIt
+          term: Extrascleral Extension of Uveal Melanoma
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028
       extrathyroid_extension:
         description: Text term to describe the degree to which the primary tumor has
           extra thyroid extension.
@@ -122562,6 +122662,20 @@ schema:
         pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
         systemAlias: node_id
         type: string
+      intratubular_germ_cell_neoplasia_present:
+        description: Text term to indicate whether the intratubular germ cell neoplasm
+          is present or absent.
+        enum:
+          - 'Yes'
+          - 'No'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Testicular Intratubular Germ Cell Neoplasia Indicator
+          term_url:
       largest_extrapelvic_peritoneal_focus:
         description: The text term used to describe the diameter of the largest focus
           originating outside of the pelvic peritoneal region.
@@ -123923,6 +124037,25 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200472
           term_version: 24.07e
         type: number
+      spindle_cell_percent_range:
+        description: A quantitative measurement of the percent of spindle-shaped melanocytes
+          compared to the number of total cells present in a sample.
+        enum:
+          - 0%
+          - 1-30%
+          - 31-60%
+          - 61-90%
+          - '>90%'
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C200472
+          cde_version: 24.07e
+          source: NCIt
+          term: Percent of Spindle-Shaped Melanocytes
+          term_id: C200472
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200472
+          term_version: 24.07e
       state:
         common:
           description: The current state of the object.
@@ -123964,6 +124097,53 @@ schema:
           calling card/nickname/alias for a unit of submission. It can be used in
           place of the uuid for identifying or recalling a node.
         type: string
+      timepoint_category:
+        description: Category describing a specific point in the time continuum, including
+          those established relative to an event.
+        enum:
+          - Adjuvant Therapy
+          - Adolescence
+          - Adulthood
+          - After Chemotherapy
+          - After Study Enrollment
+          - Childhood
+          - End of Consolidation Therapy
+          - End of Treatment Course
+          - End of Treatment Course 1
+          - End of Treatment Course 2
+          - First Complete Response
+          - First Treatment
+          - Follow-up
+          - Initial Diagnosis
+          - Last Contact
+          - Post Adjuvant Therapy
+          - Post Hormone Therapy
+          - Post Initial Treatment
+          - Post Secondary Therapy
+          - Postoperative
+          - Preoperative
+          - Prior to Adjuvant Therapy
+          - Prior to Chemotherapy
+          - Prior to Diagnosis
+          - Prior to Procurement
+          - Prior to Study Enrollment
+          - Prior to Study Registration
+          - Prior to Treatment
+          - Progression
+          - Recurrence
+          - Recurrence/Progression
+          - Sample Procurement
+          - Within 2 Months After Completion of First-Course Treatment
+          - Within 3 Months of Surgery
+          - Other
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C68568
+          cde_version: 22.11d
+          source: NCIt
+          term: Timepoint
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C68568
       transglottic_extension:
         description: The text term used to describe an extension of the tumor beyond
           the opening into the ventricles and vocal cords.
@@ -124012,6 +124192,16 @@ schema:
           term_id: C160996
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C160996
           term_version: 19.12e
+      tumor_basal_diameter:
+        description: Numeric value in millimeters for the lowest layer of a tumor.
+        minimum: 0
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Tumor Basal Diameter
+          term_url:
+        type: number
       tumor_burden:
         description: Refers to the number of cancer cells, the size of a tumor, or
           the amount of cancer in the body.
@@ -136639,6 +136829,57 @@ schema:
           term:
           term_url:
         type: number
+      margin_distance:
+        description: Numeric value that represents the distance between the tumor
+          and the surgical margin
+        minimum: 0
+        termDef:
+          cde_id: C137815
+          cde_version: 19.12e
+          source: NCIt
+          term: Distance to Margin Measurement
+          term_id: C137815
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C137815
+          term_version: 19.12e
+        type: number
+      margin_status:
+        description: The determination of the presence of actual or potential neoplastic
+          tissue which has been left outside the boundary of a resected specimen within
+          the patient.
+        enum:
+          - Indeterminate
+          - Involved
+          - Uninvolved
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
+      margins_involved_site:
+        description: The text term used to describe the anatomic sites that were involved
+          in the survival margins.
+        enum:
+          - Cervix Uteri
+          - Gerota Fascia
+          - Parenchyma
+          - Perinephric Fat
+          - Renal
+          - Renal Capsule
+          - Renal Sinus
+          - Renal Vein
+          - Ureter
+          - Other
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Surgical Margins Involved Site
+          term_url:
       number_of_cycles:
         description: The numeric value used to describe the number of cycles of a
           specific treatment or regimen the patient received.
@@ -136707,6 +136948,22 @@ schema:
           term: Prescribed Dose Units
           term_id: C206478
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206478
+          term_version: 24.07e
+      pretreatment:
+        description: Any relevant actions that were performed or occurred prior to
+          a specific treatment.
+        enum:
+          - rhTSH
+          - Thyroxine Withdrawal
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: C103339
+          cde_version: 24.07e
+          source: NCIt
+          term: Pretreatment
+          term_id: C103339
+          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C103339
           term_version: 24.07e
       project_id:
         common:
@@ -138482,6 +138739,7 @@ schema:
           - Cibisatamab
           - Ciclopirox Prodrug CPX-POM
           - Cidan Herbal Capsule
+          - Cidofovir
           - Ciforadenant
           - Cilengitide
           - Ciltacabtagene Autoleucel
@@ -140548,6 +140806,7 @@ schema:
           - Polo-like Kinase 1 Inhibitor MK1496
           - Polo-like Kinase 1 Inhibitor NMS-1286937
           - Polo-like Kinase 4 Inhibitor CFI-400945 Fumarate
+          - Poly ICLC
           - Poly-alendronate Dextran-Guanidine Conjugate
           - Poly-gamma Glutamic Acid
           - Polyamine Analog SL11093
@@ -156160,6 +156419,7 @@ schema:
           - Prevention
           - Radiation Boost
           - Re-Excision
+          - Salvage
           - Unknown
           - Not Reported
         enumDef:
@@ -156483,4 +156743,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev15
+version: 3.2.3.dev26
