@@ -9093,13 +9093,11 @@ schema:
         description: Index number of the curated model.
         minimum: 1
         termDef:
-          cde_id: C206456
-          cde_version: 24.07e
-          source: NCIt
+          cde_id:
+          cde_version:
+          source:
           term: Curated Model Index
-          term_id: C206456
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206456
-          term_version: 24.07e
+          term_url:
         type: integer
       data_category:
         description: Broad categorization of the contents of the data file.
@@ -10051,13 +10049,11 @@ schema:
         maximum: 1
         minimum: 0
         termDef:
-          cde_id: C206454
-          cde_version: 24.07e
-          source: NCIt
+          cde_id:
+          cde_version:
+          source:
           term: Cancer DNA Fraction
-          term_id: C206454
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206454
-          term_version: 24.07e
+          term_url:
         type: number
       copy_number_liftover_workflows:
         anyOf:
@@ -10229,13 +10225,11 @@ schema:
         description: Number of genome doubling events.
         minimum: 0
         termDef:
-          cde_id: C206453
-          cde_version: 24.07e
-          source: NCIt
+          cde_id:
+          cde_version:
+          source:
           term: Genome Doubling Events
-          term_id: C206453
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206453
-          term_version: 24.07e
+          term_url:
         type: integer
       genomic_profile_harmonization_workflows:
         anyOf:
@@ -10436,13 +10430,11 @@ schema:
         maximum: 1
         minimum: 0
         termDef:
-          cde_id: C206455
-          cde_version: 24.07e
-          source: NCIt
+          cde_id:
+          cde_version:
+          source:
           term: Subclonal DNA Fraction
-          term_id: C206455
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206455
-          term_version: 24.07e
+          term_url:
         type: number
       submitter_id:
         description: A project-specific identifier for a node. This property is the
@@ -17321,19 +17313,6 @@ schema:
           term: Person Occupation Years Number
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2435424%20and%20ver_nr=1.0
         type: integer
-      population_group:
-        description: A group of individuals united by a common factor (e.g., geographic
-          location, ethnicity, disease, age, gender).
-        enum:
-          - Ashkenazi Jew
-        termDef:
-          cde_id: C17005
-          cde_version: 24.07e
-          source: NCIt
-          term: Population Group
-          term_id: C17005
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17005
-          term_version: 24.07e
       premature_at_birth:
         description: The yes/no/unknown indicator used to describe whether the patient
           was premature (less than 37 weeks gestation) at birth.
@@ -21226,25 +21205,6 @@ schema:
           source: caDSR
           term: American Joint Committee on Cancer Tumor Stage Code
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3045435%20and%20ver_nr=1.0
-      ajcc_serum_tumor_markers:
-        description: A laboratory test result in which markers for testicular cancer
-          are tested in a blood sample for staging purposes.
-        enum:
-          - S0
-          - S1
-          - S2
-          - S3
-          - SX
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id: C111067
-          cde_version: 24.07e
-          source: NCIt
-          term: Testicular Cancer Serum Markers Test Result
-          term_id: C111067
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111067
-          term_version: 24.07e
       ajcc_staging_system_edition:
         description: The text term used to describe the version or edition of the
           American Joint Committee on Cancer Staging Handbooks, a publication by the
@@ -22077,8 +22037,8 @@ schema:
         enum:
           - Favorable
           - Intermediate/Normal
-          - N/A
           - Poor
+          - N/A
           - Unknown
           - Not Reported
         termDef:
@@ -26541,7 +26501,6 @@ schema:
           - Incisional Biopsy
           - Laparoscopy
           - Laparotomy
-          - Orchiectomy
           - Pap Smear
           - Pathologic Review
           - Physical Exam
@@ -41706,8 +41665,6 @@ schema:
           term: Pregnant at Diagnosis Indicator
           term_url:
       primary_diagnosis:
-        deprecated_enum:
-          - Adenocarcinoma in tubolovillous adenoma
         description: Text term used to describe the patient's histologic diagnosis,
           as described by the World Health Organization's (WHO) International Classification
           of Diseases for Oncology (ICD-O).
@@ -41821,7 +41778,6 @@ schema:
           - Adenocarcinoma in situ, NOS
           - Adenocarcinoma in tubolovillous adenoma
           - Adenocarcinoma in tubular adenoma
-          - Adenocarcinoma in tubulovillous adenoma
           - Adenocarcinoma in villous adenoma
           - Adenocarcinoma of anal ducts
           - Adenocarcinoma of anal glands
@@ -43479,7 +43435,6 @@ schema:
           - Myoma
           - Myosarcoma
           - Myxofibroma, NOS
-          - Myxofibrosarcoma
           - Myxoid chondrosarcoma
           - Myxoid fibroma
           - Myxoid leiomyosarcoma
@@ -56104,6 +56059,19 @@ schema:
               term: Angiosarcoma
               term_id: C3088
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3088
+              term_version: 20.05a
+          Hairy cell leukaemia variant:
+            description: An indolent chronic B-cell leukemia resembling classic hairy
+              cell leukemia but shows variant cytologic, hematologic, and immunophenotypic
+              features and is resistant to the conventional therapy applied to hairy
+              cell leukemia.  Biologically, it is not related to hairy cell leukemia.
+            termDef:
+              cde_id: C7401
+              cde_version: 20.05a
+              source: NCIt
+              term: Hairy Cell Leukemia Variant
+              term_id: C7401
+              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C7401
               term_version: 20.05a
           Hairy cell leukemia:
             description: A neoplasm of small B-lymphocytes with "hairy" projections
@@ -78233,15 +78201,7 @@ schema:
             - Brain, Parietal
             - Brain, Temporal lobe
             - Brain, Ventricle, NOS
-            - Breast, Left Lower Inner
-            - Breast, Left Lower Outer
-            - Breast, Left Upper Inner
-            - Breast, Left Upper Outer
             - Breast, NOS
-            - Breast, Right Lower Inner
-            - Breast, Right Lower Outer
-            - Breast, Right Upper Inner
-            - Breast, Right Upper Outer
             - Bronchus
             - Buccal mucosa
             - Central Lung
@@ -78263,9 +78223,6 @@ schema:
             - Esophagus, NOS
             - Esophagus, Upper Third
             - Eye
-            - Eye, Choroid
-            - Eye, Ciliary Body
-            - Eye, Iris
             - Fallopian Tube, Left
             - Fallopian Tube, NOS
             - Fallopian Tube, Right
@@ -78276,7 +78233,6 @@ schema:
             - Groin
             - Head, Face or Neck, NOS
             - Heart
-            - Hilar Fat
             - Inferior Vena Cava
             - Kidney, Lower Pole
             - Kidney, Middle
@@ -78348,21 +78304,14 @@ schema:
             - Prostate
             - Rectum
             - Renal Vein
-            - Rete Testis
             - Retroperitoneum
             - Salivary gland
             - Scalp
-            - Scrotum
             - Sigmoid colon
             - Sinus
             - Skin
-            - Skin, Extremities
-            - Skin, Groin
-            - Skin, Head and Neck
-            - Skin, Trunk
             - Small intestine
             - Soft tissue
-            - Spermatic Cord
             - Spinal Cord
             - Spleen
             - Stomach
@@ -78375,8 +78324,6 @@ schema:
             - Trachea
             - Transplanted kidney
             - Transverse colon
-            - Tunica Albuginea
-            - Tunica Vaginalis
             - Upper lobe, lung
             - Urethra
             - Uterus
@@ -84198,7 +84145,7 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2955385%20and%20ver_nr=1.0
         type: number
       parent_with_radiation_exposure:
-        description: Indicates whether the patient's parent(s) were exposed to radiation
+        description: Indicates whether the patient's parent(s) were exposed to radiation.
         enum:
           - 'Yes'
           - 'No'
@@ -90452,7 +90399,7 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2944515%20and%20ver_nr=1.0
       aids_risk_factors:
         description: The text term used to describe a risk factor of the acquired
-          immunodeficiency syndrome (AIDS) that the patient either had at the time
+          immunodeficiency syndrome (AIDS) that the patient either had at time time
           of the study or experienced in the past.
         enum:
           - Candidiasis
@@ -90552,8 +90499,8 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2006410%20and%20ver_nr=3.0
         type: number
       body_surface_area:
-        description: Numeric value used to represent the two-dimensional extent of
-          the body surface relating height to weight.
+        description: Numeric value used to represent the 2-dimensional extent of the
+          body surface relating height to weight.
         minimum: 0
         termDef:
           cde_id: 653
@@ -90636,7 +90583,7 @@ schema:
         type: number
       cdc_hiv_risk_factors:
         description: The text term used to describe a risk factor for human immunodeficiency
-          virus, as described by the Centers for Disease Control.
+          virus, as described by the Center for Disease Control.
         enum:
           - Hemophiliac
           - Heterosexual Contact
@@ -90684,9 +90631,8 @@ schema:
           term: CDC HIV Risk Factor Text Term
           term_url:
       comorbidities:
-        description: The text term used to describe a patient with one or more diseases
-          or conditions, which coexist with the patient's malignant disease at the
-          same time.
+        description: The text term used to describe a comorbidity disease, which coexists
+          with the patient's malignant disease.
         enumDef:
           Pneumonia, NOS:
             description: An acute, acute and chronic, or chronic inflammation focally
@@ -91140,7 +91086,7 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2970715%20and%20ver_nr=1.0
       comorbidity_method_of_diagnosis:
         description: The text term used to describe the method used to diagnose the
-          patient's comorbid disease.
+          patient's comorbidity disease.
         enum:
           - Histology
           - Pathology
@@ -91533,11 +91479,8 @@ schema:
         description: The text term used to describe the type of evidence used to determine
           whether the patient's disease progressed.
         enum:
-          - Biopsy with Histologic Confirmation
           - Convincing Image Source
           - Histologic Confirmation
-          - Physical Examination
-          - Positive Biomarker(s)
           - Unknown
           - Not Reported
         termDef:
@@ -91777,22 +91720,6 @@ schema:
           source: caDSR
           term: Viral Hepatitis Sustained Virologic Response Post Treatment Indicator
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6423783%20and%20ver_nr=1.0
-      histologic_progression:
-        description: The evolution of a low-grade neoplastic pathologic process to
-          a high grade malignancy.
-        enum:
-          - 'Yes'
-          - 'No'
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id: C99318
-          cde_version: 24.07e
-          source: NCIt
-          term: Histologic Progression
-          term_id: C99318
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C99318
-          term_version: 24.07e
       history_of_tumor:
         description: Indicates whether patient has a history of tumors.
         enum:
@@ -92154,7 +92081,6 @@ schema:
         items:
           enum:
             - Abdomen
-            - Cervix Uteri
             - Lymph Node
             - Pelvis
             - Pleura
@@ -92171,11 +92097,9 @@ schema:
         description: Recorded findings noted during the review of a specific medical
           image.
         enum:
-          - Bladder Involvement
           - Carcinomatosis
           - Distant Metastasis
           - Equivocal
-          - Extra-Pelvic Metastatic Disease
           - Extraprostatic Extension, Localized
           - Extraprostatic Extension, Regional Lymphadenopathy
           - Kidney Involvement
@@ -92183,11 +92107,7 @@ schema:
           - Lung Involvement
           - No Evidence of Extraprostatic Extension
           - Normal
-          - Paraaortic Lymph Node Involvement
-          - Parametrium Involvement
-          - Pelvic Lymph Node Involvement
           - Retroperitoneal Lymph Node Involvement
-          - Supraclavicular Lymph Node Involvement
           - Vena Cava Involvement/Thrombus
           - Unknown
           - Not Reported
@@ -92313,8 +92233,8 @@ schema:
           term: Imaging Type
           term_url:
       immunosuppressive_treatment_type:
-        description: The text term used to describe the type of immunosuppressive
-          treatment the patient received.
+        description: The text term used to describe the type of immunosuppresive treatment
+          the patient received.
         enum:
           - Anti-TNF Therapy
           - Azathioprine
@@ -93762,35 +93682,19 @@ schema:
           - Adjuvant Therapy
           - Adolescence
           - Adulthood
-          - After Chemotherapy
-          - After Study Enrollment
           - Childhood
-          - End of Consolidation Therapy
-          - End of Treatment Course
-          - End of Treatment Course 1
-          - End of Treatment Course 2
-          - First Complete Response
-          - First Treatment
           - Follow-up
           - Initial Diagnosis
           - Last Contact
           - Post Adjuvant Therapy
           - Post Hormone Therapy
-          - Post Initial Treatment
           - Post Secondary Therapy
           - Postoperative
           - Preoperative
           - Prior to Adjuvant Therapy
-          - Prior to Chemotherapy
           - Prior to Diagnosis
-          - Prior to Procurement
-          - Prior to Study Enrollment
-          - Prior to Study Registration
           - Prior to Treatment
-          - Progression
-          - Recurrence
           - Recurrence/Progression
-          - Sample Procurement
           - Within 2 Months After Completion of First-Course Treatment
           - Within 3 Months of Surgery
           - Other
@@ -93871,13 +93775,11 @@ schema:
         maximum: 89
         minimum: 0
         termDef:
-          cde_id: C181721
-          cde_version: 24.07e
-          source: NCIt
+          cde_id:
+          cde_version:
+          source:
           term: Undescended Testis Corrected Age
-          term_id: C181721
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181721
-          term_version: 24.07e
+          term_url:
         type: integer
       undescended_testis_corrected_laterality:
         description: Describes the lateral location of the patient's undescended testis
@@ -107712,10 +107614,8 @@ schema:
           - HPV56
           - HPV58
           - HPV59
-          - HPV63
           - HPV66
           - HPV68
-          - HPV70
           - HPV73
           - Unknown
           - Not Reported
@@ -118460,8 +118360,6 @@ schema:
           - 26-50
           - 51-75
           - 76-100
-          - 1-4%
-          - 5-9%
           - <10%
           - 10-19%
           - 20-29%
@@ -118491,41 +118389,13 @@ schema:
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
-          - Adjuvant Therapy
-          - Adolescence
-          - Adulthood
-          - After Chemotherapy
-          - After Study Enrollment
-          - Childhood
           - End of Consolidation Therapy
-          - End of Treatment Course
           - End of Treatment Course 1
           - End of Treatment Course 2
-          - First Complete Response
-          - First Treatment
-          - Follow-up
           - Initial Diagnosis
-          - Last Contact
-          - Post Adjuvant Therapy
-          - Post Hormone Therapy
-          - Post Initial Treatment
-          - Post Secondary Therapy
-          - Postoperative
           - Preoperative
-          - Prior to Adjuvant Therapy
-          - Prior to Chemotherapy
-          - Prior to Diagnosis
-          - Prior to Procurement
-          - Prior to Study Enrollment
-          - Prior to Study Registration
           - Prior to Treatment
-          - Progression
-          - Recurrence
-          - Recurrence/Progression
           - Sample Procurement
-          - Within 2 Months After Completion of First-Course Treatment
-          - Within 3 Months of Surgery
-          - Other
           - Unknown
           - Not Reported
         enumDef:
@@ -119054,7 +118924,7 @@ schema:
     properties:
       aids_risk_factors:
         description: The text term used to describe a risk factor of the acquired
-          immunodeficiency syndrome (AIDS) that the patient either had at the time
+          immunodeficiency syndrome (AIDS) that the patient either had at time time
           of the study or experienced in the past.
         enum:
           - Candidiasis
@@ -119113,8 +118983,8 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2006410%20and%20ver_nr=3.0
         type: number
       body_surface_area:
-        description: Numeric value used to represent the two-dimensional extent of
-          the body surface relating height to weight.
+        description: Numeric value used to represent the 2-dimensional extent of the
+          body surface relating height to weight.
         minimum: 0
         termDef:
           cde_id: 653
@@ -119187,7 +119057,7 @@ schema:
         type: number
       cdc_hiv_risk_factors:
         description: The text term used to describe a risk factor for human immunodeficiency
-          virus, as described by the Centers for Disease Control.
+          virus, as described by the Center for Disease Control.
         enum:
           - Hemophiliac
           - Heterosexual Contact
@@ -119235,16 +119105,8 @@ schema:
           term: CDC HIV Risk Factor Text Term
           term_url:
       comorbidities:
-        deprecated_enum:
-          - Alpha-1 Antitrypsin
-          - Diabetes
-          - Gastroesophageal Reflux Disease
-          - Hepatitis
-          - Kidney Disease
-          - Smoking
-        description: The text term used to describe a patient with one or more diseases
-          or conditions, which coexist with the patient's malignant disease at the
-          same time.
+        description: The text term used to describe a comorbidity disease, which coexists
+          with the patient's malignant disease.
         enumDef:
           Cancer:
             description: A tumor composed of atypical neoplastic, often pleomorphic
@@ -119321,30 +119183,9 @@ schema:
             - Acute Renal Failure
             - Adenocarcinoma
             - Adenomatous Polyposis Coli
-            - Adenomyosis
-            - Adenosis (Atypical Adenomatous Hyperplasia)
             - Adrenocortical Insufficiency
-            - Alcoholic Liver Disease
             - Allergies
-            - Allergy, Animal, NOS
-            - Allergy, Ant
-            - Allergy, Bee
-            - Allergy, Cat
-            - Allergy, Dairy or Lactose
-            - Allergy, Dog
-            - Allergy, Eggs
-            - Allergy, Food, NOS
-            - Allergy, Fruit
-            - Allergy, Meat
-            - Allergy, Mold or Dust
-            - Allergy, Nuts
-            - Allergy, Processed Foods
-            - Allergy, Seafood
-            - Allergy, Wasp
             - Alpha-1 Antitrypsin
-            - Alpha-1 Antitrypsin Deficiency
-            - Altered Mental Status
-            - Androgen Excess
             - Anemia
             - Anxiety
             - Arrhythmia
@@ -119352,20 +119193,15 @@ schema:
             - Asthma
             - Ataxia-Telangiectasia
             - Atrial Fibrillation
-            - Autoimmune Atrophic Chronic Gastritis
             - Autoimmune Lymphoproliferative Syndrome (ALPS)
             - Avascular Necrosis
             - Bacteroides fragilis
-            - BAP1 Tumor Predisposition Syndrome
             - Barrett's Esophagus
             - Basal Cell Carcinoma
             - Beckwith-Wiedemann
             - Behcet's Disease
-            - Benign Prostatic Hyperplasia
             - Benign Thyroid Nodule
             - Biliary Disorder
-            - Birt-Hogg-Dube Syndrome
-            - BK Virus
             - Blood Clots
             - Bone Fracture(s)
             - Bronchitis
@@ -119378,7 +119214,6 @@ schema:
             - Chloroma
             - Cholelithiasis
             - Chronic Fatigue Syndrome
-            - Chronic Kidney Disease
             - Chronic Pancreatitis
             - Chronic Renal Failure
             - Chronic Systemic Steroid Use
@@ -119387,59 +119222,41 @@ schema:
             - Clonal Hematopoiesis
             - CNS Infection
             - Colon Polyps
-            - Colonization, Bacterial
-            - Colonization, Fungal
-            - Common Variable Immune Deficiency (CVID)
             - Common Variable Immunodeficiency
             - Congestive Heart Failure (CHF)
             - Connective Tissue Disorder
             - COPD
             - Coronary Artery Disease
-            - Cortisol Excess
-            - Cowden Syndrome
             - Crohn's Disease
             - Cryptococcal Meningitis
             - Cryptogenic Organizing Pneumonia
-            - Cyst(s)
             - Cytomegalovirus (CMV)
             - Deep Vein Thrombosis / Thromboembolism
-            - Dementia
             - Denys-Drash Syndrome
             - Depression
             - Dermatomyosis
             - Diabetes
-            - Diabetes, NOS
-            - Diabetes, Type I
             - Diabetes, Type II
             - Diabetic Neuropathy
             - Diet Controlled Diabetes
             - Diverticulitis
-            - Diverticulosis
             - Down Syndrome
             - DVT/PE
             - Dyslipidemia
             - EBV Lymphoproliferation
             - Eczema
-            - Endometriosis
-            - Endosalpingiosis
             - Epilepsy
-            - Epithelial Dysplasia
-            - Epithelial Hyperplasia
             - Epstein-Barr Virus
             - Escherichia coli
-            - Estrogen Excess
             - Familial Adenomatous Polyposis
             - Fanconi Anemia
             - Fibromyalgia
             - Fibrosis
             - Follicular Adenoma
-            - Gastric Polyp(s)
             - Gastritis
             - Gastroesophageal Reflux Disease
             - GERD
-            - Gilbert's Syndrome
             - Glaucoma
-            - Glomerular Disease
             - Glycogen Storage Disease
             - Goiter
             - Gonadal Dysfunction
@@ -119447,40 +119264,22 @@ schema:
             - Gout
             - Graves' Disease
             - Hashimoto's Thyroiditis
-            - Hay Fever
             - Headache
             - Heart Disease
             - Helicobacter pylori Infection
-            - Helicobacter pylori-Associated Gastritis
-            - Hematologic Disorder, NOS
             - Hemihypertrophy
-            - Hemochromatosis
             - Hemorrhagic Cystitis
-            - Hepatic Encephalopathy
             - Hepatitis
             - Hepatitis A Infection
             - Hepatitis B Infection
             - Hepatitis C Infection
             - Hepatitis, Chronic
-            - Hepatitis, NOS
-            - Hereditary Breast Cancer
-            - Hereditary Hemorrhagic Telangiectasia
-            - Hereditary Kidney Oncocytoma
-            - Hereditary Leiomyomatosis and Renal Cell Carcinoma
             - Hereditary Non-Polyposis Colon Cancer
-            - Hereditary Ovarian Cancer
-            - Hereditary Papillary Renal Cell Carcinoma
-            - Hereditary Prostate Cancer
-            - Hereditary Renal Cell Carcinoma
             - Herpes
             - Herpes Zoster
-            - High Grade Dysplasia
             - High Grade Liver Dysplastic Nodule
-            - High-grade Prostatic Intraepithelial Neoplasia (PIN)
             - HIV/AIDS
             - Hodgkin Lymphoma
-            - Human Herpesvirus-6 (HHV-6)
-            - Human Herpesvirus-8 (HHV-8)
             - Human Papillomavirus Infection
             - HUS/TTP
             - Hypercalcemia
@@ -119492,13 +119291,9 @@ schema:
             - Hyperthyroidism
             - Hypospadias
             - Hypothyroidism
-            - Inflammation
-            - Inflammation, Hyperkeratosis
             - Inflammatory Bowel Disease
-            - Inherited Genetic Syndrome, NOS
             - Insulin Controlled Diabetes
             - Interstitial Pneumonitis or ARDS
-            - Intestinal Metaplasia
             - Intraductal Papillary Mucinous Neoplasm
             - Iron Overload
             - Ischemic Heart Disease
@@ -119508,7 +119303,6 @@ schema:
             - Li-Fraumeni Syndrome
             - Liver Cirrhosis (Liver Disease)
             - Liver Toxicity (Non-Infectious)
-            - Low Grade Dysplasia
             - Low Grade Liver Dysplastic Nodule
             - Lupus
             - Lymphamatoid Papulosis
@@ -119520,18 +119314,11 @@ schema:
             - Malaria
             - Metabolic Syndrome
             - Methicillin-Resistant Staphylococcus aureus (MRSA)
-            - Mineralcorticoids Excess
-            - Motor / Movement Change
             - Myasthenia Gravis
             - Mycobacterium avium Complex
-            - Myelodysplastic Syndrome
             - Myocardial Infarction
-            - Neurocystericerosis
             - Neuroendocrine Tumor
-            - Nevus of Ota
             - Nodular Hyperplasia
-            - Nodular Prostatic Hyperplasia
-            - Nonalcoholic Fatty Liver Disease
             - Nonalcoholic Steatohepatitis
             - Obesity
             - Organ Transplant (Site)
@@ -119542,8 +119329,6 @@ schema:
             - Other Pulmonary Complications
             - Pain (Various)
             - Pancreatitis
-            - Parasitic Disease of Biliary Tract
-            - Parkinson's Disease
             - Peptic Ulcer (Ulcer)
             - Peripheral Neuropathy
             - Peripheral Vascular Disease
@@ -119556,52 +119341,32 @@ schema:
             - Psoriasis
             - Pulmonary Fibrosis
             - Pulmonary Hemorrhage
-            - Recurrent Pyogenic Cholangitis
             - Renal Dialysis
             - Renal Failure (Requiring Dialysis)
             - Renal Insufficiency
             - Rheumatoid Arthritis
             - Rheumatologic Disease
-            - Rubella
             - Rubinstein-Taybi Syndrome
             - Sarcoidosis
-            - Scarlet Fever
             - Seizure
-            - Sensory Changes
-            - Serous Tubal Intraepithelial Carcinoma (STIC)
             - Shingles
-            - Sialadenitis
             - Sjogren's Syndrome
-            - Skin Rash
             - Sleep Apnea
             - Smoking
-            - Squamous Metaplasia
             - Staph Osteomyelitis
             - Staphylococcus aureus
             - Steatosis
             - Stroke
-            - Succinate Dehydrogenase-Deficient Renal Cell Carcinoma
             - Syphilis
             - Thyroid Disease, Non-Cancer
-            - Thyroid Nodular Hyperplasia
-            - Tobacco, NOS
-            - Tobacco, Smokeless
-            - Tobacco, Smoking
             - Transient Ischemic Attack
             - Treponema pallidum
             - Tuberculosis
-            - Tuberous Sclerosis
-            - Tubulointerstitial Disease
-            - Tumor-Associated Lymphoid Proliferation
             - Turcot Syndrome
             - Tyrosinemia
             - Ulcerative Colitis
-            - Undescended Testis
             - Urinary Tract Infection
             - Varicella Zoster Virus
-            - Vascular Disease
-            - Vision Changes
-            - Von Hippel-Lindau Syndrome
             - Wagr Syndrome
             - Other
             - Unknown
@@ -119615,7 +119380,7 @@ schema:
         type: array
       comorbidity_method_of_diagnosis:
         description: The text term used to describe the method used to diagnose the
-          patient's comorbid disease.
+          patient's comorbidity disease.
         enum:
           - Histology
           - Pathology
@@ -120120,13 +119885,11 @@ schema:
           - Unknown
           - Not Reported
         termDef:
-          cde_id: C206479
-          cde_version: 24.07e
-          source: NCIt
+          cde_id:
+          cde_version:
+          source:
           term: Hormone Replacement Therapy Status
-          term_id: C206479
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206479
-          term_version: 24.07e
+          term_url:
       hormone_replacement_therapy_type:
         description: The specific type of hormone replacement therapy received by
           the patient.
@@ -120266,8 +120029,8 @@ schema:
         systemAlias: node_id
         type: string
       immunosuppressive_treatment_type:
-        description: The text term used to describe the type of immunosuppressive
-          treatment the patient received.
+        description: The text term used to describe the type of immunosuppresive treatment
+          the patient received.
         enum:
           - Anti-TNF Therapy
           - Azathioprine
@@ -120365,7 +120128,7 @@ schema:
         description: A finding associated with a patient with myasthenia gravis that
           is based on the classification system developed by the Myasthenia Gravis
           Foundation of America (MGFA) for grading myasthenia gravis that divides
-          the disease into five main classes and several subclasses.
+          the disease into 5 main classes and several subclasses.
         enum:
           - Class I
           - Class II
@@ -120510,7 +120273,6 @@ schema:
         description: A measurement of the total number of pregnancy events experienced
           by the female subject.
         enum:
-          - '0'
           - '1'
           - '2'
           - '3'
@@ -120931,11 +120693,6 @@ schema:
           term: Risk Factor Treatment Indicator
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6514356%20and%20ver_nr=1.0
       risk_factors:
-        deprecated_enum:
-          - Chronic Hepatitis
-          - Cirrhosis
-          - HIV
-          - Reflux Disease
         description: The text term used to describe a risk factor the patient had
           at the time of or prior to their diagnosis.
         enumDef:
@@ -120987,13 +120744,10 @@ schema:
         items:
           enum:
             - Abnormal Glucose Level
-            - Adenocarcinoma
-            - Adenomatous Polyposis Coli
             - Adenomyosis
             - Adenosis (Atypical Adenomatous Hyperplasia)
             - Alcohol Consumption
             - Alcoholic Liver Disease
-            - Allergies
             - Allergy, Animal, NOS
             - Allergy, Ant
             - Allergy, Bee
@@ -121013,56 +120767,37 @@ schema:
             - Altered Mental Status
             - Androgen Excess
             - Anemia
-            - Arthritis
             - Asthma
             - Ataxia-Telangiectasia
-            - Atrial Fibrillation
             - Autoimmune Atrophic Chronic Gastritis
             - Autoimmune Lymphoproliferative Syndrome (ALPS)
             - Bacteroides fragilis
             - BAP1 Tumor Predisposition Syndrome
             - Barrett's Esophagus
-            - Basal Cell Carcinoma
             - Beckwith-Wiedemann
             - Behcet's Disease
             - Benign Prostatic Hyperplasia
             - Benign Thyroid Nodule
-            - Biliary Disorder
             - Birt-Hogg-Dube Syndrome
             - BK Virus
             - BRCA Family History
-            - Bronchitis
-            - Calcium Channel Blockers
             - Cancer
-            - Cataracts
-            - Celiac Disease
-            - Cerebrovascular Disease
             - Chlamydia
             - Chloroma
             - Cholelithiasis
-            - Chronic Fatigue Syndrome
             - Chronic Hepatitis
             - Chronic Kidney Disease
             - Chronic Pancreatitis
             - Chronic Systemic Steroid Use
             - Chronic Thyroiditis
             - Cirrhosis
-            - Clonal Hematopoiesis
-            - CNS Infection
             - Colon Polyps
             - Colonization, Bacterial
             - Colonization, Fungal
             - Common Variable Immune Deficiency (CVID)
-            - Common Variable Immunodeficiency
-            - Congestive Heart Failure (CHF)
-            - Connective Tissue Disorder
-            - COPD
-            - Coronary Artery Disease
             - Cortisol Excess
             - Cowden Syndrome
-            - Crohn's Disease
             - Cryptococcal Meningitis
-            - Cryptogenic Organizing Pneumonia
             - Cyst(s)
             - Cytomegalovirus (CMV)
             - Denys-Drash Syndrome
@@ -121074,7 +120809,6 @@ schema:
             - Diverticulitis
             - Diverticulosis
             - Down Syndrome
-            - Dyslipidemia
             - EBV Lymphoproliferation
             - Eczema
             - Endometriosis
@@ -121090,19 +120824,14 @@ schema:
             - Follicular Adenoma
             - Gastric Polyp(s)
             - Gastritis
-            - GERD
             - Gilbert's Syndrome
-            - Glaucoma
             - Glomerular Disease
-            - Glycogen Storage Disease
             - Goiter
             - Gorlin Syndrome
-            - Gout
             - Graves' Disease
             - Hashimoto's Thyroiditis
             - Hay Fever
             - Headache
-            - Heart Disease
             - Helicobacter pylori Infection
             - Helicobacter pylori-Associated Gastritis
             - Hematologic Disorder, NOS
@@ -121112,32 +120841,24 @@ schema:
             - Hepatitis A Infection
             - Hepatitis B Infection
             - Hepatitis C Infection
-            - Hepatitis, Chronic
             - Hepatitis, NOS
             - Hereditary Breast Cancer
             - Hereditary Hemorrhagic Telangiectasia
             - Hereditary Kidney Oncocytoma
             - Hereditary Leiomyomatosis and Renal Cell Carcinoma
-            - Hereditary Non-Polyposis Colon Cancer
             - Hereditary Ovarian Cancer
             - Hereditary Papillary Renal Cell Carcinoma
             - Hereditary Prostate Cancer
             - Hereditary Renal Cell Carcinoma
-            - Herpes
-            - Herpes Simplex Virus
             - Herpes Zoster
             - High Grade Dysplasia
-            - High Grade Liver Dysplastic Nodule
             - High-grade Prostatic Intraepithelial Neoplasia (PIN)
             - HIV
-            - HIV/AIDS
             - Hodgkin Lymphoma
             - Human Herpesvirus-6 (HHV-6)
             - Human Herpesvirus-8 (HHV-8)
             - Human Papillomavirus Infection
             - Hypercholesterolemia
-            - Hyperglycemia
-            - Hyperlipidemia
             - Hyperparathyroidism
             - Hypertension
             - Hyperthyroidism
@@ -121145,19 +120866,11 @@ schema:
             - Hypothyroidism
             - Inflammation
             - Inflammation, Hyperkeratosis
-            - Inflammatory Bowel Disease
             - Inherited Genetic Syndrome, NOS
-            - Interstitial Pneumonitis or ARDS
             - Intestinal Metaplasia
-            - Intraductal Papillary Mucinous Neoplasm
             - Iron Overload
-            - Ischemic Heart Disease
-            - ITP
             - Li-Fraumeni Syndrome
-            - Liver Cirrhosis (Liver Disease)
             - Low Grade Dysplasia
-            - Low Grade Liver Dysplastic Nodule
-            - Lupus
             - Lymphamatoid Papulosis
             - Lymphocytic Meningitis
             - Lymphocytic Thyroiditis
@@ -121170,10 +120883,7 @@ schema:
             - Myasthenia Gravis
             - Mycobacterium avium Complex
             - Myelodysplastic Syndrome
-            - Myocardial Infarction
             - Neurocystericerosis
-            - Neuroendocrine Tumor
-            - Nevus of Ota
             - Nodular Hyperplasia
             - Nodular Prostatic Hyperplasia
             - Nonalcoholic Fatty Liver Disease
@@ -121181,26 +120891,15 @@ schema:
             - None
             - Obesity
             - Oral Contraceptives
-            - Organ Transplant (Site)
-            - Osteoarthritis
             - Pancreatitis
             - Parasitic Disease of Biliary Tract
-            - Peptic Ulcer (Ulcer)
-            - Peripheral Vascular Disease
-            - Peutz-Jeghers Disease
             - Pneumocystis Pneumonia
             - Pneumonia, NOS
             - Polycystic Ovarian Syndrome (PCOS)
-            - Pregnancy in Patient or Partner
             - Primary Sclerosing Cholangitis
-            - Psoriasis
-            - Pulmonary Fibrosis
             - Recurrent Pyogenic Cholangitis
             - Reflux Disease
-            - Renal Failure (Requiring Dialysis)
-            - Renal Insufficiency
             - Rheumatoid Arthritis
-            - Rheumatologic Disease
             - Rubella
             - Rubinstein-Taybi Syndrome
             - Sarcoidosis
@@ -121212,15 +120911,12 @@ schema:
             - Sialadenitis
             - Sjogren's Syndrome
             - Skin Rash
-            - Sleep Apnea
             - Squamous Metaplasia
-            - Staph Osteomyelitis
             - Staphylococcus aureus
             - Steatosis
             - Succinate Dehydrogenase-Deficient Renal Cell Carcinoma
             - Syphilis
             - Tattoo
-            - Thyroid Disease, Non-Cancer
             - Thyroid Nodular Hyperplasia
             - Tobacco, NOS
             - Tobacco, Smokeless
@@ -121231,10 +120927,8 @@ schema:
             - Tubulointerstitial Disease
             - Tumor-associated Lymphoid Proliferation
             - Turcot Syndrome
-            - Tyrosinemia
             - Ulcerative Colitis
             - Undescended Testis
-            - Urinary Tract Infection
             - Varicella Zoster Virus
             - Vascular Disease
             - Vision Changes
@@ -121297,36 +120991,19 @@ schema:
           - Adjuvant Therapy
           - Adolescence
           - Adulthood
-          - After Chemotherapy
-          - After Study Enrollment
           - Childhood
-          - End of Consolidation Therapy
-          - End of Treatment Course
-          - End of Treatment Course 1
-          - End of Treatment Course 2
-          - First Complete Response
-          - First Treatment
           - Follow-up
           - Initial Diagnosis
           - Last Contact
           - Post Adjuvant Therapy
           - Post Hormone Therapy
-          - Post Initial Treatment
           - Post Secondary Therapy
           - Postoperative
           - Preoperative
-          - Prior to Adjuvant Therapy
-          - Prior to Chemotherapy
           - Prior to Diagnosis
-          - Prior to Procurement
-          - Prior to Study Enrollment
-          - Prior to Study Registration
           - Prior to Treatment
-          - Progression
-          - Recurrence
           - Recurrence/Progression
           - Sample Procurement
-          - Within 2 Months After Completion of First-Course Treatment
           - Within 3 Months of Surgery
           - Other
           - Unknown
@@ -121454,31 +121131,12 @@ schema:
         maximum: 89
         minimum: 0
         termDef:
-          cde_id: C181721
-          cde_version: 24.07e
-          source: NCIt
+          cde_id:
+          cde_version:
+          source:
           term: Undescended Testis Corrected Age
-          term_id: C181721
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181721
-          term_version: 24.07e
+          term_url:
         type: integer
-      undescended_testis_corrected_age_range:
-        description: The patient's age when their undescended testis was corrected.
-        enum:
-          - 2-11 months
-          - 1-2 years
-          - 3-9 years
-          - 10-14 years
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id: C181721
-          cde_version: 24.07e
-          source: NCIt
-          term: Undescended Testis Corrected Age
-          term_id: C181721
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181721
-          term_version: 24.07e
       undescended_testis_corrected_laterality:
         description: Describes the lateral location of the patient's undescended testis
           correction.
@@ -122390,38 +122048,17 @@ schema:
           term:
           term_url:
       epithelioid_cell_percent:
-        description: A quantitative measurement of the percent of epithelioid melanocytes
-          compared to the number of total cells present in a sample.
+        description: The percent of uveal melanoma characterized by the presence of
+          malignant large epithelioid melanocytes.
         maximum: 100
         minimum: 0
         termDef:
-          cde_id: C200471
-          cde_version: 24.07e
-          source: NCIt
-          term: Percent of Epithelioid Melanocytes
-          term_id: C200471
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200471
-          term_version: 24.07e
+          cde_id: 7292253
+          cde_version: 1.0
+          source: caDSR
+          term: Cell Morphology Percent Uveal Epithelioid Cell Melanoma Integer
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=7292253%20and%20ver_nr=1.0
         type: number
-      epithelioid_cell_percent_range:
-        description: A quantitative measurement of the percent of epithelioid melanocytes
-          compared to the number of total cells present in a sample.
-        enum:
-          - 0%
-          - 1-30%
-          - 31-60%
-          - 61-90%
-          - '>90%'
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id: C200471
-          cde_version: 24.07e
-          source: NCIt
-          term: Percent of Epithelioid Melanocytes
-          term_id: C200471
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200471
-          term_version: 24.07e
       extracapsular_extension:
         description: The extension of malignant tissue situated outside of a specific
           capsule.
@@ -122487,21 +122124,6 @@ schema:
           source: NCIt
           term: Extranodal Involvement
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C117309
-      extraocular_nodule_size:
-        description: The size of the nodule that is outside the eye.
-        enum:
-          - <=5mm
-          - '>5mm'
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id: C185261
-          cde_version: 24.07e
-          source: NCIt
-          term: Extraocular Nodule Size
-          term_id: C185261
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C185261
-          term_version: 24.07e
       extrascleral_extension:
         description: Spread of uveal melanoma beyond the sclera.
         termDef:
@@ -122511,19 +122133,6 @@ schema:
           term: Extrascleral Extension of Uveal Melanoma
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028
         type: boolean
-      extrascleral_extension_present:
-        description: Spread of uveal melanoma beyond the sclera.
-        enum:
-          - 'Yes'
-          - 'No'
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id: C111028
-          cde_version: 22.11d
-          source: NCIt
-          term: Extrascleral Extension of Uveal Melanoma
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028
       extrathyroid_extension:
         description: Text term to describe the degree to which the primary tumor has
           extra thyroid extension.
@@ -122687,20 +122296,6 @@ schema:
         pattern: ^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$
         systemAlias: node_id
         type: string
-      intratubular_germ_cell_neoplasia_present:
-        description: Text term to indicate whether the intratubular germ cell neoplasm
-          is present or absent.
-        enum:
-          - 'Yes'
-          - 'No'
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: Testicular Intratubular Germ Cell Neoplasia Indicator
-          term_url:
       largest_extrapelvic_peritoneal_focus:
         description: The text term used to describe the diameter of the largest focus
           originating outside of the pelvic peritoneal region.
@@ -122776,7 +122371,6 @@ schema:
           - Neck, Left
           - Neck, NOS
           - Neck, Right
-          - Retroperitoneal
           - Unknown
           - Not Reported
         termDef:
@@ -122804,7 +122398,6 @@ schema:
           - Iliac-common
           - Iliac-external
           - Inguinal
-          - Intra-Abdominal, NOS
           - Mediastinal
           - Mesenteric
           - None
@@ -124040,47 +123633,24 @@ schema:
         description: The size of the nodule that is outside the eye.
         minimum: 0
         termDef:
-          cde_id: C185261
-          cde_version: 24.07e
-          source: NCIt
+          cde_id:
+          cde_version:
+          source:
           term: Extraocular Nodule Size
-          term_id: C185261
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C185261
-          term_version: 24.07e
+          term_url:
         type: number
       spindle_cell_percent:
-        description: A quantitative measurement of the percent of spindle-shaped melanocytes
-          compared to the number of total cells present in a sample.
+        description: The percent of uveal melanoma arising from the choroid, ciliary
+          body, or the iris and characterized by the presence of spindle-shaped melanocytes.
         maximum: 100
         minimum: 0
         termDef:
-          cde_id: C200472
-          cde_version: 24.07e
-          source: NCIt
-          term: Percent of Spindle-Shaped Melanocytes
-          term_id: C200472
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200472
-          term_version: 24.07e
+          cde_id: 7292254
+          cde_version: 1.0
+          source: caDSR
+          term: Cell Morphology Percent Uveal Spindle Cell Melanoma Integer
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=7292254%20and%20ver_nr=1.0
         type: number
-      spindle_cell_percent_range:
-        description: A quantitative measurement of the percent of spindle-shaped melanocytes
-          compared to the number of total cells present in a sample.
-        enum:
-          - 0%
-          - 1-30%
-          - 31-60%
-          - 61-90%
-          - '>90%'
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id: C200472
-          cde_version: 24.07e
-          source: NCIt
-          term: Percent of Spindle-Shaped Melanocytes
-          term_id: C200472
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200472
-          term_version: 24.07e
       state:
         common:
           description: The current state of the object.
@@ -124122,53 +123692,6 @@ schema:
           calling card/nickname/alias for a unit of submission. It can be used in
           place of the uuid for identifying or recalling a node.
         type: string
-      timepoint_category:
-        description: Category describing a specific point in the time continuum, including
-          those established relative to an event.
-        enum:
-          - Adjuvant Therapy
-          - Adolescence
-          - Adulthood
-          - After Chemotherapy
-          - After Study Enrollment
-          - Childhood
-          - End of Consolidation Therapy
-          - End of Treatment Course
-          - End of Treatment Course 1
-          - End of Treatment Course 2
-          - First Complete Response
-          - First Treatment
-          - Follow-up
-          - Initial Diagnosis
-          - Last Contact
-          - Post Adjuvant Therapy
-          - Post Hormone Therapy
-          - Post Initial Treatment
-          - Post Secondary Therapy
-          - Postoperative
-          - Preoperative
-          - Prior to Adjuvant Therapy
-          - Prior to Chemotherapy
-          - Prior to Diagnosis
-          - Prior to Procurement
-          - Prior to Study Enrollment
-          - Prior to Study Registration
-          - Prior to Treatment
-          - Progression
-          - Recurrence
-          - Recurrence/Progression
-          - Sample Procurement
-          - Within 2 Months After Completion of First-Course Treatment
-          - Within 3 Months of Surgery
-          - Other
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id: C68568
-          cde_version: 22.11d
-          source: NCIt
-          term: Timepoint
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C68568
       transglottic_extension:
         description: The text term used to describe an extension of the tumor beyond
           the opening into the ventricles and vocal cords.
@@ -124217,16 +123740,6 @@ schema:
           term_id: C160996
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C160996
           term_version: 19.12e
-      tumor_basal_diameter:
-        description: Numeric value in millimeters for the lowest layer of a tumor.
-        minimum: 0
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: Tumor Basal Diameter
-          term_url:
-        type: number
       tumor_burden:
         description: Refers to the number of cancer cells, the size of a tumor, or
           the amount of cancer in the body.
@@ -128488,8 +128001,6 @@ schema:
         type: integer
       biospecimen_anatomic_site:
         deprecated_enum:
-          - Brain Stem
-          - Common Duct
           - Head - Face Or Neck, Nos
         description: Text term that represents the name of the organ or tissue site
           of the submitted sample.
@@ -128530,7 +128041,6 @@ schema:
           - Bowel
           - Brain
           - Brain Stem
-          - Brainstem
           - Breast
           - Broad Ligament
           - Bronchiole
@@ -128562,7 +128072,6 @@ schema:
           - Clitoris
           - Colon
           - Colon - Mucosa Only
-          - Common Bile Duct
           - Common Duct
           - Conjunctiva
           - Connective Tissue
@@ -129440,8 +128949,6 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432602%20and%20ver_nr=1.0
         type: number
       method_of_sample_procurement:
-        deprecated_enum:
-          - Indeterminant
         description: The method used to procure the sample used to extract analyte(s).
         enum:
           - Abdomino-perineal Resection of Rectum
@@ -129470,7 +128977,6 @@ schema:
           - Hysterectomy NOS
           - Incisional Biopsy
           - Indeterminant
-          - Indeterminate
           - Laparoscopic Biopsy
           - Laparoscopic Partial Nephrectomy
           - Laparoscopic Radical Nephrectomy
@@ -130062,7 +129568,7 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432612%20and%20ver_nr=1.0
         type: number
       tissue_collection_type:
-        description: The text term used to describe the type of collection used to
+        description: The text term used to describe the tyoe of collection used to
           obtain tissue.
         enum:
           - Prospective
@@ -136758,7 +136264,6 @@ schema:
           - Glucocorticoid
           - Growth factor
           - PARP inhibitor
-          - Platinum
           - Unknown
           - Not Reported
         termDef:
@@ -136854,57 +136359,6 @@ schema:
           term:
           term_url:
         type: number
-      margin_distance:
-        description: Numeric value that represents the distance between the tumor
-          and the surgical margin
-        minimum: 0
-        termDef:
-          cde_id: C137815
-          cde_version: 19.12e
-          source: NCIt
-          term: Distance to Margin Measurement
-          term_id: C137815
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C137815
-          term_version: 19.12e
-        type: number
-      margin_status:
-        description: The determination of the presence of actual or potential neoplastic
-          tissue which has been left outside the boundary of a resected specimen within
-          the patient.
-        enum:
-          - Indeterminate
-          - Involved
-          - Uninvolved
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
-      margins_involved_site:
-        description: The text term used to describe the anatomic sites that were involved
-          in the survival margins.
-        enum:
-          - Cervix Uteri
-          - Gerota Fascia
-          - Parenchyma
-          - Perinephric Fat
-          - Renal
-          - Renal Capsule
-          - Renal Sinus
-          - Renal Vein
-          - Ureter
-          - Other
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: Surgical Margins Involved Site
-          term_url:
       number_of_cycles:
         description: The numeric value used to describe the number of cycles of a
           specific treatment or regimen the patient received.
@@ -136967,29 +136421,11 @@ schema:
           - Unknown
           - Not Reported
         termDef:
-          cde_id: C206478
-          cde_version: 24.07e
-          source: NCIt
+          cde_id:
+          cde_version:
+          source:
           term: Prescribed Dose Units
-          term_id: C206478
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C206478
-          term_version: 24.07e
-      pretreatment:
-        description: Any relevant actions that were performed or occurred prior to
-          a specific treatment.
-        enum:
-          - rhTSH
-          - Thyroxine Withdrawal
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id: C103339
-          cde_version: 24.07e
-          source: NCIt
-          term: Pretreatment
-          term_id: C103339
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C103339
-          term_version: 24.07e
+          term_url:
       project_id:
         common:
           description: Unique ID for any specific defined piece of work that is undertaken
@@ -138764,7 +138200,6 @@ schema:
           - Cibisatamab
           - Ciclopirox Prodrug CPX-POM
           - Cidan Herbal Capsule
-          - Cidofovir
           - Ciforadenant
           - Cilengitide
           - Ciltacabtagene Autoleucel
@@ -138865,7 +138300,6 @@ schema:
           - CXCR4 Inhibitor Q-122
           - CXCR4 Peptide Antagonist LY2510924
           - CXCR4/E-selectin Antagonist GMI-1359
-          - Cyanocobalamin
           - Cyclin-dependent Kinase 8/19 Inhibitor BCD 115
           - Cyclin-dependent Kinase Inhibitor PF-06873600
           - Cyclodextrin-Based Polymer-Camptothecin CRLX101
@@ -140831,7 +140265,6 @@ schema:
           - Polo-like Kinase 1 Inhibitor MK1496
           - Polo-like Kinase 1 Inhibitor NMS-1286937
           - Polo-like Kinase 4 Inhibitor CFI-400945 Fumarate
-          - Poly ICLC
           - Poly-alendronate Dextran-Guanidine Conjugate
           - Poly-gamma Glutamic Acid
           - Polyamine Analog SL11093
@@ -155255,41 +154688,18 @@ schema:
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
-          - Adjuvant Therapy
-          - Adolescence
-          - Adulthood
-          - After Chemotherapy
-          - After Study Enrollment
-          - Childhood
           - End of Consolidation Therapy
           - End of Treatment Course
-          - End of Treatment Course 1
-          - End of Treatment Course 2
           - First Complete Response
           - First Treatment
-          - Follow-up
-          - Initial Diagnosis
-          - Last Contact
-          - Post Adjuvant Therapy
-          - Post Hormone Therapy
-          - Post Initial Treatment
-          - Post Secondary Therapy
           - Postoperative
           - Preoperative
-          - Prior to Adjuvant Therapy
-          - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
-          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
           - Recurrence
-          - Recurrence/Progression
-          - Sample Procurement
-          - Within 2 Months After Completion of First-Course Treatment
-          - Within 3 Months of Surgery
-          - Other
           - Unknown
           - Not Reported
         termDef:
@@ -155971,7 +155381,6 @@ schema:
             - Endocrine Gland
             - Epididymis
             - Epidural Space
-            - Epiglottis
             - Epitrochlear
             - Esophagogastric Junction
             - Esophagus
@@ -156443,8 +155852,6 @@ schema:
           - Palliative
           - Prevention
           - Radiation Boost
-          - Re-Excision
-          - Salvage
           - Unknown
           - Not Reported
         enumDef:
@@ -156630,7 +156037,6 @@ schema:
           - Ethanol Injection Ablation
           - External Beam Radiation
           - Hormone Therapy
-          - Hysterectomy, NOS
           - I-131 Radiation Therapy
           - Immunotherapy (Including Vaccines)
           - Internal Radiation
@@ -156768,4 +156174,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev31
+version: 3.2.3.dev1
