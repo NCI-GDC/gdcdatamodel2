@@ -1,8 +1,15 @@
 import json
 import os
+import sys
 import uuid
 import warnings
 from importlib import resources
+
+if sys.version_info >= (3, 8):
+    from importlib import resources
+else:
+    import importlib_resources as resources
+
 from typing import List, Optional, Union
 
 import attr
@@ -12,10 +19,10 @@ from psqlgraph import create_all, ext, hydrator
 from psqlgraph.base import ORMBase, VoidedBase
 from sqlalchemy import MetaData
 from sqlalchemy import exc as sa_exc
-from tests.helpers import hints, typing_compat
 
 from gdcdatamodel2 import models
 from gdcdatamodel2.partial_dictionary import utils
+from tests.helpers import hints, typing_compat
 
 SAMPLE_PROGRAM = "GDC"
 SAMPLE_PROJECT = "MISC"

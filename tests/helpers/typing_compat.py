@@ -7,4 +7,7 @@ python35+. See https://pypi.org/project/typing-extensions/
 try:
     from typing import Protocol, TypedDict
 except ImportError:
-    pass
+    from typing_extensions import Protocol, TypedDict
+
+
+__all__ = ["Protocol", "TypedDict"]
