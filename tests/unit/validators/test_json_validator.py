@@ -1,7 +1,8 @@
 from copy import copy
 
-from gdcdatamodel2 import validators
 from tests import MockSubmissionEntity
+
+from gdcdatamodel2 import validators
 
 
 def test_json_validator_with_insufficient_properties():

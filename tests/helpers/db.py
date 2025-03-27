@@ -2,20 +2,20 @@ import json
 import os
 import uuid
 import warnings
+from importlib import resources
 from typing import List, Optional, Union
 
 import attr
-import pkg_resources
 import psqlgraph
 import yaml
 from psqlgraph import create_all, ext, hydrator
 from psqlgraph.base import ORMBase, VoidedBase
 from sqlalchemy import MetaData
 from sqlalchemy import exc as sa_exc
+from tests.helpers import hints, typing_compat
 
 from gdcdatamodel2 import models
 from gdcdatamodel2.partial_dictionary import utils
-from tests.helpers import hints, typing_compat
 
 SAMPLE_PROGRAM = "GDC"
 SAMPLE_PROJECT = "MISC"
@@ -129,7 +129,7 @@ def tear_down_graph(graph: psqlgraph.PsqlGraphDriver) -> None:
 
 def load_data_file(source: str, source_type: str = "json") -> hints.GraphData:
     source_type = source_type if source.endswith(".json") else "yaml"
-    with pkg_resources.resource_stream("tests", f"data/{source}") as js:
+    with (resources.files("tests") / f"data/{source}").open() as js:
         payload: hints.GraphData = (
             yaml.safe_load(js) if source_type == "yaml" else json.loads(js.read())
         )

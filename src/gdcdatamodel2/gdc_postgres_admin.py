@@ -16,12 +16,11 @@ from typing import Optional
 
 import sqlalchemy as sa
 from psqlgraph import base, create_all, ext
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, exc
 from sqlalchemy import engine as sqlalchemy_engine
-from sqlalchemy import exc
 
 #: Required but 'unused' import to register GDC models
-from gdcdatamodel2 import models  # noqa
+from gdcdatamodel2 import models
 
 logging.basicConfig()
 logger = logging.getLogger("gdc_postgres_admin")
@@ -70,9 +69,7 @@ def get_engine(
 ) -> sqlalchemy_engine.base.Engine:
     """Get sqlalchemy engine."""
     connect_args = {"application_name": app_name}
-    con_str = "postgres://{user}:{pwd}@{host}/{db}".format(
-        user=user, host=host, pwd=password, db=database
-    )
+    con_str = f"postgres://{user}:{password}@{host}/{database}"
     return create_engine(con_str, connect_args=connect_args)
 
 

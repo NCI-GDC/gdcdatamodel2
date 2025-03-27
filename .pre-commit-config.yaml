@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-json
       - id: check-toml
@@ -28,24 +28,12 @@ repos:
       - id: remove-crlf
       - id: remove-tabs
         exclude: .(py|yaml|yml|tsv)$
-  - repo: https://github.com/psf/black
-    rev: 24.4.2
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.2
     hooks:
-      - id: black
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-        name: isort (python)
-        args: [--profile, black]
-      - id: isort
-        name: isort (cython)
-        types: [cython]
-        args: [--profile, black]
-      - id: isort
-        name: isort (pyi)
-        types: [pyi]
-        args: [--profile, black]
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
   - repo: https://github.com/qiaouchicago/markdown-toc
     rev: 0.1.0
     hooks:
@@ -58,7 +46,7 @@ repos:
         additional_dependencies: [toml]
         exclude: ^(tests|unit_tests)/
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.9
+    rev: 1.8.3
     hooks:
       - id: bandit
         args: [--skip, 'B101,B303,B404,B603', --exclude, tests]
@@ -69,7 +57,7 @@ repos:
         # preserve-quotes for partial_dictionary
         args: [--mapping, '2', --sequence, '4', --offset, '2', --width, '80', '--preserve-quotes']
   - repo: https://github.com/pappasam/toml-sort
-    rev: v0.23.1
+    rev: v0.24.2
     hooks:
       - id: toml-sort
         args: [--in-place]

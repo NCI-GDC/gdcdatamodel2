@@ -22,10 +22,6 @@ dynamic = [
   "optional-dependencies"
 ]
 
-[tool.black]
-line-length = 98
-include = '\.pyi?$'
-
 [tool.coverage.html]
 title = "gdcdatamodel2 coverage report"
 directory = "docs/htmlcov"
@@ -35,11 +31,6 @@ show_contexts = true
 branch = true
 context = "unit tests"
 source = ["gdcdatamodel2"]
-
-[tool.isort]
-profile = "black"
-line_length = 98 # match black config
-known_first_party = ["gdcdatamodel2"]
 
 [tool.pytest.ini_options]
 minversion = 6.0
@@ -63,6 +54,47 @@ testpaths = [
   "tests/unit",
   "tests/integration"
 ]
+
+[tool.ruff]
+exclude = [
+  "examples"
+]
+line-length = 98
+src = ["src", "tests"]
+target-version = "py37"
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+# see https://docs.astral.sh/ruff/rules/
+select = [
+  "E", # pydocstyle errors
+  "F", # pyflakes
+  "I", # isort
+  "N", # pep8 naming
+  "RUF", # ruff specific rules
+  "UP", # pyupgrade
+  "W" # pydocstyle warnings
+]
+ignore = [
+  "E402",
+  "E501",
+  "E722",
+  "E731",
+  "F401",
+  "F821",
+  "RUF005",
+  "RUF012",
+  "RUF015",
+  "N805"
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["gdcdatamodel2"]
+
+[tool.ruff.lint.pyupgrade]
+keep-runtime-typing = true
 
 [tool.setuptools_scm]
 local_scheme = "versionista-local-format"

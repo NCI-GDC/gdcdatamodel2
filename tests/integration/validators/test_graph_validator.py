@@ -1,7 +1,8 @@
 import uuid
 
-from gdcdatamodel2 import models, validators
 from tests import MockSubmissionEntity
+
+from gdcdatamodel2 import models, validators
 
 
 def create_node(gdc_graph, doc, session):
