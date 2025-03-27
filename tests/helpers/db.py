@@ -5,7 +5,7 @@ import uuid
 import warnings
 from importlib import resources
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 9):
     from importlib import resources
 else:
     import importlib_resources as resources
