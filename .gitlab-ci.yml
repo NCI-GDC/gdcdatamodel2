@@ -18,3 +18,8 @@ tox:
     PG_HOST: postgres
     PG_USER: postgres
     PG_NAME: gdcdatamodel2
+
+publish:
+  script:
+    - pip install tox
+    - tox -re publish
