@@ -59,9 +59,7 @@ class GDCLinksValidator:
         if schema.get("exclusive") is True and len(submitted_links) > 1:
             names = ", ".join(schema_links[:-2] + [" and ".join(schema_links[-2:])])
             entity.record_error(
-                "Links to {} are exclusive.  More than one was provided: {}".format(
-                    schema_links, entity.node.edges_out
-                ),
+                f"Links to {schema_links} are exclusive.  More than one was provided: {entity.node.edges_out}",
                 keys=schema_links,
             )
             for edge in entity.node.edges_out:

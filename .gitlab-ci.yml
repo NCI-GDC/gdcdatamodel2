@@ -18,3 +18,12 @@ tox:
     PG_HOST: postgres
     PG_USER: postgres
     PG_NAME: gdcdatamodel2
+
+publish:
+  script:
+    - echo "Publishing '$CI_COMMIT_TAG' to $TWINE_REPOSITORY with $TWINE_USERNAME"
+    - pip install setuptools_scm versionista build twine
+    - python -m setuptools_scm
+    - python -m build
+    - python -m twine check dist/*
+    - python -m twine upload dist/* --repository-url $TWINE_REPOSITORY

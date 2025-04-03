@@ -1,11 +1,18 @@
 import json
 import os
+import sys
 import uuid
 import warnings
+from importlib import resources
+
+if sys.version_info >= (3, 9):
+    from importlib import resources
+else:
+    import importlib_resources as resources
+
 from typing import List, Optional, Union
 
 import attr
-import pkg_resources
 import psqlgraph
 import yaml
 from psqlgraph import create_all, ext, hydrator
@@ -129,7 +136,7 @@ def tear_down_graph(graph: psqlgraph.PsqlGraphDriver) -> None:
 
 def load_data_file(source: str, source_type: str = "json") -> hints.GraphData:
     source_type = source_type if source.endswith(".json") else "yaml"
-    with pkg_resources.resource_stream("tests", f"data/{source}") as js:
+    with (resources.files("tests") / f"data/{source}").open() as js:
         payload: hints.GraphData = (
             yaml.safe_load(js) if source_type == "yaml" else json.loads(js.read())
         )
