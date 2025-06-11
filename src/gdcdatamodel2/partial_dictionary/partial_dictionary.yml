@@ -17323,7 +17323,7 @@ schema:
         type: integer
       population_group:
         description: A group of individuals united by a common factor (e.g., geographic
-          location, ethnicity, disease, age, gender).
+          location, ethnicity, disease, age, sex).
         enum:
           - Ashkenazi Jew
         termDef:
@@ -108420,7 +108420,7 @@ schema:
         type: string
       mismatch_repair_mutation:
         description: The yes/no/unknown indicator used to describe whether the mutation
-          included in molecular testing was known to have an affect on the mismatch
+          included in molecular testing was known to have an effect on the mismatch
           repair process.
         enum:
           - 'Yes'
@@ -156768,4 +156768,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.2.3.dev31
+version: 3.3.1.dev1
