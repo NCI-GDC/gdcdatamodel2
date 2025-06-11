@@ -2155,25 +2155,6 @@ schema:
           source: caDSR
           term: Molecular Specimen Type Text Name
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2513915%20and%20ver_nr=2.0
-      analyte_type_id:
-        description: A single letter code used to identify a type of molecular analyte.
-        enum:
-          - D
-          - E
-          - G
-          - H
-          - R
-          - S
-          - T
-          - W
-          - X
-          - Y
-        termDef:
-          cde_id: 5432508
-          cde_version: 1.0
-          source: caDSR
-          term: Molecular Analyte Identification Code
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432508%20and%20ver_nr=1.0
       analytes:
         anyOf:
           - items:
@@ -156768,4 +156749,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev2
