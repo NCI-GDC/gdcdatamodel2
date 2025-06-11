@@ -118488,6 +118488,9 @@ schema:
           term:
           term_url:
       timepoint_category:
+        deprecated_enum:
+          - After Study Enrollment
+          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -118496,6 +118499,7 @@ schema:
           - Adulthood
           - After Chemotherapy
           - After Study Enrollment
+          - After Study Registration
           - Childhood
           - End of Consolidation Therapy
           - End of Treatment Course
@@ -156768,4 +156772,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev2
