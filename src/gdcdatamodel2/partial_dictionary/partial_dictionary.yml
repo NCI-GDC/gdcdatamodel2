@@ -128488,8 +128488,6 @@ schema:
         type: integer
       biospecimen_anatomic_site:
         deprecated_enum:
-          - Brain Stem
-          - Common Duct
           - Head - Face Or Neck, Nos
         description: Text term that represents the name of the organ or tissue site
           of the submitted sample.
@@ -128529,7 +128527,6 @@ schema:
           - Bone Marrow
           - Bowel
           - Brain
-          - Brain Stem
           - Brainstem
           - Breast
           - Broad Ligament
@@ -128563,7 +128560,6 @@ schema:
           - Colon
           - Colon - Mucosa Only
           - Common Bile Duct
-          - Common Duct
           - Conjunctiva
           - Connective Tissue
           - Dermal
@@ -129010,142 +129006,6 @@ schema:
           term:
           term_url:
         type: string
-      composition:
-        deprecated_enum:
-          - Not Allowed To Collect
-        description: Text term that represents the cellular composition of the sample.
-        enum:
-          - 2D Classical Conditionally Reprogrammed Cells
-          - 2D Modified Conditionally Reprogrammed Cells
-          - 3D Air-Liquid Interface Organoid
-          - 3D Neurosphere
-          - 3D Organoid
-          - Adherent Cell Line
-          - Bone Marrow Components
-          - Bone Marrow Components NOS
-          - Buccal Cells
-          - Buffy Coat
-          - Cell
-          - Control Analyte
-          - Derived Cell Line
-          - EBV Immortalized
-          - Fibroblasts from Bone Marrow Normal
-          - Granulocytes
-          - Human Original Cells
-          - Liquid Suspension Cell Line
-          - Lymphocytes
-          - Mixed Adherent Suspension
-          - Mononuclear Cells from Bone Marrow Normal
-          - Peripheral Blood Components NOS
-          - Peripheral Whole Blood
-          - Plasma
-          - Pleural Effusion
-          - Saliva
-          - Serum
-          - Solid Tissue
-          - Sorted Cells
-          - Sputum
-          - Whole Bone Marrow
-          - Unknown
-          - Not Reported
-          - Not Allowed To Collect
-        enumDef:
-          Buffy Coat:
-            description: The middle layer of an anticoagulated blood specimen following
-              separation by centrifugation. It contains most of the white blood cells
-              and platelets.
-            termDef:
-              cde_id: C84507
-              cde_version: 20.10d
-              source: NCIt
-              term: Buffy Coat
-              term_id: C84507
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C84507
-              term_version: 20.10d
-          Lymphocytes:
-            description: The determination of the number of lymphocytes in a blood
-              sample.
-            termDef:
-              cde_id: C51949
-              cde_version: 20.10d
-              source: NCIt
-              term: Lymphocyte Count
-              term_id: C51949
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C51949
-              term_version: 20.10d
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Plasma:
-            description: Plasma is the fluid (noncellular) portion of the circulating
-              blood, as distinguished from the serum that is the fluid portion of
-              the blood obtained by removal of the fibrin clot and blood cells after
-              coagulation.
-            termDef:
-              cde_id: C13356
-              cde_version: 20.10d
-              source: NCIt
-              term: Plasma
-              term_id: C13356
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C13356
-              term_version: 20.10d
-          Saliva:
-            description: The watery fluid in the mouth made by the salivary glands.
-              Saliva moistens food to help digestion and it helps protect the mouth
-              against infections.
-            termDef:
-              cde_id: C13275
-              cde_version: 20.10d
-              source: NCIt
-              term: Saliva
-              term_id: C13275
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C13275
-              term_version: 20.10d
-          Serum:
-            description: The clear portion of the blood that remains after the removal
-              of the blood cells and the clotting proteins.
-            termDef:
-              cde_id: C13325
-              cde_version: 20.10d
-              source: NCIt
-              term: Serum
-              term_id: C13325
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C13325
-              term_version: 20.10d
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-        termDef:
-          cde_id: 5432591
-          cde_version: 1.0
-          source: caDSR
-          term: Biospecimen Cellular Composition Type
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432591%20and%20ver_nr=1.0
       created_datetime:
         common:
           description: A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
@@ -129418,16 +129278,6 @@ schema:
           term:
           term_url:
         type: number
-      is_ffpe:
-        description: Indicator to signify whether or not the tissue sample was fixed
-          in formalin and embedded in paraffin (FFPE).
-        termDef:
-          cde_id: 4170557
-          cde_version: 1.0
-          source: caDSR
-          term: Specimen Processing Formalin Fixed Paraffin Embedded Tissue Indicator
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=4170557%20and%20ver_nr=1.0
-        type: boolean
       longest_dimension:
         description: Numeric value that represents the longest dimension of the sample,
           measured in millimeters.
@@ -129440,8 +129290,6 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432602%20and%20ver_nr=1.0
         type: number
       method_of_sample_procurement:
-        deprecated_enum:
-          - Indeterminant
         description: The method used to procure the sample used to extract analyte(s).
         enum:
           - Abdomino-perineal Resection of Rectum
@@ -129469,7 +129317,6 @@ schema:
           - Hand Assisted Laparoscopic Radical Nephrectomy
           - Hysterectomy NOS
           - Incisional Biopsy
-          - Indeterminant
           - Indeterminate
           - Laparoscopic Biopsy
           - Laparoscopic Partial Nephrectomy
@@ -129561,17 +129408,6 @@ schema:
               term_id: C25153
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25153
               term_version: 19.12e
-          Indeterminant:
-            description: Cannot distinguish between two or more possible values in
-              the current context.
-            termDef:
-              cde_id: C48658
-              cde_version: 20.10d
-              source: NCIt
-              term: Indeterminate
-              term_id: C48658
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48658
-              term_version: 20.10d
           Not Allowed To Collect:
             description: An indicator that specifies that a collection event was not
               permitted.
@@ -129619,16 +129455,6 @@ schema:
           source:
           term: Method of Sample Procurement
           term_url:
-      oct_embedded:
-        description: Indicator of whether or not the sample was embedded in Optimal
-          Cutting Temperature (OCT) compound.
-        termDef:
-          cde_id: 5432538
-          cde_version: 1.0
-          source: caDSR
-          term: Tissue Sample Optimal Cutting Temperature Compound Embedding Indicator
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432538%20and%20ver_nr=1.0
-        type: string
       parent_samples:
         anyOf:
           - items:
@@ -129898,47 +129724,6 @@ schema:
           source: caDSR
           term: Specimen Type Collection Biospecimen Type
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3111302%20and%20ver_nr=2.0
-      sample_type_id:
-        description: The accompanying sample type id for the sample type.
-        enum:
-          - '01'
-          - '02'
-          - '03'
-          - '04'
-          - '05'
-          - '06'
-          - '07'
-          - 08
-          - 09
-          - '10'
-          - '11'
-          - '12'
-          - '13'
-          - '14'
-          - '15'
-          - '16'
-          - '17'
-          - '18'
-          - '20'
-          - '30'
-          - '31'
-          - '32'
-          - '40'
-          - '41'
-          - '42'
-          - '50'
-          - '60'
-          - '61'
-          - '85'
-          - '86'
-          - '87'
-          - '99'
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
       shortest_dimension:
         description: Numeric value that represents the shortest dimension of the sample,
           measured in millimeters.
@@ -130186,69 +129971,6 @@ schema:
           source: caDSR
           term: Tissue Sample Description Type
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432687%20and%20ver_nr=1.0
-      tumor_code:
-        description: Diagnostic tumor code of the tissue sample source.
-        enum:
-          - Acute Leukemia of Ambiguous Lineage (ALAL)
-          - Acute lymphoblastic leukemia (ALL)
-          - Acute myeloid leukemia (AML)
-          - Anal Cancer (all types)
-          - Cervical Cancer (all types)
-          - Clear cell sarcoma of the kidney (CCSK)
-          - CNS, ependymoma
-          - CNS, glioblastoma (GBM)
-          - CNS, low grade glioma (LGG)
-          - CNS, medulloblastoma
-          - CNS, other
-          - CNS, rhabdoid tumor
-          - Diffuse Large B-Cell Lymphoma (DLBCL)
-          - Ewing sarcoma
-          - Induction Failure AML (AML-IF)
-          - Lung Cancer (all types)
-          - Neuroblastoma (NBL)
-          - NHL, anaplastic large cell lymphoma
-          - NHL, Burkitt lymphoma (BL)
-          - Non cancerous tissue
-          - Osteosarcoma (OS)
-          - Rhabdoid tumor (kidney) (RT)
-          - Rhabdomyosarcoma
-          - Soft tissue sarcoma, non-rhabdomyosarcoma
-          - Wilms tumor (WT)
-        enumDef:
-          Ewing sarcoma:
-            description: A small round cell tumor that lacks morphologic, immunohistochemical,
-              and electron microscopic evidence of neuroectodermal differentiation.
-              It represents one of the two ends of the spectrum called Ewing sarcoma/peripheral
-              neuroectodermal tumor. It affects mostly males under age 20, and it
-              can occur in soft tissue or bone. Pain and the presence of a mass are
-              the most common clinical symptoms.
-            termDef:
-              cde_id: C4817
-              cde_version: 20.05a
-              source: NCIt
-              term: Ewing Sarcoma
-              term_id: C4817
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4817
-              term_version: 20.05a
-          Rhabdomyosarcoma:
-            description: A rare aggressive malignant mesenchymal neoplasm arising
-              from skeletal muscle. It usually occurs in children and young adults.
-              Only a small percentage of tumors arise in the skeletal muscle of the
-              extremities. The majority arise in other anatomical sites.
-            termDef:
-              cde_id: C3359
-              cde_version: 19.12e
-              source: NCIt
-              term: Rhabdomyosarcoma
-              term_id: C3359
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3359
-              term_version: 19.12e
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
       tumor_code_id:
         description: BCR-defined id code for the tumor sample.
         enum:
@@ -156768,4 +156490,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev5
