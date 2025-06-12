@@ -122007,6 +122007,20 @@ schema:
           term: Breslow Depth Measurement
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64809%20and%20ver_nr=3.0
         type: number
+      breslow_thickness_category:
+        description: The number that describes the distance, in millimeters, between
+          the upper layer of the epidermis and the deepest point of tumor penetration.
+        enum:
+          - <=1 mm
+          - '>1.0-2.0 mm'
+          - '>2.0-4.0 mm'
+          - '>4.0 mm'
+        termDef:
+          cde_id: 64809
+          cde_version: 3.0
+          source: caDSR
+          term: Breslow Depth Measurement Category
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64809%20and%20ver_nr=3.0
       circumferential_resection_margin:
         description: Numeric value used to describe the non-peritonealised bare area
           of rectum, comprising anterior and posterior segments, when submitted as
@@ -124123,6 +124137,9 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       timepoint_category:
+        deprecated_enum:
+          - After Study Enrollment
+          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -124131,6 +124148,7 @@ schema:
           - Adulthood
           - After Chemotherapy
           - After Study Enrollment
+          - After Study Registration
           - Childhood
           - End of Consolidation Therapy
           - End of Treatment Course
@@ -156768,4 +156786,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev2
