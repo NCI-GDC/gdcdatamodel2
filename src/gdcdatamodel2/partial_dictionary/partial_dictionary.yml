@@ -131021,6 +131021,7 @@ schema:
         description: Format of the data files.
         enum:
           - VCF
+          - TSV
         termDef:
           cde_id:
           cde_version:
@@ -131030,6 +131031,7 @@ schema:
       data_type:
         description: Specific content type of the data file.
         enum:
+          - Mutational Signature
           - Raw CGI Variant
           - Raw Simple Somatic Mutation
         termDef:
@@ -156768,4 +156770,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev2
