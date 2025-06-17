@@ -83427,12 +83427,11 @@ schema:
         description: Category to describe the patient's current level of alcohol use
           as self-reported by the patient.
         enum:
-          - Alcohol consumption equal to or less than 2 drinks per day for men and
-            1 drink or less per day for women
           - Drinker
           - Heavy Drinker
           - Lifelong Non-Drinker
           - Non-Drinker
+          - Not Heavy Drinker
           - Occasional Drinker
           - Social Drinker
           - Unknown
@@ -156770,4 +156769,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev2
+version: 3.3.1.dev3
