@@ -119076,6 +119076,8 @@ schema:
           - Salmonella Septicemia
           - Toxoplasmosis
           - Wasting Syndrome
+          - Unknown
+          - Not Reported
         enumDef:
           Pneumonia, NOS:
             description: An acute, acute and chronic, or chronic inflammation focally
@@ -119759,6 +119761,8 @@ schema:
           - 3 to 4 Days
           - 1 to 2 Days
           - None
+          - Unknown
+          - Not Reported
         enumDef:
           None:
             description: No person or thing, nobody, not any.
@@ -120372,6 +120376,8 @@ schema:
           - Class III
           - Class IV
           - Class V
+          - Unknown
+          - Not Reported
         enumDef:
           Class I:
             description: Myasthenia gravis presenting with any ocular weakness; may
@@ -120626,16 +120632,6 @@ schema:
           source: caDSR
           term: Chronic Pancreatitis Diagnosis Year Number
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3457763%20and%20ver_nr=1.0
-        type: integer
-      pregnancy_count:
-        description: The number of times an individual has become pregnant.
-        minimum: 0
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
         type: integer
       pregnancy_outcome:
         description: The text term used to describe the type of pregnancy the patient
@@ -121291,6 +121287,9 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       timepoint_category:
+        deprecated_enum:
+          - After Study Enrollment
+          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -121299,6 +121298,7 @@ schema:
           - Adulthood
           - After Chemotherapy
           - After Study Enrollment
+          - After Study Registration
           - Childhood
           - End of Consolidation Therapy
           - End of Treatment Course
@@ -121615,47 +121615,6 @@ schema:
           - format: date-time
             type: string
           - type: 'null'
-      viral_hepatitis_serologies:
-        description: Text term that describes the kind of serological laboratory test
-          used to determine the patient's hepatitis status.
-        enum:
-          - HBV Core Antibody
-          - HBV DNA
-          - HBV Genotype
-          - HBV Surface Antibody
-          - HCV Genotype
-          - Hepatitis B Surface Antigen
-          - Hepatitis C Antibody
-          - Hepatitis C Virus RNA
-          - Unknown
-          - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-        termDef:
-          cde_id: 4395982
-          cde_version: 1.0
-          source: caDSR
-          term: Viral Hepatitis Laboratory Procedure Serology Test Method Type
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=4395982%20and%20ver_nr=1.0
       viral_hepatitis_serology_tests:
         description: A set of tests that is used to determine if a subject has been
           or is currently infected with a Hepatitis virus, is shedding Hepatitis virus
@@ -156768,4 +156727,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev2
+version: 3.3.1.dev3
