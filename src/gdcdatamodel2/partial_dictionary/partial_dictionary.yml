@@ -17326,6 +17326,8 @@ schema:
           location, ethnicity, disease, age, sex).
         enum:
           - Ashkenazi Jew
+          - Unknown
+          - Not Reported
         termDef:
           cde_id: C17005
           cde_version: 24.07e
@@ -17334,61 +17336,6 @@ schema:
           term_id: C17005
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17005
           term_version: 24.07e
-      premature_at_birth:
-        description: The yes/no/unknown indicator used to describe whether the patient
-          was premature (less than 37 weeks gestation) at birth.
-        enum:
-          - 'Yes'
-          - 'No'
-          - Unknown
-          - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
-        termDef:
-          cde_id: 6010765
-          cde_version: 1.0
-          source: caDSR
-          term: Premature Infant Birth Status Indicator
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6010765%20and%20ver_nr=1.0
       project_id:
         common:
           description: Unique ID for any specific defined piece of work that is undertaken
@@ -17538,6 +17485,18 @@ schema:
           source: caDSR
           term: Race Category Text
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2192199%20and%20ver_nr=1.0
+      sex_at_birth:
+        description: A textual description of a person's sex at birth.
+        enum:
+          - female
+          - male
+          - unknown
+        termDef:
+          cde_id: 7572817
+          cde_version: 3.0
+          source: caDSR
+          term: Person Sex at Birth Category
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=7572817%20and%20ver_nr=3.0
       state:
         common:
           description: The current state of the object.
@@ -17648,18 +17607,6 @@ schema:
           source: caDSR
           term: Patient Vital Status
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5%20and%20ver_nr=5.0
-      weeks_gestation_at_birth:
-        description: Numeric value used to describe the number of weeks starting from
-          the approximate date of the biological mother's last menstrual period and
-          ending with the birth of the patient.
-        minimum: 0
-        termDef:
-          cde_id: 2737369
-          cde_version: 1.0
-          source: caDSR
-          term: Pregnancy Week Number Count
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2737369%20and%20ver_nr=1.0
-        type: number
       year_of_birth:
         description: Numeric value to represent the calendar year in which an individual
           was born.
@@ -17686,8 +17633,8 @@ schema:
     required:
       - submitter_id
       - ethnicity
-      - gender
       - race
+      - sex_at_birth
       - vital_status
   diagnosis:
     links:
@@ -156768,4 +156715,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev4
