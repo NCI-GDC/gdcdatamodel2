@@ -133205,6 +133205,7 @@ schema:
           - GATK4 MuTect2 Tumor-Only
           - Manta Indel
           - MuSE
+          - MuSiCal GATK4 MuTect2
           - MuTect2
           - Pindel
           - SomaticSniper
@@ -156768,4 +156769,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev2
