@@ -8444,31 +8444,6 @@ schema:
         enum:
           - hispanic or latino
           - not hispanic or latino
-        enumDef:
-          hispanic or latino:
-            description: A person of Cuban, Mexican, Puerto Rican, South or Central
-              American, or other Spanish culture or origin, regardless of race. The
-              term, "Spanish origin," can be used in addition to "Hispanic or Latino."
-              (OMB)
-            termDef:
-              cde_id: C17459
-              cde_version: 19.12e
-              source: NCIt
-              term: Hispanic or Latino
-              term_id: C17459
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17459
-              term_version: 19.12e
-          not hispanic or latino:
-            description: A person not of Cuban, Mexican, Puerto Rican, South or Central
-              American, or other Spanish culture or origin, regardless of race.
-            termDef:
-              cde_id: C41222
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Hispanic or Latino
-              term_id: C41222
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41222
-              term_version: 19.12e
       gender:
         description: 'Text designations that identify gender. Gender is described
           as the assemblage of properties that distinguish people on the basis of
@@ -8478,51 +8453,6 @@ schema:
           - male
           - unknown
           - unspecified
-        enumDef:
-          female:
-            description: A person who belongs to the sex that normally produces ova.
-              The term is used to indicate biological sex distinctions, or cultural
-              gender role distinctions, or both.
-            termDef:
-              cde_id: C16576
-              cde_version: 19.12e
-              source: NCIt
-              term: Female
-              term_id: C16576
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16576
-              term_version: 19.12e
-          male:
-            description: A person who belongs to the sex that normally produces sperm.
-              The term is used to indicate biological sex distinctions, cultural gender
-              role distinctions, or both.
-            termDef:
-              cde_id: C20197
-              cde_version: 19.12e
-              source: NCIt
-              term: Male
-              term_id: C20197
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C20197
-              term_version: 19.12e
-          unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          unspecified:
-            description: Not stated explicitly or in detail.
-            termDef:
-              cde_id: C38046
-              cde_version: 19.12e
-              source: NCIt
-              term: Unspecified
-              term_id: C38046
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38046
-              term_version: 19.12e
       icd_10:
         description: 'The tenth version of the International Classification of Disease
           (ICD), published by the World Health Organization in 1992. A system of numbered
@@ -8567,75 +8497,6 @@ schema:
           - asian
           - native hawaiian or other pacific islander
           - other
-        enumDef:
-          american indian or alaska native:
-            description: A person having origins in any of the original peoples of
-              North and South America (including Central America) and who maintains
-              tribal affiliation or community attachment. (OMB)
-            termDef:
-              cde_id: C41259
-              cde_version: 19.12e
-              source: NCIt
-              term: American Indian or Alaska Native
-              term_id: C41259
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41259
-              term_version: 19.12e
-          asian:
-            description: A person having origins in any of the original peoples of
-              the Far East, Southeast Asia, or the Indian subcontinent, including
-              for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan,
-              the Philippine Islands, Thailand, and Vietnam. (OMB)
-            termDef:
-              cde_id: C41260
-              cde_version: 19.12e
-              source: NCIt
-              term: Asian
-              term_id: C41260
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41260
-              term_version: 19.12e
-          black or african american:
-            description: A person having origins in any of the Black racial groups
-              of Africa. Terms such as "Haitian" or "Negro" can be used in addition
-              to "Black or African American". (OMB)
-            termDef:
-              cde_id: C16352
-              cde_version: 19.12e
-              source: NCIt
-              term: Black or African American
-              term_id: C16352
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16352
-              term_version: 19.12e
-          native hawaiian or other pacific islander:
-            description: A person having origins in any of the original peoples of
-              Hawaii, Guam, Samoa, or other Pacific Islands. (OMB)
-            termDef:
-              cde_id: C41219
-              cde_version: 19.12e
-              source: NCIt
-              term: Native Hawaiian or Other Pacific Islander
-              term_id: C41219
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41219
-              term_version: 19.12e
-          not reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
       state:
         common:
           description: The current state of the object.
@@ -8699,27 +8560,6 @@ schema:
           - alive
           - dead
           - lost to follow-up
-        enumDef:
-          alive:
-            description: Living; showing characteristics of life.
-            termDef:
-              cde_id: C37987
-              cde_version: 19.12e
-              source: NCIt
-              term: Alive
-              term_id: C37987
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C37987
-              term_version: 19.12e
-          dead:
-            description: The cessation of life.
-            termDef:
-              cde_id: C28554
-              cde_version: 19.12e
-              source: NCIt
-              term: Dead
-              term_id: C28554
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C28554
-              term_version: 19.12e
       year_of_diagnosis:
         description: 'Numeric value to represent the year of an individual''s initial
           pathologic diagnosis of cancer. CDE: 2896960.'
@@ -156768,4 +156608,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev2
