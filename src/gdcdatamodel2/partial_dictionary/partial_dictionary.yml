@@ -177,17 +177,6 @@ schema:
           - Other
           - PacBio
           - SOLiD
-        enumDef:
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -798,17 +787,6 @@ schema:
           - Other
           - PacBio
           - SOLiD
-        enumDef:
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -3608,17 +3586,6 @@ schema:
           - Other
           - PacBio
           - SOLiD
-        enumDef:
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -95776,17 +95743,6 @@ schema:
           - Other
           - PacBio
           - SOLiD
-        enumDef:
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -97002,17 +96958,6 @@ schema:
           - Other
           - PacBio
           - SOLiD
-        enumDef:
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -126334,17 +126279,6 @@ schema:
           - abcam ab4729 anti-H3K27ac
           - Unknown
           - Not Applicable
-        enumDef:
-          Not Applicable:
-            description: Determination of a value is not relevant in the current context.
-            termDef:
-              cde_id: C48660
-              cde_version: 20.10d
-              source: NCIt
-              term: Not Applicable
-              term_id: C48660
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660
-              term_version: 20.10d
         termDef:
           cde_id:
           cde_version:
@@ -126461,17 +126395,6 @@ schema:
           - MboI
           - Unknown
           - Not Applicable
-        enumDef:
-          Not Applicable:
-            description: Determination of a value is not relevant in the current context.
-            termDef:
-              cde_id: C48660
-              cde_version: 20.10d
-              source: NCIt
-              term: Not Applicable
-              term_id: C48660
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660
-              term_version: 20.10d
         termDef:
           cde_id:
           cde_version:
@@ -126530,37 +126453,6 @@ schema:
           - PacBio RS
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 5432604
           cde_version: 1.0
@@ -126646,35 +126538,6 @@ schema:
           - Poly-T Enrichment
           - Random
           - rRNA Depletion
-        enumDef:
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
-          PCR:
-            description: A method for amplifying a DNA base sequence using multiple
-              rounds of heat denaturation of the DNA and annealing of oligonucleotide
-              primers complementary to flanking regions in the presence of a heat-stable
-              polymerase. This results in duplication of the targeted DNA region.
-              Newly synthesized DNA strands can subsequently serve as additional templates
-              for the same primer sequences, so that successive rounds of primer annealing,
-              strand elongation, and dissociation produce rapid and highly specific
-              amplification of the desired sequence. PCR also can be used to detect
-              the existence of the defined sequence in a DNA sample.
-            termDef:
-              cde_id: C17003
-              cde_version: 20.10d
-              source: NCIt
-              term: Polymerase Chain Reaction
-              term_id: C17003
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17003
-              term_version: 20.10d
         termDef:
           cde_id:
           cde_version:
@@ -126688,17 +126551,6 @@ schema:
           - First_Stranded
           - Second_Stranded
           - Not Applicable
-        enumDef:
-          Not Applicable:
-            description: Determination of a value is not relevant in the current context.
-            termDef:
-              cde_id: C48660
-              cde_version: 20.10d
-              source: NCIt
-              term: Not Applicable
-              term_id: C48660
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660
-              term_version: 20.10d
         termDef:
           cde_id:
           cde_version:
@@ -126720,41 +126572,6 @@ schema:
           - Targeted Sequencing
           - WGS
           - WXS
-        enumDef:
-          Targeted Sequencing:
-            description: A technique that determines the nucleotide sequence of a
-              pre-specified region of DNA or RNA by using primers that are specific
-              for that region.
-            termDef:
-              cde_id: C130177
-              cde_version: 20.10d
-              source: NCIt
-              term: Next Generation Targeted Sequencing
-              term_id: C130177
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C130177
-              term_version: 20.10d
-          WGS:
-            description: A procedure that can determine the DNA sequence for nearly
-              the entire genome of an individual.
-            termDef:
-              cde_id: C101294
-              cde_version: 20.10d
-              source: NCIt
-              term: Whole Genome Sequencing
-              term_id: C101294
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C101294
-              term_version: 20.10d
-          WXS:
-            description: A procedure that can determine the DNA sequence for all of
-              the exons in an individual.
-            termDef:
-              cde_id: C101295
-              cde_version: 20.10d
-              source: NCIt
-              term: Whole Exome Sequencing
-              term_id: C101295
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C101295
-              term_version: 20.10d
         termDef:
           cde_id:
           cde_version:
@@ -126793,17 +126610,6 @@ schema:
           - Other
           - PacBio
           - SOLiD
-        enumDef:
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -127007,27 +126813,6 @@ schema:
           - Twist Human Comprehensive Exome
           - xGen Exome Research Panel v1.0
           - Unknown
-        enumDef:
-          Not Applicable:
-            description: Determination of a value is not relevant in the current context.
-            termDef:
-              cde_id: C48660
-              cde_version: 20.10d
-              source: NCIt
-              term: Not Applicable
-              term_id: C48660
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660
-              term_version: 20.10d
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -131203,17 +130988,6 @@ schema:
           - Other
           - PacBio
           - SOLiD
-        enumDef:
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -156768,4 +156542,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev2
