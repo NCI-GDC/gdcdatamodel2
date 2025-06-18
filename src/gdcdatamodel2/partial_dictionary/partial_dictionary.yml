@@ -136490,17 +136490,6 @@ schema:
           - Unpaired_LogR
           - v1
           - v2
-        enumDef:
-          exon:
-            description: Exon number targeted or included in a molecular analysis.
-              If a specific genetic variant is being reported, this property can be
-              used to capture the exon where that variant is located.
-            termDef:
-              cde_id: 6142411
-              cde_version: 1.0
-              source: caDSR
-              term: Molecular Laboratory Procedure Exon Identification Number
-              term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142411%20and%20ver_nr=1.0
       type:
         type: string
     required:
@@ -156768,4 +156757,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev2
