@@ -90489,47 +90489,6 @@ schema:
           - 'No'
           - Unknown
           - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
         termDef:
           cde_id: 3440216
           cde_version: 1.0
@@ -90646,37 +90605,6 @@ schema:
           - Transfusion Recipient
           - Unknown
           - Not Reported
-        enumDef:
-          None:
-            description: No person or thing, nobody, not any.
-            termDef:
-              cde_id: C41132
-              cde_version: 20.10d
-              source: NCIt
-              term: None
-              term_id: C41132
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41132
-              term_version: 20.10d
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -90687,21 +90615,6 @@ schema:
         description: The text term used to describe a patient with one or more diseases
           or conditions, which coexist with the patient's malignant disease at the
           same time.
-        enumDef:
-          Pneumonia, NOS:
-            description: An acute, acute and chronic, or chronic inflammation focally
-              or diffusely affecting the lung parenchyma, due to infections (viruses,
-              fungi, mycoplasma, or bacteria), treatment (e.g. radiation), or exposure
-              (inhalation) to chemicals. Symptoms include cough, shortness of breath,
-              fevers, chills, chest pain, headache, sweating, and weakness.
-            termDef:
-              cde_id: C3333
-              cde_version: 23.03d
-              source: NCIt
-              term: Pneumonia
-              term_id: C3333
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3333
-              term_version: 23.03d
         items:
           enum:
             - Abnormal Glucose Level
@@ -91076,62 +90989,6 @@ schema:
           - Other
           - Unknown
           - Not Reported
-        enumDef:
-          Cancer:
-            description: A tumor composed of atypical neoplastic, often pleomorphic
-              cells that invade other tissues. Malignant neoplasms often metastasize
-              to distant anatomic sites and may recur after excision. The most common
-              malignant neoplasms are carcinomas, Hodgkin and non-Hodgkin lymphomas,
-              leukemias, melanomas, and sarcomas.
-            termDef:
-              cde_id: C9305
-              cde_version: 19.12e
-              source: NCIt
-              term: Malignant Neoplasm
-              term_id: C9305
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9305
-              term_version: 19.12e
-          Epstein-Barr Virus:
-            description: Any microbiologic test or molecular assay used to detect
-              the presence of Epstein-Barr virus in a sample.
-            termDef:
-              cde_id: C171143
-              cde_version: 20.10d
-              source: NCIt
-              term: Epstein-Barr Virus Test
-              term_id: C171143
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171143
-              term_version: 20.10d
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 2970715
           cde_version: 1.0
@@ -91147,27 +91004,6 @@ schema:
           - Radiology
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 6142386
           cde_version: 1.0
@@ -91314,37 +91150,6 @@ schema:
           - Other
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 3587247
           cde_version: 1.0
@@ -91451,27 +91256,6 @@ schema:
           - WT-With Tumor
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 5750671
           cde_version: 1.0
@@ -91502,27 +91286,6 @@ schema:
           - '5'
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 88
           cde_version: 5.1
@@ -91665,47 +91428,6 @@ schema:
           - 'No'
           - Unknown
           - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -91730,47 +91452,6 @@ schema:
           - 'No'
           - Unknown
           - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
         termDef:
           cde_id: 6423783
           cde_version: 1.0
@@ -91800,37 +91481,6 @@ schema:
           - 'No'
           - Unknown
           - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -91870,27 +91520,6 @@ schema:
           - Progestin and Estrogen
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -91906,27 +91535,6 @@ schema:
           - Never Used
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -91942,27 +91550,6 @@ schema:
           - Progesterone only
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -91996,37 +91583,6 @@ schema:
           - Other
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 2922649
           cde_version: 1.0
@@ -92044,37 +91600,6 @@ schema:
           - Vagina
           - Unknown
           - Not Reported
-        enumDef:
-          None:
-            description: No person or thing, nobody, not any.
-            termDef:
-              cde_id: C41132
-              cde_version: 20.10d
-              source: NCIt
-              term: None
-              term_id: C41132
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41132
-              term_version: 20.10d
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -92091,27 +91616,6 @@ schema:
           - Simple Hysterectomy
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -92137,20 +91641,6 @@ schema:
         type: string
       imaging_anatomic_site:
         description: The named location(s) within the body where an image was taken.
-        enumDef:
-          Lymph Node:
-            description: A bean-shaped organ surrounded by a connective tissue capsule.
-              It is part of the lymphatic system and is found throughout the body.
-              It is composed predominantly of lymphocytes and its main function is
-              immune protection.
-            termDef:
-              cde_id: C12745
-              cde_version: 20.05a
-              source: NCIt
-              term: Lymph Node
-              term_id: C12745
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12745
-              term_version: 20.05a
         items:
           enum:
             - Abdomen
@@ -92207,50 +91697,6 @@ schema:
           - Positive
           - Unknown
           - Not Reported
-        enumDef:
-          Negative:
-            description: A finding of normality following an examination or investigation
-              looking for the presence of a microorganism, disease, or condition.
-            termDef:
-              cde_id: C38757
-              cde_version: 20.10d
-              source: NCIt
-              term: Negative Finding
-              term_id: C38757
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38757
-              term_version: 20.10d
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Positive:
-            description: A finding of abnormality following an examination or observation
-              confirming something, such as the presence of a disease, condition,
-              or microorganism.
-            termDef:
-              cde_id: C38758
-              cde_version: 20.10d
-              source: NCIt
-              term: Positive Finding
-              term_id: C38758
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38758
-              term_version: 20.10d
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -92294,18 +91740,6 @@ schema:
           - Ultrasound
           - Unknown
           - Not Reported
-        enumDef:
-          Ultrasound:
-            description: The use of high-frequency sound waves to generate images
-              of the body.
-            termDef:
-              cde_id: C17230
-              cde_version: 23.08d
-              source: NCIt
-              term: Ultrasound Imaging
-              term_id: C17230
-              term_url: https://thesaurus.cancer.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17230
-              term_version: 23.08d
         termDef:
           cde_id:
           cde_version:
@@ -92324,47 +91758,6 @@ schema:
           - Other
           - Unknown
           - Not Reported
-        enumDef:
-          None:
-            description: No person or thing, nobody, not any.
-            termDef:
-              cde_id: C41132
-              cde_version: 20.10d
-              source: NCIt
-              term: None
-              term_id: C41132
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C41132
-              term_version: 20.10d
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -92388,27 +91781,6 @@ schema:
           - '100'
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 2003853
           cde_version: 4.2
@@ -92423,27 +91795,6 @@ schema:
           - Premenopausal
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 2434914
           cde_version: 1.1
@@ -92508,27 +91859,6 @@ schema:
           - Stillbirth
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -92542,27 +91872,6 @@ schema:
           - Endoscopy
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -92577,47 +91886,6 @@ schema:
           - 'No'
           - Unknown
           - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
         termDef:
           cde_id: 3121376
           cde_version: 1.0
@@ -92960,108 +92228,6 @@ schema:
           - Waldeyer ring
           - Unknown
           - Not Reported
-        enumDef:
-          Bone marrow:
-            description: The tissue occupying the spaces of bone. It consists of blood
-              vessel sinuses and a network of hematopoietic cells which give rise
-              to the red cells, white cells, and megakaryocytes.
-            termDef:
-              cde_id: C12431
-              cde_version: 20.05a
-              source: NCIt
-              term: Bone Marrow
-              term_id: C12431
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12431
-              term_version: 20.05a
-          Frontal lobe:
-            description: The part of the brain located anterior to the parietal lobes
-              at the front of each cerebral hemisphere.
-            termDef:
-              cde_id: C12352
-              cde_version: 20.05a
-              source: NCIt
-              term: Frontal Lobe
-              term_id: C12352
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12352
-              term_version: 20.05a
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Occipital lobe:
-            description: One of the four regions of cortex in each cerebral hemisphere.
-              It is located posterior to the temporal lobe and inferior to the parietal
-              lobe.
-            termDef:
-              cde_id: C12355
-              cde_version: 20.05a
-              source: NCIt
-              term: Occipital Lobe
-              term_id: C12355
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12355
-              term_version: 20.05a
-          Parietal lobe:
-            description: One of the lobes of the cerebral hemisphere located superiorly
-              to the occipital lobe and posteriorly to the frontal lobe. Cognition
-              and visuospatial processing are its main functions.
-            termDef:
-              cde_id: C12354
-              cde_version: 20.05a
-              source: NCIt
-              term: Parietal Lobe
-              term_id: C12354
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12354
-              term_version: 20.05a
-          Temporal lobe:
-            description: One of the cerebral lobes. It is located inferior to the
-              frontal and parietal lobes and anterior to the occipital lobe.
-            termDef:
-              cde_id: C12353
-              cde_version: 20.05a
-              source: NCIt
-              term: Temporal Lobe
-              term_id: C12353
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12353
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          Uterine adnexa:
-            description: The accessory structures of the uterus, including the ovaries,
-              fallopian tubes, broad ligament, and the ovarian and uterine ligaments.
-            termDef:
-              cde_id: C12321
-              cde_version: 20.05a
-              source: NCIt
-              term: Appendage of the Uterus
-              term_id: C12321
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12321
-              term_version: 20.05a
-          Vulva, NOS:
-            description: The external, visible part of the female genitalia surrounding
-              the urethral and vaginal opening. The vulva includes the clitoris and
-              inner as well as outer labia.
-            termDef:
-              cde_id: C12408
-              cde_version: 20.05a
-              source: NCIt
-              term: Vulva
-              term_id: C12408
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12408
-              term_version: 20.05a
         termDef:
           cde_id: 6161026
           cde_version: 1.0
@@ -93079,27 +92245,6 @@ schema:
           - Regional
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 6142385
           cde_version: 1.0
@@ -93154,37 +92299,6 @@ schema:
           - Unknown
           - Not Reported
           - Not Applicable
-        enumDef:
-          Not Applicable:
-            description: Determination of a value is not relevant in the current context.
-            termDef:
-              cde_id: C48660
-              cde_version: 20.10d
-              source: NCIt
-              term: Not Applicable
-              term_id: C48660
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48660
-              term_version: 20.10d
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 3440206
           cde_version: 1.0
@@ -93371,52 +92485,6 @@ schema:
           - Wagr Syndrome
           - Unknown
           - Not Reported
-        enumDef:
-          Cancer:
-            description: A tumor composed of atypical neoplastic, often pleomorphic
-              cells that invade other tissues. Malignant neoplasms often metastasize
-              to distant anatomic sites and may recur after excision. The most common
-              malignant neoplasms are carcinomas, Hodgkin and non-Hodgkin lymphomas,
-              leukemias, melanomas, and sarcomas.
-            termDef:
-              cde_id: C9305
-              cde_version: 19.12e
-              source: NCIt
-              term: Malignant Neoplasm
-              term_id: C9305
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C9305
-              term_version: 19.12e
-          Epstein-Barr Virus:
-            description: Any microbiologic test or molecular assay used to detect
-              the presence of Epstein-Barr virus in a sample.
-            termDef:
-              cde_id: C171143
-              cde_version: 20.10d
-              source: NCIt
-              term: Epstein-Barr Virus Test
-              term_id: C171143
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C171143
-              term_version: 20.10d
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 6142389
           cde_version: 1.0
@@ -93446,47 +92514,6 @@ schema:
           - 'No'
           - Unknown
           - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
         termDef:
           cde_id: 6514356
           cde_version: 1.0
@@ -93496,21 +92523,6 @@ schema:
       risk_factors:
         description: The text term used to describe a risk factor the patient had
           at the time of or prior to their diagnosis.
-        enumDef:
-          Pneumonia, NOS:
-            description: An acute, acute and chronic, or chronic inflammation focally
-              or diffusely affecting the lung parenchyma, due to infections (viruses,
-              fungi, mycoplasma, or bacteria), treatment (e.g. radiation), or exposure
-              (inhalation) to chemicals. Symptoms include cough, shortness of breath,
-              fevers, chills, chest pain, headache, sweating, and weakness.
-            termDef:
-              cde_id: C3333
-              cde_version: 23.03d
-              source: NCIt
-              term: Pneumonia
-              term_id: C3333
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C3333
-              term_version: 23.03d
         items:
           enum:
             - Abnormal Glucose Level
@@ -93829,37 +92841,6 @@ schema:
           - 'Yes'
           - 'No'
           - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
         termDef:
           cde_id:
           cde_version:
@@ -93887,17 +92868,6 @@ schema:
           - Left
           - Right
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
         termDef:
           cde_id:
           cde_version:
@@ -93913,17 +92883,6 @@ schema:
           - Spontaneous Descent
           - Testis Removed
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
         termDef:
           cde_id:
           cde_version:
@@ -93937,37 +92896,6 @@ schema:
           - 'Yes'
           - 'No'
           - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
         termDef:
           cde_id: C12326
           cde_version: 21.04d
@@ -93981,17 +92909,6 @@ schema:
           - Left
           - Right
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
         termDef:
           cde_id:
           cde_version:
@@ -94025,27 +92942,6 @@ schema:
           - Hepatitis C Virus RNA
           - Unknown
           - Not Reported
-        enumDef:
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 4395982
           cde_version: 1.0
@@ -156768,4 +155664,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev1
+version: 3.3.1.dev2
