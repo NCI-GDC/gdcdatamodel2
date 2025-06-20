@@ -132388,6 +132388,7 @@ schema:
           - Strelka2 RNA
           - SvABA Indel
           - VarScan2
+          - MuSiCal GATK4 MuTect2
         termDef:
           cde_id: C181725
           cde_version: 1.0
@@ -155493,4 +155494,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev9
+version: 3.3.1.dev10
