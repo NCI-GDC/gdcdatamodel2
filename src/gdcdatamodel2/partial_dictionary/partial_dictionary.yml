@@ -2131,25 +2131,6 @@ schema:
           source: caDSR
           term: Molecular Specimen Type Text Name
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2513915%20and%20ver_nr=2.0
-      analyte_type_id:
-        description: A single letter code used to identify a type of molecular analyte.
-        enum:
-          - D
-          - E
-          - G
-          - H
-          - R
-          - S
-          - T
-          - W
-          - X
-          - Y
-        termDef:
-          cde_id: 5432508
-          cde_version: 1.0
-          source: caDSR
-          term: Molecular Analyte Identification Code
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432508%20and%20ver_nr=1.0
       analytes:
         anyOf:
           - items:
@@ -25917,494 +25898,6 @@ schema:
           source: caDSR
           term: Metastatic Disease at Diagnosis Indicator
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6133614%20and%20ver_nr=1.0
-      metastasis_at_diagnosis_site:
-        description: Text term to identify an anatomic site in which metastatic disease
-          involvement is found.
-        enum:
-          - Abdomen
-          - Adrenal Gland
-          - Ascites
-          - Bladder
-          - Bone
-          - Bone Marrow
-          - Brain
-          - Bronchus
-          - Central Nervous System
-          - Cerebrospinal Fluid
-          - Colon
-          - Distant Nodes
-          - Distant Organ
-          - Esophagus
-          - Gastrointestinal Tract
-          - Groin
-          - Head, Face or Neck, NOS
-          - Heart
-          - Kidney
-          - Liver
-          - Lung
-          - Lymph Node, Axillary
-          - Lymph Node, Inguinal
-          - Lymph Node, NOS
-          - Lymph Node, Regional
-          - Lymph Node, Subcarinal
-          - Mediastinum
-          - Neck
-          - Omentum
-          - Ovary
-          - Pancreas
-          - Pelvis
-          - Peritoneal Cavity
-          - Peritoneum
-          - Pleura
-          - Retroperitoneum
-          - Scalp
-          - Skin
-          - Small Intestine
-          - Soft Tissue
-          - Spinal Cord
-          - Spleen
-          - Stomach
-          - Urethra
-          - Uterine Adnexa
-          - Vertebral Canal
-          - Vulva, NOS
-          - Unknown
-          - Not Reported
-        enumDef:
-          Abdomen:
-            description: The portion of the body that lies between the thorax and
-              the pelvis.
-            termDef:
-              cde_id: C12664
-              cde_version: 20.05a
-              source: NCIt
-              term: Abdomen
-              term_id: C12664
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12664
-              term_version: 20.05a
-          Adrenal Gland:
-            description: A flattened, roughly triangular body resting upon the upper
-              end of each kidney; it is one of the ductless glands furnishing internal
-              secretions (epinephrine and norepinephrine from the medulla and steroid
-              hormones from the cortex).
-            termDef:
-              cde_id: C12666
-              cde_version: 20.05a
-              source: NCIt
-              term: Adrenal Gland
-              term_id: C12666
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12666
-              term_version: 20.05a
-          Ascites:
-            description: The accumulation of fluid in the peritoneal cavity, which
-              may be serous, hemorrhagic, or the result of tumor metastasis to the
-              peritoneum.
-            termDef:
-              cde_id: C2885
-              cde_version: 20.05a
-              source: NCIt
-              term: Ascites
-              term_id: C2885
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C2885
-              term_version: 20.05a
-          Bone:
-            description: Connective tissue that forms the skeletal components of the
-              body.
-            termDef:
-              cde_id: C12366
-              cde_version: 20.05a
-              source: NCIt
-              term: Bone
-              term_id: C12366
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12366
-              term_version: 20.05a
-          Bone Marrow:
-            description: The tissue occupying the spaces of bone. It consists of blood
-              vessel sinuses and a network of hematopoietic cells which give rise
-              to the red cells, white cells, and megakaryocytes.
-            termDef:
-              cde_id: C12431
-              cde_version: 20.05a
-              source: NCIt
-              term: Bone Marrow
-              term_id: C12431
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12431
-              term_version: 20.05a
-          Brain:
-            description: An organ composed of grey and white matter containing billions
-              of neurons that is the center for intelligence and reasoning. It is
-              protected by the bony cranium.
-            termDef:
-              cde_id: C12439
-              cde_version: 20.05a
-              source: NCIt
-              term: Brain
-              term_id: C12439
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12439
-              term_version: 20.05a
-          Central Nervous System:
-            description: The part of the nervous system that consists of the brain,
-              spinal cord, and meninges.
-            termDef:
-              cde_id: C12438
-              cde_version: 20.05a
-              source: NCIt
-              term: Central Nervous System
-              term_id: C12438
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12438
-              term_version: 20.05a
-          Cerebrospinal Fluid:
-            description: The fluid that is contained within the brain ventricles,
-              the subarachnoid space and the central canal of the spinal cord.
-            termDef:
-              cde_id: C12692
-              cde_version: 20.05a
-              source: NCIt
-              term: Cerebrospinal Fluid
-              term_id: C12692
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12692
-              term_version: 20.05a
-          Colon:
-            description: The part of the large intestine measured from the cecum to
-              the rectum consisting of ascending, transverse, descending and sigmoid
-              portions. The purpose of the colon is to remove water from digested
-              food prior to excretion.
-            termDef:
-              cde_id: C12382
-              cde_version: 20.05a
-              source: NCIt
-              term: Colon
-              term_id: C12382
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12382
-              term_version: 20.05a
-          Groin:
-            description: The lower region of the anterior abdominal wall located laterally
-              to the pubic region.
-            termDef:
-              cde_id: C12726
-              cde_version: 20.05a
-              source: NCIt
-              term: Inguinal Region
-              term_id: C12726
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12726
-              term_version: 20.05a
-          Kidney:
-            description: One of the two bean-shaped organs located on each side of
-              the spine in the retroperitoneum. The right kidney is located below
-              the liver and the left kidney below the diaphragm. The kidneys filter
-              and secret the metabolic products and minerals from the blood, thus
-              maintaining the homeostasis. On the superior pole of each kidney there
-              is an adrenal gland. Each kidney and adrenal gland is surrounded by
-              fat.
-            termDef:
-              cde_id: C12415
-              cde_version: 20.05a
-              source: NCIt
-              term: Kidney
-              term_id: C12415
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12415
-              term_version: 20.05a
-          Liver:
-            description: A triangular-shaped organ located under the diaphragm in
-              the right hypochondrium. It is the largest internal organ of the body,
-              weighting up to 2 kg. Metabolism and bile secretion are its main functions.
-              It is composed of cells which have the ability to regenerate.
-            termDef:
-              cde_id: C12392
-              cde_version: 20.05a
-              source: NCIt
-              term: Liver
-              term_id: C12392
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12392
-              term_version: 20.05a
-          Lung:
-            description: One of a pair of viscera occupying the pulmonary cavities
-              of the thorax, the organs of respiration in which aeration of the blood
-              takes place. As a rule, the right lung is slightly larger than the left
-              and is divided into three lobes (an upper, a middle, and a lower or
-              basal), while the left has two lobes (an upper and a lower or basal).
-              Each lung is irregularly conical in shape, presenting a blunt upper
-              extremity (the apex), a concave base following the curve of the diaphragm,
-              an outer convex surface (costal surface), an inner or mediastinal surface
-              (mediastinal surface), a thin and sharp anterior border, and a thick
-              and rounded posterior border.
-            termDef:
-              cde_id: C12468
-              cde_version: 20.05a
-              source: NCIt
-              term: Lung
-              term_id: C12468
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12468
-              term_version: 20.05a
-          Lymph Node, Axillary:
-            description: One of approximately 20-30 lymph nodes in chain formation
-              that traverse the concavity of the underarm to the clavicle.
-            termDef:
-              cde_id: C12904
-              cde_version: 20.05a
-              source: NCIt
-              term: Axillary Lymph Node
-              term_id: C12904
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12904
-              term_version: 20.05a
-          Lymph Node, Inguinal:
-            description: A superficial or deep lymph node located in the inguinal
-              area.
-            termDef:
-              cde_id: C32801
-              cde_version: 20.05a
-              source: NCIt
-              term: Inguinal Lymph Node
-              term_id: C32801
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C32801
-              term_version: 20.05a
-          Lymph Node, NOS:
-            description: A bean-shaped organ surrounded by a connective tissue capsule.
-              It is part of the lymphatic system and is found throughout the body.
-              It is composed predominantly of lymphocytes and its main function is
-              immune protection.
-            termDef:
-              cde_id: C12745
-              cde_version: 20.05a
-              source: NCIt
-              term: Lymph Node
-              term_id: C12745
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12745
-              term_version: 20.05a
-          Mediastinum:
-            description: A group of organs surrounded by loose connective tissue,
-              separating the two pleural sacs, between the sternum anteriorly and
-              the vertebral column posteriorly as well as from the thoracic inlet
-              superiorly to the diaphragm inferiorly. The mediastinum contains the
-              heart and pericardium, the bases of the great vessels, the trachea and
-              bronchi, esophagus, thymus, lymph nodes, thoracic duct, phrenic and
-              vagus nerves, and other structures and tissues.
-            termDef:
-              cde_id: C12748
-              cde_version: 20.05a
-              source: NCIt
-              term: Mediastinum
-              term_id: C12748
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12748
-              term_version: 20.05a
-          Neck:
-            description: The region that connects the head to the rest of the body.
-            termDef:
-              cde_id: C13063
-              cde_version: 20.10d
-              source: NCIt
-              term: Neck
-              term_id: C13063
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C13063
-              term_version: 20.10d
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Omentum:
-            description: A fold of peritoneum originating at the stomach and supporting
-              the viscera.
-            termDef:
-              cde_id: C33209
-              cde_version: 20.05a
-              source: NCIt
-              term: Omentum
-              term_id: C33209
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C33209
-              term_version: 20.05a
-          Ovary:
-            description: One of the paired female reproductive glands containing the
-              ova or germ cells; the ovary's stroma is a vascular connective tissue
-              containing numbers of ovarian follicles enclosing the ova.
-            termDef:
-              cde_id: C12404
-              cde_version: 20.05a
-              source: NCIt
-              term: Ovary
-              term_id: C12404
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12404
-              term_version: 20.05a
-          Pancreas:
-            description: An organ behind the lower part of the stomach that is the
-              shape of a fish and about the size of a hand. It is a compound gland
-              composed of both exocrine and endocrine tissues. The endocrine pancreas
-              makes insulin so that the body can use glucose (sugar) for energy. The
-              exocrine pancreas makes enzymes that help the body digest food. Spread
-              all over the pancreas are areas called the Islets of Langerhans. The
-              cells in these areas each have a special purpose. The alpha cells make
-              glucagon, which raises the level of glucose in the blood; the beta cells
-              make insulin; the delta cells make somatostatin. There are also PP cells
-              and D1 cells, about which little is known.
-            termDef:
-              cde_id: C12393
-              cde_version: 20.05a
-              source: NCIt
-              term: Pancreas
-              term_id: C12393
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12393
-              term_version: 20.05a
-          Pelvis:
-            description: The bony, basin-shaped structure formed by the hipbones and
-              the base of the backbone supporting the lower limbs in humans.
-            termDef:
-              cde_id: C12767
-              cde_version: 20.05a
-              source: NCIt
-              term: Pelvis
-              term_id: C12767
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12767
-              term_version: 20.05a
-          Peritoneal Cavity:
-            description: The lower part of the abdomen that contains the intestines
-              (the last part of the digestive tract), the stomach, and the liver.
-              It is bound by thin membranes.
-            termDef:
-              cde_id: C12769
-              cde_version: 20.05a
-              source: NCIt
-              term: Peritoneal Cavity
-              term_id: C12769
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12769
-              term_version: 20.05a
-          Peritoneum:
-            description: The tissue that lines the wall of the abdominal cavity, intestine,
-              mesentery, and pelvic organs. It consists of the parietal peritoneum
-              and the visceral peritoneum.
-            termDef:
-              cde_id: C12770
-              cde_version: 20.05a
-              source: NCIt
-              term: Peritoneum
-              term_id: C12770
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12770
-              term_version: 20.05a
-          Pleura:
-            description: The tissue that lines the wall of the thoracic cavity and
-              the surface of the lungs.
-            termDef:
-              cde_id: C12469
-              cde_version: 20.05a
-              source: NCIt
-              term: Pleura
-              term_id: C12469
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12469
-              term_version: 20.05a
-          Scalp:
-            description: The skin which covers the top of the head and which is usually
-              covered by hair.
-            termDef:
-              cde_id: C89807
-              cde_version: 20.05a
-              source: NCIt
-              term: Scalp
-              term_id: C89807
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C89807
-              term_version: 20.05a
-          Skin:
-            description: An organ that constitutes the external surface of the body.
-              It consists of the epidermis, dermis, and skin appendages.
-            termDef:
-              cde_id: C12470
-              cde_version: 20.05a
-              source: NCIt
-              term: Skin
-              term_id: C12470
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12470
-              term_version: 20.05a
-          Small Intestine:
-            description: The section of the intestines between the pylorus and cecum.
-              The small intestine is approximately 20 feet long and consists of the
-              duodenum, the jejunum, and the ileum. Its main function is to absorb
-              nutrients from food as the food is transported to the large intestine.
-            termDef:
-              cde_id: C12386
-              cde_version: 20.05a
-              source: NCIt
-              term: Small Intestine
-              term_id: C12386
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12386
-              term_version: 20.05a
-          Soft Tissue:
-            description: A general term comprising tissue that is not hardened or
-              calcified; including muscle, fat, blood vessels, nerves, tendons, ligaments
-              and fascia.
-            termDef:
-              cde_id: C12471
-              cde_version: 20.05a
-              source: NCIt
-              term: Soft Tissue
-              term_id: C12471
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12471
-              term_version: 20.05a
-          Spinal Cord:
-            description: The elongated, approximately cylindrical part of the central
-              nervous system of vertebrates that lies in the vertebral canal and from
-              which the spinal nerves emerge.
-            termDef:
-              cde_id: C12464
-              cde_version: 20.05a
-              source: NCIt
-              term: Spinal Cord
-              term_id: C12464
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12464
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          Uterine Adnexa:
-            description: The accessory structures of the uterus, including the ovaries,
-              fallopian tubes, broad ligament, and the ovarian and uterine ligaments.
-            termDef:
-              cde_id: C12321
-              cde_version: 20.05a
-              source: NCIt
-              term: Appendage of the Uterus
-              term_id: C12321
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12321
-              term_version: 20.05a
-          Vertebral Canal:
-            description: The space formed by the series of vertebral foramina that
-              courses the length of the vertebral column, and which houses the spinal
-              cord and meninges.
-            termDef:
-              cde_id: C33869
-              cde_version: 20.10d
-              source: NCIt
-              term: Vertebral Canal
-              term_id: C33869
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C33869
-              term_version: 20.10d
-          Vulva, NOS:
-            description: The external, visible part of the female genitalia surrounding
-              the urethral and vaginal opening. The vulva includes the clitoris and
-              inner as well as outer labia.
-            termDef:
-              cde_id: C12408
-              cde_version: 20.05a
-              source: NCIt
-              term: Vulva
-              term_id: C12408
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12408
-              term_version: 20.05a
-        termDef:
-          cde_id: 3029815
-          cde_version: 1.0
-          source: caDSR
-          term: Metastatic Disease Anatomic Site Name
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3029815%20and%20ver_nr=1.0
       method_of_diagnosis:
         deprecated_enum:
           - Not Allowed To Collect
@@ -26746,62 +26239,6 @@ schema:
           source: caDSR
           term: Disease Method of Diagnosis Type
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161031%20and%20ver_nr=1.0
-      micropapillary_features:
-        description: The yes/no/unknown indicator used to describe whether micropapillary
-          features were determined to be present.
-        enum:
-          - Absent
-          - Present
-          - Unknown
-          - Not Reported
-        enumDef:
-          Absent:
-            description: Not existing in a specified place at a specified time.
-            termDef:
-              cde_id: C48190
-              cde_version: 20.05a
-              source: NCIt
-              term: Absent
-              term_id: C48190
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48190
-              term_version: 20.05a
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Present:
-            description: Being or existing in a specified place or at the specified
-              time.
-            termDef:
-              cde_id: C25626
-              cde_version: 20.05a
-              source: NCIt
-              term: Present
-              term_id: C25626
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25626
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-        termDef:
-          cde_id: 6068784
-          cde_version: 1.0
-          source: caDSR
-          term: Tumor Micropapillary Features Present Status
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6068784%20and%20ver_nr=1.0
       mitosis_karyorrhexis_index:
         description: Text term that represents the component of the International
           Neuroblastoma Pathology Classification (INPC) for mitosis-karyorrhexis index
@@ -26872,19 +26309,6 @@ schema:
           term: International Neuroblastoma Pathology Classification Mitosis Karyorrhexis
             Index Category
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=4616412%20and%20ver_nr=1.0
-      mitotic_count:
-        description: The number of mitoses identified under the microscope in tumors.
-          The method of counting varies, according to the specific tumor examined.
-          Usually, the mitotic count is determined based on the number of mitoses
-          per high power field (40X) or 10 high power fields.
-        minimum: 0
-        termDef:
-          cde_id: C47864
-          cde_version: 20.05a
-          source: NCIt
-          term: Mitotic Count
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C47864
-        type: integer
       morphology:
         description: The third edition of the International Classification of Diseases
           for Oncology, published in 2000 used principally in tumor and cancer registries
@@ -41381,46 +40805,6 @@ schema:
           source: caDSR
           term: Ovary Surface Involvement Indicator
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6690674%20and%20ver_nr=1.0
-      papillary_renal_cell_type:
-        description: The text term used to describe the type of papillary renal cell
-          carcinoma characterized by the presence of papillae covered by small cells
-          with scant amount of cytoplasm.
-        enum:
-          - Type 1
-          - Type 2
-        enumDef:
-          Type 1:
-            description: A papillary renal cell carcinoma characterized by the presence
-              of papillae covered by small cells with scant amount of cytoplasm. The
-              cells are arranged in a single layer on the basement membrane of the
-              papillae.
-            termDef:
-              cde_id: C27886
-              cde_version: 20.05a
-              source: NCIt
-              term: Type 1 Papillary Renal Cell Carcinoma
-              term_id: C27886
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C27886
-              term_version: 20.05a
-          Type 2:
-            description: A papillary renal cell carcinoma characterized by the presence
-              of papillae covered by cells of a higher nuclear grade as compared to
-              type 1 papillary renal cell carcinoma. The cells have eosinophilic cytoplasm
-              and pseudostratified nuclei.
-            termDef:
-              cde_id: C27887
-              cde_version: 20.05a
-              source: NCIt
-              term: Type 2 Papillary Renal Cell Carcinoma
-              term_id: C27887
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C27887
-              term_version: 20.05a
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: Papillary Renal Cell Type Category
-          term_url:
       pediatric_kidney_staging:
         description: A modified version of the Children's Oncology Group (COG) National
           Wilms Tumor Study Group (NWTS) staging system.
@@ -41538,61 +40922,6 @@ schema:
           source: caDSR
           term: Peritoneal Ascites Cytological Procedure Status
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6690681%20and%20ver_nr=1.0
-      pregnant_at_diagnosis:
-        description: The text term used to indicate whether the patient was pregnant
-          at the time they were diagnosed.
-        enum:
-          - 'Yes'
-          - 'No'
-          - Unknown
-          - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: Pregnant at Diagnosis Indicator
-          term_url:
       primary_diagnosis:
         deprecated_enum:
           - Adenocarcinoma in tubolovillous adenoma
@@ -74033,16 +73362,6 @@ schema:
           source: caDSR
           term: ICD-O Primary Disease Diagnosis Type
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161032%20and%20ver_nr=1.0
-      primary_disease:
-        description: Indicates whether the specific diagnosis represents the disease
-          that was the primary focus of the study.
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: Primary Disease
-          term_url:
-        type: boolean
       primary_gleason_grade:
         description: The text term used to describe the primary Gleason score, which
           describes the pattern of cells making up the largest area of the tumor.
@@ -83450,61 +82769,6 @@ schema:
           source:
           term:
           term_url:
-      asbestos_exposure:
-        description: The yes/no/unknown indicator used to describe whether the patient
-          was exposed to asbestos.
-        enum:
-          - 'Yes'
-          - 'No'
-          - Unknown
-          - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
-        termDef:
-          cde_id: 1253
-          cde_version: 3.0
-          source: caDSR
-          term: Asbestos Exposure Ind-3
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=1253%20and%20ver_nr=3.0
       asbestos_exposure_type:
         description: The type of asbestos exposure the study participant experienced.
         enum:
@@ -83621,50 +82885,6 @@ schema:
           term: Smoking Use Average Number
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2001716%20and%20ver_nr=4.0
         type: number
-      coal_dust_exposure:
-        description: The yes/no/unknown indicator used to describe whether a patient
-          was exposed to fine powder derived by the crushing of coal.
-        enum:
-          - 'Yes'
-          - 'No'
-          - Unknown
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
-        termDef:
-          cde_id:
-          cde_version:
-          source: caDSR
-          term: Person Coal Dust Exposure Indicator
-          term_url:
       created_datetime:
         common:
           description: A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
@@ -84140,107 +83360,6 @@ schema:
             term:
             term_url:
         type: string
-      radon_exposure:
-        description: The yes/no/unknown indicator used to describe whether the patient
-          was exposed to radon.
-        enum:
-          - 'Yes'
-          - 'No'
-          - Unknown
-          - Not Reported
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
-        termDef:
-          cde_id: 2816352
-          cde_version: 1.0
-          source: caDSR
-          term: Person Lifetime Risk Radon Exposure Indicator
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2816352%20and%20ver_nr=1.0
-      respirable_crystalline_silica_exposure:
-        description: The yes/no/unknown indicator used to describe whether a patient
-          was exposed to respirable crystalline silica, a widespread, naturally occurring,
-          crystalline metal oxide that consists of different forms including quartz,
-          cristobalite, tridymite, tripoli, ganister, chert, and novaculite.
-        enum:
-          - 'Yes'
-          - 'No'
-          - Unknown
-        enumDef:
-          'No':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
-        termDef:
-          cde_id:
-          cde_version:
-          source: caDSR
-          term: Person Respirable Cystalline Silica Exposure Indicator
-          term_url:
       secondhand_smoke_as_child:
         description: The text term used to indicate whether the patient was exposed
           to secondhand smoke as a child.
@@ -85349,18 +84468,6 @@ schema:
           source:
           term:
           term_url:
-        type: number
-      years_smoked:
-        description: Numeric value (or unknown) to represent the number of years a
-          person has been smoking.
-        maximum: 89
-        minimum: 0
-        termDef:
-          cde_id: 3137957
-          cde_version: 1.0
-          source: caDSR
-          term: Person Smoking Duration Year Count
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3137957%20and%20ver_nr=1.0
         type: number
     required:
       - submitter_id
@@ -86538,6 +85645,53 @@ schema:
           source: caDSR
           term: Relative Malignant Diagnosis Name
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161022%20and%20ver_nr=1.0
+      relationship_sex_at_birth:
+        description: A textual description of a person's relative's sex at birth.
+        enum:
+          - female
+          - male
+          - unknown
+        enumDef:
+          female:
+            description: A person who belongs to the sex that normally produces ova.
+              The term is used to indicate biological sex distinctions, or cultural
+              gender role distinctions, or both.
+            termDef:
+              cde_id: C16576
+              cde_version: 19.12e
+              source: NCIt
+              term: Female
+              term_id: C16576
+              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16576
+              term_version: 19.12e
+          male:
+            description: A person who belongs to the sex that normally produces sperm.
+              The term is used to indicate biological sex distinctions, cultural gender
+              role distinctions, or both.
+            termDef:
+              cde_id: C20197
+              cde_version: 19.12e
+              source: NCIt
+              term: Male
+              term_id: C20197
+              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C20197
+              term_version: 19.12e
+          unknown:
+            description: Not known, not observed, not recorded, or refused.
+            termDef:
+              cde_id: C17998
+              cde_version: 19.12e
+              source: NCIt
+              term: Unknown
+              term_id: C17998
+              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
+              term_version: 19.12e
+        termDef:
+          cde_id: 16087717
+          cde_version: 1.0
+          source: caDSR
+          term: Person Family Member Sex at Birth Category
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=16087717%20and%20ver_nr=1.0
       relationship_type:
         description: The subgroup that describes the state of connectedness between
           members of the unit of society organized around kinship ties.
@@ -118376,6 +117530,9 @@ schema:
           term:
           term_url:
       timepoint_category:
+        deprecated_enum:
+          - After Study Enrollment
+          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -118384,6 +117541,7 @@ schema:
           - Adulthood
           - After Chemotherapy
           - After Study Enrollment
+          - After Study Registration
           - Childhood
           - End of Consolidation Therapy
           - End of Treatment Course
@@ -121895,6 +121053,20 @@ schema:
           term: Breslow Depth Measurement
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64809%20and%20ver_nr=3.0
         type: number
+      breslow_thickness_category:
+        description: The number that describes the distance, in millimeters, between
+          the upper layer of the epidermis and the deepest point of tumor penetration.
+        enum:
+          - <=1 mm
+          - '>1.0-2.0 mm'
+          - '>2.0-4.0 mm'
+          - '>4.0 mm'
+        termDef:
+          cde_id: 64809
+          cde_version: 3.0
+          source: caDSR
+          term: Breslow Depth Measurement Category
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64809%20and%20ver_nr=3.0
       circumferential_resection_margin:
         description: Numeric value used to describe the non-peritonealised bare area
           of rectum, comprising anterior and posterior segments, when submitted as
@@ -124011,6 +123183,9 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       timepoint_category:
+        deprecated_enum:
+          - After Study Enrollment
+          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -124019,6 +123194,7 @@ schema:
           - Adulthood
           - After Chemotherapy
           - After Study Enrollment
+          - After Study Registration
           - Childhood
           - End of Consolidation Therapy
           - End of Treatment Course
@@ -155140,6 +154316,9 @@ schema:
           term:
           term_url:
       timepoint_category:
+        deprecated_enum:
+          - After Study Enrollment
+          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -155148,6 +154327,7 @@ schema:
           - Adulthood
           - After Chemotherapy
           - After Study Enrollment
+          - After Study Registration
           - Childhood
           - End of Consolidation Therapy
           - End of Treatment Course
@@ -155186,447 +154366,6 @@ schema:
           source: NCIt
           term: Timepoint
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C68568
-      treatment_anatomic_site:
-        description: The anatomic site or field targeted by a treatment regimen or
-          single agent therapy.
-        enum:
-          - Abdomen, total
-          - Abdominal Wall
-          - Acetabulum
-          - Adenoid
-          - Adipose
-          - Adrenal
-          - Alveolar Ridge
-          - Amniotic Fluid
-          - Ampulla of Vater
-          - Anal Sphincter
-          - Ankle
-          - Anorectum
-          - Antecubital Fossa
-          - Antrum
-          - Anus
-          - Aorta
-          - Aortic Body
-          - Appendix
-          - Aqueous Fluid
-          - Arm
-          - Artery
-          - Ascending Colon
-          - Ascending Colon Hepatic Flexure
-          - Ascites
-          - Auditory Canal
-          - Autonomic Nervous System
-          - Axilla
-          - Back
-          - Bile Duct
-          - Bladder
-          - Blood
-          - Blood Vessel
-          - Body, total
-          - Bone
-          - Bone Marrow
-          - Bone, non-spine
-          - Bowel
-          - Brain
-          - Brain Stem
-          - Breast
-          - Broad Ligament
-          - Bronchiole
-          - Bronchus
-          - Brow
-          - Buccal Cavity
-          - Buccal Mucosa
-          - Buttock
-          - Calf
-          - Capillary
-          - Cardia
-          - Carina
-          - Carotid Artery
-          - Carotid Body
-          - Cartilage
-          - Cecum
-          - Cell-Line
-          - Central Nervous System
-          - Cerebellum
-          - Cerebral Cortex
-          - Cerebrospinal Fluid
-          - Cerebrum
-          - Cervical Spine
-          - Cervix
-          - Chest
-          - Chest Wall
-          - Chin
-          - Clavicle
-          - Clitoris
-          - Colon
-          - Colon - Mucosa Only
-          - Common Duct
-          - Conjunctiva
-          - Connective Tissue
-          - Dermal
-          - Descending Colon
-          - Diaphragm
-          - Distant Site
-          - Duodenum
-          - Ear
-          - Ear Canal
-          - Ear, Pinna (External)
-          - Elbow
-          - Endocrine Gland
-          - Epididymis
-          - Epidural Space
-          - Epitrochlear
-          - Esophagogastric Junction
-          - Esophagus
-          - Esophagus - Mucosa Only
-          - Eye
-          - Fallopian Tube
-          - Femoral Artery
-          - Femoral Vein
-          - Femur
-          - Fibroblasts
-          - Fibula
-          - Finger
-          - Floor of Mouth
-          - Fluid
-          - Foot
-          - Forearm
-          - Forehead
-          - Foreskin
-          - Frontal Cortex
-          - Frontal Lobe
-          - Fundus of Stomach
-          - Gallbladder
-          - Ganglia
-          - Gastroesophageal Junction
-          - Gastrointestinal Tract
-          - Gastrointestinal, Intestine
-          - Genitourinary, NOS
-          - Groin
-          - Gum
-          - Hand
-          - Hard Palate
-          - Head - Face Or Neck, Nos
-          - Head and Neck
-          - Heart
-          - Hepatic
-          - Hepatic Duct
-          - Hepatic Vein
-          - Hilar
-          - Hip
-          - Hippocampus
-          - Humerus
-          - Hypopharynx
-          - Ileocecal Valve
-          - Ileum
-          - Ilium
-          - Index Finger
-          - Ischium
-          - Islet Cells
-          - Jaw
-          - Jejunum
-          - Joint
-          - Kidney
-          - Knee
-          - Lacrimal Gland
-          - Large Bowel
-          - Laryngopharynx
-          - Larynx
-          - Leg
-          - Leptomeninges
-          - Ligament
-          - Lip
-          - Liver
-          - Locoregional Site
-          - Lumbar Spine
-          - Lung
-          - Lymph Node
-          - Lymph Node(s) Axilla
-          - Lymph Node(s) Cervical
-          - Lymph Node(s) Distant
-          - Lymph Node(s) Epitrochlear
-          - Lymph Node(s) Femoral
-          - Lymph Node(s) Hilar
-          - Lymph Node(s) Iliac-Common
-          - Lymph Node(s) Iliac-External
-          - Lymph Node(s) Inguinal
-          - Lymph Node(s) Internal Mammary
-          - Lymph Node(s) Mammary
-          - Lymph Node(s) Mediastinal
-          - Lymph Node(s) Mesenteric
-          - Lymph Node(s) Occipital
-          - Lymph Node(s) Paraaortic
-          - Lymph Node(s) Parotid
-          - Lymph Node(s) Pelvic
-          - Lymph Node(s) Popliteal
-          - Lymph Node(s) Regional
-          - Lymph Node(s) Retroperitoneal
-          - Lymph Node(s) Scalene
-          - Lymph Node(s) Splenic
-          - Lymph Node(s) Subclavicular
-          - Lymph Node(s) Submandibular
-          - Lymph Node(s) Supraclavicular
-          - Mandible
-          - Mantle
-          - Maxilla
-          - Mediastinal Soft Tissue
-          - Mediastinum
-          - Mesentery
-          - Mesothelium
-          - Middle Finger
-          - Mitochondria
-          - Muscle
-          - Nails
-          - Nasal Cavity
-          - Nasal Soft Tissue
-          - Nasopharynx
-          - Neck
-          - Nerve
-          - Nerve(s) Cranial
-          - Occipital Cortex
-          - Ocular Orbits
-          - Omentum
-          - Oral Cavity
-          - Oral Cavity - Mucosa Only
-          - Oropharynx
-          - Ovary
-          - Palate
-          - Pancreas
-          - Parametrium
-          - Paraspinal Ganglion
-          - Parathyroid
-          - Parotid Gland
-          - Patella
-          - Pelvis
-          - Penis
-          - Pericardium
-          - Periorbital Soft Tissue
-          - Peritoneal Cavity
-          - Peritoneum
-          - Pharynx
-          - Pineal
-          - Pineal Gland
-          - Pituitary Gland
-          - Placenta
-          - Pleura
-          - Popliteal Fossa
-          - Pouch
-          - Primary Tumor Field
-          - Primary tumor site
-          - Prostate
-          - Prostate Bed
-          - Prostate, Seminal Vesicles and Lymph Nodes
-          - Pylorus
-          - Rectosigmoid Junction
-          - Rectum
-          - Regional Site
-          - Retina
-          - Retro-Orbital Region
-          - Retroperitoneum
-          - Rib
-          - Ring Finger
-          - Round Ligament
-          - Sacrum
-          - Salivary Gland
-          - Scalp
-          - Scapula
-          - Sciatic Nerve
-          - Scrotum
-          - Seminal Vesicle
-          - Shoulder
-          - Sigmoid Colon
-          - Sinus
-          - Sinus(es), Maxillary
-          - Skeletal Muscle
-          - Skin
-          - Skin, lower extremity, local
-          - Skin, total
-          - Skin, trunk, local
-          - Skin, upper extremity, local
-          - Skull
-          - Small Bowel
-          - Small Bowel - Mucosa Only
-          - Small Finger
-          - Soft Tissue
-          - Spinal Column
-          - Spinal Cord
-          - Spine
-          - Spleen
-          - Splenic Flexure
-          - Sternum
-          - Stomach
-          - Stomach - Mucosa Only
-          - Subcutaneous Tissue
-          - Synovium
-          - Temporal Cortex
-          - Tendon
-          - Testis
-          - Thigh
-          - Thoracic Spine
-          - Thorax
-          - Throat
-          - Thumb
-          - Thymus
-          - Thyroid
-          - Tibia
-          - Tongue
-          - Tonsil
-          - Tonsil (Pharyngeal)
-          - Trachea / Major Bronchi
-          - Transverse Colon
-          - Trunk
-          - Umbilical Cord
-          - Ureter
-          - Urethra
-          - Urinary Tract
-          - Uterus
-          - Uvula
-          - Vagina
-          - Vas Deferens
-          - Vein
-          - Venous
-          - Vertebra
-          - Vulva
-          - White Blood Cells
-          - Wrist
-          - Other
-          - Unknown
-          - Not Reported
-        enumDef:
-          Bone Marrow:
-            description: The tissue occupying the spaces of bone. It consists of blood
-              vessel sinuses and a network of hematopoietic cells which give rise
-              to the red cells, white cells, and megakaryocytes.
-            termDef:
-              cde_id: C12431
-              cde_version: 20.05a
-              source: NCIt
-              term: Bone Marrow
-              term_id: C12431
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12431
-              term_version: 20.05a
-          Buccal Mucosa:
-            description: The mucosal membranes located on the inside of the cheek,
-              in the buccal cavity.
-            termDef:
-              cde_id: C12505
-              cde_version: 20.10d
-              source: NCIt
-              term: Buccal Mucosa
-              term_id: C12505
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12505
-              term_version: 20.10d
-          Cerebrospinal Fluid:
-            description: The fluid that is contained within the brain ventricles,
-              the subarachnoid space and the central canal of the spinal cord.
-            termDef:
-              cde_id: C12692
-              cde_version: 20.05a
-              source: NCIt
-              term: Cerebrospinal Fluid
-              term_id: C12692
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12692
-              term_version: 20.05a
-          Connective Tissue:
-            description: Supporting tissue that surrounds other tissues and organs.
-              Specialized connective tissue includes bone, cartilage, blood, and fat.
-            termDef:
-              cde_id: C12374
-              cde_version: 20.10d
-              source: NCIt
-              term: Connective Tissue
-              term_id: C12374
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12374
-              term_version: 20.10d
-          Epitrochlear:
-            description: A lymph node located above and adjacent to the elbow.
-            termDef:
-              cde_id: C98182
-              cde_version: 20.10d
-              source: NCIt
-              term: Epitrochlear Lymph Node
-              term_id: C98182
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C98182
-              term_version: 20.10d
-          Frontal Lobe:
-            description: The part of the brain located anterior to the parietal lobes
-              at the front of each cerebral hemisphere.
-            termDef:
-              cde_id: C12352
-              cde_version: 20.05a
-              source: NCIt
-              term: Frontal Lobe
-              term_id: C12352
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12352
-              term_version: 20.05a
-          Hilar:
-            description: A lymph node located in the area around the hilum.
-            termDef:
-              cde_id: C102330
-              cde_version: 20.10d
-              source: NCIt
-              term: Perihilar Lymph Node
-              term_id: C102330
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C102330
-              term_version: 20.10d
-          Neck:
-            description: The region that connects the head to the rest of the body.
-            termDef:
-              cde_id: C13063
-              cde_version: 20.10d
-              source: NCIt
-              term: Neck
-              term_id: C13063
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C13063
-              term_version: 20.10d
-          Not Reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          Other:
-            description: Different than the one(s) previously specified or mentioned.
-            termDef:
-              cde_id: C17649
-              cde_version: 19.12e
-              source: NCIt
-              term: Other
-              term_id: C17649
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
-          Soft Tissue:
-            description: A general term comprising tissue that is not hardened or
-              calcified; including muscle, fat, blood vessels, nerves, tendons, ligaments
-              and fascia.
-            termDef:
-              cde_id: C12471
-              cde_version: 20.05a
-              source: NCIt
-              term: Soft Tissue
-              term_id: C12471
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12471
-              term_version: 20.05a
-          Unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-        termDef:
-          cde_id: 5615611
-          cde_version: 1.0
-          source: caDSR
-          term: Treatment Anatomic Site
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5615611%20and%20ver_nr=1.0
       treatment_anatomic_sites:
         deprecated_enum:
           - Head - Face Or Neck, Nos
@@ -156086,20 +154825,6 @@ schema:
           term: Treatment Anatomic Site
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5615611%20and%20ver_nr=1.0
         type: array
-      treatment_arm:
-        description: Text term used to describe the treatment arm assigned to a patient
-          at the time eligibility is determined.
-        enum:
-          - A081105
-          - A081801
-          - E4512
-          - EA5142
-        termDef:
-          cde_id: 7068995
-          cde_version: 1.0
-          source: caDSR
-          term: Protocol Treatment Arm Text
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=7068995%20and%20ver_nr=1.0
       treatment_dose:
         description: The numeric value used to describe the total dose of an agent
           the patient received.
@@ -156656,4 +155381,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev2
+version: 3.3.1.dev10
