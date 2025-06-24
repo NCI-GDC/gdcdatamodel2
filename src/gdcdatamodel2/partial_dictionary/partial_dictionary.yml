@@ -352,6 +352,62 @@ schema:
           calling card/nickname/alias for a unit of submission. It can be used in
           place of the uuid for identifying or recalling a node.
         type: string
+      tmb:
+        description: Tumor Mutational Burden (TMB), reported in mutations per megabase
+          (mut/Mb), calculated within the targeted capture region or across the whole
+          genome for WGS data.
+        oneOf:
+          - minimum: 0
+            type: number
+          - type: 'null'
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Tumor Mutational Burden
+          term_url:
+      tmb_exonic:
+        description: Tumor Mutational Burden (TMB), reported in mutations per megabase
+          (mut/Mb), calculated within the intersect of the targeted capture region
+          and exonic region.
+        oneOf:
+          - minimum: 0
+            type: number
+          - type: 'null'
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: TMB within Exonic Region
+          term_url:
+      tmb_nonsynonymous:
+        description: Tumor Mutational Burden (TMB) of nonsynonymous mutations only,
+          reported in mutations per megabase (mut/Mb), calculated within the targeted
+          capture region or across the whole genome for WGS data.
+        oneOf:
+          - minimum: 0
+            type: number
+          - type: 'null'
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: TMB of Nonsynonymous Mutations
+          term_url:
+      tmb_nonsynonymous_exonic:
+        description: Tumor Mutational Burden (TMB) of nonsynonymous mutations only,
+          reported in mutations per megabase (mut/Mb), calculated within the intersect
+          of the targeted capture region and exonic region.
+        oneOf:
+          - minimum: 0
+            type: number
+          - type: 'null'
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: TMB of Nonsynonymous Mutations within Exonic Region
+          term_url:
       type:
         type: string
       updated_datetime:
@@ -82697,6 +82753,7 @@ schema:
           - Heavy Drinker
           - Lifelong Non-Drinker
           - Non-Drinker
+          - Not Heavy Drinker
           - Occasional Drinker
           - Social Drinker
           - Unknown
@@ -127771,6 +127828,7 @@ schema:
         description: Format of the data files.
         enum:
           - VCF
+          - TSV
         termDef:
           cde_id:
           cde_version:
@@ -127780,6 +127838,7 @@ schema:
       data_type:
         description: Specific content type of the data file.
         enum:
+          - Mutational Signature
           - Raw CGI Variant
           - Raw Simple Somatic Mutation
         termDef:
@@ -129955,6 +130014,7 @@ schema:
           - GATK4 MuTect2 Tumor-Only
           - Manta Indel
           - MuSE
+          - MuSiCal GATK4 MuTect2
           - MuTect2
           - Pindel
           - SomaticSniper
@@ -153067,4 +153127,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev14
+version: 0.1.dev20
