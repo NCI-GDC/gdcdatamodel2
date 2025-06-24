@@ -123899,8 +123899,11 @@ schema:
         description: Library preparation strategy that distinguishes different single-cell
           assays.
         enum:
+          - Chromium 3' Gene Expression v1 Library
           - Chromium 3' Gene Expression v2 Library
           - Chromium 3' Gene Expression v3 Library
+          - Chromium 3' Gene Expression v4 Library
+          - Chromium Next GEM Single Cell Multiome ATAC + Gene Expression Library
           - Chromium scATAC v1 Library
           - Smart-Seq2
         termDef:
@@ -124030,6 +124033,7 @@ schema:
           - TruSight Myeloid Sequencing Panel
           - Twist Human Comprehensive Exome
           - xGen Exome Research Panel v1.0
+          - xGen Exome Research Panel v2.0
           - Unknown
         enumDef:
           Not Applicable:
@@ -153063,4 +153067,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev13
+version: 3.3.1.dev14
