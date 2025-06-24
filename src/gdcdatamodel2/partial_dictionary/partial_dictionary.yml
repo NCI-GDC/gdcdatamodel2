@@ -37,22 +37,22 @@ schema:
         enum:
           - Simple Nucleotide Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - MAF
           - TSV
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -352,6 +352,62 @@ schema:
           calling card/nickname/alias for a unit of submission. It can be used in
           place of the uuid for identifying or recalling a node.
         type: string
+      tmb:
+        description: Tumor Mutational Burden (TMB), reported in mutations per megabase
+          (mut/Mb), calculated within the targeted capture region or across the whole
+          genome for WGS data.
+        oneOf:
+          - minimum: 0
+            type: number
+          - type: 'null'
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Tumor Mutational Burden
+          term_url:
+      tmb_exonic:
+        description: Tumor Mutational Burden (TMB), reported in mutations per megabase
+          (mut/Mb), calculated within the intersect of the targeted capture region
+          and exonic region.
+        oneOf:
+          - minimum: 0
+            type: number
+          - type: 'null'
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: TMB within Exonic Region
+          term_url:
+      tmb_nonsynonymous:
+        description: Tumor Mutational Burden (TMB) of nonsynonymous mutations only,
+          reported in mutations per megabase (mut/Mb), calculated within the targeted
+          capture region or across the whole genome for WGS data.
+        oneOf:
+          - minimum: 0
+            type: number
+          - type: 'null'
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: TMB of Nonsynonymous Mutations
+          term_url:
+      tmb_nonsynonymous_exonic:
+        description: Tumor Mutational Burden (TMB) of nonsynonymous mutations only,
+          reported in mutations per megabase (mut/Mb), calculated within the intersect
+          of the targeted capture region and exonic region.
+        oneOf:
+          - minimum: 0
+            type: number
+          - type: 'null'
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: TMB of Nonsynonymous Mutations within Exonic Region
+          term_url:
       type:
         type: string
       updated_datetime:
@@ -536,11 +592,11 @@ schema:
         description: Average read length collected from samtools.
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 12426615
+          cde_version: 1.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=12426615%20and%20ver_nr=1.0
         type: integer
       batch_id:
         description: GDC submission batch indicator. It is unique within the context
@@ -587,21 +643,21 @@ schema:
         enum:
           - Sequencing Reads
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - BAM
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -1231,21 +1287,21 @@ schema:
           - Sequencing Reads
           - Raw Sequencing Data
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - BAI
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -2082,22 +2138,22 @@ schema:
           the analyte(s) shipped for sequencing and characterization.
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 15745091
+          cde_version: 1.0
+          source: caDSR
           term: Biospecimen Aliquot Quantity
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15745091%20and%20ver_nr=1.0
         type: number
       aliquot_volume:
         description: The volume in microliters (ul) of the aliquot(s) derived from
           the analyte(s) shipped for sequencing and characterization.
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 15745088
+          cde_version: 1.0
+          source: caDSR
           term: Biospecimen Aliquot Volume
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15745088%20and%20ver_nr=1.0
         type: number
       amount:
         description: Weight in grams or volume in mL.
@@ -2150,11 +2206,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C163995
               term_version: 20.10d
         termDef:
-          cde_id: 2513915
-          cde_version: 2.0
+          cde_id: 15063661
+          cde_version: 1.0
           source: caDSR
           term: Molecular Specimen Type Text Name
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2513915%20and%20ver_nr=2.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15063661%20and%20ver_nr=1.0
       analytes:
         anyOf:
           - items:
@@ -2570,11 +2626,11 @@ schema:
           - Sequencing Reads
           - Raw Sequencing Data
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
@@ -2584,11 +2640,11 @@ schema:
           - IDF
           - ADF
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -2888,12 +2944,12 @@ schema:
           absorbance at 260 nm and 280 nm, used to determine a measure of DNA purity.
         minimum: 0
         termDef:
-          cde_id: 5432595
+          cde_id: 15113234
           cde_version: 1.0
           source: caDSR
           term: Nucleic Acid Absorbance at 260 And Absorbance at 280 DNA Purity Ratio
             Value
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432595%20and%20ver_nr=1.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15113234%20and%20ver_nr=1.0
         type: number
       amount:
         description: Weight in grams or volume in mL.
@@ -2957,11 +3013,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C163995
               term_version: 20.10d
         termDef:
-          cde_id: 2513915
-          cde_version: 2.0
+          cde_id: 15063661
+          cde_version: 1.0
           source: caDSR
           term: Molecular Specimen Type Text Name
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2513915%20and%20ver_nr=2.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15063661%20and%20ver_nr=1.0
       analyte_type_id:
         description: A single letter code used to identify a type of molecular analyte.
         enum:
@@ -2976,21 +3032,21 @@ schema:
           - X
           - Y
         termDef:
-          cde_id: 5432508
+          cde_id: 15248244
           cde_version: 1.0
           source: caDSR
           term: Molecular Analyte Identification Code
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432508%20and%20ver_nr=1.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15248244%20and%20ver_nr=1.0
       analyte_volume:
-        description: The volume in microliters (ul) of the aliquot(s) derived from
-          the analyte(s) shipped for sequencing and characterization.
+        description: "The volume in microliters (ul) of the analyte(s) shipped for\
+          \ sequencing and\n characterization."
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 15248383
+          cde_version: 1.0
+          source: caDSR
           term: Biospecimen Analyte Volume
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15248383%20and%20ver_nr=1.0
         type: number
       batch_id:
         description: GDC submission batch indicator. It is unique within the context
@@ -3397,22 +3453,22 @@ schema:
         enum:
           - Simple Nucleotide Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - MAF
           - VCF
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -7114,22 +7170,22 @@ schema:
         enum:
           - Archive
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - TARGZ
           - MAGETAB
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -7549,11 +7605,11 @@ schema:
         enum:
           - Biospecimen
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
@@ -7567,11 +7623,11 @@ schema:
           - TSV
           - XLSX
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -8847,11 +8903,11 @@ schema:
         enum:
           - Clinical
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
@@ -8863,11 +8919,11 @@ schema:
           - TSV
           - XLSX
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -9087,22 +9143,22 @@ schema:
         enum:
           - Copy Number Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - PDF
           - TAR
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -9450,22 +9506,22 @@ schema:
         enum:
           - Copy Number Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - TSV
           - TXT
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -10109,21 +10165,21 @@ schema:
         enum:
           - Copy Number Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - TXT
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -11012,11 +11068,11 @@ schema:
           was reported in order to comply with the Health Insurance Portability and
           Accountability Act (HIPAA).
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 15157256
+          cde_version: 1.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15157256%20and%20ver_nr=1.0
         type: boolean
       batch_id:
         description: GDC submission batch indicator. It is unique within the context
@@ -11216,11 +11272,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
         termDef:
-          cde_id: 2554674
-          cde_version: 3.0
+          cde_id: 4783274
+          cde_version: 1.0
           source: caDSR
           term: Patient Death Reason
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2554674%20and%20ver_nr=3.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=4783274%20and%20ver_nr=1.0
       cause_of_death_source:
         description: The text term used to describe the source used to determine the
           patient's cause of death.
@@ -16920,11 +16976,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17268
               term_version: 19.12e
         termDef:
-          cde_id: 7050286
+          cde_id: 15115432
           cde_version: 1.0
           source: caDSR
           term: Country of Residence
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=7050286%20and%20ver_nr=1.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15115432%20and%20ver_nr=1.0
       created_datetime:
         common:
           description: A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
@@ -17682,11 +17738,11 @@ schema:
             type: integer
           - type: 'null'
         termDef:
-          cde_id: 3225640
-          cde_version: 2.0
+          cde_id: 10609539
+          cde_version: 1.0
           source: caDSR
           term: Patient Diagnosis Age Day Value
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3225640%20and%20ver_nr=2.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=10609539%20and%20ver_nr=1.0
       ajcc_clinical_m:
         deprecated_enum:
           - Not Allowed To Collect
@@ -21245,11 +21301,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
         termDef:
-          cde_id: 2722309
+          cde_id: 6689577
           cde_version: 1.0
           source: caDSR
           term: American Joint Committee on Cancer Publication Version Type
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2722309%20and%20ver_nr=1.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6689577%20and%20ver_nr=1.0
       ann_arbor_b_symptoms:
         deprecated_enum:
           - Not Allowed To Collect
@@ -21884,11 +21940,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C123614
               term_version: 20.05a
         termDef:
-          cde_id: 2003324
-          cde_version: 4.0
+          cde_id: 15179918
+          cde_version: 1.0
           source: caDSR
           term: Best Response Assessment Type
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2003324%20and%20ver_nr=4.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15179918%20and%20ver_nr=1.0
       burkitt_lymphoma_clinical_variant:
         deprecated_enum:
           - Not Allowed To Collect
@@ -22446,11 +22502,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4798
               term_version: 20.05a
         termDef:
-          cde_id: 3288124
+          cde_id: 12922545
           cde_version: 1.0
           source: caDSR
           term: Tumor Tissue Disease Description Type
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3288124%20and%20ver_nr=1.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=12922545%20and%20ver_nr=1.0
       cog_liver_stage:
         description: The text term used to describe the staging classification of
           liver tumors, as defined by the Children's Oncology Group (COG). This staging
@@ -82222,21 +82278,21 @@ schema:
           - Sequencing Data
           - Sequencing Reads
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - SRA XML
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -82555,11 +82611,11 @@ schema:
         maximum: 89
         minimum: 0
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14589582
+          cde_version: 1.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14589582%20and%20ver_nr=1.0
         type: integer
       age_at_onset:
         description: Numeric value used to represent the age of the patient when exposure
@@ -82697,6 +82753,7 @@ schema:
           - Heavy Drinker
           - Lifelong Non-Drinker
           - Non-Drinker
+          - Not Heavy Drinker
           - Occasional Drinker
           - Social Drinker
           - Unknown
@@ -82777,11 +82834,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
         termDef:
-          cde_id: 3457767
+          cde_id: 16181649
           cde_version: 1.0
           source: caDSR
           term: Person Self-Report Alcoholic Beverage Exposure Category
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3457767%20and%20ver_nr=1.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=16181649%20and%20ver_nr=1.0
       alcohol_type:
         description: A specific type of alcohol.
         enum:
@@ -88490,21 +88547,21 @@ schema:
         enum:
           - Copy Number Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - TXT
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -89893,11 +89950,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
         termDef:
-          cde_id: 5750671
+          cde_id: 13383448
           cde_version: 1.0
           source: caDSR
           term: Disease Response Code
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5750671%20and%20ver_nr=1.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=13383448%20and%20ver_nr=1.0
       ecog_performance_status:
         description: The ECOG functional performance status of the patient/participant.
         enum:
@@ -91151,11 +91208,11 @@ schema:
         enum:
           - Transcriptome Profiling
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
@@ -91165,11 +91222,11 @@ schema:
           - TSV
           - TXT
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -91980,21 +92037,21 @@ schema:
         enum:
           - Simple Nucleotide Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - TBI
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -92295,21 +92352,21 @@ schema:
         enum:
           - DNA Methylation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - IDAT
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -92629,22 +92686,22 @@ schema:
         enum:
           - Simple Nucleotide Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - MAF
           - TSV
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -93283,21 +93340,21 @@ schema:
         enum:
           - DNA Methylation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - TXT
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -93858,11 +93915,11 @@ schema:
         enum:
           - Transcriptome Profiling
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
@@ -93870,11 +93927,11 @@ schema:
           - TSV
           - TXT
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -116166,11 +116223,11 @@ schema:
           the body surface relating height to weight.
         minimum: 0
         termDef:
-          cde_id: 653
-          cde_version: 6.0
+          cde_id: 15118839
+          cde_version: 1.0
           source: caDSR
           term: Person Body Surface Area Value
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=653%20and%20ver_nr=6.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15118839%20and%20ver_nr=1.0
         type: number
       cases:
         anyOf:
@@ -121700,21 +121757,21 @@ schema:
         enum:
           - Clinical
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - PDF
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -122465,21 +122522,21 @@ schema:
         enum:
           - Proteome Profiling
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - TSV
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -123015,21 +123072,21 @@ schema:
         enum:
           - DNA Methylation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - IDAT
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -125191,21 +125248,21 @@ schema:
           - Sequencing Data
           - Raw Sequencing Data
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - SRA XML
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -125969,11 +126026,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
         termDef:
-          cde_id: 2007875
-          cde_version: 1.0
+          cde_id: 8028966
+          cde_version: 2.0
           source: caDSR
           term: Specimen Laterality
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2007875%20and%20ver_nr=1.0
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=8028966%20and%20ver_nr=2.0
       cases:
         anyOf:
           - items:
@@ -126200,11 +126257,11 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
               term_version: 19.12e
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 15115494
+          cde_version: 1.0
+          source: caDSR
           term: Post-Diagnostic Pathology Review Confirmation
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15115494%20and%20ver_nr=1.0
       distance_normal_to_tumor:
         description: Text term to signify the distance between the tumor tissue and
           the normal control tissue that was procured for matching normal DNA.
@@ -127150,22 +127207,22 @@ schema:
         enum:
           - Transcriptome Profiling
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - HDF5
           - TSV
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -127447,11 +127504,11 @@ schema:
         enum:
           - Simple Nucleotide Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
@@ -127459,11 +127516,11 @@ schema:
           - TSV
           - VCF
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -127762,24 +127819,26 @@ schema:
           - Combined Nucleotide Variation
           - Simple Nucleotide Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - VCF
+          - TSV
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
+          - Mutational Signature
           - Raw CGI Variant
           - Raw Simple Somatic Mutation
         termDef:
@@ -128649,11 +128708,11 @@ schema:
         enum:
           - Biospecimen
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
@@ -128662,11 +128721,11 @@ schema:
           - SVS
           - TIFF
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -129955,6 +130014,7 @@ schema:
           - GATK4 MuTect2 Tumor-Only
           - Manta Indel
           - MuSE
+          - MuSiCal GATK4 MuTect2
           - MuTect2
           - Pindel
           - SomaticSniper
@@ -130083,21 +130143,21 @@ schema:
           - Simple Nucleotide Variation
           - Somatic Structural Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - TBI
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -130648,11 +130708,11 @@ schema:
           - Somatic Structural Variation
           - Structural Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
@@ -130665,11 +130725,11 @@ schema:
           - TXT
           - VCF
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -131006,21 +131066,21 @@ schema:
         enum:
           - Sequencing Reads
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - BAM
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -131398,21 +131458,21 @@ schema:
         enum:
           - Transcriptome Profiling
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - CEL
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -131644,11 +131704,11 @@ schema:
           - Combined Nucleotide Variation
           - Genomic Profiling
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
@@ -131657,11 +131717,11 @@ schema:
           - VCF
           - XML
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -131992,21 +132052,21 @@ schema:
         enum:
           - Copy Number Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - CEL
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -132287,21 +132347,21 @@ schema:
         enum:
           - DNA Methylation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - TXT
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -132582,21 +132642,21 @@ schema:
         enum:
           - Copy Number Variation
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - TXT
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -132815,22 +132875,22 @@ schema:
         enum:
           - Sequencing Reads
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 14824731
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14824731%20and%20ver_nr=2.0
       data_format:
         description: Format of the data files.
         enum:
           - BAM
           - FASTQ
         termDef:
-          cde_id:
-          cde_version:
-          source:
+          cde_id: 11416926
+          cde_version: 2.0
+          source: caDSR
           term:
-          term_url:
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=11416926%20and%20ver_nr=2.0
       data_type:
         description: Specific content type of the data file.
         enum:
@@ -153067,4 +153127,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.3.1.dev14
+version: 3.3.1.dev19
