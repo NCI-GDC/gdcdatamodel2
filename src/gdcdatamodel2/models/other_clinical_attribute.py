@@ -346,6 +346,21 @@ class OtherClinicalAttribute(base.Node):
     def eye_color(self, value):
         self._set_property("eye_color", value)  # type: ignore  # inherited from CommonBase
 
+    @psqlgraph.pg_property(
+        str,
+        enum=[
+            "Conceived > or = 1 child by assisted reproduction",
+            "Conceived > or = 1 child by natural conception",
+            "Conceived > or = 1 child by unspecified method",
+            "Did not achieve pregnancy following > or = 12 months of unprotected intercourse",
+            "Did not attempt to reproduce",
+            "Not Reported",
+            "Unknown",
+        ],
+    )
+    def fertility_history(self, value):
+        self._set_property("fertility_history", value)  # type: ignore  # inherited from CommonBase
+
     @psqlgraph.pg_property(float, int)
     def fev1_fvc_post_bronch_percent(self, value):
         self._set_property("fev1_fvc_post_bronch_percent", value)  # type: ignore  # inherited from CommonBase

@@ -116918,6 +116918,25 @@ schema:
           source: NCIt
           term: Eye Color
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C157437
+      fertility_history:
+        description: Text term to describe an individual's capacity to conceive or
+          to induce conception
+        enum:
+          - Conceived > or = 1 child by assisted reproduction
+          - Conceived > or = 1 child by natural conception
+          - Conceived > or = 1 child by unspecified method
+          - Did not achieve pregnancy following > or = 12 months of unprotected intercourse
+          - Did not attempt to reproduce
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id: 3896771
+          cde_version: 1.0
+          source: caDSR
+          term: Fertility History
+          term_id: 3896771
+          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3896771%20and%20ver_nr=1.0
+          term_version: 1.0
       fev1_fvc_post_bronch_percent:
         description: Percentage value to represent result of Forced Expiratory Volume
           in 1 second (FEV1) divided by the Forced Vital Capacity (FVC) post-bronchodilator.
