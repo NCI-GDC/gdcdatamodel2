@@ -271,10 +271,6 @@ class Analyte(base.Node):
     def analyte_type(self, value):
         self._set_property("analyte_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["D", "E", "G", "H", "R", "S", "T", "W", "X", "Y"])
-    def analyte_type_id(self, value):
-        self._set_property("analyte_type_id", value)  # type: ignore  # inherited from CommonBase
-
     @psqlgraph.pg_property(float, int)
     def analyte_volume(self, value):
         self._set_property("analyte_volume", value)  # type: ignore  # inherited from CommonBase
@@ -282,6 +278,10 @@ class Analyte(base.Node):
     @psqlgraph.pg_property(float, int)
     def concentration(self, value):
         self._set_property("concentration", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def dna_integrity_number(self, value):
+        self._set_property("dna_integrity_number", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(
         str,
@@ -312,6 +312,10 @@ class Analyte(base.Node):
     @psqlgraph.pg_property(float, int)
     def ribosomal_rna_28s_16s_ratio(self, value):
         self._set_property("ribosomal_rna_28s_16s_ratio", value)  # type: ignore  # inherited from CommonBase
+
+    @psqlgraph.pg_property(float, int)
+    def ribosomal_rna_28s_18s_ratio(self, value):
+        self._set_property("ribosomal_rna_28s_18s_ratio", value)  # type: ignore  # inherited from CommonBase
 
     @psqlgraph.pg_property(float, int)
     def rna_integrity_number(self, value):
