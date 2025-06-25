@@ -1,4 +1,6 @@
-from typing import List, Optional, Union
+from __future__ import annotations
+
+from collections.abc import Iterator
 
 import psqlgraph
 import pytest
@@ -12,8 +14,8 @@ SAMPLE_PROJECT = "MISC"
 
 
 @pytest.fixture(scope="session")
-def gdc_graph() -> psqlgraph.PsqlGraphDriver:
-    graph = db.init_graph(use_gpas=False)
+def gdc_graph() -> Iterator[psqlgraph.PsqlGraphDriver]:
+    graph = db.init_graph()
 
     yield graph
 
@@ -21,7 +23,9 @@ def gdc_graph() -> psqlgraph.PsqlGraphDriver:
 
 
 @pytest.fixture()
-def gdc_graph_mock(gdc_graph: psqlgraph.PsqlGraphDriver) -> db.GraphDataGenerator:
+def gdc_graph_mock(
+    gdc_graph: psqlgraph.PsqlGraphDriver,
+) -> Iterator[db.GraphDataGenerator]:
     """
     Provides a more generic entry point to creating mock graph data for testing
     Returns:
@@ -32,9 +36,9 @@ def gdc_graph_mock(gdc_graph: psqlgraph.PsqlGraphDriver) -> db.GraphDataGenerato
     partial_dictionary = utils.get_partial_dictionary()
 
     def mock_graph(
-        graph_data: hints.GraphData,
-        extension: Optional[db.DataLoaderExtension] = None,
-    ) -> List[models.Node]:
+        graph_data: str | hints.GraphData,
+        extension: db.DataLoaderExtension | None = None,
+    ) -> list[models.Node]:
         extension = extension or db.DataLoaderExtension(g=gdc_graph)
         x_nodes = db.mock_data(
             gdc_graph,
@@ -57,11 +61,13 @@ def gdc_sample_data(
     gdc_graph: psqlgraph.PsqlGraphDriver, gdc_graph_mock: db.GraphDataGenerator
 ) -> db.GraphDataGenerator:
     def mock_from_file(
-        resource: Union[str, hints.GraphData],
-        extension: Optional[db.DataLoaderExtension] = None,
-    ) -> List[models.Node]:
-        db.drop_graph_entries(gdc_graph, is_gpas=False)
-        _graph_data = db.load_data_file(resource) if isinstance(resource, str) else resource
+        graph_data: str | hints.GraphData,
+        extension: db.DataLoaderExtension | None = None,
+    ) -> list[models.Node]:
+        db.drop_graph_entries(gdc_graph)
+        _graph_data = (
+            db.load_data_file(graph_data) if isinstance(graph_data, str) else graph_data
+        )
         return gdc_graph_mock(_graph_data, extension)
 
     return mock_from_file
