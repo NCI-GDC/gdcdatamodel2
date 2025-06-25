@@ -5,6 +5,9 @@ include:
     file:
       - templates/artifacts/python-library.yaml
 
+variables:
+  LANGUAGE_VERSION: python3.9
+
 tox:
   parallel:
     matrix:
