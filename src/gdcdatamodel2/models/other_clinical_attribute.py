@@ -349,10 +349,10 @@ class OtherClinicalAttribute(base.Node):
     @psqlgraph.pg_property(
         str,
         enum=[
-            "Conceived > or = 1 child by assisted reproduction",
-            "Conceived > or = 1 child by natural conception",
-            "Conceived > or = 1 child by unspecified method",
-            "Did not achieve pregnancy following > or = 12 months of unprotected intercourse",
+            "Conceived 1 or more child by assisted reproduction",
+            "Conceived 1 or more child by natural conception",
+            "Conceived 1 or more child by unspecified method",
+            "Did not achieve pregnancy following 12 or more months of unprotected intercourse",
             "Did not attempt to reproduce",
             "Not Reported",
             "Unknown",
