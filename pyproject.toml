@@ -1,31 +1,51 @@
 [build-system]
-requires = ["setuptools>=68", "wheel", "setuptools_scm>=7.1.0", "versionista>=1.1.0"]
 build-backend = "setuptools.build_meta"
+requires = ["setuptools>=78", "wheel", "setuptools_scm>=7.1.0", "versionista>=1.1.0"]
 
 [project]
-name = "gdcdatamodel2"
-dynamic = [
-  "version",
-  "description",
-  "readme",
-  "requires-python",
-  "license",
-  "authors",
-  "maintainers",
-  "keywords",
-  "classifiers",
-  "urls",
-  "scripts",
-  "gui-scripts",
-  "entry-points",
-  "dependencies",
-  "optional-dependencies"
+authors = [
+  {name = "NCI GDC", email = "gdc_dev_questions-aaaaae2lhsbell56tlvh3upgoq@cdis.slack.com"}
 ]
+classifiers = [
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+dependencies = ["psqlgraph", "pyyaml"]
+description = "Data models for gdcdictionary"
+dynamic = ["version"]
+keywords = ["python3", "gdcdatamodels", "gdcdictionary", "plaster"]
+license-files = ["LICENSE"]
+maintainers = [
+  {name = "GDC Feature Team", email = "gdc_dev_questions-aaaaae2lhsbell56tlvh3upgoq@cdis.slack.com"}
+]
+name = "gdcdatamodel2"
+readme = "README.md"
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+changelog = ["towncrier"]
+dev = ["coverage[toml]", "pytest", "pytest-cov"]
+docs = ["sphinx", "sphinx-rtd-theme", "sphinxcontrib-napoleon"]
+lint = ["mypy", "pre-commit"]
+validators = ["gdcdictionary"]
+visualization = ["graphviz", "ipython"]
+
+[project.scripts]
+gdc_postgres_admin = "gdcdatamodel2.gdc_postgres_admin:main"
+
+[project.urls]
+Repository = "https://github.com/NCI-GDC/gdcdatamodel2"
 
 [tool.coverage.html]
-title = "gdcdatamodel2 coverage report"
 directory = "docs/htmlcov"
 show_contexts = true
+title = "gdcdatamodel2 coverage report"
 
 [tool.coverage.run]
 branch = true
@@ -35,48 +55,26 @@ source = ["gdcdatamodel2"]
 [tool.pytest.ini_options]
 minversion = 6.0
 # Silence warning by opting in to use pytest 6's new default value
+addopts = "-rfE --color=yes --cov=gdcdatamodel2 --cov-report term"
+console_output_style = "classic"
 junit_family = "xunit2"
 junit_logging = "system-out"
-console_output_style = "classic"
-log_cli_level = "INFO"
 log_cli = "true"
-addopts = "-rfE --color=yes --cov=gdcdatamodel2 --cov-report term"
-norecursedirs = [
-  ".git",
-  ".tox",
-  "dist",
-  "build",
-  "docs",
-  "examples",
-  "images"
-]
-testpaths = [
-  "tests/unit",
-  "tests/integration"
-]
+log_cli_level = "INFO"
+norecursedirs = [".git", ".tox", "dist", "build", "docs", "examples", "images"]
+testpaths = ["tests/unit", "tests/integration"]
 
 [tool.ruff]
-exclude = [
-  "examples"
-]
-line-length = 98
+exclude = ["examples", "src"]
+line-length = 95
 src = ["src", "tests"]
-target-version = "py37"
+target-version = "py39"
 
 [tool.ruff.format]
 docstring-code-format = true
 
 [tool.ruff.lint]
 # see https://docs.astral.sh/ruff/rules/
-select = [
-  "E", # pydocstyle errors
-  "F", # pyflakes
-  "I", # isort
-  "N", # pep8 naming
-  "RUF", # ruff specific rules
-  "UP", # pyupgrade
-  "W" # pydocstyle warnings
-]
 ignore = [
   "E402",
   "E501",
@@ -88,6 +86,15 @@ ignore = [
   "RUF012",
   "RUF015",
   "N805"
+]
+select = [
+  "E", # pydocstyle errors
+  "F", # pyflakes
+  "I", # isort
+  "N", # pep8 naming
+  "RUF", # ruff specific rules
+  "UP", # pyupgrade
+  "W" # pydocstyle warnings
 ]
 
 [tool.ruff.lint.isort]

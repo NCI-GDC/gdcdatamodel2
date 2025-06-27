@@ -1,46 +1,39 @@
+from __future__ import annotations
+
+import dataclasses
 import json
 import os
-import sys
 import uuid
 import warnings
 from importlib import resources
+from typing import Protocol
 
-if sys.version_info >= (3, 9):
-    from importlib import resources
-else:
-    import importlib_resources as resources
-
-from typing import List, Optional, Union
-
-import attr
 import psqlgraph
 import yaml
-from psqlgraph import create_all, ext, hydrator
-from psqlgraph.base import ORMBase, VoidedBase
+from psqlgraph import ext, hydrator, voided
 from sqlalchemy import MetaData
 from sqlalchemy import exc as sa_exc
 
 from gdcdatamodel2 import models
 from gdcdatamodel2.partial_dictionary import utils
-from tests.helpers import hints, typing_compat
+from tests.helpers import hints
 
 SAMPLE_PROGRAM = "GDC"
 SAMPLE_PROJECT = "MISC"
 PROJECT_ID = f"{SAMPLE_PROGRAM}-{SAMPLE_PROJECT}"
 
 
-@attr.s(auto_attribs=True)
+@dataclasses.dataclass()
 class DataLoaderExtension:
     """Extends the mock data loading function to allow for adding custom functionality while generating mocks"""
 
     g: psqlgraph.PsqlGraphDriver
-    gpas: bool = False
-    project: models.Node = attr.ib(default=None, init=False)
+    project: models.Node | None = dataclasses.field(default=None)
 
     def pre(self) -> None:
         """Runs just before creating the mocks"""
 
-        self.project = add_sample_project(self.g, "GDC", "MISC", self.gpas)
+        self.project = add_sample_project(self.g, "GDC", "MISC")
 
     def run(self, node: models.Node) -> None:
         """Runs just before merging the generated node"""
@@ -55,41 +48,25 @@ class DataLoaderExtension:
     def post(self) -> None: ...
 
 
-@attr.s(auto_attribs=True)
-class GpasDataLoaderExtension(DataLoaderExtension):
-    """GPAS specific mock extension"""
-
-    gpas: bool = True
-
-    def run(self, node: models.Node) -> None:
-        super().run(node)
-        if hasattr(node, "gdc_uuid"):
-            node.gdc_uuid = None
-
-
-def init_graph(use_gpas: bool = False) -> psqlgraph.PsqlGraphDriver:
+def init_graph() -> psqlgraph.PsqlGraphDriver:
     """
     Initializes a psqlgraph driver for the given namespace
-    Args:
-        use_gpas: False defaults to GDC, True for biograph
+
     Returns:
         PsqlGraphDriver: instance of psqlgraph driver
     """
-    env = "BIO_" if use_gpas else ""
-    ns = "gpas" if use_gpas else None
     graph = psqlgraph.PsqlGraphDriver(
-        os.getenv(f"{env}PG_HOST", "localhost"),
-        os.getenv(f"{env}PG_USER", "test"),
-        os.getenv(f"{env}PG_PASS", "test"),
-        os.getenv(f"{env}PG_NAME", "gdcdatamodel2"),
-        package_namespace=ns,
+        os.getenv("PG_HOST", "localhost"),
+        os.getenv("PG_USER", "test"),
+        os.getenv("PG_PASS", "test"),
+        os.getenv("PG_NAME", "gdcdatamodel2"),
     )
 
     # Make sure to start with a clean DB
     tear_down_graph(graph)
 
-    base = ext.get_orm_base(ns) if use_gpas else ORMBase
-    create_all(graph.engine, base=base)
+    psqlgraph.create_all(graph.engine)
+
     return graph
 
 
@@ -97,7 +74,6 @@ def add_sample_project(
     g: psqlgraph.PsqlGraphDriver,
     program_name: str = SAMPLE_PROGRAM,
     project_code: str = SAMPLE_PROJECT,
-    use_gpas: bool = False,
     phs_id: str = "phs000335",
 ) -> models.Node:
     """Adds a sample project"""
@@ -152,10 +128,10 @@ def load_data_file(source: str, source_type: str = "json") -> hints.GraphData:
 def mock_data(
     pg_driver: psqlgraph.PsqlGraphDriver,
     active_dictionary: utils.PartialDictionary,
-    nodes: List[hints.NodeData],
-    edges: List[hints.EdgeData],
+    nodes: list[hints.NodeData],
+    edges: list[hints.EdgeData],
     extension: DataLoaderExtension,
-) -> List[models.Node]:
+) -> list[models.Node]:
     gdc_factory = graph_factory(active_dictionary)
 
     extension.pre()
@@ -188,26 +164,29 @@ def graph_factory(
     return factory
 
 
-def drop_graph_entries(pg_driver: psqlgraph.PsqlGraphDriver, is_gpas: bool = True) -> None:
-    base = ext.get_orm_base("gpas") if is_gpas else ORMBase
+def drop_graph_entries(pg_driver: psqlgraph.PsqlGraphDriver) -> None:
+    base = ext.get_orm_base(None)
+
     with pg_driver.engine.begin() as txn:
-        for table in reversed(base.metadata.sorted_tables + VoidedBase.metadata.sorted_tables):
+        for table in reversed(
+            base.metadata.sorted_tables + voided.Base.metadata.sorted_tables
+        ):
             # do not clear schema versions so each test does not re-trigger migration.
             txn.execute(f"TRUNCATE {table.name} CASCADE;")
 
 
-@attr.s
+@dataclasses.dataclass()
 class SampleDataCache:
-    g = attr.ib(type=psqlgraph.PsqlGraphDriver)
-    nodes: List[models.Node] = attr.ib(default=attr.Factory(list))
+    g: psqlgraph.PsqlGraphDriver
+    nodes: list[models.Node] = dataclasses.field(default_factory=list)
 
     def finalize(self):
         tear_down_graph(self.g)
 
 
-class GraphDataGenerator(typing_compat.Protocol):
+class GraphDataGenerator(Protocol):
     def __call__(
         self,
-        resource: Union[str, hints.GraphData],
-        extension: Optional[DataLoaderExtension] = None,
-    ) -> List[models.Node]: ...
+        graph_data: str | hints.GraphData,
+        extension: DataLoaderExtension | None = None,
+    ) -> list[models.Node]: ...

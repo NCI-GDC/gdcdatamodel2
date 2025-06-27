@@ -1,6 +1,6 @@
-from typing import Dict, List, Optional
+from __future__ import annotations
 
-from tests.helpers.typing_compat import TypedDict
+from typing import TypedDict
 
 
 class EdgeData(TypedDict):
@@ -15,8 +15,8 @@ class NodeData(TypedDict, total=False):
 
 
 class GraphData(TypedDict, total=False):
-    nodes: List[NodeData]
-    edges: List[EdgeData]
-    extends: Optional[str]
-    summary: Dict[str, int]
+    nodes: list[NodeData]
+    edges: list[EdgeData]
+    extends: str | None
+    summary: dict[str, int]
     description: str

@@ -58,7 +58,10 @@ def test_path(
         assert aliquot.submitter_id == "aliquot_y1"
 
         case = (
-            gdc_graph.nodes(models.Case).path("samples.aliquots").ids("aliquot_y1-node_id").one()
+            gdc_graph.nodes(models.Case)
+            .path("samples.aliquots")
+            .ids("aliquot_y1-node_id")
+            .one()
         )
         assert case.submitter_id == "case_y1"
 

@@ -59,7 +59,11 @@ def test_graph_validator_with_exclusive_link(gdc_graph):
             gdc_graph,
             {
                 "type": "analyte",
-                "props": {"submitter_id": "test", "analyte_type_id": "D", "analyte_type": "DNA"},
+                "props": {
+                    "submitter_id": "test",
+                    "analyte_type_id": "D",
+                    "analyte_type": "DNA",
+                },
                 "edges": {},
             },
             session,
@@ -68,7 +72,11 @@ def test_graph_validator_with_exclusive_link(gdc_graph):
             gdc_graph,
             {
                 "type": "sample",
-                "props": {"submitter_id": "test", "sample_type": "DNA", "sample_type_id": "01"},
+                "props": {
+                    "submitter_id": "test",
+                    "sample_type": "DNA",
+                    "sample_type_id": "01",
+                },
                 "edges": {},
             },
             session,
@@ -124,7 +132,11 @@ def test_graph_validator_with_wrong_multiplicity(gdc_graph):
             gdc_graph,
             {
                 "type": "analyte",
-                "props": {"submitter_id": "test", "analyte_type_id": "D", "analyte_type": "DNA"},
+                "props": {
+                    "submitter_id": "test",
+                    "analyte_type_id": "D",
+                    "analyte_type": "DNA",
+                },
                 "edges": {},
             },
             session,
@@ -134,7 +146,11 @@ def test_graph_validator_with_wrong_multiplicity(gdc_graph):
             gdc_graph,
             {
                 "type": "analyte",
-                "props": {"submitter_id": "testb", "analyte_type_id": "H", "analyte_type": "RNA"},
+                "props": {
+                    "submitter_id": "testb",
+                    "analyte_type_id": "H",
+                    "analyte_type": "RNA",
+                },
                 "edges": {},
             },
             session,
@@ -190,7 +206,11 @@ def test_graph_validator_with_correct_node(gdc_graph):
             gdc_graph,
             {
                 "type": "analyte",
-                "props": {"submitter_id": "test", "analyte_type_id": "D", "analyte_type": "DNA"},
+                "props": {
+                    "submitter_id": "test",
+                    "analyte_type_id": "D",
+                    "analyte_type": "DNA",
+                },
                 "edges": {},
             },
             session,
@@ -261,7 +281,11 @@ def test_graph_validator_with_existing_unique_keys_for_different_node_types(gdc_
     with gdc_graph.session_scope() as session:
         node = create_node(
             gdc_graph,
-            {"type": "sample", "props": {"submitter_id": "test", "project_id": "A"}, "edges": {}},
+            {
+                "type": "sample",
+                "props": {"submitter_id": "test", "project_id": "A"},
+                "edges": {},
+            },
             session,
         )
         node = create_node(

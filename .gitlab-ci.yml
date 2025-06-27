@@ -5,7 +5,16 @@ include:
     file:
       - templates/artifacts/python-library.yaml
 
+variables:
+  LANGUAGE_VERSION: python3.9
+
 tox:
+  parallel:
+    matrix:
+      - LANGUAGE_VERSION:
+          # TODO: add python3.13 after DEV-3751 merged into gdcdictionary & a new tag is
+          # cut. Otherwise tests will fail for bug in the dictionary.
+            [python3.9, python3.10, python3.11, python3.12]
   services:
     - name: docker.osdc.io/ncigdc/ci-postgres-13:${BASE_CONTAINER_VERSION}
       alias: postgres
