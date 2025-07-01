@@ -15,7 +15,6 @@ To speed up the query, indexes are built based on secondary keys.
     "index_node_case_project_id_lower",
     "index_node_case_submitter_id_lower",
 """
-
 import hashlib
 import logging
 import sys

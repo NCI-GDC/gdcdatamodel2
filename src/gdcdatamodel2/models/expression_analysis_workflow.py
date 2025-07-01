@@ -24,22 +24,11 @@ class ExpressionAnalysisWorkflow(base.Node):
     __tablename__: str = "node_expressionanalysisworkflow"
 
     # this field contains values of uniqueProperties
-    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+    __pg_secondary_keys: List[List[str]] = [['project_id', 'submitter_id']]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {"state": "validated"}
-    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "Expression Analysis Workflow",
-        "namespace": "https://gdc.cancer.gov",
-        "category": "analysis",
-        "submittable": False,
-        "downloadable": False,
-        "description": "Metadata for the expression analysis workflow used to generate additional analysis on top of the gene expression data.",
-        "required": ["submitter_id", "workflow_link", "workflow_type"],
-        "project": "*",
-        "program": "*",
-        "previous_version_downloadable": False,
-    }
+    _defaults:  Dict[str, Union[bool, float, int, str]] = {'state': 'validated'}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {'title': 'Expression Analysis Workflow', 'namespace': 'https://gdc.cancer.gov', 'category': 'analysis', 'submittable': False, 'downloadable': False, 'description': 'Metadata for the expression analysis workflow used to generate additional analysis on top of the gene expression data.', 'required': ['submitter_id', 'workflow_link', 'workflow_type'], 'project': '*', 'program': '*', 'previous_version_downloadable': False}
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
     _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -78,35 +67,36 @@ class ExpressionAnalysisWorkflow(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "secondary_expression_analyses": {
-                "name": "expression_analysis_workflows",
-                "src_type": base.Node.get_subclass("secondary_expression_analysis"),
-            },
+                "secondary_expression_analyses": {
+                    "name": "expression_analysis_workflows",
+                    "src_type": base.Node.get_subclass("secondary_expression_analysis"),
+                },
         }
 
     @classmethod
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "gene_expressions": {
-                "backref": "expression_analysis_workflows",
-                "type": base.Node.get_subclass("gene_expression"),
-            },
-            "secondary_expression_analyses": {
-                "backref": "expression_analysis_workflows",
-                "type": base.Node.get_subclass("secondary_expression_analysis"),
-            },
+                "gene_expressions": {
+                    "backref": "expression_analysis_workflows",
+                    "type": base.Node.get_subclass("gene_expression"),
+                },
+                "secondary_expression_analyses": {
+                    "backref": "expression_analysis_workflows",
+                    "type": base.Node.get_subclass("secondary_expression_analysis"),
+                },
         }
 
     @classmethod
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "gene_expressions": {
-                "edge_out": "_ExpressionAnalysisWorkflowPerformedOnGeneExpression_out",
-                "dst_type": base.Node.get_subclass("gene_expression"),
-            },
+                "gene_expressions": {
+                    "edge_out": "_ExpressionAnalysisWorkflowPerformedOnGeneExpression_out",
+                    "dst_type": base.Node.get_subclass("gene_expression"),
+                },
         }
+
 
     @property
     def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
@@ -139,6 +129,7 @@ class ExpressionAnalysisWorkflow(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
 
     @property
     def _versions(self) -> query.Query:
@@ -173,66 +164,61 @@ class ExpressionAnalysisWorkflow(base.Node):
             .order_by(versioned_nodes.VersionedNode.key.desc())
         )
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def submitter_id(self, value):
         self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def batch_id(self, value):
         self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "error",
-            "invalid",
-            "live",
-            "md5summed",
-            "md5summing",
-            "redacted",
-            "released",
-            "submitted",
-            "suppressed",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['error', 'invalid', 'live', 'md5summed', 'md5summing', 'redacted', 'released', 'submitted', 'suppressed', 'uploaded', 'uploading', 'validated', 'validating'])
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def workflow_link(self, value):
         self._set_property("workflow_link", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def workflow_version(self, value):
         self._set_property("workflow_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def workflow_start_datetime(self, value):
         self._set_property("workflow_start_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Seurat - 10x Chromium", "Seurat - Smart-Seq2"])
+
+    @psqlgraph.pg_property(str , enum=['Seurat - 10x Chromium', 'Seurat - Smart-Seq2'])
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase
+
 
 
 datetime_hooks.cls_inject_created_datetime_hook(ExpressionAnalysisWorkflow)

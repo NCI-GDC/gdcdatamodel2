@@ -24,22 +24,11 @@ class RnaExpressionWorkflow(base.Node):
     __tablename__: str = "node_rnaexpressionworkflow"
 
     # this field contains values of uniqueProperties
-    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+    __pg_secondary_keys: List[List[str]] = [['project_id', 'submitter_id']]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {"state": "validated"}
-    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "RNA Expression Workflow",
-        "namespace": "https://gdc.cancer.gov",
-        "category": "analysis",
-        "submittable": False,
-        "downloadable": False,
-        "description": "Metadata for the RNA expression pipeline used to quantify RNA gene and exon expression from unharmonized or GDC harmonized data.",
-        "required": ["submitter_id", "workflow_link", "workflow_type"],
-        "project": "*",
-        "program": "*",
-        "previous_version_downloadable": False,
-    }
+    _defaults:  Dict[str, Union[bool, float, int, str]] = {'state': 'validated'}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {'title': 'RNA Expression Workflow', 'namespace': 'https://gdc.cancer.gov', 'category': 'analysis', 'submittable': False, 'downloadable': False, 'description': 'Metadata for the RNA expression pipeline used to quantify RNA gene and exon expression from unharmonized or GDC harmonized data.', 'required': ['submitter_id', 'workflow_link', 'workflow_type'], 'project': '*', 'program': '*', 'previous_version_downloadable': False}
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
     _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -78,59 +67,60 @@ class RnaExpressionWorkflow(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "gene_expressions": {
-                "name": "rna_expression_workflows",
-                "src_type": base.Node.get_subclass("gene_expression"),
-            },
+                "gene_expressions": {
+                    "name": "rna_expression_workflows",
+                    "src_type": base.Node.get_subclass("gene_expression"),
+                },
         }
 
     @classmethod
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "aligned_reads_files": {
-                "backref": "rna_expression_workflows",
-                "type": base.Node.get_subclass("aligned_reads"),
-            },
-            "gene_expressions": {
-                "backref": "rna_expression_workflows",
-                "type": base.Node.get_subclass("gene_expression"),
-            },
-            "submitted_aligned_reads_files": {
-                "backref": "rna_expression_workflows",
-                "type": base.Node.get_subclass("submitted_aligned_reads"),
-            },
-            "submitted_expression_arrays": {
-                "backref": "rna_expression_workflows",
-                "type": base.Node.get_subclass("submitted_expression_array"),
-            },
-            "submitted_unaligned_reads_files": {
-                "backref": "rna_expression_workflows",
-                "type": base.Node.get_subclass("submitted_unaligned_reads"),
-            },
+                "aligned_reads_files": {
+                    "backref": "rna_expression_workflows",
+                    "type": base.Node.get_subclass("aligned_reads"),
+                },
+                "gene_expressions": {
+                    "backref": "rna_expression_workflows",
+                    "type": base.Node.get_subclass("gene_expression"),
+                },
+                "submitted_aligned_reads_files": {
+                    "backref": "rna_expression_workflows",
+                    "type": base.Node.get_subclass("submitted_aligned_reads"),
+                },
+                "submitted_expression_arrays": {
+                    "backref": "rna_expression_workflows",
+                    "type": base.Node.get_subclass("submitted_expression_array"),
+                },
+                "submitted_unaligned_reads_files": {
+                    "backref": "rna_expression_workflows",
+                    "type": base.Node.get_subclass("submitted_unaligned_reads"),
+                },
         }
 
     @classmethod
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "aligned_reads_files": {
-                "edge_out": "_RnaExpressionWorkflowPerformedOnAlignedReads_out",
-                "dst_type": base.Node.get_subclass("aligned_reads"),
-            },
-            "submitted_aligned_reads_files": {
-                "edge_out": "_RnaExpressionWorkflowPerformedOnSubmittedAlignedReads_out",
-                "dst_type": base.Node.get_subclass("submitted_aligned_reads"),
-            },
-            "submitted_expression_arrays": {
-                "edge_out": "_RnaExpressionWorkflowPerformedOnSubmittedExpressionArray_out",
-                "dst_type": base.Node.get_subclass("submitted_expression_array"),
-            },
-            "submitted_unaligned_reads_files": {
-                "edge_out": "_RnaExpressionWorkflowPerformedOnSubmittedUnalignedReads_out",
-                "dst_type": base.Node.get_subclass("submitted_unaligned_reads"),
-            },
+                "aligned_reads_files": {
+                    "edge_out": "_RnaExpressionWorkflowPerformedOnAlignedReads_out",
+                    "dst_type": base.Node.get_subclass("aligned_reads"),
+                },
+                "submitted_aligned_reads_files": {
+                    "edge_out": "_RnaExpressionWorkflowPerformedOnSubmittedAlignedReads_out",
+                    "dst_type": base.Node.get_subclass("submitted_aligned_reads"),
+                },
+                "submitted_expression_arrays": {
+                    "edge_out": "_RnaExpressionWorkflowPerformedOnSubmittedExpressionArray_out",
+                    "dst_type": base.Node.get_subclass("submitted_expression_array"),
+                },
+                "submitted_unaligned_reads_files": {
+                    "edge_out": "_RnaExpressionWorkflowPerformedOnSubmittedUnalignedReads_out",
+                    "dst_type": base.Node.get_subclass("submitted_unaligned_reads"),
+                },
         }
+
 
     @property
     def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
@@ -163,6 +153,7 @@ class RnaExpressionWorkflow(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
 
     @property
     def _versions(self) -> query.Query:
@@ -197,88 +188,61 @@ class RnaExpressionWorkflow(base.Node):
             .order_by(versioned_nodes.VersionedNode.key.desc())
         )
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def submitter_id(self, value):
         self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def batch_id(self, value):
         self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "error",
-            "invalid",
-            "live",
-            "md5summed",
-            "md5summing",
-            "redacted",
-            "released",
-            "submitted",
-            "suppressed",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['error', 'invalid', 'live', 'md5summed', 'md5summing', 'redacted', 'released', 'submitted', 'suppressed', 'uploaded', 'uploading', 'validated', 'validating'])
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def workflow_link(self, value):
         self._set_property("workflow_link", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def workflow_version(self, value):
         self._set_property("workflow_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def workflow_start_datetime(self, value):
         self._set_property("workflow_start_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "CellRanger - 10x Filtered Counts",
-            "CellRanger - 10x Raw Counts",
-            "Cufflinks",
-            "DEXSeq",
-            "Expression Array Quantification",
-            "HTSeq - Counts",
-            "HTSeq - FPKM",
-            "HTSeq - FPKM-UQ",
-            "Kallisto - HDF5",
-            "Kallisto - Quantification",
-            "RNA-SeQC - Counts",
-            "RNA-SeQC - FPKM",
-            "RSEM - Quantification",
-            "STAR - Counts",
-            "STAR - FPKM",
-            "STAR - Smart-Seq2 Filtered Counts",
-            "STAR - Smart-Seq2 Raw Counts",
-            "zUMIs - Smart-Seq2 Counts",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['CellRanger - 10x Filtered Counts', 'CellRanger - 10x Raw Counts', 'Cufflinks', 'DEXSeq', 'Expression Array Quantification', 'HTSeq - Counts', 'HTSeq - FPKM', 'HTSeq - FPKM-UQ', 'Kallisto - HDF5', 'Kallisto - Quantification', 'RNA-SeQC - Counts', 'RNA-SeQC - FPKM', 'RSEM - Quantification', 'STAR - Counts', 'STAR - FPKM', 'STAR - Smart-Seq2 Filtered Counts', 'STAR - Smart-Seq2 Raw Counts', 'zUMIs - Smart-Seq2 Counts'])
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase
+
 
 
 datetime_hooks.cls_inject_created_datetime_hook(RnaExpressionWorkflow)

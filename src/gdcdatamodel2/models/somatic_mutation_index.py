@@ -24,33 +24,11 @@ class SomaticMutationIndex(base.Node):
     __tablename__: str = "node_somaticmutationindex"
 
     # this field contains values of uniqueProperties
-    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+    __pg_secondary_keys: List[List[str]] = [['project_id', 'submitter_id']]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {
-        "state": "validated",
-        "file_state": "registered",
-    }
-    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "Somatic Mutation Index",
-        "namespace": "https://gdc.cancer.gov",
-        "category": "index_file",
-        "submittable": False,
-        "downloadable": True,
-        "description": "Data file containing the index for somatic mutation calls.",
-        "required": [
-            "submitter_id",
-            "file_name",
-            "file_size",
-            "md5sum",
-            "data_category",
-            "data_format",
-            "data_type",
-        ],
-        "project": "*",
-        "program": "*",
-        "previous_version_downloadable": False,
-    }
+    _defaults:  Dict[str, Union[bool, float, int, str]] = {'state': 'validated', 'file_state': 'registered'}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {'title': 'Somatic Mutation Index', 'namespace': 'https://gdc.cancer.gov', 'category': 'index_file', 'submittable': False, 'downloadable': True, 'description': 'Data file containing the index for somatic mutation calls.', 'required': ['submitter_id', 'file_name', 'file_size', 'md5sum', 'data_category', 'data_format', 'data_type'], 'project': '*', 'program': '*', 'previous_version_downloadable': False}
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
     _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -89,51 +67,52 @@ class SomaticMutationIndex(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "annotations": {
-                "name": "somatic_mutation_indexes",
-                "src_type": base.Node.get_subclass("annotation"),
-            },
+                "annotations": {
+                    "name": "somatic_mutation_indexes",
+                    "src_type": base.Node.get_subclass("annotation"),
+                },
         }
 
     @classmethod
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "annotated_somatic_mutations": {
-                "backref": "somatic_mutation_indexes",
-                "type": base.Node.get_subclass("annotated_somatic_mutation"),
-            },
-            "annotations": {
-                "backref": "somatic_mutation_indexes",
-                "type": base.Node.get_subclass("annotation"),
-            },
-            "simple_somatic_mutations": {
-                "backref": "somatic_mutation_indexes",
-                "type": base.Node.get_subclass("simple_somatic_mutation"),
-            },
-            "structural_variations": {
-                "backref": "somatic_mutation_indexes",
-                "type": base.Node.get_subclass("structural_variation"),
-            },
+                "annotated_somatic_mutations": {
+                    "backref": "somatic_mutation_indexes",
+                    "type": base.Node.get_subclass("annotated_somatic_mutation"),
+                },
+                "annotations": {
+                    "backref": "somatic_mutation_indexes",
+                    "type": base.Node.get_subclass("annotation"),
+                },
+                "simple_somatic_mutations": {
+                    "backref": "somatic_mutation_indexes",
+                    "type": base.Node.get_subclass("simple_somatic_mutation"),
+                },
+                "structural_variations": {
+                    "backref": "somatic_mutation_indexes",
+                    "type": base.Node.get_subclass("structural_variation"),
+                },
         }
 
     @classmethod
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "annotated_somatic_mutations": {
-                "edge_out": "_SomaticMutationIndexDerivedFromAnnotatedSomaticMutation_out",
-                "dst_type": base.Node.get_subclass("annotated_somatic_mutation"),
-            },
-            "simple_somatic_mutations": {
-                "edge_out": "_SomaticMutationIndexDerivedFromSimpleSomaticMutation_out",
-                "dst_type": base.Node.get_subclass("simple_somatic_mutation"),
-            },
-            "structural_variations": {
-                "edge_out": "_SomaticMutationIndexDerivedFromStructuralVariation_out",
-                "dst_type": base.Node.get_subclass("structural_variation"),
-            },
+                "annotated_somatic_mutations": {
+                    "edge_out": "_SomaticMutationIndexDerivedFromAnnotatedSomaticMutation_out",
+                    "dst_type": base.Node.get_subclass("annotated_somatic_mutation"),
+                },
+                "simple_somatic_mutations": {
+                    "edge_out": "_SomaticMutationIndexDerivedFromSimpleSomaticMutation_out",
+                    "dst_type": base.Node.get_subclass("simple_somatic_mutation"),
+                },
+                "structural_variations": {
+                    "edge_out": "_SomaticMutationIndexDerivedFromStructuralVariation_out",
+                    "dst_type": base.Node.get_subclass("structural_variation"),
+                },
         }
+
 
     @property
     def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
@@ -166,6 +145,7 @@ class SomaticMutationIndex(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
 
     @property
     def _versions(self) -> query.Query:
@@ -200,99 +180,81 @@ class SomaticMutationIndex(base.Node):
             .order_by(versioned_nodes.VersionedNode.key.desc())
         )
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def submitter_id(self, value):
         self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def batch_id(self, value):
         self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "error",
-            "invalid",
-            "live",
-            "md5summed",
-            "md5summing",
-            "redacted",
-            "released",
-            "submitted",
-            "suppressed",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['error', 'invalid', 'live', 'md5summed', 'md5summing', 'redacted', 'released', 'submitted', 'suppressed', 'uploaded', 'uploading', 'validated', 'validating'])
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def file_name(self, value):
         self._set_property("file_name", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def file_size(self, value):
         self._set_property("file_size", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def md5sum(self, value):
         self._set_property("md5sum", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "deleted",
-            "error",
-            "processed",
-            "processing",
-            "registered",
-            "released",
-            "submitted",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['deleted', 'error', 'processed', 'processing', 'registered', 'released', 'submitted', 'uploaded', 'uploading', 'validated', 'validating'])
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["file_format", "file_size", "md5sum"])
+
+    @psqlgraph.pg_property(str , enum=['file_format', 'file_size', 'md5sum'])
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum=["Simple Nucleotide Variation", "Somatic Structural Variation"]
-    )
+
+    @psqlgraph.pg_property(str , enum=['Simple Nucleotide Variation', 'Somatic Structural Variation'])
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["TBI"])
+
+    @psqlgraph.pg_property(str , enum=['TBI'])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Somatic Mutation Index"])
+
+    @psqlgraph.pg_property(str , enum=['Somatic Mutation Index'])
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
+
 
 
 datetime_hooks.cls_inject_created_datetime_hook(SomaticMutationIndex)

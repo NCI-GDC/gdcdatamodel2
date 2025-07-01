@@ -24,35 +24,11 @@ class CopyNumberAuxiliaryFile(base.Node):
     __tablename__: str = "node_copynumberauxiliaryfile"
 
     # this field contains values of uniqueProperties
-    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+    __pg_secondary_keys: List[List[str]] = [['project_id', 'submitter_id']]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {
-        "state": "validated",
-        "file_state": "registered",
-    }
-    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "Copy Number Auxiliary File",
-        "namespace": "https://gdc.cancer.gov",
-        "category": "data_file",
-        "submittable": False,
-        "downloadable": True,
-        "description": "Data file related to the copy number pipeline that contains any outputs not strictly defined in other nodes",
-        "required": [
-            "submitter_id",
-            "file_name",
-            "file_size",
-            "md5sum",
-            "data_category",
-            "data_format",
-            "data_type",
-            "experimental_strategy",
-            "platform",
-        ],
-        "project": "*",
-        "program": "*",
-        "previous_version_downloadable": True,
-    }
+    _defaults:  Dict[str, Union[bool, float, int, str]] = {'state': 'validated', 'file_state': 'registered'}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {'title': 'Copy Number Auxiliary File', 'namespace': 'https://gdc.cancer.gov', 'category': 'data_file', 'submittable': False, 'downloadable': True, 'description': 'Data file related to the copy number pipeline that contains any outputs not strictly defined in other nodes', 'required': ['submitter_id', 'file_name', 'file_size', 'md5sum', 'data_category', 'data_format', 'data_type', 'experimental_strategy', 'platform'], 'project': '*', 'program': '*', 'previous_version_downloadable': True}
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
     _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -91,35 +67,36 @@ class CopyNumberAuxiliaryFile(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "annotations": {
-                "name": "copy_number_auxiliary_files",
-                "src_type": base.Node.get_subclass("annotation"),
-            },
+                "annotations": {
+                    "name": "copy_number_auxiliary_files",
+                    "src_type": base.Node.get_subclass("annotation"),
+                },
         }
 
     @classmethod
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "annotations": {
-                "backref": "copy_number_auxiliary_files",
-                "type": base.Node.get_subclass("annotation"),
-            },
-            "somatic_copy_number_workflows": {
-                "backref": "copy_number_auxiliary_files",
-                "type": base.Node.get_subclass("somatic_copy_number_workflow"),
-            },
+                "annotations": {
+                    "backref": "copy_number_auxiliary_files",
+                    "type": base.Node.get_subclass("annotation"),
+                },
+                "somatic_copy_number_workflows": {
+                    "backref": "copy_number_auxiliary_files",
+                    "type": base.Node.get_subclass("somatic_copy_number_workflow"),
+                },
         }
 
     @classmethod
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "somatic_copy_number_workflows": {
-                "edge_out": "_CopyNumberAuxiliaryFileDerivedFromSomaticCopyNumberWorkflow_out",
-                "dst_type": base.Node.get_subclass("somatic_copy_number_workflow"),
-            },
+                "somatic_copy_number_workflows": {
+                    "edge_out": "_CopyNumberAuxiliaryFileDerivedFromSomaticCopyNumberWorkflow_out",
+                    "dst_type": base.Node.get_subclass("somatic_copy_number_workflow"),
+                },
         }
+
 
     @property
     def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
@@ -152,6 +129,7 @@ class CopyNumberAuxiliaryFile(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
 
     @property
     def _versions(self) -> query.Query:
@@ -186,109 +164,96 @@ class CopyNumberAuxiliaryFile(base.Node):
             .order_by(versioned_nodes.VersionedNode.key.desc())
         )
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def submitter_id(self, value):
         self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def batch_id(self, value):
         self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "error",
-            "invalid",
-            "live",
-            "md5summed",
-            "md5summing",
-            "redacted",
-            "released",
-            "submitted",
-            "suppressed",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['error', 'invalid', 'live', 'md5summed', 'md5summing', 'redacted', 'released', 'submitted', 'suppressed', 'uploaded', 'uploading', 'validated', 'validating'])
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def file_name(self, value):
         self._set_property("file_name", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def file_size(self, value):
         self._set_property("file_size", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def md5sum(self, value):
         self._set_property("md5sum", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "deleted",
-            "error",
-            "processed",
-            "processing",
-            "registered",
-            "released",
-            "submitted",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['deleted', 'error', 'processed', 'processing', 'registered', 'released', 'submitted', 'uploaded', 'uploading', 'validated', 'validating'])
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["file_format", "file_size", "md5sum"])
+
+    @psqlgraph.pg_property(str , enum=['file_format', 'file_size', 'md5sum'])
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def curated_model_index(self, value):
         self._set_property("curated_model_index", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Copy Number Variation"])
+
+    @psqlgraph.pg_property(str , enum=['Copy Number Variation'])
     def data_category(self, value):
         self._set_property("data_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["PDF", "TAR"])
+
+    @psqlgraph.pg_property(str , enum=['PDF', 'TAR'])
     def data_format(self, value):
         self._set_property("data_format", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["CNV Model", "Intermediate Analysis Archive"])
+
+    @psqlgraph.pg_property(str , enum=['CNV Model', 'Intermediate Analysis Archive'])
     def data_type(self, value):
         self._set_property("data_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["WGS"])
+
+    @psqlgraph.pg_property(str , enum=['WGS'])
     def experimental_strategy(self, value):
         self._set_property("experimental_strategy", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Illumina"])
+
+    @psqlgraph.pg_property(str , enum=['Illumina'])
     def platform(self, value):
         self._set_property("platform", value)  # type: ignore  # inherited from CommonBase
+
 
 
 datetime_hooks.cls_inject_created_datetime_hook(CopyNumberAuxiliaryFile)
