@@ -24,22 +24,11 @@ class OtherClinicalAttribute(base.Node):
     __tablename__: str = "node_otherclinicalattribute"
 
     # this field contains values of uniqueProperties
-    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+    __pg_secondary_keys: List[List[str]] = [['project_id', 'submitter_id']]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {"state": "validated"}
-    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "Other Clinical Attribute",
-        "namespace": "https://gdc.cancer.gov",
-        "category": "clinical",
-        "submittable": True,
-        "downloadable": False,
-        "description": "Additional clinical attributes that are extraneous to other specific clinical entity types within the GDC Data Dictionary.",
-        "required": ["submitter_id"],
-        "project": "*",
-        "program": "*",
-        "previous_version_downloadable": False,
-    }
+    _defaults:  Dict[str, Union[bool, float, int, str]] = {'state': 'validated'}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {'title': 'Other Clinical Attribute', 'namespace': 'https://gdc.cancer.gov', 'category': 'clinical', 'submittable': True, 'downloadable': False, 'description': 'Additional clinical attributes that are extraneous to other specific clinical entity types within the GDC Data Dictionary.', 'required': ['submitter_id'], 'project': '*', 'program': '*', 'previous_version_downloadable': False}
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
     _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -78,43 +67,44 @@ class OtherClinicalAttribute(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "annotations": {
-                "name": "other_clinical_attributes",
-                "src_type": base.Node.get_subclass("annotation"),
-            },
+                "annotations": {
+                    "name": "other_clinical_attributes",
+                    "src_type": base.Node.get_subclass("annotation"),
+                },
         }
 
     @classmethod
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "annotations": {
-                "backref": "other_clinical_attributes",
-                "type": base.Node.get_subclass("annotation"),
-            },
-            "cases": {
-                "backref": "other_clinical_attributes",
-                "type": base.Node.get_subclass("case"),
-            },
-            "follow_ups": {
-                "backref": "other_clinical_attributes",
-                "type": base.Node.get_subclass("follow_up"),
-            },
+                "annotations": {
+                    "backref": "other_clinical_attributes",
+                    "type": base.Node.get_subclass("annotation"),
+                },
+                "cases": {
+                    "backref": "other_clinical_attributes",
+                    "type": base.Node.get_subclass("case"),
+                },
+                "follow_ups": {
+                    "backref": "other_clinical_attributes",
+                    "type": base.Node.get_subclass("follow_up"),
+                },
         }
 
     @classmethod
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "cases": {
-                "edge_out": "_OtherClinicalAttributeDescribesCase_out",
-                "dst_type": base.Node.get_subclass("case"),
-            },
-            "follow_ups": {
-                "edge_out": "_OtherClinicalAttributeDescribesFollowUp_out",
-                "dst_type": base.Node.get_subclass("follow_up"),
-            },
+                "cases": {
+                    "edge_out": "_OtherClinicalAttributeDescribesCase_out",
+                    "dst_type": base.Node.get_subclass("case"),
+                },
+                "follow_ups": {
+                    "edge_out": "_OtherClinicalAttributeDescribesFollowUp_out",
+                    "dst_type": base.Node.get_subclass("follow_up"),
+                },
         }
+
 
     @property
     def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
@@ -147,6 +137,7 @@ class OtherClinicalAttribute(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
 
     @property
     def _versions(self) -> query.Query:
@@ -181,510 +172,316 @@ class OtherClinicalAttribute(base.Node):
             .order_by(versioned_nodes.VersionedNode.key.desc())
         )
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def submitter_id(self, value):
         self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def batch_id(self, value):
         self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "error",
-            "invalid",
-            "live",
-            "md5summed",
-            "md5summing",
-            "redacted",
-            "released",
-            "submitted",
-            "suppressed",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['error', 'invalid', 'live', 'md5summed', 'md5summing', 'redacted', 'released', 'submitted', 'suppressed', 'uploaded', 'uploading', 'validated', 'validating'])
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Candidiasis",
-            "Coccidioidomycosis",
-            "Cryptococcosis",
-            "Cryptosporidiosis, Chronic Intestinal",
-            "Cytomegalovirus",
-            "Encephalopathy",
-            "Herpes Simplex Virus",
-            "Histoplasmosis",
-            "Isosporiasis",
-            "Mycobacterium avium Complex",
-            "Mycobacterium tuberculosis",
-            "Mycobacterium, NOS",
-            "Nocardiosis",
-            "Not Reported",
-            "Pneumocystis Pneumonia",
-            "Pneumonia, NOS",
-            "Progressive Multifocal Leukoencephalopathy",
-            "Salmonella Septicemia",
-            "Toxoplasmosis",
-            "Unknown",
-            "Wasting Syndrome",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Candidiasis', 'Coccidioidomycosis', 'Cryptococcosis', 'Cryptosporidiosis, Chronic Intestinal', 'Cytomegalovirus', 'Encephalopathy', 'Herpes Simplex Virus', 'Histoplasmosis', 'Isosporiasis', 'Mycobacterium avium Complex', 'Mycobacterium tuberculosis', 'Mycobacterium, NOS', 'Nocardiosis', 'Not Reported', 'Pneumocystis Pneumonia', 'Pneumonia, NOS', 'Progressive Multifocal Leukoencephalopathy', 'Salmonella Septicemia', 'Toxoplasmosis', 'Unknown', 'Wasting Syndrome'])
     def aids_risk_factors(self, value):
         self._set_property("aids_risk_factors", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def bmi(self, value):
         self._set_property("bmi", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def body_surface_area(self, value):
         self._set_property("body_surface_area", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def cd4_count(self, value):
         self._set_property("cd4_count", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Hemophiliac",
-            "Heterosexual Contact",
-            "Homosexual Contact",
-            "Intravenous Drug User",
-            "None",
-            "Not Reported",
-            "Transfusion Recipient",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Hemophiliac', 'Heterosexual Contact', 'Homosexual Contact', 'Intravenous Drug User', 'None', 'Not Reported', 'Transfusion Recipient', 'Unknown'])
     def cdc_hiv_risk_factors(self, value):
         self._set_property("cdc_hiv_risk_factors", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(list)
+
+    @psqlgraph.pg_property(list )
     def comorbidities(self, value):
         self._set_property("comorbidities", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum=["Histology", "Not Reported", "Pathology", "Radiology", "Unknown"]
-    )
+
+    @psqlgraph.pg_property(str , enum=['Histology', 'Not Reported', 'Pathology', 'Radiology', 'Unknown'])
     def comorbidity_method_of_diagnosis(self, value):
         self._set_property("comorbidity_method_of_diagnosis", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def days_to_comorbidity(self, value):
         self._set_property("days_to_comorbidity", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def days_to_risk_factor(self, value):
         self._set_property("days_to_risk_factor", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Alpha-Glucosidase Inhibitor",
-            "Biguanide",
-            "Diet",
-            "Injected Insulin",
-            "Insulin",
-            "Linagliptin",
-            "Not Reported",
-            "Oral Hypoglycemic",
-            "Other",
-            "Sulfonylurea",
-            "Thiazolidinedione",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Alpha-Glucosidase Inhibitor', 'Biguanide', 'Diet', 'Injected Insulin', 'Insulin', 'Linagliptin', 'Not Reported', 'Oral Hypoglycemic', 'Other', 'Sulfonylurea', 'Thiazolidinedione', 'Unknown'])
     def diabetes_treatment_type(self, value):
         self._set_property("diabetes_treatment_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def dlco_ref_predictive_percent(self, value):
         self._set_property("dlco_ref_predictive_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=["1 to 2 Days", "3 to 4 Days", "5 or More Days", "None", "Not Reported", "Unknown"],
-    )
+
+    @psqlgraph.pg_property(str , enum=['1 to 2 Days', '3 to 4 Days', '5 or More Days', 'None', 'Not Reported', 'Unknown'])
     def exercise_frequency_weekly(self, value):
         self._set_property("exercise_frequency_weekly", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Amber",
-            "Blue",
-            "Brown",
-            "Gray",
-            "Green",
-            "Hazel",
-            "Not Reported",
-            "Other",
-            "Red & Violet",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Amber', 'Blue', 'Brown', 'Gray', 'Green', 'Hazel', 'Not Reported', 'Other', 'Red & Violet', 'Unknown'])
     def eye_color(self, value):
         self._set_property("eye_color", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(str , enum=['Conceived 1 or more children by assisted reproduction', 'Conceived 1 or more children by natural conception', 'Conceived 1 or more children by unspecified method', 'Did not achieve pregnancy following 12 or more months of unprotected intercourse', 'Did not attempt to reproduce', 'Not Reported', 'Unknown'])
+    def fertility_history(self, value):
+        self._set_property("fertility_history", value)  # type: ignore  # inherited from CommonBase
+
+
+    @psqlgraph.pg_property(float, int )
     def fev1_fvc_post_bronch_percent(self, value):
         self._set_property("fev1_fvc_post_bronch_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def fev1_fvc_pre_bronch_percent(self, value):
         self._set_property("fev1_fvc_pre_bronch_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def fev1_ref_post_bronch_percent(self, value):
         self._set_property("fev1_ref_post_bronch_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def fev1_ref_pre_bronch_percent(self, value):
         self._set_property("fev1_ref_pre_bronch_percent", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
+
+    @psqlgraph.pg_property(str , enum=['No', 'Not Reported', 'Unknown', 'Yes'])
     def haart_treatment_indicator(self, value):
         self._set_property("haart_treatment_indicator", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def height(self, value):
         self._set_property("height", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
+
+    @psqlgraph.pg_property(str , enum=['No', 'Not Reported', 'Unknown', 'Yes'])
     def hepatitis_sustained_virological_response(self, value):
         self._set_property("hepatitis_sustained_virological_response", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def hiv_viral_load(self, value):
         self._set_property("hiv_viral_load", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum=["Not Reported", "Progestin", "Progestin and Estrogen", "Unknown"]
-    )
+
+    @psqlgraph.pg_property(str , enum=['Not Reported', 'Progestin', 'Progestin and Estrogen', 'Unknown'])
     def hormonal_contraceptive_type(self, value):
         self._set_property("hormonal_contraceptive_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum=["Current User", "Former User", "Never Used", "Not Reported", "Unknown"]
-    )
+
+    @psqlgraph.pg_property(str , enum=['Current User', 'Former User', 'Never Used', 'Not Reported', 'Unknown'])
     def hormonal_contraceptive_use(self, value):
         self._set_property("hormonal_contraceptive_use", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
+
+    @psqlgraph.pg_property(str , enum=['No', 'Not Reported', 'Unknown', 'Yes'])
     def hormonal_replacement_therapy_status(self, value):
         self._set_property("hormonal_replacement_therapy_status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Estrogen only",
-            "Not Reported",
-            "Progesterone and Estrogen",
-            "Progesterone only",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Estrogen only', 'Not Reported', 'Progesterone and Estrogen', 'Progesterone only', 'Unknown'])
     def hormone_replacement_therapy_type(self, value):
         self._set_property("hormone_replacement_therapy_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Bladder",
-            "Macroscopic Parametrium",
-            "Microscopic Parametrium",
-            "None",
-            "Not Reported",
-            "Unknown",
-            "Vagina",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Bladder', 'Macroscopic Parametrium', 'Microscopic Parametrium', 'None', 'Not Reported', 'Unknown', 'Vagina'])
     def hysterectomy_margins_involved(self, value):
         self._set_property("hysterectomy_margins_involved", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Hysterectomy, NOS",
-            "Not Performed",
-            "Not Reported",
-            "Radical Hysterectomy",
-            "Simple Hysterectomy",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Hysterectomy, NOS', 'Not Performed', 'Not Reported', 'Radical Hysterectomy', 'Simple Hysterectomy', 'Unknown'])
     def hysterectomy_type(self, value):
         self._set_property("hysterectomy_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Anti-TNF Therapy",
-            "Azathioprine",
-            "Cyclophosphamide",
-            "Immunoglobulin",
-            "Methotrexate",
-            "None",
-            "Not Reported",
-            "Other",
-            "Prednisone",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Anti-TNF Therapy', 'Azathioprine', 'Cyclophosphamide', 'Immunoglobulin', 'Methotrexate', 'None', 'Not Reported', 'Other', 'Prednisone', 'Unknown'])
     def immunosuppressive_treatment_type(self, value):
         self._set_property("immunosuppressive_treatment_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum=["Not Reported", "Perimenopausal", "Postmenopausal", "Premenopausal", "Unknown"]
-    )
+
+    @psqlgraph.pg_property(str , enum=['Not Reported', 'Perimenopausal', 'Postmenopausal', 'Premenopausal', 'Unknown'])
     def menopause_status(self, value):
         self._set_property("menopause_status", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Class I",
-            "Class II",
-            "Class III",
-            "Class IV",
-            "Class V",
-            "Not Reported",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Class I', 'Class II', 'Class III', 'Class IV', 'Class V', 'Not Reported', 'Unknown'])
     def myasthenia_gravis_classification(self, value):
         self._set_property("myasthenia_gravis_classification", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def nadir_cd4_count(self, value):
         self._set_property("nadir_cd4_count", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=["Acetaminophen", "Aspirin", "Metformin", "Not Reported", "Statin, NOS", "Unknown"],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Acetaminophen', 'Aspirin', 'Metformin', 'Not Reported', 'Statin, NOS', 'Unknown'])
     def nononcologic_therapeutic_agents(self, value):
         self._set_property("nononcologic_therapeutic_agents", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["0", "1", "2", "3", "4+", "Not Reported", "Unknown"])
+
+    @psqlgraph.pg_property(str , enum=['0', '1', '2', '3', '4+', 'Not Reported', 'Unknown'])
     def number_of_pregnancies(self, value):
         self._set_property("number_of_pregnancies", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
+
+    @psqlgraph.pg_property(str , enum=['No', 'Not Reported', 'Unknown', 'Yes'])
     def oxygen_use_indicator(self, value):
         self._set_property("oxygen_use_indicator", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Continuous", "Intermittent", "Not Reported", "Unknown"])
+
+    @psqlgraph.pg_property(str , enum=['Continuous', 'Intermittent', 'Not Reported', 'Unknown'])
     def oxygen_use_type(self, value):
         self._set_property("oxygen_use_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def pancreatitis_onset_year(self, value):
         self._set_property("pancreatitis_onset_year", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Ectopic Pregnancy",
-            "Full Term Birth, NOS",
-            "Induced Abortion",
-            "Live Birth",
-            "Miscarriage",
-            "Not Reported",
-            "Spontaneous Abortion",
-            "Stillbirth",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Ectopic Pregnancy', 'Full Term Birth, NOS', 'Induced Abortion', 'Live Birth', 'Miscarriage', 'Not Reported', 'Spontaneous Abortion', 'Stillbirth', 'Unknown'])
     def pregnancy_outcome(self, value):
         self._set_property("pregnancy_outcome", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
+
+    @psqlgraph.pg_property(str , enum=['No', 'Not Reported', 'Unknown', 'Yes'])
     def pregnant_at_diagnosis(self, value):
         self._set_property("pregnant_at_diagnosis", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
+
+    @psqlgraph.pg_property(str , enum=['No', 'Not Reported', 'Unknown', 'Yes'])
     def premature_at_birth(self, value):
         self._set_property("premature_at_birth", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Antacids",
-            "H2 Blockers",
-            "Medically Treated",
-            "No Treatment",
-            "Not Applicable",
-            "Not Reported",
-            "Proton Pump Inhibitors",
-            "Surgically Treated",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Antacids', 'H2 Blockers', 'Medically Treated', 'No Treatment', 'Not Applicable', 'Not Reported', 'Proton Pump Inhibitors', 'Surgically Treated', 'Unknown'])
     def reflux_treatment_type(self, value):
         self._set_property("reflux_treatment_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Biochemical Assessment",
-            "Both Clinical and Biochemical Assessments",
-            "Clinical Assessment",
-            "Not Reported",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Biochemical Assessment', 'Both Clinical and Biochemical Assessments', 'Clinical Assessment', 'Not Reported', 'Unknown'])
     def risk_factor_method_of_diagnosis(self, value):
         self._set_property("risk_factor_method_of_diagnosis", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
+
+    @psqlgraph.pg_property(str , enum=['No', 'Not Reported', 'Unknown', 'Yes'])
     def risk_factor_treatment(self, value):
         self._set_property("risk_factor_treatment", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(list)
+
+    @psqlgraph.pg_property(list )
     def risk_factors(self, value):
         self._set_property("risk_factors", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Adjuvant Therapy",
-            "Adolescence",
-            "Adulthood",
-            "After Chemotherapy",
-            "After Study Enrollment",
-            "After Study Registration",
-            "Childhood",
-            "End of Consolidation Therapy",
-            "End of Treatment Course",
-            "End of Treatment Course 1",
-            "End of Treatment Course 2",
-            "First Complete Response",
-            "First Treatment",
-            "Follow-up",
-            "Initial Diagnosis",
-            "Last Contact",
-            "Not Reported",
-            "Other",
-            "Post Adjuvant Therapy",
-            "Post Hormone Therapy",
-            "Post Initial Treatment",
-            "Post Secondary Therapy",
-            "Postoperative",
-            "Preoperative",
-            "Prior to Adjuvant Therapy",
-            "Prior to Chemotherapy",
-            "Prior to Diagnosis",
-            "Prior to Procurement",
-            "Prior to Study Enrollment",
-            "Prior to Study Registration",
-            "Prior to Treatment",
-            "Progression",
-            "Recurrence",
-            "Recurrence/Progression",
-            "Sample Procurement",
-            "Unknown",
-            "Within 2 Months After Completion of First-Course Treatment",
-            "Within 3 Months of Surgery",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Adjuvant Therapy', 'Adolescence', 'Adulthood', 'After Chemotherapy', 'After Study Enrollment', 'After Study Registration', 'Childhood', 'End of Consolidation Therapy', 'End of Treatment Course', 'End of Treatment Course 1', 'End of Treatment Course 2', 'First Complete Response', 'First Treatment', 'Follow-up', 'Initial Diagnosis', 'Last Contact', 'Not Reported', 'Other', 'Post Adjuvant Therapy', 'Post Hormone Therapy', 'Post Initial Treatment', 'Post Secondary Therapy', 'Postoperative', 'Preoperative', 'Prior to Adjuvant Therapy', 'Prior to Chemotherapy', 'Prior to Diagnosis', 'Prior to Procurement', 'Prior to Study Enrollment', 'Prior to Study Registration', 'Prior to Treatment', 'Progression', 'Recurrence', 'Recurrence/Progression', 'Sample Procurement', 'Unknown', 'Within 2 Months After Completion of First-Course Treatment', 'Within 3 Months of Surgery'])
     def timepoint_category(self, value):
         self._set_property("timepoint_category", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Every Hour",
-            "Every Other Day",
-            "Five Times Daily",
-            "Four Times Daily",
-            "Never",
-            "Not Reported",
-            "Occasionally",
-            "Once Daily",
-            "Once Weekly",
-            "Once a Week for at Least a Year",
-            "Three Times Daily",
-            "Twice Daily",
-            "Twice Weekly",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Every Hour', 'Every Other Day', 'Five Times Daily', 'Four Times Daily', 'Never', 'Not Reported', 'Occasionally', 'Once Daily', 'Once Weekly', 'Once a Week for at Least a Year', 'Three Times Daily', 'Twice Daily', 'Twice Weekly', 'Unknown'])
     def treatment_frequency(self, value):
         self._set_property("treatment_frequency", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
+
+    @psqlgraph.pg_property(str , enum=['No', 'Not Reported', 'Unknown', 'Yes'])
     def undescended_testis_corrected(self, value):
         self._set_property("undescended_testis_corrected", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def undescended_testis_corrected_age(self, value):
         self._set_property("undescended_testis_corrected_age", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=["1-2 years", "10-14 years", "2-11 months", "3-9 years", "Not Reported", "Unknown"],
-    )
+
+    @psqlgraph.pg_property(str , enum=['1-2 years', '10-14 years', '2-11 months', '3-9 years', 'Not Reported', 'Unknown'])
     def undescended_testis_corrected_age_range(self, value):
         self._set_property("undescended_testis_corrected_age_range", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Bilateral", "Left", "Not Reported", "Right", "Unknown"])
+
+    @psqlgraph.pg_property(str , enum=['Bilateral', 'Left', 'Not Reported', 'Right', 'Unknown'])
     def undescended_testis_corrected_laterality(self, value):
         self._set_property("undescended_testis_corrected_laterality", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Hormones",
-            "Not Reported",
-            "Orchiopexy",
-            "Spontaneous Descent",
-            "Testis Removed",
-            "Unknown",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Hormones', 'Not Reported', 'Orchiopexy', 'Spontaneous Descent', 'Testis Removed', 'Unknown'])
     def undescended_testis_corrected_method(self, value):
         self._set_property("undescended_testis_corrected_method", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["No", "Not Reported", "Unknown", "Yes"])
+
+    @psqlgraph.pg_property(str , enum=['No', 'Not Reported', 'Unknown', 'Yes'])
     def undescended_testis_history(self, value):
         self._set_property("undescended_testis_history", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["Bilateral", "Left", "Not Reported", "Right", "Unknown"])
+
+    @psqlgraph.pg_property(str , enum=['Bilateral', 'Left', 'Not Reported', 'Right', 'Unknown'])
     def undescended_testis_history_laterality(self, value):
         self._set_property("undescended_testis_history_laterality", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(list)
+
+    @psqlgraph.pg_property(list )
     def viral_hepatitis_serology_tests(self, value):
         self._set_property("viral_hepatitis_serology_tests", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def weeks_gestation_at_birth(self, value):
         self._set_property("weeks_gestation_at_birth", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def weight(self, value):
         self._set_property("weight", value)  # type: ignore  # inherited from CommonBase
+
 
 
 datetime_hooks.cls_inject_created_datetime_hook(OtherClinicalAttribute)

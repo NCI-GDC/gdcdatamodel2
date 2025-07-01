@@ -24,25 +24,11 @@ class File(base.Node):
     __tablename__: str = "node_file"
 
     # this field contains values of uniqueProperties
-    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+    __pg_secondary_keys: List[List[str]] = [['project_id', 'submitter_id']]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {
-        "state": "validated",
-        "file_state": "registered",
-    }
-    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "File",
-        "namespace": "https://gdc.cancer.gov",
-        "category": "data_file",
-        "submittable": False,
-        "downloadable": True,
-        "description": "A set of related records (either written or electronic) kept together. (NCIt C42883)",
-        "required": ["submitter_id", "file_name", "file_size", "md5sum", "state"],
-        "project": "*",
-        "program": "*",
-        "previous_version_downloadable": False,
-    }
+    _defaults:  Dict[str, Union[bool, float, int, str]] = {'state': 'validated', 'file_state': 'registered'}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {'title': 'File', 'namespace': 'https://gdc.cancer.gov', 'category': 'data_file', 'submittable': False, 'downloadable': True, 'description': 'A set of related records (either written or electronic) kept together. (NCIt C42883)', 'required': ['submitter_id', 'file_name', 'file_size', 'md5sum', 'state'], 'project': '*', 'program': '*', 'previous_version_downloadable': False}
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
     _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -81,211 +67,212 @@ class File(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "analysis_metadata_files": {
-                "name": "files",
-                "src_type": base.Node.get_subclass("analysis_metadata"),
-            },
-            "annotations": {
-                "name": "files",
-                "src_type": base.Node.get_subclass("annotation"),
-            },
-            "experiment_metadata_files": {
-                "name": "files",
-                "src_type": base.Node.get_subclass("experiment_metadata"),
-            },
-            "parent_files": {
-                "name": "related_files",
-                "src_type": base.Node.get_subclass("file"),
-            },
-            "publications": {
-                "name": "files",
-                "src_type": base.Node.get_subclass("publication"),
-            },
-            "related_archives": {
-                "name": "related_to_files",
-                "src_type": base.Node.get_subclass("archive"),
-            },
-            "run_metadata_files": {
-                "name": "files",
-                "src_type": base.Node.get_subclass("run_metadata"),
-            },
-            "source_files": {
-                "name": "derived_files",
-                "src_type": base.Node.get_subclass("file"),
-            },
+                "analysis_metadata_files": {
+                    "name": "files",
+                    "src_type": base.Node.get_subclass("analysis_metadata"),
+                },
+                "annotations": {
+                    "name": "files",
+                    "src_type": base.Node.get_subclass("annotation"),
+                },
+                "experiment_metadata_files": {
+                    "name": "files",
+                    "src_type": base.Node.get_subclass("experiment_metadata"),
+                },
+                "parent_files": {
+                    "name": "related_files",
+                    "src_type": base.Node.get_subclass("file"),
+                },
+                "publications": {
+                    "name": "files",
+                    "src_type": base.Node.get_subclass("publication"),
+                },
+                "related_archives": {
+                    "name": "related_to_files",
+                    "src_type": base.Node.get_subclass("archive"),
+                },
+                "run_metadata_files": {
+                    "name": "files",
+                    "src_type": base.Node.get_subclass("run_metadata"),
+                },
+                "source_files": {
+                    "name": "derived_files",
+                    "src_type": base.Node.get_subclass("file"),
+                },
         }
 
     @classmethod
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "aliquots": {
-                "backref": "files",
-                "type": base.Node.get_subclass("aliquot"),
-            },
-            "analysis_metadata_files": {
-                "backref": "files",
-                "type": base.Node.get_subclass("analysis_metadata"),
-            },
-            "analytes": {
-                "backref": "files",
-                "type": base.Node.get_subclass("analyte"),
-            },
-            "annotations": {
-                "backref": "files",
-                "type": base.Node.get_subclass("annotation"),
-            },
-            "archives": {
-                "backref": "files",
-                "type": base.Node.get_subclass("archive"),
-            },
-            "cases": {
-                "backref": "files",
-                "type": base.Node.get_subclass("case"),
-            },
-            "centers": {
-                "backref": "files",
-                "type": base.Node.get_subclass("center"),
-            },
-            "data_formats": {
-                "backref": "files",
-                "type": base.Node.get_subclass("data_format"),
-            },
-            "data_subtypes": {
-                "backref": "files",
-                "type": base.Node.get_subclass("data_subtype"),
-            },
-            "derived_files": {
-                "backref": "source_files",
-                "type": base.Node.get_subclass("file"),
-            },
-            "described_cases": {
-                "backref": "describing_files",
-                "type": base.Node.get_subclass("case"),
-            },
-            "experiment_metadata_files": {
-                "backref": "files",
-                "type": base.Node.get_subclass("experiment_metadata"),
-            },
-            "experimental_strategies": {
-                "backref": "files",
-                "type": base.Node.get_subclass("experimental_strategy"),
-            },
-            "parent_files": {
-                "backref": "related_files",
-                "type": base.Node.get_subclass("file"),
-            },
-            "platforms": {
-                "backref": "files",
-                "type": base.Node.get_subclass("platform"),
-            },
-            "portions": {
-                "backref": "files",
-                "type": base.Node.get_subclass("portion"),
-            },
-            "publications": {
-                "backref": "files",
-                "type": base.Node.get_subclass("publication"),
-            },
-            "related_archives": {
-                "backref": "related_to_files",
-                "type": base.Node.get_subclass("archive"),
-            },
-            "related_files": {
-                "backref": "parent_files",
-                "type": base.Node.get_subclass("file"),
-            },
-            "run_metadata_files": {
-                "backref": "files",
-                "type": base.Node.get_subclass("run_metadata"),
-            },
-            "samples": {
-                "backref": "files",
-                "type": base.Node.get_subclass("sample"),
-            },
-            "slides": {
-                "backref": "files",
-                "type": base.Node.get_subclass("slide"),
-            },
-            "source_files": {
-                "backref": "derived_files",
-                "type": base.Node.get_subclass("file"),
-            },
-            "tags": {
-                "backref": "files",
-                "type": base.Node.get_subclass("tag"),
-            },
+                "aliquots": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("aliquot"),
+                },
+                "analysis_metadata_files": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("analysis_metadata"),
+                },
+                "analytes": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("analyte"),
+                },
+                "annotations": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("annotation"),
+                },
+                "archives": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("archive"),
+                },
+                "cases": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("case"),
+                },
+                "centers": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("center"),
+                },
+                "data_formats": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("data_format"),
+                },
+                "data_subtypes": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("data_subtype"),
+                },
+                "derived_files": {
+                    "backref": "source_files",
+                    "type": base.Node.get_subclass("file"),
+                },
+                "described_cases": {
+                    "backref": "describing_files",
+                    "type": base.Node.get_subclass("case"),
+                },
+                "experiment_metadata_files": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("experiment_metadata"),
+                },
+                "experimental_strategies": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("experimental_strategy"),
+                },
+                "parent_files": {
+                    "backref": "related_files",
+                    "type": base.Node.get_subclass("file"),
+                },
+                "platforms": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("platform"),
+                },
+                "portions": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("portion"),
+                },
+                "publications": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("publication"),
+                },
+                "related_archives": {
+                    "backref": "related_to_files",
+                    "type": base.Node.get_subclass("archive"),
+                },
+                "related_files": {
+                    "backref": "parent_files",
+                    "type": base.Node.get_subclass("file"),
+                },
+                "run_metadata_files": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("run_metadata"),
+                },
+                "samples": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("sample"),
+                },
+                "slides": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("slide"),
+                },
+                "source_files": {
+                    "backref": "derived_files",
+                    "type": base.Node.get_subclass("file"),
+                },
+                "tags": {
+                    "backref": "files",
+                    "type": base.Node.get_subclass("tag"),
+                },
         }
 
     @classmethod
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "aliquots": {
-                "edge_out": "_FileDataFromAliquot_out",
-                "dst_type": base.Node.get_subclass("aliquot"),
-            },
-            "analytes": {
-                "edge_out": "_FileDataFromAnalyte_out",
-                "dst_type": base.Node.get_subclass("analyte"),
-            },
-            "archives": {
-                "edge_out": "_FileMemberOfArchive_out",
-                "dst_type": base.Node.get_subclass("archive"),
-            },
-            "cases": {
-                "edge_out": "_FileDataFromCase_out",
-                "dst_type": base.Node.get_subclass("case"),
-            },
-            "centers": {
-                "edge_out": "_FileSubmittedByCenter_out",
-                "dst_type": base.Node.get_subclass("center"),
-            },
-            "data_formats": {
-                "edge_out": "_FileMemberOfDataFormat_out",
-                "dst_type": base.Node.get_subclass("data_format"),
-            },
-            "data_subtypes": {
-                "edge_out": "_FileMemberOfDataSubtype_out",
-                "dst_type": base.Node.get_subclass("data_subtype"),
-            },
-            "derived_files": {
-                "edge_out": "_FileDataFromFile_out",
-                "dst_type": base.Node.get_subclass("file"),
-            },
-            "described_cases": {
-                "edge_out": "_FileDescribesCase_out",
-                "dst_type": base.Node.get_subclass("case"),
-            },
-            "experimental_strategies": {
-                "edge_out": "_FileMemberOfExperimentalStrategy_out",
-                "dst_type": base.Node.get_subclass("experimental_strategy"),
-            },
-            "platforms": {
-                "edge_out": "_FileGeneratedFromPlatform_out",
-                "dst_type": base.Node.get_subclass("platform"),
-            },
-            "portions": {
-                "edge_out": "_FileDataFromPortion_out",
-                "dst_type": base.Node.get_subclass("portion"),
-            },
-            "related_files": {
-                "edge_out": "_FileRelatedToFile_out",
-                "dst_type": base.Node.get_subclass("file"),
-            },
-            "samples": {
-                "edge_out": "_FileDataFromSample_out",
-                "dst_type": base.Node.get_subclass("sample"),
-            },
-            "slides": {
-                "edge_out": "_FileDataFromSlide_out",
-                "dst_type": base.Node.get_subclass("slide"),
-            },
-            "tags": {
-                "edge_out": "_FileMemeberOfTag_out",
-                "dst_type": base.Node.get_subclass("tag"),
-            },
+                "aliquots": {
+                    "edge_out": "_FileDataFromAliquot_out",
+                    "dst_type": base.Node.get_subclass("aliquot"),
+                },
+                "analytes": {
+                    "edge_out": "_FileDataFromAnalyte_out",
+                    "dst_type": base.Node.get_subclass("analyte"),
+                },
+                "archives": {
+                    "edge_out": "_FileMemberOfArchive_out",
+                    "dst_type": base.Node.get_subclass("archive"),
+                },
+                "cases": {
+                    "edge_out": "_FileDataFromCase_out",
+                    "dst_type": base.Node.get_subclass("case"),
+                },
+                "centers": {
+                    "edge_out": "_FileSubmittedByCenter_out",
+                    "dst_type": base.Node.get_subclass("center"),
+                },
+                "data_formats": {
+                    "edge_out": "_FileMemberOfDataFormat_out",
+                    "dst_type": base.Node.get_subclass("data_format"),
+                },
+                "data_subtypes": {
+                    "edge_out": "_FileMemberOfDataSubtype_out",
+                    "dst_type": base.Node.get_subclass("data_subtype"),
+                },
+                "derived_files": {
+                    "edge_out": "_FileDataFromFile_out",
+                    "dst_type": base.Node.get_subclass("file"),
+                },
+                "described_cases": {
+                    "edge_out": "_FileDescribesCase_out",
+                    "dst_type": base.Node.get_subclass("case"),
+                },
+                "experimental_strategies": {
+                    "edge_out": "_FileMemberOfExperimentalStrategy_out",
+                    "dst_type": base.Node.get_subclass("experimental_strategy"),
+                },
+                "platforms": {
+                    "edge_out": "_FileGeneratedFromPlatform_out",
+                    "dst_type": base.Node.get_subclass("platform"),
+                },
+                "portions": {
+                    "edge_out": "_FileDataFromPortion_out",
+                    "dst_type": base.Node.get_subclass("portion"),
+                },
+                "related_files": {
+                    "edge_out": "_FileRelatedToFile_out",
+                    "dst_type": base.Node.get_subclass("file"),
+                },
+                "samples": {
+                    "edge_out": "_FileDataFromSample_out",
+                    "dst_type": base.Node.get_subclass("sample"),
+                },
+                "slides": {
+                    "edge_out": "_FileDataFromSlide_out",
+                    "dst_type": base.Node.get_subclass("slide"),
+                },
+                "tags": {
+                    "edge_out": "_FileMemeberOfTag_out",
+                    "dst_type": base.Node.get_subclass("tag"),
+                },
         }
+
 
     @property
     def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
@@ -318,6 +305,7 @@ class File(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
 
     @property
     def _versions(self) -> query.Query:
@@ -352,85 +340,66 @@ class File(base.Node):
             .order_by(versioned_nodes.VersionedNode.key.desc())
         )
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def submitter_id(self, value):
         self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def batch_id(self, value):
         self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "error",
-            "invalid",
-            "live",
-            "md5summed",
-            "md5summing",
-            "redacted",
-            "released",
-            "submitted",
-            "suppressed",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['error', 'invalid', 'live', 'md5summed', 'md5summing', 'redacted', 'released', 'submitted', 'suppressed', 'uploaded', 'uploading', 'validated', 'validating'])
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def file_name(self, value):
         self._set_property("file_name", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def file_size(self, value):
         self._set_property("file_size", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def md5sum(self, value):
         self._set_property("md5sum", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "deleted",
-            "error",
-            "processed",
-            "processing",
-            "registered",
-            "released",
-            "submitted",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['deleted', 'error', 'processed', 'processing', 'registered', 'released', 'submitted', 'uploaded', 'uploading', 'validated', 'validating'])
     def file_state(self, value):
         self._set_property("file_state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, enum=["file_format", "file_size", "md5sum"])
+
+    @psqlgraph.pg_property(str , enum=['file_format', 'file_size', 'md5sum'])
     def error_type(self, value):
         self._set_property("error_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def state_comment(self, value):
         self._set_property("state_comment", value)  # type: ignore  # inherited from CommonBase
+
 
 
 datetime_hooks.cls_inject_created_datetime_hook(File)

@@ -24,22 +24,11 @@ class Tag(base.Node):
     __tablename__: str = "node_tag"
 
     # this field contains values of uniqueProperties
-    __pg_secondary_keys: List[List[str]] = [["name"]]
+    __pg_secondary_keys: List[List[str]] = [['name']]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {}
-    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "Tag",
-        "namespace": "https://gdc.cancer.gov",
-        "category": "TBD",
-        "submittable": False,
-        "downloadable": False,
-        "description": "Any comment or other information about an entity (deprecated).",
-        "required": ["name"],
-        "project": "*",
-        "program": "*",
-        "previous_version_downloadable": False,
-    }
+    _defaults:  Dict[str, Union[bool, float, int, str]] = {}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {'title': 'Tag', 'namespace': 'https://gdc.cancer.gov', 'category': 'TBD', 'submittable': False, 'downloadable': False, 'description': 'Any comment or other information about an entity (deprecated).', 'required': ['name'], 'project': '*', 'program': '*', 'previous_version_downloadable': False}
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
     _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -78,26 +67,28 @@ class Tag(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "files": {
-                "name": "tags",
-                "src_type": base.Node.get_subclass("file"),
-            },
+                "files": {
+                    "name": "tags",
+                    "src_type": base.Node.get_subclass("file"),
+                },
         }
 
     @classmethod
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "files": {
-                "backref": "tags",
-                "type": base.Node.get_subclass("file"),
-            },
+                "files": {
+                    "backref": "tags",
+                    "type": base.Node.get_subclass("file"),
+                },
         }
 
     @classmethod
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
-        cls._pg_links = {}
+        cls._pg_links = {
+        }
+
 
     @property
     def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
@@ -130,6 +121,7 @@ class Tag(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
 
     @property
     def _versions(self) -> query.Query:
@@ -164,89 +156,11 @@ class Tag(base.Node):
             .order_by(versioned_nodes.VersionedNode.key.desc())
         )
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "B_Allele_Freq",
-            "BioSizing",
-            "DGE",
-            "Delta_B_Allele_Freq",
-            "FIRMA",
-            "Genotypes",
-            "LOH",
-            "MSI",
-            "Normal_LogR",
-            "OptionAnalysisPipeline2",
-            "Paired_LogR",
-            "PilotAnalysisPipeline2",
-            "QA",
-            "Tag",
-            "Unpaired_LogR",
-            "aliquot",
-            "allcnv",
-            "alleleSpecificCN",
-            "analyte",
-            "auxiliary",
-            "batch_effect_removed",
-            "bisulfite",
-            "byallele",
-            "cgh",
-            "cnv",
-            "control",
-            "cov",
-            "coverage",
-            "cqcf",
-            "diagnostic_slides",
-            "drug",
-            "exon",
-            "follow_up",
-            "gene",
-            "germline",
-            "harmonized",
-            "hg18",
-            "hg19",
-            "hpv",
-            "image",
-            "indel",
-            "ismpolish",
-            "isoform",
-            "junction",
-            "lowess_normalized_smoothed",
-            "meth",
-            "miRNA",
-            "msi",
-            "nocnv",
-            "normalized",
-            "nte",
-            "omf",
-            "original",
-            "pairedcn",
-            "patient",
-            "portion",
-            "protocol",
-            "qc",
-            "radiation",
-            "raw",
-            "sample",
-            "seg",
-            "segmentation",
-            "segmented",
-            "segnormal",
-            "sif",
-            "slide",
-            "snv",
-            "somatic",
-            "summary",
-            "sv",
-            "tangent",
-            "tr",
-            "unnormalized",
-            "v1",
-            "v2",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['B_Allele_Freq', 'BioSizing', 'DGE', 'Delta_B_Allele_Freq', 'FIRMA', 'Genotypes', 'LOH', 'MSI', 'Normal_LogR', 'OptionAnalysisPipeline2', 'Paired_LogR', 'PilotAnalysisPipeline2', 'QA', 'Tag', 'Unpaired_LogR', 'aliquot', 'allcnv', 'alleleSpecificCN', 'analyte', 'auxiliary', 'batch_effect_removed', 'bisulfite', 'byallele', 'cgh', 'cnv', 'control', 'cov', 'coverage', 'cqcf', 'diagnostic_slides', 'drug', 'exon', 'follow_up', 'gene', 'germline', 'harmonized', 'hg18', 'hg19', 'hpv', 'image', 'indel', 'ismpolish', 'isoform', 'junction', 'lowess_normalized_smoothed', 'meth', 'miRNA', 'msi', 'nocnv', 'normalized', 'nte', 'omf', 'original', 'pairedcn', 'patient', 'portion', 'protocol', 'qc', 'radiation', 'raw', 'sample', 'seg', 'segmentation', 'segmented', 'segnormal', 'sif', 'slide', 'snv', 'somatic', 'summary', 'sv', 'tangent', 'tr', 'unnormalized', 'v1', 'v2'])
     def name(self, value):
         self._set_property("name", value)  # type: ignore  # inherited from CommonBase
+
 
 
 datetime_hooks.cls_inject_created_datetime_hook(Tag)

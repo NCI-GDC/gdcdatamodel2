@@ -24,22 +24,11 @@ class GenomicProfileHarmonizationWorkflow(base.Node):
     __tablename__: str = "node_genomicprofileharmonizationworkflow"
 
     # this field contains values of uniqueProperties
-    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+    __pg_secondary_keys: List[List[str]] = [['project_id', 'submitter_id']]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {"state": "validated"}
-    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "Genomic Profile Harmonization Workflow",
-        "namespace": "https://gdc.cancer.gov",
-        "category": "analysis",
-        "submittable": False,
-        "downloadable": False,
-        "description": "Metadata for the harmonization of genomic profiling reports.",
-        "required": ["submitter_id", "workflow_link", "workflow_type"],
-        "project": "*",
-        "program": "*",
-        "previous_version_downloadable": False,
-    }
+    _defaults:  Dict[str, Union[bool, float, int, str]] = {'state': 'validated'}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {'title': 'Genomic Profile Harmonization Workflow', 'namespace': 'https://gdc.cancer.gov', 'category': 'analysis', 'submittable': False, 'downloadable': False, 'description': 'Metadata for the harmonization of genomic profiling reports.', 'required': ['submitter_id', 'workflow_link', 'workflow_type'], 'project': '*', 'program': '*', 'previous_version_downloadable': False}
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
     _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -78,75 +67,76 @@ class GenomicProfileHarmonizationWorkflow(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "annotated_somatic_mutations": {
-                "name": "genomic_profile_harmonization_workflows",
-                "src_type": base.Node.get_subclass("annotated_somatic_mutation"),
-            },
-            "copy_number_estimates": {
-                "name": "genomic_profile_harmonization_workflows",
-                "src_type": base.Node.get_subclass("copy_number_estimate"),
-            },
-            "copy_number_segments": {
-                "name": "genomic_profile_harmonization_workflows",
-                "src_type": base.Node.get_subclass("copy_number_segment"),
-            },
-            "masked_somatic_mutations": {
-                "name": "genomic_profile_harmonization_workflows",
-                "src_type": base.Node.get_subclass("masked_somatic_mutation"),
-            },
-            "simple_somatic_mutations": {
-                "name": "genomic_profile_harmonization_workflows",
-                "src_type": base.Node.get_subclass("simple_somatic_mutation"),
-            },
-            "structural_variations": {
-                "name": "genomic_profile_harmonization_workflows",
-                "src_type": base.Node.get_subclass("structural_variation"),
-            },
+                "annotated_somatic_mutations": {
+                    "name": "genomic_profile_harmonization_workflows",
+                    "src_type": base.Node.get_subclass("annotated_somatic_mutation"),
+                },
+                "copy_number_estimates": {
+                    "name": "genomic_profile_harmonization_workflows",
+                    "src_type": base.Node.get_subclass("copy_number_estimate"),
+                },
+                "copy_number_segments": {
+                    "name": "genomic_profile_harmonization_workflows",
+                    "src_type": base.Node.get_subclass("copy_number_segment"),
+                },
+                "masked_somatic_mutations": {
+                    "name": "genomic_profile_harmonization_workflows",
+                    "src_type": base.Node.get_subclass("masked_somatic_mutation"),
+                },
+                "simple_somatic_mutations": {
+                    "name": "genomic_profile_harmonization_workflows",
+                    "src_type": base.Node.get_subclass("simple_somatic_mutation"),
+                },
+                "structural_variations": {
+                    "name": "genomic_profile_harmonization_workflows",
+                    "src_type": base.Node.get_subclass("structural_variation"),
+                },
         }
 
     @classmethod
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "annotated_somatic_mutations": {
-                "backref": "genomic_profile_harmonization_workflows",
-                "type": base.Node.get_subclass("annotated_somatic_mutation"),
-            },
-            "copy_number_estimates": {
-                "backref": "genomic_profile_harmonization_workflows",
-                "type": base.Node.get_subclass("copy_number_estimate"),
-            },
-            "copy_number_segments": {
-                "backref": "genomic_profile_harmonization_workflows",
-                "type": base.Node.get_subclass("copy_number_segment"),
-            },
-            "masked_somatic_mutations": {
-                "backref": "genomic_profile_harmonization_workflows",
-                "type": base.Node.get_subclass("masked_somatic_mutation"),
-            },
-            "simple_somatic_mutations": {
-                "backref": "genomic_profile_harmonization_workflows",
-                "type": base.Node.get_subclass("simple_somatic_mutation"),
-            },
-            "structural_variations": {
-                "backref": "genomic_profile_harmonization_workflows",
-                "type": base.Node.get_subclass("structural_variation"),
-            },
-            "submitted_genomic_profiles": {
-                "backref": "genomic_profile_harmonization_workflows",
-                "type": base.Node.get_subclass("submitted_genomic_profile"),
-            },
+                "annotated_somatic_mutations": {
+                    "backref": "genomic_profile_harmonization_workflows",
+                    "type": base.Node.get_subclass("annotated_somatic_mutation"),
+                },
+                "copy_number_estimates": {
+                    "backref": "genomic_profile_harmonization_workflows",
+                    "type": base.Node.get_subclass("copy_number_estimate"),
+                },
+                "copy_number_segments": {
+                    "backref": "genomic_profile_harmonization_workflows",
+                    "type": base.Node.get_subclass("copy_number_segment"),
+                },
+                "masked_somatic_mutations": {
+                    "backref": "genomic_profile_harmonization_workflows",
+                    "type": base.Node.get_subclass("masked_somatic_mutation"),
+                },
+                "simple_somatic_mutations": {
+                    "backref": "genomic_profile_harmonization_workflows",
+                    "type": base.Node.get_subclass("simple_somatic_mutation"),
+                },
+                "structural_variations": {
+                    "backref": "genomic_profile_harmonization_workflows",
+                    "type": base.Node.get_subclass("structural_variation"),
+                },
+                "submitted_genomic_profiles": {
+                    "backref": "genomic_profile_harmonization_workflows",
+                    "type": base.Node.get_subclass("submitted_genomic_profile"),
+                },
         }
 
     @classmethod
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "submitted_genomic_profiles": {
-                "edge_out": "_GenomicProfileHarmonizationWorkflowPerformedOnSubmittedGenomicProfile_out",
-                "dst_type": base.Node.get_subclass("submitted_genomic_profile"),
-            },
+                "submitted_genomic_profiles": {
+                    "edge_out": "_GenomicProfileHarmonizationWorkflowPerformedOnSubmittedGenomicProfile_out",
+                    "dst_type": base.Node.get_subclass("submitted_genomic_profile"),
+                },
         }
+
 
     @property
     def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
@@ -179,6 +169,7 @@ class GenomicProfileHarmonizationWorkflow(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
 
     @property
     def _versions(self) -> query.Query:
@@ -213,78 +204,61 @@ class GenomicProfileHarmonizationWorkflow(base.Node):
             .order_by(versioned_nodes.VersionedNode.key.desc())
         )
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def submitter_id(self, value):
         self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def batch_id(self, value):
         self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "error",
-            "invalid",
-            "live",
-            "md5summed",
-            "md5summing",
-            "redacted",
-            "released",
-            "submitted",
-            "suppressed",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['error', 'invalid', 'live', 'md5summed', 'md5summing', 'redacted', 'released', 'submitted', 'suppressed', 'uploaded', 'uploading', 'validated', 'validating'])
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def workflow_link(self, value):
         self._set_property("workflow_link", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def workflow_version(self, value):
         self._set_property("workflow_version", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def workflow_start_datetime(self, value):
         self._set_property("workflow_start_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def workflow_end_datetime(self, value):
         self._set_property("workflow_end_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "FM Copy Number Variation",
-            "FM Simple Somatic Mutation",
-            "FM Structural Variation",
-            "GENIE Copy Number Variation",
-            "GENIE Simple Somatic Mutation",
-            "GENIE Structural Variation",
-            "MuTect2",
-            "VCF LiftOver",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['FM Copy Number Variation', 'FM Simple Somatic Mutation', 'FM Structural Variation', 'GENIE Copy Number Variation', 'GENIE Simple Somatic Mutation', 'GENIE Structural Variation', 'MuTect2', 'VCF LiftOver'])
     def workflow_type(self, value):
         self._set_property("workflow_type", value)  # type: ignore  # inherited from CommonBase
+
 
 
 datetime_hooks.cls_inject_created_datetime_hook(GenomicProfileHarmonizationWorkflow)

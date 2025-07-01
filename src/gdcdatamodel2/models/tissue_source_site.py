@@ -24,21 +24,11 @@ class TissueSourceSite(base.Node):
     __tablename__: str = "node_tissuesourcesite"
 
     # this field contains values of uniqueProperties
-    __pg_secondary_keys: List[List[str]] = [["code"]]
+    __pg_secondary_keys: List[List[str]] = [['code']]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {}
-    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "Tissue Source Site",
-        "namespace": "https://gdc.cancer.gov",
-        "category": "administrative",
-        "submittable": False,
-        "downloadable": False,
-        "description": "A clinical site that collects and provides patient samples and clinical metadata for research use. (NCIt C103264)",
-        "project": "*",
-        "program": "*",
-        "previous_version_downloadable": False,
-    }
+    _defaults:  Dict[str, Union[bool, float, int, str]] = {}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {'title': 'Tissue Source Site', 'namespace': 'https://gdc.cancer.gov', 'category': 'administrative', 'submittable': False, 'downloadable': False, 'description': 'A clinical site that collects and provides patient samples and clinical metadata for research use. (NCIt C103264)', 'project': '*', 'program': '*', 'previous_version_downloadable': False}
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
     _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -77,42 +67,44 @@ class TissueSourceSite(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "annotations": {
-                "name": "tissue_source_sites",
-                "src_type": base.Node.get_subclass("annotation"),
-            },
-            "cases": {
-                "name": "tissue_source_sites",
-                "src_type": base.Node.get_subclass("case"),
-            },
-            "samples": {
-                "name": "tissue_source_sites",
-                "src_type": base.Node.get_subclass("sample"),
-            },
+                "annotations": {
+                    "name": "tissue_source_sites",
+                    "src_type": base.Node.get_subclass("annotation"),
+                },
+                "cases": {
+                    "name": "tissue_source_sites",
+                    "src_type": base.Node.get_subclass("case"),
+                },
+                "samples": {
+                    "name": "tissue_source_sites",
+                    "src_type": base.Node.get_subclass("sample"),
+                },
         }
 
     @classmethod
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "annotations": {
-                "backref": "tissue_source_sites",
-                "type": base.Node.get_subclass("annotation"),
-            },
-            "cases": {
-                "backref": "tissue_source_sites",
-                "type": base.Node.get_subclass("case"),
-            },
-            "samples": {
-                "backref": "tissue_source_sites",
-                "type": base.Node.get_subclass("sample"),
-            },
+                "annotations": {
+                    "backref": "tissue_source_sites",
+                    "type": base.Node.get_subclass("annotation"),
+                },
+                "cases": {
+                    "backref": "tissue_source_sites",
+                    "type": base.Node.get_subclass("case"),
+                },
+                "samples": {
+                    "backref": "tissue_source_sites",
+                    "type": base.Node.get_subclass("sample"),
+                },
         }
 
     @classmethod
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
-        cls._pg_links = {}
+        cls._pg_links = {
+        }
+
 
     @property
     def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
@@ -145,6 +137,7 @@ class TissueSourceSite(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
 
     @property
     def _versions(self) -> query.Query:
@@ -179,21 +172,26 @@ class TissueSourceSite(base.Node):
             .order_by(versioned_nodes.VersionedNode.key.desc())
         )
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def name(self, value):
         self._set_property("name", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def code(self, value):
         self._set_property("code", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def project(self, value):
         self._set_property("project", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def bcr_id(self, value):
         self._set_property("bcr_id", value)  # type: ignore  # inherited from CommonBase
+
 
 
 datetime_hooks.cls_inject_created_datetime_hook(TissueSourceSite)

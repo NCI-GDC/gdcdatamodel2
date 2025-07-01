@@ -12,7 +12,6 @@ Rules:
     have it set to False.
 4. ver, tag, latest will be set at node creation with hooks.
 """
-
 import os
 import uuid
 from functools import lru_cache

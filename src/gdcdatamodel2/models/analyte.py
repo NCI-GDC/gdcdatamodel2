@@ -24,22 +24,11 @@ class Analyte(base.Node):
     __tablename__: str = "node_analyte"
 
     # this field contains values of uniqueProperties
-    __pg_secondary_keys: List[List[str]] = [["project_id", "submitter_id"]]
+    __pg_secondary_keys: List[List[str]] = [['project_id', 'submitter_id']]
 
     # _defaults: default value for specified fields in the dictionary
-    _defaults: Dict[str, Union[bool, float, int, str]] = {"state": "validated"}
-    _dictionary: Dict[str, Union[bool, str, List[str]]] = {
-        "title": "Analyte",
-        "namespace": "https://gdc.cancer.gov",
-        "category": "biospecimen",
-        "submittable": True,
-        "downloadable": False,
-        "description": "A liquid bulk product produced according to specified lab protocols, from a sample or analyte, intended for further analysis.",
-        "required": ["submitter_id", "analyte_type"],
-        "project": "*",
-        "program": "*",
-        "previous_version_downloadable": False,
-    }
+    _defaults:  Dict[str, Union[bool, float, int, str]] = {'state': 'validated'}
+    _dictionary: Dict[str, Union[bool, str, List[str]]] = {'title': 'Analyte', 'namespace': 'https://gdc.cancer.gov', 'category': 'biospecimen', 'submittable': True, 'downloadable': False, 'description': 'A liquid bulk product produced according to specified lab protocols, from a sample or analyte, intended for further analysis.', 'required': ['submitter_id', 'analyte_type'], 'project': '*', 'program': '*', 'previous_version_downloadable': False}
 
     _pg_backrefs: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
     _pg_edges: Optional[Dict[str, Dict[str, Union[str, psqlgraph.Node]]]] = None
@@ -78,59 +67,60 @@ class Analyte(base.Node):
     def populate_pg_backrefs(cls) -> None:
         """_pg_backrefs are in_edges, links FROM other types."""
         cls._pg_backrefs = {
-            "aliquots": {
-                "name": "analytes",
-                "src_type": base.Node.get_subclass("aliquot"),
-            },
-            "annotations": {
-                "name": "analytes",
-                "src_type": base.Node.get_subclass("annotation"),
-            },
-            "files": {
-                "name": "analytes",
-                "src_type": base.Node.get_subclass("file"),
-            },
+                "aliquots": {
+                    "name": "analytes",
+                    "src_type": base.Node.get_subclass("aliquot"),
+                },
+                "annotations": {
+                    "name": "analytes",
+                    "src_type": base.Node.get_subclass("annotation"),
+                },
+                "files": {
+                    "name": "analytes",
+                    "src_type": base.Node.get_subclass("file"),
+                },
         }
 
     @classmethod
     def populate_pg_edges(cls) -> None:
         """_pg_edges are all edges, links to AND from other types."""
         cls._pg_edges = {
-            "aliquots": {
-                "backref": "analytes",
-                "type": base.Node.get_subclass("aliquot"),
-            },
-            "annotations": {
-                "backref": "analytes",
-                "type": base.Node.get_subclass("annotation"),
-            },
-            "files": {
-                "backref": "analytes",
-                "type": base.Node.get_subclass("file"),
-            },
-            "portions": {
-                "backref": "analytes",
-                "type": base.Node.get_subclass("portion"),
-            },
-            "samples": {
-                "backref": "analytes",
-                "type": base.Node.get_subclass("sample"),
-            },
+                "aliquots": {
+                    "backref": "analytes",
+                    "type": base.Node.get_subclass("aliquot"),
+                },
+                "annotations": {
+                    "backref": "analytes",
+                    "type": base.Node.get_subclass("annotation"),
+                },
+                "files": {
+                    "backref": "analytes",
+                    "type": base.Node.get_subclass("file"),
+                },
+                "portions": {
+                    "backref": "analytes",
+                    "type": base.Node.get_subclass("portion"),
+                },
+                "samples": {
+                    "backref": "analytes",
+                    "type": base.Node.get_subclass("sample"),
+                },
         }
 
     @classmethod
     def populate_pg_links(cls) -> None:
         """_pg_links are out_edges, links TO other types."""
         cls._pg_links = {
-            "portions": {
-                "edge_out": "_AnalyteDerivedFromPortion_out",
-                "dst_type": base.Node.get_subclass("portion"),
-            },
-            "samples": {
-                "edge_out": "_AnalyteDerivedFromSample_out",
-                "dst_type": base.Node.get_subclass("sample"),
-            },
+                "portions": {
+                    "edge_out": "_AnalyteDerivedFromPortion_out",
+                    "dst_type": base.Node.get_subclass("portion"),
+                },
+                "samples": {
+                    "edge_out": "_AnalyteDerivedFromSample_out",
+                    "dst_type": base.Node.get_subclass("sample"),
+                },
         }
+
 
     @property
     def _related_cases_from_cache(self) -> List[psqlgraph.Node]:
@@ -163,6 +153,7 @@ class Analyte(base.Node):
 
     # Set this attribute so psqlgraph doesn't treat it as a property
     _secondary_keys._is_pg_property = False
+
 
     @property
     def _versions(self) -> query.Query:
@@ -197,137 +188,106 @@ class Analyte(base.Node):
             .order_by(versioned_nodes.VersionedNode.key.desc())
         )
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def submitter_id(self, value):
         self._set_property("submitter_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(int)
+
+    @psqlgraph.pg_property(int )
     def batch_id(self, value):
         self._set_property("batch_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "error",
-            "invalid",
-            "live",
-            "md5summed",
-            "md5summing",
-            "redacted",
-            "released",
-            "submitted",
-            "suppressed",
-            "uploaded",
-            "uploading",
-            "validated",
-            "validating",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['error', 'invalid', 'live', 'md5summed', 'md5summing', 'redacted', 'released', 'submitted', 'suppressed', 'uploaded', 'uploading', 'validated', 'validating'])
     def state(self, value):
         self._set_property("state", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def project_id(self, value):
         self._set_property("project_id", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def created_datetime(self, value):
         self._set_property("created_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str, type(None))
+
+    @psqlgraph.pg_property(str, type(None) )
     def updated_datetime(self, value):
         self._set_property("updated_datetime", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def a260_a280_ratio(self, value):
         self._set_property("a260_a280_ratio", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def amount(self, value):
         self._set_property("amount", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def analyte_quantity(self, value):
         self._set_property("analyte_quantity", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "DNA",
-            "EBV Immortalized Normal",
-            "FFPE DNA",
-            "FFPE RNA",
-            "GenomePlex (Rubicon) Amplified DNA",
-            "Nuclei RNA",
-            "RNA",
-            "Repli-G (Qiagen) DNA",
-            "Repli-G Pooled (Qiagen) DNA",
-            "Repli-G X (Qiagen) DNA",
-            "Total RNA",
-            "cfDNA",
-            "m6A Enriched RNA",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['DNA', 'EBV Immortalized Normal', 'FFPE DNA', 'FFPE RNA', 'GenomePlex (Rubicon) Amplified DNA', 'Nuclei RNA', 'RNA', 'Repli-G (Qiagen) DNA', 'Repli-G Pooled (Qiagen) DNA', 'Repli-G X (Qiagen) DNA', 'Total RNA', 'cfDNA', 'm6A Enriched RNA'])
     def analyte_type(self, value):
         self._set_property("analyte_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def analyte_volume(self, value):
         self._set_property("analyte_volume", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def concentration(self, value):
         self._set_property("concentration", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def dna_integrity_number(self, value):
         self._set_property("dna_integrity_number", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str,
-        enum=[
-            "Allprep FFPE DNA",
-            "Allprep RNA Extraction",
-            "Chemical Lysis DNA Extraction",
-            "Genomplex",
-            "HighPure miRNA (Allprep DNA) FFPE RNA",
-            "Pre-extracted DNA received by TSS",
-            "Repli-G",
-            "Repli-G X",
-            "Total RNA",
-            "aDNA Preparation Type",
-            "mirVana (Allprep DNA) RNA",
-            "nRNA - Melanoma Protocol",
-        ],
-    )
+
+    @psqlgraph.pg_property(str , enum=['Allprep FFPE DNA', 'Allprep RNA Extraction', 'Chemical Lysis DNA Extraction', 'Genomplex', 'HighPure miRNA (Allprep DNA) FFPE RNA', 'Pre-extracted DNA received by TSS', 'Repli-G', 'Repli-G X', 'Total RNA', 'aDNA Preparation Type', 'mirVana (Allprep DNA) RNA', 'nRNA - Melanoma Protocol'])
     def experimental_protocol_type(self, value):
         self._set_property("experimental_protocol_type", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(
-        str, enum=["No", "Not Allowed To Collect", "Not Reported", "Unknown", "Yes"]
-    )
+
+    @psqlgraph.pg_property(str , enum=['No', 'Not Allowed To Collect', 'Not Reported', 'Unknown', 'Yes'])
     def normal_tumor_genotype_snp_match(self, value):
         self._set_property("normal_tumor_genotype_snp_match", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def ribosomal_rna_28s_16s_ratio(self, value):
         self._set_property("ribosomal_rna_28s_16s_ratio", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def ribosomal_rna_28s_18s_ratio(self, value):
         self._set_property("ribosomal_rna_28s_18s_ratio", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(float, int)
+
+    @psqlgraph.pg_property(float, int )
     def rna_integrity_number(self, value):
         self._set_property("rna_integrity_number", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def spectrophotometer_method(self, value):
         self._set_property("spectrophotometer_method", value)  # type: ignore  # inherited from CommonBase
 
-    @psqlgraph.pg_property(str)
+
+    @psqlgraph.pg_property(str )
     def well_number(self, value):
         self._set_property("well_number", value)  # type: ignore  # inherited from CommonBase
+
 
 
 datetime_hooks.cls_inject_created_datetime_hook(Analyte)
