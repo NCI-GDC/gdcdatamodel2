@@ -133644,6 +133644,7 @@ schema:
         description: The text term used to describe the status of the patient's malignancy
           when the treatment began.
         enum:
+          - Biochemical Recurrence
           - Initial Diagnosis
           - Persistent Disease
           - Progressive Disease
@@ -133722,15 +133723,21 @@ schema:
         description: The text term used to describe the anatomic sites that were involved
           in the survival margins.
         enum:
+          - Bladder
           - Cervix Uteri
           - Gerota Fascia
+          - Macroscopic Parametrium
+          - Microscopic Parametrium
           - Parenchyma
           - Perinephric Fat
           - Renal
           - Renal Capsule
           - Renal Sinus
           - Renal Vein
+          - Soft Tissue
           - Ureter
+          - Uterus
+          - Vagina
           - Other
           - Unknown
           - Not Reported
@@ -153152,4 +153159,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 0.1.dev20
+version: 3.4.4.dev1
