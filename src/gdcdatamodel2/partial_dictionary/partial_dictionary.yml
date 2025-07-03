@@ -120330,12 +120330,24 @@ schema:
           tissue which has been left outside the boundary of a resected specimen within
           the patient.
         enum:
+          - Indeterminant
           - Indeterminate
           - Involved
           - Uninvolved
           - Unknown
           - Not Reported
         enumDef:
+          Indeterminant:
+            description: Cannot distinguish between two or more possible values in
+              the current context.
+            termDef:
+              cde_id: C48658
+              cde_version: 20.10d
+              source: NCIt
+              term: Indeterminate
+              term_id: C48658
+              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48658
+              term_version: 20.10d
           Indeterminate:
             description: Cannot distinguish between two or more possible values in
               the current context.
@@ -153154,4 +153166,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.4.4.dev2
+version: 3.4.4.dev3
