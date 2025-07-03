@@ -130039,6 +130039,7 @@ schema:
           - GATK4 MuTect2 Tumor-Only
           - Manta Indel
           - MuSE
+          - MuSiCal
           - MuSiCal GATK4 MuTect2
           - MuTect2
           - Pindel
@@ -153152,4 +153153,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 0.1.dev20
+version: 3.4.4.dev1
