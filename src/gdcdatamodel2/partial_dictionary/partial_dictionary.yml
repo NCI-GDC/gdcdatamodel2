@@ -120324,6 +120324,8 @@ schema:
           term: Lymphatic/Small vessel Invasion Ind
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64171%20and%20ver_nr=3.0
       margin_status:
+        deprecated_enum:
+          - Indeterminant
         description: The determination of the presence of actual or potential neoplastic
           tissue which has been left outside the boundary of a resected specimen within
           the patient.
@@ -153152,4 +153154,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.4.4.dev1
+version: 3.4.4.dev2
