@@ -74005,7 +74005,7 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5936802%20and%20ver_nr=1.0
       site_of_resection_or_biopsy:
         description: The text term used to describe the anatomic site of the resection
-          or biopsy, of the patient's malignant disease, as described by the World
+          or biopsy of the patient's malignant disease, as described by the World
           Health Organization's (WHO) International Classification of Diseases for
           Oncology (ICD-O).
         enum:
@@ -153153,4 +153153,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.4.4.dev1
+version: 3.4.4.dev2
