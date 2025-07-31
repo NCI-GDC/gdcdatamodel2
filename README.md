@@ -31,7 +31,7 @@ checks, completely remove delays from dictionary load times.
 ## Prerequistes
 
 - Python >= 3.9 environment
-- Runing postgres database natively or with docker
+- Running postgres database natively or with docker
 - `tox` installed e.g., `pip install tox`
 
 ## Execution
