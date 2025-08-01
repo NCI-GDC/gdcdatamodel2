@@ -14,8 +14,8 @@ SAMPLE_PROJECT = "MISC"
 
 
 @pytest.fixture(scope="session")
-def gdc_graph() -> Iterator[psqlgraph.PsqlGraphDriver]:
-    graph = db.init_graph()
+def gdc_graph(pg_container: sqlalchemy.engine.Engine) -> Iterator[psqlgraph.PsqlGraphDriver]:
+    graph = db.init_graph(pg_container)
 
     yield graph
 

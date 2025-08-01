@@ -10,6 +10,7 @@ from typing import Protocol
 
 import psqlgraph
 import psycopg2
+import sqlalchemy
 import yaml
 from psqlgraph import ext, hydrator, voided
 from sqlalchemy import MetaData
@@ -49,45 +50,18 @@ class DataLoaderExtension:
     def post(self) -> None: ...
 
 
-def init_db() -> None:
-    """Creates the gdcdatamodel2 database if it does not exist
-
-    These tests make assumptions that the database existed which causes a little
-    extra effort for maintainers. Auto create the database if it is missing.
-    """
-    dbname = "gdcdatamodel2"
-    user = os.getenv("PG_USER", "postgres")
-    password = os.getenv("PG_PASS", "")
-    host = os.getenv("PG_HOST", "localhost")
-
-    # Connect to the default 'postgres' database to run the check
-    conn = psycopg2.connect(dbname="postgres", user=user, password=password, host=host)
-    conn.autocommit = True
-    cur = conn.cursor()
-
-    cur.execute("SELECT 1 FROM pg_database WHERE datname = %s", (dbname,))
-    exists = cur.fetchone()
-
-    if not exists:
-        cur.execute(f'CREATE DATABASE "{dbname}"')
-    cur.close()
-    conn.close()
-
-
-def init_graph() -> psqlgraph.PsqlGraphDriver:
+def init_graph(pg_container: sqlalchemy.engine.Engine) -> psqlgraph.PsqlGraphDriver:
     """
     Initializes a psqlgraph driver for the given namespace
 
     Returns:
         PsqlGraphDriver: instance of psqlgraph driver
     """
-    init_db()
-
     graph = psqlgraph.PsqlGraphDriver(
-        os.getenv("PG_HOST", "localhost"),
-        os.getenv("PG_USER", "test"),
-        os.getenv("PG_PASS", "test"),
-        os.getenv("PG_NAME", "gdcdatamodel2"),
+        os.getenv("PG_HOST", f"{pg_container.url.host}:{pg_container.url.port}"),
+        os.getenv("PG_USER", pg_container.url.username),
+        os.getenv("PG_PASS", pg_container.url.password),
+        os.getenv("PG_NAME", pg_container.url.database),
     )
 
     # Make sure to start with a clean DB

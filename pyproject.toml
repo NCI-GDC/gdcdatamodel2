@@ -30,7 +30,7 @@ requires-python = ">=3.9"
 
 [project.optional-dependencies]
 changelog = ["towncrier"]
-dev = ["coverage[toml]", "pytest", "pytest-cov"]
+dev = ["coverage[toml]", "pytest", "pytest-cov", "testcontainers[postgresql]"]
 docs = ["sphinx", "sphinx-rtd-theme", "sphinxcontrib-napoleon"]
 lint = ["mypy", "pre-commit"]
 validators = ["gdcdictionary"]
