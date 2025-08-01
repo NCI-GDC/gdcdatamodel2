@@ -44,7 +44,7 @@ tox
 
 # Update models
 
-Updating models happens are part of the GDC CI/CD process.
+Updating models happens as part of the GDC CI/CD process.
 The classes generated from the gdcdictionary are commited to this repository.
 Setting up an environment to execute `plaster` is not covered as part of this README.
 
