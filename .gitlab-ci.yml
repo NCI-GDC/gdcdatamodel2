@@ -7,6 +7,7 @@ include:
 
 variables:
   LANGUAGE_VERSION: python3.9
+  CI_COMMIT_REF_NAME: $GIT_BRANCH_NAME
 
 tox:
   parallel:
