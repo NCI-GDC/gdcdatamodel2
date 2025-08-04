@@ -20,7 +20,7 @@ Repo to keep information about the GDC data model design.
 This project replaces [gdcdatamodel](https://github.com/NCI-GDC/gdcdatamodel)
 to overcome the challenges and obscurity associated
 with using gdcdatamodel. The resulting code is readable, passes static and linting
-checks, completely remove delays from dictionary load times.
+checks, and completely removes delays from dictionary load times.
 
 # Requirements
 
