@@ -19,7 +19,6 @@ tox:
     - name: docker.osdc.io/ncigdc/ci-postgres-13:${BASE_CONTAINER_VERSION}
       alias: postgres
       variables:
-        POSTGRES_PASS: test
         POSTGRES_HOST_AUTH_METHOD: trust
         PG_INIT_SQL: |
           create user test with superuser password 'test';
