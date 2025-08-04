@@ -1,9 +1,13 @@
 from __future__ import annotations
 
+import os
+import typing
 from collections.abc import Iterator
 
 import psqlgraph
 import pytest
+import sqlalchemy
+from testcontainers import postgres
 
 from gdcdatamodel2 import models
 from gdcdatamodel2.partial_dictionary import utils
@@ -11,6 +15,18 @@ from tests.helpers import db, hints
 
 SAMPLE_PROGRAM = "GDC"
 SAMPLE_PROJECT = "MISC"
+
+
+@pytest.fixture(scope="session")
+def pg_container() -> typing.Generator[sqlalchemy.engine.Engine | None, None, None]:
+    if os.getenv("CI_COMMIT_REF_NAME"):
+        # disable test containers in gitlab ci
+        yield None
+        return
+    with postgres.PostgresContainer("postgres:13") as pg:
+        engine = sqlalchemy.create_engine(pg.get_connection_url())
+        yield engine
+        engine.dispose()
 
 
 @pytest.fixture(scope="session")
