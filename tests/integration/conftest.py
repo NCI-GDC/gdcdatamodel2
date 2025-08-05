@@ -19,14 +19,16 @@ SAMPLE_PROJECT = "MISC"
 
 @pytest.fixture(scope="session")
 def pg_container() -> typing.Generator[sqlalchemy.engine.Engine | None, None, None]:
+    print("CI_JOB_ID", os.getenv("CI_JOB_ID"))
     if os.getenv("CI_JOB_ID"):
         # disable test containers in gitlab ci
         yield None
         return
-    with postgres.PostgresContainer("postgres:13") as pg:
-        engine = sqlalchemy.create_engine(pg.get_connection_url())
-        yield engine
-        engine.dispose()
+    else:
+        with postgres.PostgresContainer("postgres:13") as pg:
+            engine = sqlalchemy.create_engine(pg.get_connection_url())
+            yield engine
+            engine.dispose()
 
 
 @pytest.fixture(scope="session")
