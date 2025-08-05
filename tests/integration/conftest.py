@@ -19,7 +19,7 @@ SAMPLE_PROJECT = "MISC"
 
 @pytest.fixture(scope="session")
 def pg_container() -> typing.Generator[sqlalchemy.engine.Engine | None, None, None]:
-    if os.getenv("CI_COMMIT_REF_NAME"):
+    if os.getenv("CI_JOB_ID"):
         # disable test containers in gitlab ci
         yield None
         return
