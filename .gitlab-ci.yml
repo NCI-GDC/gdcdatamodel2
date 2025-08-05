@@ -7,7 +7,6 @@ include:
 
 variables:
   LANGUAGE_VERSION: python3.9
-  CI_JOB_ID: $CI_JOB_ID
 
 tox:
   parallel:
@@ -25,6 +24,9 @@ tox:
         PG_INIT_SQL: |
           create user test with superuser password 'test';
           create database gdcdatamodel2 with owner test;
+  variables:
+    CI_JOB_ID: $CI_JOB_ID
+    TEST_VAR: 'SOME_TEST_VAR'
 
 publish:
   script:
