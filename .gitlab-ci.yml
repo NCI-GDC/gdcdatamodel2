@@ -25,6 +25,11 @@ tox:
         PG_INIT_SQL: |
           create user test with superuser password 'test';
           create database gdcdatamodel2 with owner test;
+  variables:
+    PG_PASS: test
+    PG_HOST: postgres
+    PG_USER: postgres
+    PG_NAME: gdcdatamodel2
 
 publish:
   script:
