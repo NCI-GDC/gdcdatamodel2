@@ -28,6 +28,8 @@ checks, and completely removes delays from dictionary load times.
 
 # Testing
 
+> At this time the dependencies: [gdcdictionary](https://github.com/NCI-GDC/gdcdictionary) and [psqlgraph](https://github.com/NCI-GDC/psqlgraph/) will have to be independenty assembled as they are not available for download from the public pypi repository.
+
 ## Prerequistes
 
 - Python >= 3.9 environment
