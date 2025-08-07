@@ -1,6 +1,6 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools>=78", "wheel", "setuptools_scm>=7.1.0", "versionista>=1.1.0"]
+requires = ["setuptools>=78", "wheel", "setuptools_scm>=7.1.0"]
 
 [project]
 authors = [
@@ -30,7 +30,7 @@ requires-python = ">=3.9"
 
 [project.optional-dependencies]
 changelog = ["towncrier"]
-dev = ["coverage[toml]", "pytest", "pytest-cov"]
+dev = ["coverage[toml]", "pytest", "pytest-cov", "testcontainers[postgresql]"]
 docs = ["sphinx", "sphinx-rtd-theme", "sphinxcontrib-napoleon"]
 lint = ["mypy", "pre-commit"]
 validators = ["gdcdictionary"]
@@ -104,5 +104,7 @@ known-first-party = ["gdcdatamodel2", "tests"]
 keep-runtime-typing = true
 
 [tool.setuptools_scm]
-local_scheme = "versionista-local-format"
-version_scheme = "versionista-format"
+# use the timestamp to avoid developer version conflicts
+local_scheme = "node-and-timestamp"
+# Do not guess next version, add .post1.devN.
+version_scheme = "no-guess-dev"

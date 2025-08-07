@@ -6,10 +6,10 @@ Repo to keep information about the GDC data model design.
 
 # Table of Contents
 
-- [Installation](#Installation)
 - [Testing](#Testing)
+  - [Prerequistes](#Prerequistes)
+  - [Execution](#Execution)
 - [Update models](#Update-models)
-  - [Update Plaster](#Update-Plaster)
   - [Update dictionary](#Update-dictionary)
   - [Generate graph models](#Generate-graph-models)
 - [Visualize Graph](#Visualize-Graph)
@@ -17,43 +17,37 @@ Repo to keep information about the GDC data model design.
 
 <!-- tocstop -->
 
-This project is a drop-in replacement to the project
-https://github.com/NCI-GDC/gdcdatamodel, without challenges and obscurity associated
-with using gdcdatamodel. The resulting code will be readable, pass static and linting
-checks, completely remove delays from dictionary load times.
+This project replaces [gdcdatamodel](https://github.com/NCI-GDC/gdcdatamodel)
+to overcome the challenges and obscurity associated
+with using gdcdatamodel. The resulting code is readable, passes static and linting
+checks, and completely removes delays from dictionary load times.
 
 # Requirements
 
-- Python >= 3.6
-
-# Installation
-
-To install the gdcdatamodel library run the setup script:
-
-```bash
-python setup.py install
-```
+- Python >= 3.9
 
 # Testing
 
-Install dependencies with:
+> At this time the dependencies: [gdcdictionary](https://github.com/NCI-GDC/gdcdictionary) and [psqlgraph](https://github.com/NCI-GDC/psqlgraph/) will have to be independenty assembled as they are not available for download from the public pypi repository.
+
+## Prerequistes
+
+- Python >= 3.9 environment
+- `tox` installed e.g., `pip install tox`
+
+## Execution
+
+Run tests with:
 
 ```bash
-pip install --no-deps -r dev-requirements.txt
-```
-
-Run test with:
-
-```bash
-pytest tests
+tox
 ```
 
 # Update models
 
-## Update Plaster
-
-To use a different version of plaster, update the `extras_require.plaster` entry in
-[setup.cfg](setup.cfg).
+Updating models happens as part of the GDC CI/CD process.
+The classes generated from the gdcdictionary are commited to this repository.
+Setting up an environment to execute `plaster` is not covered as part of this README.
 
 ## Update dictionary
 
@@ -73,6 +67,7 @@ bash plaster
 For interactive visualization, use [gexplorer](https://github.com/ncI-GDC/gexplorer)
 
 Use following code in jupyterlab to visualize your graph.
+
 ```python
 from IPython.display import display
 from gdcdatamodel2 import models
@@ -91,7 +86,6 @@ with g.session_scope():
 
 Example result:
 ![Visualization of graph](examples/jupyter_example.svg)
-
 
 # Repo Visualizer
 

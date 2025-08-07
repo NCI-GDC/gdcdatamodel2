@@ -9,6 +9,8 @@ from importlib import resources
 from typing import Protocol
 
 import psqlgraph
+import psycopg2
+import sqlalchemy
 import yaml
 from psqlgraph import ext, hydrator, voided
 from sqlalchemy import MetaData
@@ -48,19 +50,28 @@ class DataLoaderExtension:
     def post(self) -> None: ...
 
 
-def init_graph() -> psqlgraph.PsqlGraphDriver:
+def init_graph(pg_container: sqlalchemy.engine.Engine | None) -> psqlgraph.PsqlGraphDriver:
     """
     Initializes a psqlgraph driver for the given namespace
 
     Returns:
         PsqlGraphDriver: instance of psqlgraph driver
     """
-    graph = psqlgraph.PsqlGraphDriver(
-        os.getenv("PG_HOST", "localhost"),
-        os.getenv("PG_USER", "test"),
-        os.getenv("PG_PASS", "test"),
-        os.getenv("PG_NAME", "gdcdatamodel2"),
-    )
+    graph: psqlgraph.PsqlGraphDriver
+    if pg_container:
+        graph = psqlgraph.PsqlGraphDriver(
+            f"{pg_container.url.host}:{pg_container.url.port}",
+            pg_container.url.username,
+            pg_container.url.password,
+            pg_container.url.database,
+        )
+    else:
+        graph = psqlgraph.PsqlGraphDriver(
+            os.getenv("PG_HOST", "localhost"),
+            os.getenv("PG_USER", "test"),
+            os.getenv("PG_PASS", "test"),
+            os.getenv("PG_NAME", "gdcdatamodel2"),
+        )
 
     # Make sure to start with a clean DB
     tear_down_graph(graph)

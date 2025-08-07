@@ -15,14 +15,17 @@ tox:
           # TODO: add python3.13 after DEV-3751 merged into gdcdictionary & a new tag is
           # cut. Otherwise tests will fail for bug in the dictionary.
             [python3.9, python3.10, python3.11, python3.12]
+
   services:
     - name: docker.osdc.io/ncigdc/ci-postgres-13:${BASE_CONTAINER_VERSION}
       alias: postgres
+      variables:
+        POSTGRES_PASS: test
+        POSTGRES_HOST_AUTH_METHOD: trust
+        PG_INIT_SQL: |
+          create user test with superuser password 'test';
+          create database gdcdatamodel2 with owner test;
   variables:
-    POSTGRES_DB: gdcdatamodel2
-    POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: test
-    POSTGRES_HOST_AUTH_METHOD: trust
     PG_PASS: test
     PG_HOST: postgres
     PG_USER: postgres

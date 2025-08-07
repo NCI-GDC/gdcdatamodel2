@@ -1,9 +1,13 @@
 from __future__ import annotations
 
+import os
+import typing
 from collections.abc import Iterator
 
 import psqlgraph
 import pytest
+import sqlalchemy
+from testcontainers import postgres
 
 from gdcdatamodel2 import models
 from gdcdatamodel2.partial_dictionary import utils
@@ -14,8 +18,21 @@ SAMPLE_PROJECT = "MISC"
 
 
 @pytest.fixture(scope="session")
-def gdc_graph() -> Iterator[psqlgraph.PsqlGraphDriver]:
-    graph = db.init_graph()
+def pg_container() -> typing.Generator[sqlalchemy.engine.Engine | None, None, None]:
+    if os.getenv("CI_JOB_ID"):
+        # disable test containers in gitlab ci
+        yield None
+        return
+    else:
+        with postgres.PostgresContainer("postgres:13") as pg:
+            engine = sqlalchemy.create_engine(pg.get_connection_url())
+            yield engine
+            engine.dispose()
+
+
+@pytest.fixture(scope="session")
+def gdc_graph(pg_container: sqlalchemy.engine.Engine) -> Iterator[psqlgraph.PsqlGraphDriver]:
+    graph = db.init_graph(pg_container)
 
     yield graph
 
