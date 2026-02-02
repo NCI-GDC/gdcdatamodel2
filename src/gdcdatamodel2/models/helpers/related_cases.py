@@ -1,6 +1,8 @@
 """This file only contains helper functions about related cases."""
+
 import itertools
-from typing import Collection, Dict, Generator, Iterator, Optional, Set, Union
+from collections.abc import Collection, Generator, Iterator
+from typing import Optional, Union
 
 import psqlgraph
 from sqlalchemy import orm
@@ -26,7 +28,12 @@ def get_edge_src(edge: psqlgraph.Edge) -> Optional[psqlgraph.Node]:
         src = edge.src
     elif edge.src_id is not None:
         src_class = node_cls.get_subclass_named(edge.__src_class__)
-        src = edge.get_session().query(src_class).filter(src_class.node_id == edge.src_id).first()
+        src = (
+            edge.get_session()
+            .query(src_class)
+            .filter(src_class.node_id == edge.src_id)
+            .first()
+        )
     else:
         src = None
     return src
@@ -48,14 +55,21 @@ def get_edge_dst(edge: psqlgraph.Edge, allow_query: bool = False) -> Optional[ps
         dst = edge.dst
     elif edge.dst_id is not None and allow_query:
         dst_class = node_cls.get_subclass_named(edge.__dst_class__)
-        dst = edge.get_session().query(dst_class).filter(dst_class.node_id == edge.dst_id).first()
+        dst = (
+            edge.get_session()
+            .query(dst_class)
+            .filter(dst_class.node_id == edge.dst_id)
+            .first()
+        )
     else:
         dst = None
 
     return dst
 
 
-def get_related_cases_from_cache(node: psqlgraph.Node) -> Generator[psqlgraph.Node, None, None]:
+def get_related_cases_from_cache(
+    node: psqlgraph.Node,
+) -> Generator[psqlgraph.Node, None, None]:
     """Get the cached related case ids from this node's case shortcut edges.
 
     Args:
@@ -117,7 +131,7 @@ def get_related_cases_from_parents(node: psqlgraph.Node) -> Iterator[psqlgraph.N
     return filter(None, cases)
 
 
-def update_cache_edges(node: psqlgraph.Node, correct_cases: Dict[str, psqlgraph.Node]) -> None:
+def update_cache_edges(node: psqlgraph.Node, correct_cases: dict[str, psqlgraph.Node]) -> None:
     """Create new edges or deletes old edges.
 
         Given node and a dictionary of correct_cases
@@ -147,7 +161,7 @@ def update_cache_edges(node: psqlgraph.Node, correct_cases: Dict[str, psqlgraph.
 
 
 def cache_related_cases_recursive(
-    node: psqlgraph.Node, visited_nodes: Optional[Set[str]] = None
+    node: psqlgraph.Node, visited_nodes: Optional[set[str]] = None
 ) -> None:
     """Update the related case cache on source node and its children recursively.
 

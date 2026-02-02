@@ -12,10 +12,12 @@ Rules:
     have it set to False.
 4. ver, tag, latest will be set at node creation with hooks.
 """
+
 import os
 import uuid
-from functools import lru_cache
-from typing import Any, Dict, Iterator, List
+from collections.abc import Iterator
+from functools import cache
+from typing import Any
 
 import psqlgraph
 import sqlalchemy
@@ -34,7 +36,7 @@ class TagKeys:
 class TaggingConstraint:
     """Computes whether a node instance supports tagging or not."""
 
-    def __init__(self, path: str, prop: str, values: List[str]) -> None:
+    def __init__(self, path: str, prop: str, values: list[str]) -> None:
         """Initialize TaggingConstraint.
 
         Args:
@@ -92,7 +94,7 @@ class TaggingConstraint:
 class TagBuilderConfig:
     """A wrapper around the tagBuilderConfig definition in the dictionary yaml."""
 
-    def __init__(self, cfg: Dict[str, Any]) -> None:
+    def __init__(self, cfg: dict[str, Any]) -> None:
         self.cfg = cfg
 
     def _constraints(self) -> Iterator[TaggingConstraint]:
@@ -117,13 +119,13 @@ class TagBuilderConfig:
         return not any(criteria.match(node) for criteria in self._constraints())
 
 
-def __generate_hash(seed: List[str], label: str) -> str:
+def __generate_hash(seed: list[str], label: str) -> str:
     namespace = UUID_NAMESPACE
     name = f"{seed}-{label}"
     return str(uuid.uuid5(namespace, name))
 
 
-@lru_cache(maxsize=None)
+@cache
 def compute_tag(node: psqlgraph.Node) -> str:
     """Compute unique tag for given node.
 
@@ -164,7 +166,9 @@ def __get_tagged_version(
 
         # reset latest
         r._sysan[TagKeys.latest] = False
-        conn.execute(table.update().where(table.c.node_id == r.node_id).values(_sysan=r._sysan))
+        conn.execute(
+            table.update().where(table.c.node_id == r.node_id).values(_sysan=r._sysan)
+        )
     return max_version + 1
 
 
