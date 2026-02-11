@@ -9,7 +9,6 @@ variables:
   BASE_CONTAINER_VERSION: 3.2.3
   LANGUAGE_VERSION: python3.10
 
-
 tox:
   parallel:
     matrix:
