@@ -20,7 +20,7 @@ checks, and completely removes delays from dictionary load times.
 
 # Requirements
 
-- Python >= 3.9
+- Python >= 3.10
 
 # Testing
 
