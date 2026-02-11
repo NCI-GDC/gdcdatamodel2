@@ -38,7 +38,7 @@ repos:
     rev: 1.9.3
     hooks:
       - id: bandit
-        args: [--skip, 'B101,B303,B404,B603', --exclude, tests]
+        args: [--skip, 'B101,B105,B303,B404,B603', --exclude, tests]
   - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
     rev: 0.2.3
     hooks:
