@@ -9,8 +9,6 @@ repos:
         exclude: .gitlab-ci.yml
       - id: end-of-file-fixer
         exclude: .(svg|ipynb)$
-      - id: fix-encoding-pragma
-        args: [--remove]
       - id: no-commit-to-branch
         args: [--branch, develop, --branch, master, --pattern, release/.*]
       - id: pretty-format-json
