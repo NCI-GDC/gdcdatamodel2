@@ -1,6 +1,6 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools>=78", "wheel", "setuptools_scm>=7.1.0"]
+requires = ["setuptools>=78", "wheel", "setuptools_scm>=7.1.0", "versionista>=1.1.0"]
 
 [project]
 authors = [
@@ -9,7 +9,6 @@ authors = [
 classifiers = [
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -68,7 +67,7 @@ testpaths = ["tests/unit", "tests/integration"]
 exclude = ["examples", "src"]
 line-length = 95
 src = ["src", "tests"]
-target-version = "py39"
+target-version = "py310"
 
 [tool.ruff.format]
 docstring-code-format = true
@@ -104,7 +103,5 @@ known-first-party = ["gdcdatamodel2", "tests"]
 keep-runtime-typing = true
 
 [tool.setuptools_scm]
-# use the timestamp to avoid developer version conflicts
-local_scheme = "node-and-timestamp"
-# Do not guess next version, add .post1.devN.
-version_scheme = "no-guess-dev"
+local_scheme = "versionista-local-format"
+version_scheme = "versionista-format"

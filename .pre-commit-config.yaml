@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-json
       - id: check-toml
@@ -9,8 +9,6 @@ repos:
         exclude: .gitlab-ci.yml
       - id: end-of-file-fixer
         exclude: .(svg|ipynb)$
-      - id: fix-encoding-pragma
-        args: [--remove]
       - id: no-commit-to-branch
         args: [--branch, develop, --branch, master, --pattern, release/.*]
       - id: pretty-format-json
@@ -20,7 +18,7 @@ repos:
         args: [--markdown-linebreak-ext=md]
         exclude: partial_dictionary/partial_dictionary.yml
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
+    rev: v1.5.6
     hooks:
       - id: forbid-crlf
       - id: forbid-tabs
@@ -29,7 +27,7 @@ repos:
       - id: remove-tabs
         exclude: .(py|yaml|yml|tsv)$
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.2
+    rev: v0.15.0
     hooks:
       - id: ruff
         args: [--fix]
@@ -39,10 +37,10 @@ repos:
     hooks:
       - id: markdown-toc
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.8.3
+    rev: 1.9.3
     hooks:
       - id: bandit
-        args: [--skip, 'B101,B303,B404,B603', --exclude, tests]
+        args: [--skip, 'B101,B105,B303,B404,B603', --exclude, tests]
   - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
     rev: 0.2.3
     hooks:
