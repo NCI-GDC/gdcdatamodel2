@@ -3252,17 +3252,6 @@ schema:
             term:
             term_url:
         type: string
-      ribosomal_rna_28s_16s_ratio:
-        description: The 28S/18S ribosomal RNA band ratio used to assess the quality
-          of total RNA.
-        minimum: 0
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: 28s/18s Ribosomal RNA Ratio
-          term_url:
-        type: number
       ribosomal_rna_28s_18s_ratio:
         description: The 28S/18S ribosomal RNA band ratio used to assess the quality
           of total RNA.
@@ -74008,9 +73997,10 @@ schema:
           term: Gleason Secondary Score For Prostate Cancer Category
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5936802%20and%20ver_nr=1.0
       site_of_resection_or_biopsy:
-        description: The text term used to describe the anatomic site of origin, of
-          the patient's malignant disease, as described by the World Health Organization's
-          (WHO) International Classification of Diseases for Oncology (ICD-O).
+        description: The text term used to describe the anatomic site of the resection
+          or biopsy of the patient's malignant disease, as described by the World
+          Health Organization's (WHO) International Classification of Diseases for
+          Oncology (ICD-O).
         enum:
           - Abdomen, NOS
           - Abdominal esophagus
@@ -82676,16 +82666,11 @@ schema:
           term: Alcohol Frequency
           term_url:
       alcohol_history:
-        deprecated_enum:
-          - 'no'
-          - 'yes'
         description: A response to a question that asks whether the participant has
           consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime.
         enum:
           - 'Yes'
           - 'No'
-          - 'yes'
-          - 'no'
           - Unknown
           - Not Reported
         enumDef:
@@ -82720,26 +82705,6 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
           'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
-          'no':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          'yes':
             description: The affirmative response to a question.
             termDef:
               cde_id: C49488
@@ -83723,25 +83688,9 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2228610%20and%20ver_nr=1.0
         type: integer
       tobacco_smoking_status:
-        deprecated_enum:
-          - Not Allowed To Collect
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '5'
-          - '6'
-          - '7'
         description: Category describing current smoking status and smoking history
           as self-reported by a patient.
         enum:
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '5'
-          - '6'
-          - '7'
           - Current Reformed Smoker, Duration Not Specified
           - Current Reformed Smoker for < or = 15 yrs
           - Current Reformed Smoker for > 15 yrs
@@ -83751,95 +83700,7 @@ schema:
           - Smoking history not documented
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
-          '1':
-            description: A person who has never smoked at the time of the interview
-              or has smoked less than 100 cigarettes in their life.
-            termDef:
-              cde_id: C65108
-              cde_version: 19.12e
-              source: NCIt
-              term: Never Smoker
-              term_id: C65108
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C65108
-              term_version: 19.12e
-          '2':
-            description: An adult who has smoked 100 cigarettes in his or her lifetime
-              and who currently smokes cigarettes. Includes daily smokers and non-daily
-              smokers (also known as occasional smokers).
-            termDef:
-              cde_id: C67147
-              cde_version: 19.12e
-              source: NCIt
-              term: Current Smoker
-              term_id: C67147
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C67147
-              term_version: 19.12e
-          '3':
-            description: An individual who stopped smoking more than 15 years prior.
-            termDef:
-              cde_id: C156828
-              cde_version: 19.12e
-              source: NCIt
-              term: Current Reformed Smoker, More than 15 Years
-              term_id: C156828
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156828
-              term_version: 19.12e
-          '4':
-            description: An individual who stopped smoking within the past 15 years.
-            termDef:
-              cde_id: C156829
-              cde_version: 19.12e
-              source: NCIt
-              term: Current Reformed Smoker Within Past 15 Years
-              term_id: C156829
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156829
-              term_version: 19.12e
-          '5':
-            description: An individual who stopped smoking an unknown number of years
-              prior.
-            termDef:
-              cde_id: C156830
-              cde_version: 19.12e
-              source: NCIt
-              term: Current Reformed Smoker, Years Unknown
-              term_id: C156830
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156830
-              term_version: 19.12e
-          '6':
-            description: An indication that a person was a smoker at the time they
-              received a pathologic diagnosis.
-            termDef:
-              cde_id: C164079
-              cde_version: 19.12e
-              source: NCIt
-              term: Smoking at Diagnosis
-              term_id: C164079
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164079
-              term_version: 19.12e
-          '7':
-            description: An indication that the smoking history of an individual is
-              unavailable.
-            termDef:
-              cde_id: C156831
-              cde_version: 19.12e
-              source: NCIt
-              term: Smoking History Not Available
-              term_id: C156831
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156831
-              term_version: 19.12e
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -84940,76 +84801,6 @@ schema:
           term: Relative Diagnosis Age Value
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5300571%20and%20ver_nr=1.0
         type: number
-      relationship_gender:
-        description: The text term used to describe the gender of the patient's relative
-          with a history of cancer.
-        enum:
-          - female
-          - male
-          - unspecified
-          - unknown
-          - not reported
-        enumDef:
-          female:
-            description: A person who belongs to the sex that normally produces ova.
-              The term is used to indicate biological sex distinctions, or cultural
-              gender role distinctions, or both.
-            termDef:
-              cde_id: C16576
-              cde_version: 19.12e
-              source: NCIt
-              term: Female
-              term_id: C16576
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16576
-              term_version: 19.12e
-          male:
-            description: A person who belongs to the sex that normally produces sperm.
-              The term is used to indicate biological sex distinctions, cultural gender
-              role distinctions, or both.
-            termDef:
-              cde_id: C20197
-              cde_version: 19.12e
-              source: NCIt
-              term: Male
-              term_id: C20197
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C20197
-              term_version: 19.12e
-          not reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          unspecified:
-            description: Not stated explicitly or in detail.
-            termDef:
-              cde_id: C38046
-              cde_version: 19.12e
-              source: NCIt
-              term: Unspecified
-              term_id: C38046
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38046
-              term_version: 19.12e
-        termDef:
-          cde_id: 6161021
-          cde_version: 1.0
-          source: caDSR
-          term: Relative Gender Type
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161021%20and%20ver_nr=1.0
       relationship_primary_diagnosis:
         description: The text term used to describe the malignant diagnosis of the
           patient's relative with a history of cancer.
@@ -91088,9 +90879,6 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       timepoint_category:
-        deprecated_enum:
-          - After Study Enrollment
-          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -91098,7 +90886,6 @@ schema:
           - Adolescence
           - Adulthood
           - After Chemotherapy
-          - After Study Enrollment
           - After Study Registration
           - Childhood
           - End of Consolidation Therapy
@@ -91120,7 +90907,6 @@ schema:
           - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
-          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
@@ -115559,17 +115345,8 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142524%20and%20ver_nr=1.0
         type: number
       test_value_range:
-        deprecated_enum:
-          - 0-25
-          - 26-50
-          - 51-75
-          - 76-100
         description: The range of values within which the subject's results fall.
         enum:
-          - 0-25
-          - 26-50
-          - 51-75
-          - 76-100
           - 1-4%
           - 5-9%
           - <10%
@@ -115598,9 +115375,6 @@ schema:
           term:
           term_url:
       timepoint_category:
-        deprecated_enum:
-          - After Study Enrollment
-          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -115608,7 +115382,6 @@ schema:
           - Adolescence
           - Adulthood
           - After Chemotherapy
-          - After Study Enrollment
           - After Study Registration
           - Childhood
           - End of Consolidation Therapy
@@ -115630,7 +115403,6 @@ schema:
           - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
-          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
@@ -116351,13 +116123,6 @@ schema:
           term: CDC HIV Risk Factor Text Term
           term_url:
       comorbidities:
-        deprecated_enum:
-          - Alpha-1 Antitrypsin
-          - Diabetes
-          - Gastroesophageal Reflux Disease
-          - Hepatitis
-          - Kidney Disease
-          - Smoking
         description: The text term used to describe a patient with one or more diseases
           or conditions, which coexist with the patient's malignant disease at the
           same time.
@@ -116458,7 +116223,6 @@ schema:
             - Allergy, Processed Foods
             - Allergy, Seafood
             - Allergy, Wasp
-            - Alpha-1 Antitrypsin
             - Alpha-1 Antitrypsin Deficiency
             - Altered Mental Status
             - Androgen Excess
@@ -116528,7 +116292,6 @@ schema:
             - Denys-Drash Syndrome
             - Depression
             - Dermatomyosis
-            - Diabetes
             - Diabetes, NOS
             - Diabetes, Type I
             - Diabetes, Type II
@@ -116560,7 +116323,6 @@ schema:
             - Follicular Adenoma
             - Gastric Polyp(s)
             - Gastritis
-            - Gastroesophageal Reflux Disease
             - GERD
             - Gilbert's Syndrome
             - Glaucoma
@@ -116585,7 +116347,6 @@ schema:
             - Hemophagocytic Lymphohistiocytosis (HLH)
             - Hemorrhagic Cystitis
             - Hepatic Encephalopathy
-            - Hepatitis
             - Hepatitis A Infection
             - Hepatitis B Infection
             - Hepatitis C Infection
@@ -116633,7 +116394,6 @@ schema:
             - Ischemic Heart Disease
             - ITP
             - Joint Replacement
-            - Kidney Disease
             - Li-Fraumeni Syndrome
             - Liver Cirrhosis (Liver Disease)
             - Liver Toxicity (Non-Infectious)
@@ -116715,7 +116475,6 @@ schema:
             - Sjogren's Syndrome
             - Skin Rash
             - Sleep Apnea
-            - Smoking
             - Squamous Metaplasia
             - Staph Osteomyelitis
             - Staphylococcus aureus
@@ -118087,11 +117846,6 @@ schema:
           term: Risk Factor Treatment Indicator
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6514356%20and%20ver_nr=1.0
       risk_factors:
-        deprecated_enum:
-          - Chronic Hepatitis
-          - Cirrhosis
-          - HIV
-          - Reflux Disease
         description: The text term used to describe a risk factor the patient had
           at the time of or prior to their diagnosis.
         enumDef:
@@ -118202,12 +117956,10 @@ schema:
             - Chloroma
             - Cholelithiasis
             - Chronic Fatigue Syndrome
-            - Chronic Hepatitis
             - Chronic Kidney Disease
             - Chronic Pancreatitis
             - Chronic Systemic Steroid Use
             - Chronic Thyroiditis
-            - Cirrhosis
             - Clonal Hematopoiesis
             - CNS Infection
             - Colon Polyps
@@ -118297,7 +118049,6 @@ schema:
             - High Grade Dysplasia
             - High Grade Liver Dysplastic Nodule
             - High-grade Prostatic Intraepithelial Neoplasia (PIN)
-            - HIV
             - HIV/AIDS
             - Hodgkin Lymphoma
             - Human Herpesvirus-6 (HHV-6)
@@ -118376,7 +118127,6 @@ schema:
             - Pulmonary Fibrosis
             - Reactive Airway Disease
             - Recurrent Pyogenic Cholangitis
-            - Reflux Disease
             - Renal Failure (Requiring Dialysis)
             - Renal Insufficiency
             - Rheumatoid Arthritis
@@ -118474,9 +118224,6 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       timepoint_category:
-        deprecated_enum:
-          - After Study Enrollment
-          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -118484,7 +118231,6 @@ schema:
           - Adolescence
           - Adulthood
           - After Chemotherapy
-          - After Study Enrollment
           - After Study Registration
           - Childhood
           - End of Consolidation Therapy
@@ -118506,7 +118252,6 @@ schema:
           - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
-          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
@@ -118636,19 +118381,6 @@ schema:
           source:
           term: Undescended Testis Corrected
           term_url:
-      undescended_testis_corrected_age:
-        description: The patient's age when their undescended testis was corrected.
-        maximum: 89
-        minimum: 0
-        termDef:
-          cde_id: C181721
-          cde_version: 24.07e
-          source: NCIt
-          term: Undescended Testis Corrected Age
-          term_id: C181721
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181721
-          term_version: 24.07e
-        type: integer
       undescended_testis_corrected_age_range:
         description: The patient's age when their undescended testis was corrected.
         enum:
@@ -124139,6 +123871,7 @@ schema:
           Suggested value is a combination of vendor, kit name, and kit version.
         enum:
           - Custom AmpliSeq Cancer Hotspot GENIE-MDA Augmented Panel v1 - 46 Genes
+          - Custom Ashion GEM ExTra v2 - 125.9 Mb
           - Custom GENIE-DFCI OncoPanel - 275 Genes
           - Custom GENIE-DFCI Oncopanel - 300 Genes
           - Custom GENIE-DFCI Oncopanel - 447 Genes
@@ -125669,8 +125402,6 @@ schema:
           of a project.
         type: integer
       biospecimen_anatomic_site:
-        deprecated_enum:
-          - Head - Face Or Neck, Nos
         description: Text term that represents the name of the organ or tissue site
           of the submitted sample.
         enum:
@@ -125789,7 +125520,6 @@ schema:
           - Hand
           - Hard Palate
           - Head & Neck
-          - Head - Face Or Neck, Nos
           - Head, Face or Neck, NOS
           - Heart
           - Hepatic
@@ -125814,6 +125544,7 @@ schema:
           - Large Bowel
           - Laryngopharynx
           - Larynx
+          - Left Hemisphere
           - Leg
           - Leptomeninges
           - Ligament
@@ -125864,6 +125595,7 @@ schema:
           - Nerve
           - Nerve(s) Cranial
           - Occipital Cortex
+          - Occipital Lobe
           - Ocular Orbits
           - Omentum
           - Oral Cavity
@@ -125875,6 +125607,7 @@ schema:
           - Paranasal Sinuses
           - Paraspinal Ganglion
           - Parathyroid
+          - Parietal Lobe
           - Parotid Gland
           - Patella
           - Pelvis
@@ -125898,6 +125631,7 @@ schema:
           - Retro-Orbital Region
           - Retroperitoneum
           - Rib
+          - Right Hemisphere
           - Ring Finger
           - Round Ligament
           - Sacrum
@@ -125932,6 +125666,7 @@ schema:
           - Supraglottis
           - Synovium
           - Temporal Cortex
+          - Temporal Lobe
           - Tendon
           - Testis
           - Thigh
@@ -126290,8 +126025,6 @@ schema:
                 type: string
             type: object
       diagnosis_pathologically_confirmed:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: The histologic description of tissue or cells confirmed by a
           pathology review of frozen or formalin fixed slide(s) completed after the
           diagnostic pathology review of the tumor sample used to extract analyte(s).
@@ -126300,7 +126033,6 @@ schema:
           - 'No'
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           'No':
             description: The non-affirmative response to a question.
@@ -126311,17 +126043,6 @@ schema:
               term: 'No'
               term_id: C49487
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
               term_version: 19.12e
           Not Reported:
             description: Not provided or available.
@@ -126703,8 +126424,6 @@ schema:
         description: UUID of the related pathology report.
         type: string
       preservation_method:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Text term that represents the method used to preserve the sample.
         enum:
           - Cryopreserved
@@ -126716,19 +126435,7 @@ schema:
           - Snap Frozen
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -127092,8 +126799,6 @@ schema:
                 type: string
             type: object
       tissue_type:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Text term that represents a description of the kind of tissue
           collected with respect to disease status or proximity to tumor tissue.
         enum:
@@ -127103,7 +126808,6 @@ schema:
           - Tumor
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           Normal:
             description: Being approximately average or within certain limits; conforming
@@ -127116,17 +126820,6 @@ schema:
               term_id: C14165
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C14165
               term_version: 20.10d
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -127153,43 +126846,7 @@ schema:
           source: caDSR
           term: Tissue Sample Description Type
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432687%20and%20ver_nr=1.0
-      tumor_code_id:
-        description: BCR-defined id code for the tumor sample.
-        enum:
-          - '00'
-          - '01'
-          - '02'
-          - '03'
-          - '04'
-          - '10'
-          - '15'
-          - '20'
-          - '21'
-          - '30'
-          - '40'
-          - '41'
-          - '50'
-          - '51'
-          - '52'
-          - '60'
-          - '61'
-          - '62'
-          - '63'
-          - '64'
-          - '65'
-          - '70'
-          - '71'
-          - '80'
-          - '81'
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
       tumor_descriptor:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Text that describes the kind of disease present in the tumor
           specimen as related to a specific timepoint.
         enum:
@@ -127203,19 +126860,7 @@ schema:
           - Unknown
           - Not Reported
           - Not Applicable
-          - Not Allowed To Collect
         enumDef:
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Applicable:
             description: Determination of a value is not relevant in the current context.
             termDef:
@@ -153232,4 +152877,4 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 3.4.5.dev2
+version: 3.4.5.dev11
