@@ -17240,8 +17240,6 @@ schema:
             term_url: null
         type: string
       race:
-        deprecated_enum:
-        - unknown
         description: An arbitrary classification of a taxonomic group that is a division
           of a species. It usually arises as a consequence of geographical isolation
           within a species and is characterized by shared heredity, physical attributes
@@ -152962,4 +152960,4 @@ schema:
         - type: 'null'
     required:
     - submitter_id
-version: 3.4.5.dev5
+version: 3.4.5.dev6
