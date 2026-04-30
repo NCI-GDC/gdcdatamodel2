@@ -118992,20 +118992,6 @@ schema:
           source:
           term:
           term_url:
-      epithelioid_cell_percent:
-        description: A quantitative measurement of the percent of epithelioid melanocytes
-          compared to the number of total cells present in a sample.
-        maximum: 100
-        minimum: 0
-        termDef:
-          cde_id: C200471
-          cde_version: 24.07e
-          source: NCIt
-          term: Percent of Epithelioid Melanocytes
-          term_id: C200471
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200471
-          term_version: 24.07e
-        type: number
       epithelioid_cell_percent_range:
         description: A quantitative measurement of the percent of epithelioid melanocytes
           compared to the number of total cells present in a sample.
@@ -119105,15 +119091,6 @@ schema:
           term_id: C185261
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C185261
           term_version: 24.07e
-      extrascleral_extension:
-        description: Spread of uveal melanoma beyond the sclera.
-        termDef:
-          cde_id: C111028
-          cde_version: 22.11d
-          source: NCIt
-          term: Extrascleral Extension of Uveal Melanoma
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028
-        type: boolean
       extrascleral_extension_present:
         description: Spread of uveal melanoma beyond the sclera.
         enum:
@@ -119389,14 +119366,11 @@ schema:
           term:
           term_url:
       lymph_node_involved_site:
-        deprecated_enum:
-          - Cervical
         description: The text term used to describe the anatomic site of lymph node
           involvement.
         enum:
           - Aortic
           - Axillary
-          - Cervical
           - Cervical, Central
           - Cervical, Lateral
           - Cervical, NOS
@@ -119433,16 +119407,6 @@ schema:
               term: Axillary Lymph Node
               term_id: C12904
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12904
-              term_version: 20.10d
-          Cervical:
-            description: Any of the lymph nodes located in the neck.
-            termDef:
-              cde_id: C32298
-              cde_version: 20.10d
-              source: NCIt
-              term: Cervical Lymph Node
-              term_id: C32298
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C32298
               term_version: 20.10d
           Epitrochlear:
             description: A lymph node located above and adjacent to the elbow.
@@ -119665,9 +119629,12 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C33027
           term_version: 19.12e
       lymph_node_involvement:
+        'deprecated_enum:':
+          - Indeterminant
         description: Indicator noting whether lymph nodes were involved.
         enum:
           - Indeterminant
+          - Indeterminate
           - Negative
           - Positive
           - Unknown
@@ -119825,30 +119792,16 @@ schema:
           term: Lymphatic/Small vessel Invasion Ind
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=64171%20and%20ver_nr=3.0
       margin_status:
-        deprecated_enum:
-          - Indeterminant
         description: The determination of the presence of actual or potential neoplastic
           tissue which has been left outside the boundary of a resected specimen within
           the patient.
         enum:
-          - Indeterminant
           - Indeterminate
           - Involved
           - Uninvolved
           - Unknown
           - Not Reported
         enumDef:
-          Indeterminant:
-            description: Cannot distinguish between two or more possible values in
-              the current context.
-            termDef:
-              cde_id: C48658
-              cde_version: 20.10d
-              source: NCIt
-              term: Indeterminate
-              term_id: C48658
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48658
-              term_version: 20.10d
           Indeterminate:
             description: Cannot distinguish between two or more possible values in
               the current context.
@@ -120653,32 +120606,6 @@ schema:
           source:
           term:
           term_url:
-      size_extraocular_nodule:
-        description: The size of the nodule that is outside the eye.
-        minimum: 0
-        termDef:
-          cde_id: C185261
-          cde_version: 24.07e
-          source: NCIt
-          term: Extraocular Nodule Size
-          term_id: C185261
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C185261
-          term_version: 24.07e
-        type: number
-      spindle_cell_percent:
-        description: A quantitative measurement of the percent of spindle-shaped melanocytes
-          compared to the number of total cells present in a sample.
-        maximum: 100
-        minimum: 0
-        termDef:
-          cde_id: C200472
-          cde_version: 24.07e
-          source: NCIt
-          term: Percent of Spindle-Shaped Melanocytes
-          term_id: C200472
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200472
-          term_version: 24.07e
-        type: number
       spindle_cell_percent_range:
         description: A quantitative measurement of the percent of spindle-shaped melanocytes
           compared to the number of total cells present in a sample.
@@ -120740,9 +120667,6 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       timepoint_category:
-        deprecated_enum:
-          - After Study Enrollment
-          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -120750,7 +120674,6 @@ schema:
           - Adolescence
           - Adulthood
           - After Chemotherapy
-          - After Study Enrollment
           - After Study Registration
           - Childhood
           - End of Consolidation Therapy
@@ -120772,7 +120695,6 @@ schema:
           - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
-          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
@@ -152644,4 +152566,4 @@ schema:
     required:
       - submitter_id
       - treatment_type_administered
-version: 3.4.5.dev14
+version: 3.4.5.dev15
