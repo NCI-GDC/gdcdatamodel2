@@ -11073,40 +11073,6 @@ schema:
         description: GDC submission batch indicator. It is unique within the context
           of a project.
         type: integer
-      birth_cohort:
-        description: TBD.
-        enum:
-          - 1921-1925
-          - 1926-1930
-          - 1931-1935
-          - 1936-1940
-          - 1941-1945
-          - 1946-1950
-          - 1951-1955
-          - 1956-1960
-          - 1961-1965
-          - 1966-1970
-          - 1971-1975
-          - 1976-1980
-          - 1981-1985
-          - 1986-1990
-          - 1991-1995
-          - 1996-2000
-          - 2001-2005
-          - 2006-2010
-          - 2011-2015
-          - 2016-2020
-          - 2021-2025
-          - 2026-2030
-          - 2031-2035
-          - Unknown
-          - Not Reported
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: Birth Cohort
-          term_url:
       cases:
         anyOf:
           - items:
@@ -17587,6 +17553,40 @@ schema:
           source: caDSR
           term: Year Birth Date Number
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2896954%20and%20ver_nr=1.0
+      year_of_birth_range:
+        description: TBD.
+        enum:
+          - 1921-1925
+          - 1926-1930
+          - 1931-1935
+          - 1936-1940
+          - 1941-1945
+          - 1946-1950
+          - 1951-1955
+          - 1956-1960
+          - 1961-1965
+          - 1966-1970
+          - 1971-1975
+          - 1976-1980
+          - 1981-1985
+          - 1986-1990
+          - 1991-1995
+          - 1996-2000
+          - 2001-2005
+          - 2006-2010
+          - 2011-2015
+          - 2016-2020
+          - 2021-2025
+          - 2026-2030
+          - 2031-2035
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Year of Birth Range
+          term_url:
       year_of_death:
         description: Numeric value to represent the year of the death of an individual.
         minimum: 1900
@@ -83406,6 +83406,7 @@ schema:
           - Current Reformed Smoker for < or = 15 yrs
           - Current Reformed Smoker for > 15 yrs
           - Current Smoker
+          - Ever Smoker
           - Lifelong Non-Smoker
           - Smoker at Diagnosis
           - Smoking history not documented
@@ -152566,4 +152567,4 @@ schema:
     required:
       - submitter_id
       - treatment_type_administered
-version: 3.4.5.dev15
+version: 3.4.5.dev16
