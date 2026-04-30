@@ -261,3 +261,4 @@ class MethylationBetaValue(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(MethylationBetaValue)
 datetime_hooks.cls_inject_updated_datetime_hook(MethylationBetaValue)
+

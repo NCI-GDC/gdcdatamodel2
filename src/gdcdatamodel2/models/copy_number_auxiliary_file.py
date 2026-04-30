@@ -258,3 +258,4 @@ class CopyNumberAuxiliaryFile(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(CopyNumberAuxiliaryFile)
 datetime_hooks.cls_inject_updated_datetime_hook(CopyNumberAuxiliaryFile)
+

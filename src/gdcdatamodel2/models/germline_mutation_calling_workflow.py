@@ -231,3 +231,4 @@ class GermlineMutationCallingWorkflow(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(GermlineMutationCallingWorkflow)
 datetime_hooks.cls_inject_updated_datetime_hook(GermlineMutationCallingWorkflow)
+

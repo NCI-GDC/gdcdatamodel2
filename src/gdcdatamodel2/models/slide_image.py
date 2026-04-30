@@ -263,3 +263,4 @@ class SlideImage(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(SlideImage)
 datetime_hooks.cls_inject_updated_datetime_hook(SlideImage)
+

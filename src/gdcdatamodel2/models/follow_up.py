@@ -399,7 +399,7 @@ class FollowUp(base.Node):
         self._set_property("scan_tracer_used", value)  # type: ignore  # inherited from CommonBase
 
 
-    @psqlgraph.pg_property(str , enum=['Adjuvant Therapy', 'Adolescence', 'Adulthood', 'After Chemotherapy', 'After Study Enrollment', 'After Study Registration', 'Childhood', 'End of Consolidation Therapy', 'End of Treatment Course', 'End of Treatment Course 1', 'End of Treatment Course 2', 'First Complete Response', 'First Treatment', 'Follow-up', 'Initial Diagnosis', 'Last Contact', 'Not Reported', 'Other', 'Post Adjuvant Therapy', 'Post Hormone Therapy', 'Post Initial Treatment', 'Post Secondary Therapy', 'Postoperative', 'Preoperative', 'Prior to Adjuvant Therapy', 'Prior to Chemotherapy', 'Prior to Diagnosis', 'Prior to Procurement', 'Prior to Study Enrollment', 'Prior to Study Registration', 'Prior to Treatment', 'Progression', 'Recurrence', 'Recurrence/Progression', 'Sample Procurement', 'Unknown', 'Within 2 Months After Completion of First-Course Treatment', 'Within 3 Months of Surgery'])
+    @psqlgraph.pg_property(str , enum=['Adjuvant Therapy', 'Adolescence', 'Adulthood', 'After Chemotherapy', 'After Study Registration', 'Childhood', 'End of Consolidation Therapy', 'End of Treatment Course', 'End of Treatment Course 1', 'End of Treatment Course 2', 'First Complete Response', 'First Treatment', 'Follow-up', 'Initial Diagnosis', 'Last Contact', 'Not Reported', 'Other', 'Post Adjuvant Therapy', 'Post Hormone Therapy', 'Post Initial Treatment', 'Post Secondary Therapy', 'Postoperative', 'Preoperative', 'Prior to Adjuvant Therapy', 'Prior to Chemotherapy', 'Prior to Diagnosis', 'Prior to Procurement', 'Prior to Study Registration', 'Prior to Treatment', 'Progression', 'Recurrence', 'Recurrence/Progression', 'Sample Procurement', 'Unknown', 'Within 2 Months After Completion of First-Course Treatment', 'Within 3 Months of Surgery'])
     def timepoint_category(self, value):
         self._set_property("timepoint_category", value)  # type: ignore  # inherited from CommonBase
 
@@ -417,3 +417,4 @@ class FollowUp(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(FollowUp)
 datetime_hooks.cls_inject_updated_datetime_hook(FollowUp)
+

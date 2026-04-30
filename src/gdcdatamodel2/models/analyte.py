@@ -265,11 +265,6 @@ class Analyte(base.Node):
 
 
     @psqlgraph.pg_property(float, int )
-    def ribosomal_rna_28s_16s_ratio(self, value):
-        self._set_property("ribosomal_rna_28s_16s_ratio", value)  # type: ignore  # inherited from CommonBase
-
-
-    @psqlgraph.pg_property(float, int )
     def ribosomal_rna_28s_18s_ratio(self, value):
         self._set_property("ribosomal_rna_28s_18s_ratio", value)  # type: ignore  # inherited from CommonBase
 
@@ -292,3 +287,4 @@ class Analyte(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(Analyte)
 datetime_hooks.cls_inject_updated_datetime_hook(Analyte)
+
