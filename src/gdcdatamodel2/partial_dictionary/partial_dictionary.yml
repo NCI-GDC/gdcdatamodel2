@@ -17456,7 +17456,7 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2896954%20and%20ver_nr=1.0
       year_of_birth_range:
         description: A categorical value to represent ranges of calendar years, during
-          which an individual was born
+          which an individual was born.
         enum:
         - 1921-1925
         - 1926-1930
@@ -116284,7 +116284,7 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C157437
       fertility_history:
         description: Text term to describe an individual's capacity to conceive or
-          to induce conception
+          to induce conception.
         enum:
         - Conceived 1 or more children by assisted reproduction
         - Conceived 1 or more children by natural conception
@@ -152273,7 +152273,7 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5102381%20and%20ver_nr=1.0
       treatment_type_administered:
         description: Text term that describes the kind of treatment administered to
-          a patient
+          a patient.
         oneOf:
         - type: 'null'
         - enum:
