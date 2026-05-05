@@ -89588,7 +89588,7 @@ schema:
           - Not Reported
         termDef:
           cde_id: 3125302
-          cde_version: "1.1"
+          cde_version: 1.1
           source: caDSR
           term: Common Terminology Criteria for Adverse Events Version 4.0 Low Level
             Term Name
@@ -89995,7 +89995,7 @@ schema:
               term_version: 19.12e
         termDef:
           cde_id: 88
-          cde_version: "5.1"
+          cde_version: 5.1
           source: caDSR
           term: Performance Status Assessment Eastern Cooperative Oncology Group Scale
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=88%20and%20ver_nr=5.1
@@ -90401,7 +90401,7 @@ schema:
               term_version: 19.12e
         termDef:
           cde_id: 2003853
-          cde_version: "4.2"
+          cde_version: 4.2
           source: caDSR
           term: Karnofsky Performance Status Score
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2003853%20and%20ver_nr=4.2
@@ -117102,7 +117102,7 @@ schema:
         minimum: 0
         termDef:
           cde_id: 649
-          cde_version: "4.1"
+          cde_version: 4.1
           source: caDSR
           term: Patient Height Measurement
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=649%20and%20ver_nr=4.1
@@ -117490,7 +117490,7 @@ schema:
               term_version: 19.12e
         termDef:
           cde_id: 2434914
-          cde_version: "1.1"
+          cde_version: 1.1
           source: caDSR
           term: Patient Menopause Status
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2434914%20and%20ver_nr=1.1
