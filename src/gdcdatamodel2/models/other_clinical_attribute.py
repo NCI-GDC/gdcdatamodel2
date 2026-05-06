@@ -481,4 +481,3 @@ class OtherClinicalAttribute(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(OtherClinicalAttribute)
 datetime_hooks.cls_inject_updated_datetime_hook(OtherClinicalAttribute)
-

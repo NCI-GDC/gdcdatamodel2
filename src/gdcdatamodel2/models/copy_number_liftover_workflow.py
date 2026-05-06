@@ -231,4 +231,3 @@ class CopyNumberLiftoverWorkflow(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(CopyNumberLiftoverWorkflow)
 datetime_hooks.cls_inject_updated_datetime_hook(CopyNumberLiftoverWorkflow)
-

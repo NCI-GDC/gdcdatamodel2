@@ -165,4 +165,3 @@ class DataFormat(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(DataFormat)
 datetime_hooks.cls_inject_updated_datetime_hook(DataFormat)
-

@@ -258,4 +258,3 @@ class Portion(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(Portion)
 datetime_hooks.cls_inject_updated_datetime_hook(Portion)
-

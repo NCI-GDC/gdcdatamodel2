@@ -185,4 +185,3 @@ class Publication(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(Publication)
 datetime_hooks.cls_inject_updated_datetime_hook(Publication)
-

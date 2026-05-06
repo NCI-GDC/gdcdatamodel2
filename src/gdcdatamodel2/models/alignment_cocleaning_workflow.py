@@ -231,4 +231,3 @@ class AlignmentCocleaningWorkflow(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(AlignmentCocleaningWorkflow)
 datetime_hooks.cls_inject_updated_datetime_hook(AlignmentCocleaningWorkflow)
-

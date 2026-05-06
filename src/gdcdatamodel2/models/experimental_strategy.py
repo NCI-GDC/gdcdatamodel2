@@ -165,4 +165,3 @@ class ExperimentalStrategy(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(ExperimentalStrategy)
 datetime_hooks.cls_inject_updated_datetime_hook(ExperimentalStrategy)
-

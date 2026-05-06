@@ -471,4 +471,3 @@ class ReadGroup(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(ReadGroup)
 datetime_hooks.cls_inject_updated_datetime_hook(ReadGroup)
-

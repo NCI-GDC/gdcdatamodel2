@@ -253,4 +253,3 @@ class FilteredCopyNumberSegment(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(FilteredCopyNumberSegment)
 datetime_hooks.cls_inject_updated_datetime_hook(FilteredCopyNumberSegment)
-

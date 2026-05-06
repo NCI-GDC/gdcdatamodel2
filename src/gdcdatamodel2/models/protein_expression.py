@@ -261,4 +261,3 @@ class ProteinExpression(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(ProteinExpression)
 datetime_hooks.cls_inject_updated_datetime_hook(ProteinExpression)
-

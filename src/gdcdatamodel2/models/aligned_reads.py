@@ -428,4 +428,3 @@ class AlignedReads(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(AlignedReads)
 datetime_hooks.cls_inject_updated_datetime_hook(AlignedReads)
-

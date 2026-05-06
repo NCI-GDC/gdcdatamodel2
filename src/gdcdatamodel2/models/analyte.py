@@ -287,4 +287,3 @@ class Analyte(base.Node):
 
 datetime_hooks.cls_inject_created_datetime_hook(Analyte)
 datetime_hooks.cls_inject_updated_datetime_hook(Analyte)
-

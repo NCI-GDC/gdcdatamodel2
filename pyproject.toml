@@ -104,3 +104,7 @@ keep-runtime-typing = true
 
 [tool.setuptools_scm]
 fallback_version = "0.0.0"
+
+[[tool.uv.index]]
+name = "nexus"
+url = "https://nexus.osdc.io/repository/pypi-all/simple"
