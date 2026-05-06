@@ -1,12 +1,12 @@
 ---
 include:
   - project: nci-gdc/gitlab-templates
-    ref: 0.8.0
+    ref: master
     file:
       - templates/artifacts/python-library.yaml
 
 variables:
-  BASE_CONTAINER_VERSION: 3.2.3
+  BASE_CONTAINER_VERSION: 3.5.0
   LANGUAGE_VERSION: python3.10
 
 tox:

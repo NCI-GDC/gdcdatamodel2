@@ -3252,17 +3252,6 @@ schema:
             term:
             term_url:
         type: string
-      ribosomal_rna_28s_16s_ratio:
-        description: The 28S/18S ribosomal RNA band ratio used to assess the quality
-          of total RNA.
-        minimum: 0
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term: 28s/18s Ribosomal RNA Ratio
-          term_url:
-        type: number
       ribosomal_rna_28s_18s_ratio:
         description: The 28S/18S ribosomal RNA band ratio used to assess the quality
           of total RNA.
@@ -17089,8 +17078,6 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17953
           term_version: 23.03d
       ethnicity:
-        deprecated_enum:
-          - unknown
         description: An individual's self-described social and cultural grouping,
           specifically whether an individual describes themselves as Hispanic or Latino.
           The provided values are based on the categories defined by the U.S. Office
@@ -17099,7 +17086,6 @@ schema:
           - hispanic or latino
           - not hispanic or latino
           - Unknown
-          - unknown
           - not reported
           - not allowed to collect
         enumDef:
@@ -17158,95 +17144,12 @@ schema:
               term_id: C43234
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
               term_version: 20.05a
-          unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
         termDef:
           cde_id: 2192217
           cde_version: 2.0
           source: caDSR
           term: Ethnic Group Category Text
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2192217%20and%20ver_nr=2.0
-      gender:
-        description: 'Text designations that identify gender. Gender is described
-          as the assemblage of properties that distinguish people on the basis of
-          their societal roles. [Explanatory Comment 1: Identification of gender is
-          based upon self-report and may come from a form, questionnaire, interview,
-          etc.]'
-        enum:
-          - female
-          - male
-          - unspecified
-          - unknown
-          - not reported
-        enumDef:
-          female:
-            description: A person who belongs to the sex that normally produces ova.
-              The term is used to indicate biological sex distinctions, or cultural
-              gender role distinctions, or both.
-            termDef:
-              cde_id: C16576
-              cde_version: 19.12e
-              source: NCIt
-              term: Female
-              term_id: C16576
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16576
-              term_version: 19.12e
-          male:
-            description: A person who belongs to the sex that normally produces sperm.
-              The term is used to indicate biological sex distinctions, cultural gender
-              role distinctions, or both.
-            termDef:
-              cde_id: C20197
-              cde_version: 19.12e
-              source: NCIt
-              term: Male
-              term_id: C20197
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C20197
-              term_version: 19.12e
-          not reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          unspecified:
-            description: Not stated explicitly or in detail.
-            termDef:
-              cde_id: C38046
-              cde_version: 19.12e
-              source: NCIt
-              term: Unspecified
-              term_id: C38046
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38046
-              term_version: 19.12e
-        termDef:
-          cde_id: 2200604
-          cde_version: 3.0
-          source: caDSR
-          term: Person Gender Text Type
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2200604%20and%20ver_nr=3.0
       id:
         common:
           description: A 128-bit identifier. Depending on the mechanism used to generate
@@ -17391,8 +17294,6 @@ schema:
             term_url:
         type: string
       race:
-        deprecated_enum:
-          - unknown
         description: An arbitrary classification of a taxonomic group that is a division
           of a species. It usually arises as a consequence of geographical isolation
           within a species and is characterized by shared heredity, physical attributes
@@ -17408,7 +17309,6 @@ schema:
           - white
           - other
           - Unknown
-          - unknown
           - not reported
           - not allowed to collect
         enumDef:
@@ -17500,16 +17400,6 @@ schema:
               term: Other
               term_id: C17649
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17649
-              term_version: 19.12e
-          unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
           white:
             description: A person having origins in any of the original peoples of
@@ -17663,6 +17553,41 @@ schema:
           source: caDSR
           term: Year Birth Date Number
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2896954%20and%20ver_nr=1.0
+      year_of_birth_range:
+        description: A categorical value to represent ranges of calendar years, during
+          which an individual was born.
+        enum:
+          - 1921-1925
+          - 1926-1930
+          - 1931-1935
+          - 1936-1940
+          - 1941-1945
+          - 1946-1950
+          - 1951-1955
+          - 1956-1960
+          - 1961-1965
+          - 1966-1970
+          - 1971-1975
+          - 1976-1980
+          - 1981-1985
+          - 1986-1990
+          - 1991-1995
+          - 1996-2000
+          - 2001-2005
+          - 2006-2010
+          - 2011-2015
+          - 2016-2020
+          - 2021-2025
+          - 2026-2030
+          - 2031-2035
+          - Unknown
+          - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Year of Birth Range
+          term_url:
       year_of_death:
         description: Numeric value to represent the year of the death of an individual.
         minimum: 1900
@@ -17750,8 +17675,6 @@ schema:
           term: Patient Diagnosis Age Day Value
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=10609539%20and%20ver_nr=1.0
       ajcc_clinical_m:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Extent of the distant metastasis for the cancer based on evidence
           obtained from clinical assessment parameters determined prior to treatment.
         enum:
@@ -17764,7 +17687,6 @@ schema:
           - MX
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           M0:
             description: A distant metastasis TNM finding indicating that there is
@@ -17847,17 +17769,6 @@ schema:
               term_id: C48704
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48704
               term_version: 20.05a
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -17900,8 +17811,6 @@ schema:
             M Stage
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3440331%20and%20ver_nr=1.0
       ajcc_clinical_n:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Extent of the regional lymph node involvement for the cancer
           based on evidence obtained from clinical assessment parameters determined
           prior to treatment.
@@ -17932,7 +17841,6 @@ schema:
           - NX
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           N0:
             description: A regional lymph node TNM finding indicating that there is
@@ -18279,17 +18187,6 @@ schema:
               term_id: C48718
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48718
               term_version: 20.05a
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -18318,11 +18215,6 @@ schema:
             Node N Stage
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3440330%20and%20ver_nr=1.0
       ajcc_clinical_stage:
-        deprecated_enum:
-          - Not Allowed To Collect
-          - Stage IB Cervix
-          - Stage II Cervix
-          - Stage IIA Cervix
         description: Stage group determined from clinical information on the tumor
           (T), regional node (N) and metastases (M) and by grouping cases with similar
           prognosis for cancer.
@@ -18338,14 +18230,11 @@ schema:
           - Stage IB
           - Stage IB1
           - Stage IB2
-          - Stage IB Cervix
           - Stage IC
           - Stage II
-          - Stage II Cervix
           - Stage IIA
           - Stage IIA1
           - Stage IIA2
-          - Stage IIA Cervix
           - Stage IIB
           - Stage IIC
           - Stage IIC1
@@ -18364,19 +18253,7 @@ schema:
           - Stage X
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -18508,29 +18385,6 @@ schema:
               term_id: C27976
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C27976
               term_version: 20.05a
-          Stage IB Cervix:
-            description: 'Invasive cancer confined to the original anatomic site of
-              growth without lymph node involvement.  The definition of stage IB depends
-              on the particular type of cancer that it refers to; for example, for
-              breast cancer, stage IB is defined as follows: (T0, N1mi, M0); (T1,
-              N1mi, M0). T0: No evidence of primary tumor. T1: Tumor 20 mm or less
-              in greatest dimension. T1 includes T1mi. T1mi: Tumor 1 mm or less in
-              greatest dimension. N1mi: Nodal micrometastases. M0: No clinical or
-              radiographic evidence of distant metastasis. M0 includes M0(i+); for
-              bone cancer, stage IB is defined as follows: (T2, N0, M0, G1, G2, GX);
-              (T3, N0, M0, G1, G2, GX). T2: Tumor more than 8 cm in greatest dimension.
-              T3: Discontinuous tumors in the primary bone site. N0: No regional lymph
-              node metastasis. M0: No distant metastasis. G1: Well differentiated-low
-              grade. G2: Moderately differentiated-low grade. GX: Grade cannot be
-              assessed. (partially adapted from AJCC 7th ed.)'
-            termDef:
-              cde_id: C27976
-              cde_version: 20.05a
-              source: NCIt
-              term: Stage IB
-              term_id: C27976
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C27976
-              term_version: 20.05a
           Stage IB1:
             description: 'A stage term referring to invasive cervical cancer that
               is confined to the cervix without lymph node involvement.  It includes:
@@ -18581,42 +18435,7 @@ schema:
               term_id: C28054
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C28054
               term_version: 20.05a
-          Stage II Cervix:
-            description: Invasive cancer more extensive than stage I, usually involving
-              local lymph nodes without spread to distant anatomic sites.
-            termDef:
-              cde_id: C28054
-              cde_version: 20.05a
-              source: NCIt
-              term: Stage II
-              term_id: C28054
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C28054
-              term_version: 20.05a
           Stage IIA:
-            description: 'Invasive cancer more extensive than stage I, usually involving
-              local lymph nodes without spread to distant anatomic sites.  The definition
-              of stage IIA depends on the particular type of cancer that it refers
-              to; for example, for breast cancer, stage IIA is defined as follows:
-              (T0, N1, M0); (T1, N1, M0); (T2, N0, M0). T0: No evidence of primary
-              tumor. T1: Tumor 20 mm or less in greatest dimension. T1 includes T1mi.
-              T1mi: Tumor 1 mm or less in greatest dimension. T2: Tumor more than
-              20 mm but not more than 50 mm in greatest dimension. N1: Metastasis
-              to movable ipsilateral level I, II axillary lymph node(s). N0: No regional
-              lymph node metastasis. M0: No clinical or radiographic evidence of distant
-              metastasis. M0 includes M0(i+); for bone cancer, stage IIA is defined
-              as follows: T1, N0, M0, G3, G4. T1: Tumor 8 cm or less in greatest dimension.
-              N0: No regional lymph node metastasis. M0: No distant metastasis. G3:
-              Poorly differentiated. G4: Undifferentiated. (partially adapted from
-              AJCC 7th ed.)'
-            termDef:
-              cde_id: C27967
-              cde_version: 20.05a
-              source: NCIt
-              term: Stage IIA
-              term_id: C27967
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C27967
-              term_version: 20.05a
-          Stage IIA Cervix:
             description: 'Invasive cancer more extensive than stage I, usually involving
               local lymph nodes without spread to distant anatomic sites.  The definition
               of stage IIA depends on the particular type of cancer that it refers
@@ -18935,8 +18754,6 @@ schema:
           term: Neoplasm American Joint Committee on Cancer Clinical Group Stage
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3440332%20and%20ver_nr=1.0
       ajcc_clinical_t:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Extent of the primary cancer based on evidence obtained from
           clinical assessment parameters determined prior to treatment.
         enum:
@@ -18976,19 +18793,7 @@ schema:
           - TX
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -19513,8 +19318,6 @@ schema:
             T Stage
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3440328%20and%20ver_nr=1.0
       ajcc_pathologic_m:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Code to represent the defined absence or presence of distant
           spread or metastases (M) to locations via vascular channels or lymphatics
           beyond the regional lymph nodes, using criteria established by the American
@@ -19531,7 +19334,6 @@ schema:
           - MX
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           M0:
             description: A distant metastasis TNM finding indicating that there is
@@ -19614,17 +19416,6 @@ schema:
               term_id: C48704
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48704
               term_version: 20.05a
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -19666,8 +19457,6 @@ schema:
           term: American Joint Committee on Cancer Metastasis Stage Code
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3045439%20and%20ver_nr=1.0
       ajcc_pathologic_n:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: The codes that represent the stage of cancer based on the nodes
           present (N stage) according to criteria based on multiple editions of the
           AJCC's Cancer Staging Manual.
@@ -19699,7 +19488,6 @@ schema:
           - NX
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           N0:
             description: A regional lymph node TNM finding indicating that there is
@@ -20046,17 +19834,6 @@ schema:
               term_id: C48718
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48718
               term_version: 20.05a
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -20638,8 +20415,6 @@ schema:
           term: Neoplasm Disease Stage American Joint Committee on Cancer Code
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=3203222%20and%20ver_nr=1.0
       ajcc_pathologic_t:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Code of pathological T (primary tumor) to define the size or
           contiguous extension of the primary tumor (T), using staging criteria from
           the American Joint Committee on Cancer (AJCC).
@@ -20681,19 +20456,7 @@ schema:
           - TX
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -21313,8 +21076,6 @@ schema:
           term: American Joint Committee on Cancer Publication Version Type
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6689577%20and%20ver_nr=1.0
       ann_arbor_b_symptoms:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Text term to signify whether lymphoma B-symptoms are present
           as noted in the patient's medical record.
         enum:
@@ -21322,7 +21083,6 @@ schema:
           - 'No'
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           'No':
             description: The non-affirmative response to a question.
@@ -21333,17 +21093,6 @@ schema:
               term: 'No'
               term_id: C49487
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
               term_version: 19.12e
           Not Reported:
             description: Not provided or available.
@@ -21396,6 +21145,23 @@ schema:
           source:
           term:
           term_url:
+      ann_arbor_b_symptoms_described_array:
+        description: Text describing the specific lymphoma B-symptoms present.
+        items:
+          enum:
+            - Fever
+            - Night Sweats
+            - Weight Loss
+            - Other
+            - Unknown
+            - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term:
+          term_url:
+        type: array
       ann_arbor_clinical_stage:
         description: The text term used to describe the clinical classification of
           lymphoma, as defined by the Ann Arbor Lymphoma Staging System.
@@ -21482,8 +21248,6 @@ schema:
           term: Ann Arbor Clinical Stage
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5615604%20and%20ver_nr=1.0
       ann_arbor_extranodal_involvement:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Indicator that identifies whether a patient with malignant lymphoma
           has lymphomatous involvement of an extranodal site.
         enum:
@@ -21491,7 +21255,6 @@ schema:
           - 'No'
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           'No':
             description: The non-affirmative response to a question.
@@ -21502,17 +21265,6 @@ schema:
               term: 'No'
               term_id: C49487
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
               term_version: 19.12e
           Not Reported:
             description: Not provided or available.
@@ -21952,8 +21704,6 @@ schema:
           term: Best Response Assessment Type
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=15179918%20and%20ver_nr=1.0
       burkitt_lymphoma_clinical_variant:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Burkitt's lymphoma categorization based on clinical features
           that differ from other forms of the same disease.
         enum:
@@ -21964,7 +21714,6 @@ schema:
           - Sporadic, pediatric
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           Endemic:
             description: A clinical variant of Burkitt lymphoma that occurs in equatorial
@@ -21998,17 +21747,6 @@ schema:
               term_id: C27915
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C27915
               term_version: 20.05a
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -23761,8 +23499,6 @@ schema:
           term: French-American-British Classification
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028
       figo_stage:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: The extent of a cervical or endometrial cancer within the body,
           especially whether the disease has spread from the original site to other
           parts of the body, as described by the International Federation of Gynecology
@@ -23801,19 +23537,7 @@ schema:
           - Stage IVB
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -26020,8 +25744,6 @@ schema:
           term: Metastatic Disease at Diagnosis Indicator
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6133614%20and%20ver_nr=1.0
       method_of_diagnosis:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Text term used to describe the method used to confirm the patients
           malignant diagnosis.
         enum:
@@ -26053,7 +25775,6 @@ schema:
           - Other
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           Autopsy:
             description: A postmortem examination of the body that includes an examination
@@ -26243,17 +25964,6 @@ schema:
               term_id: C15266
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C15266
               term_version: 20.05a
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -26790,6 +26500,7 @@ schema:
           - 8453/0
           - 8453/2
           - 8453/3
+          - 8453/6
           - 8454/0
           - 8460/0
           - 8460/2
@@ -27035,6 +26746,7 @@ schema:
           - 8830/3
           - 8831/0
           - 8832/0
+          - 8832/1
           - 8832/3
           - 8833/3
           - 8834/1
@@ -27324,6 +27036,7 @@ schema:
           - 9371/3
           - 9372/3
           - 9373/0
+          - 9380/1
           - 9380/3
           - 9381/3
           - 9382/3
@@ -27345,8 +27058,10 @@ schema:
           - 9411/3
           - 9412/1
           - 9413/0
+          - 9413/1
           - 9420/3
           - 9421/1
+          - 9421/3
           - 9423/3
           - 9424/3
           - 9425/3
@@ -27369,12 +27084,14 @@ schema:
           - 9473/3
           - 9474/3
           - 9475/3
+          - 9475/6
           - 9476/3
           - 9477/3
           - 9478/3
           - 9480/3
           - 9490/0
           - 9490/3
+          - 9490/6
           - 9491/0
           - 9492/0
           - 9493/0
@@ -41044,8 +40761,6 @@ schema:
           term: Peritoneal Ascites Cytological Procedure Status
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6690681%20and%20ver_nr=1.0
       primary_diagnosis:
-        deprecated_enum:
-          - Adenocarcinoma in tubolovillous adenoma
         description: Text term used to describe the patient's histologic diagnosis,
           as described by the World Health Organization's (WHO) International Classification
           of Diseases for Oncology (ICD-O).
@@ -41157,7 +40872,6 @@ schema:
           - Adenocarcinoma in situ, mucinous
           - Adenocarcinoma in situ, non-mucinous
           - Adenocarcinoma in situ, NOS
-          - Adenocarcinoma in tubolovillous adenoma
           - Adenocarcinoma in tubular adenoma
           - Adenocarcinoma in tubulovillous adenoma
           - Adenocarcinoma in villous adenoma
@@ -41672,6 +41386,7 @@ schema:
           - DCIS, comedo type
           - DCIS, NOS
           - DCIS, papillary
+          - Dedifferentiated carcinoma
           - Dedifferentiated chondrosarcoma
           - Dedifferentiated chordoma
           - Dedifferentiated liposarcoma
@@ -41714,6 +41429,7 @@ schema:
           - Diffuse leptomeningeal glioneuronal tumor
           - Diffuse melanocytosis
           - Diffuse meningiomatosis
+          - Diffuse midline glioma, H3 K27-mutant
           - Diffuse midline glioma, H3 K27M-mutant
           - Diffuse Pediatric-type High Grade Glioma
           - Digital papillary adenocarcinoma
@@ -42585,6 +42301,7 @@ schema:
           - Medulloblastoma, SHH-activated and TP53-mutant
           - Medulloblastoma, SHH-activated and TP53-wildtype
           - Medulloblastoma, WNT-activated
+          - Medulloblastoma, WNT-activated, NOS
           - Medullocytoma
           - Medulloepithelioma, benign
           - Medulloepithelioma, NOS
@@ -45006,17 +44723,6 @@ schema:
               term: Lung Non-Mucinous Adenocarcinoma In Situ
               term_id: C136716
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C136716
-              term_version: 20.05a
-          Adenocarcinoma in tubolovillous adenoma:
-            description: A non-invasive or invasive adenocarcinoma arising from a
-              tubulovillous adenoma.
-            termDef:
-              cde_id: C4145
-              cde_version: 20.05a
-              source: NCIt
-              term: Adenocarcinoma in Tubulovillous Adenoma
-              term_id: C4145
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C4145
               term_version: 20.05a
           Adenocarcinoma in tubular adenoma:
             description: An adenocarcinoma arising from a tubular adenoma.
@@ -74004,9 +73710,10 @@ schema:
           term: Gleason Secondary Score For Prostate Cancer Category
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5936802%20and%20ver_nr=1.0
       site_of_resection_or_biopsy:
-        description: The text term used to describe the anatomic site of origin, of
-          the patient's malignant disease, as described by the World Health Organization's
-          (WHO) International Classification of Diseases for Oncology (ICD-O).
+        description: The text term used to describe the anatomic site of the resection
+          or biopsy of the patient's malignant disease, as described by the World
+          Health Organization's (WHO) International Classification of Diseases for
+          Oncology (ICD-O).
         enum:
           - Abdomen, NOS
           - Abdominal esophagus
@@ -74136,6 +73843,7 @@ schema:
           - Lateral wall of bladder
           - Lateral wall of nasopharynx
           - Lateral wall of oropharynx
+          - Left hemisphere
           - Lesser curvature of stomach, NOS
           - Lingual tonsil
           - Lip, NOS
@@ -74273,6 +73981,7 @@ schema:
           - Retromolar area
           - Retroperitoneum
           - Rib, sternum, clavicle and associated joints
+          - Right hemisphere
           - Round ligament
           - Scrotum, NOS
           - Short bones of lower limb and associated joints
@@ -77266,9 +76975,6 @@ schema:
           term: ICD-O Origin of Disease Anatomic Site
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161034%20and%20ver_nr=1.0
       sites_of_involvement:
-        deprecated_enum:
-          - Esophagus
-          - Pancreas
         description: The anatomic sites of disease involvement in addition to the
           primary anatomic site.
         enumDef:
@@ -77575,6 +77281,7 @@ schema:
             - Central Lung
             - Central nervous system
             - Cerebrospinal fluid
+            - Cervical stroma
             - Cervix
             - Chest wall
             - Colon, NOS
@@ -77585,7 +77292,6 @@ schema:
             - Dura Mater
             - Ear
             - Epididymis
-            - Esophagus
             - Esophagus, Lower Third
             - Esophagus, Middle Third
             - Esophagus, NOS
@@ -77649,7 +77355,6 @@ schema:
             - Ovary, Left
             - Ovary, NOS
             - Ovary, Right
-            - Pancreas
             - Pancreas Body
             - Pancreas Duct
             - Pancreas Head
@@ -77681,6 +77386,7 @@ schema:
             - Salivary gland
             - Scalp
             - Scrotum
+            - Serosa
             - Sigmoid colon
             - Sinus
             - Skin
@@ -77707,6 +77413,7 @@ schema:
             - Tunica Vaginalis
             - Upper lobe, lung
             - Urethra
+            - Ureter
             - Uterus
             - Vagina
             - Vertebrae
@@ -82613,7 +82320,8 @@ schema:
         target_type: case
     properties:
       age_at_last_exposure:
-        description: The study participant's age at the time they were last exposed.
+        description: The study participant's age (in years) at the time they were
+          last exposed.
         maximum: 89
         minimum: 0
         termDef:
@@ -82624,8 +82332,8 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=14589582%20and%20ver_nr=1.0
         type: integer
       age_at_onset:
-        description: Numeric value used to represent the age of the patient when exposure
-          to a specific environmental factor began.
+        description: Numeric value used to represent the age (in years) of the patient
+          when exposure to a specific environmental factor began.
         maximum: 89
         minimum: 0
         termDef:
@@ -82672,16 +82380,11 @@ schema:
           term: Alcohol Frequency
           term_url:
       alcohol_history:
-        deprecated_enum:
-          - 'no'
-          - 'yes'
         description: A response to a question that asks whether the participant has
           consumed at least 12 drinks of any kind of alcoholic beverage in their lifetime.
         enum:
           - 'Yes'
           - 'No'
-          - 'yes'
-          - 'no'
           - Unknown
           - Not Reported
         enumDef:
@@ -82716,26 +82419,6 @@ schema:
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
               term_version: 19.12e
           'Yes':
-            description: The affirmative response to a question.
-            termDef:
-              cde_id: C49488
-              cde_version: 19.12e
-              source: NCIt
-              term: 'Yes'
-              term_id: C49488
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
-              term_version: 19.12e
-          'no':
-            description: The non-affirmative response to a question.
-            termDef:
-              cde_id: C49487
-              cde_version: 19.12e
-              source: NCIt
-              term: 'No'
-              term_id: C49487
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          'yes':
             description: The affirmative response to a question.
             termDef:
               cde_id: C49488
@@ -83719,123 +83402,20 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2228610%20and%20ver_nr=1.0
         type: integer
       tobacco_smoking_status:
-        deprecated_enum:
-          - Not Allowed To Collect
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '5'
-          - '6'
-          - '7'
         description: Category describing current smoking status and smoking history
           as self-reported by a patient.
         enum:
-          - '1'
-          - '2'
-          - '3'
-          - '4'
-          - '5'
-          - '6'
-          - '7'
           - Current Reformed Smoker, Duration Not Specified
           - Current Reformed Smoker for < or = 15 yrs
           - Current Reformed Smoker for > 15 yrs
           - Current Smoker
+          - Ever Smoker
           - Lifelong Non-Smoker
           - Smoker at Diagnosis
           - Smoking history not documented
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
-          '1':
-            description: A person who has never smoked at the time of the interview
-              or has smoked less than 100 cigarettes in their life.
-            termDef:
-              cde_id: C65108
-              cde_version: 19.12e
-              source: NCIt
-              term: Never Smoker
-              term_id: C65108
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C65108
-              term_version: 19.12e
-          '2':
-            description: An adult who has smoked 100 cigarettes in his or her lifetime
-              and who currently smokes cigarettes. Includes daily smokers and non-daily
-              smokers (also known as occasional smokers).
-            termDef:
-              cde_id: C67147
-              cde_version: 19.12e
-              source: NCIt
-              term: Current Smoker
-              term_id: C67147
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C67147
-              term_version: 19.12e
-          '3':
-            description: An individual who stopped smoking more than 15 years prior.
-            termDef:
-              cde_id: C156828
-              cde_version: 19.12e
-              source: NCIt
-              term: Current Reformed Smoker, More than 15 Years
-              term_id: C156828
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156828
-              term_version: 19.12e
-          '4':
-            description: An individual who stopped smoking within the past 15 years.
-            termDef:
-              cde_id: C156829
-              cde_version: 19.12e
-              source: NCIt
-              term: Current Reformed Smoker Within Past 15 Years
-              term_id: C156829
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156829
-              term_version: 19.12e
-          '5':
-            description: An individual who stopped smoking an unknown number of years
-              prior.
-            termDef:
-              cde_id: C156830
-              cde_version: 19.12e
-              source: NCIt
-              term: Current Reformed Smoker, Years Unknown
-              term_id: C156830
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156830
-              term_version: 19.12e
-          '6':
-            description: An indication that a person was a smoker at the time they
-              received a pathologic diagnosis.
-            termDef:
-              cde_id: C164079
-              cde_version: 19.12e
-              source: NCIt
-              term: Smoking at Diagnosis
-              term_id: C164079
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C164079
-              term_version: 19.12e
-          '7':
-            description: An indication that the smoking history of an individual is
-              unavailable.
-            termDef:
-              cde_id: C156831
-              cde_version: 19.12e
-              source: NCIt
-              term: Smoking History Not Available
-              term_id: C156831
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C156831
-              term_version: 19.12e
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -84936,76 +84516,6 @@ schema:
           term: Relative Diagnosis Age Value
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5300571%20and%20ver_nr=1.0
         type: number
-      relationship_gender:
-        description: The text term used to describe the gender of the patient's relative
-          with a history of cancer.
-        enum:
-          - female
-          - male
-          - unspecified
-          - unknown
-          - not reported
-        enumDef:
-          female:
-            description: A person who belongs to the sex that normally produces ova.
-              The term is used to indicate biological sex distinctions, or cultural
-              gender role distinctions, or both.
-            termDef:
-              cde_id: C16576
-              cde_version: 19.12e
-              source: NCIt
-              term: Female
-              term_id: C16576
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C16576
-              term_version: 19.12e
-          male:
-            description: A person who belongs to the sex that normally produces sperm.
-              The term is used to indicate biological sex distinctions, cultural gender
-              role distinctions, or both.
-            termDef:
-              cde_id: C20197
-              cde_version: 19.12e
-              source: NCIt
-              term: Male
-              term_id: C20197
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C20197
-              term_version: 19.12e
-          not reported:
-            description: Not provided or available.
-            termDef:
-              cde_id: C43234
-              cde_version: 20.05a
-              source: NCIt
-              term: Not Reported
-              term_id: C43234
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C43234
-              term_version: 20.05a
-          unknown:
-            description: Not known, not observed, not recorded, or refused.
-            termDef:
-              cde_id: C17998
-              cde_version: 19.12e
-              source: NCIt
-              term: Unknown
-              term_id: C17998
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C17998
-              term_version: 19.12e
-          unspecified:
-            description: Not stated explicitly or in detail.
-            termDef:
-              cde_id: C38046
-              cde_version: 19.12e
-              source: NCIt
-              term: Unspecified
-              term_id: C38046
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C38046
-              term_version: 19.12e
-        termDef:
-          cde_id: 6161021
-          cde_version: 1.0
-          source: caDSR
-          term: Relative Gender Type
-          term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6161021%20and%20ver_nr=1.0
       relationship_primary_diagnosis:
         description: The text term used to describe the malignant diagnosis of the
           patient's relative with a history of cancer.
@@ -89588,7 +89098,7 @@ schema:
           - Not Reported
         termDef:
           cde_id: 3125302
-          cde_version: 1.1
+          cde_version: 1.0
           source: caDSR
           term: Common Terminology Criteria for Adverse Events Version 4.0 Low Level
             Term Name
@@ -89995,7 +89505,7 @@ schema:
               term_version: 19.12e
         termDef:
           cde_id: 88
-          cde_version: 5.1
+          cde_version: 5.0
           source: caDSR
           term: Performance Status Assessment Eastern Cooperative Oncology Group Scale
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=88%20and%20ver_nr=5.1
@@ -90401,7 +89911,7 @@ schema:
               term_version: 19.12e
         termDef:
           cde_id: 2003853
-          cde_version: 4.2
+          cde_version: 4.0
           source: caDSR
           term: Karnofsky Performance Status Score
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2003853%20and%20ver_nr=4.2
@@ -91084,9 +90594,6 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       timepoint_category:
-        deprecated_enum:
-          - After Study Enrollment
-          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -91094,7 +90601,6 @@ schema:
           - Adolescence
           - Adulthood
           - After Chemotherapy
-          - After Study Enrollment
           - After Study Registration
           - Childhood
           - End of Consolidation Therapy
@@ -91116,7 +90622,6 @@ schema:
           - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
-          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
@@ -115555,17 +115060,8 @@ schema:
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6142524%20and%20ver_nr=1.0
         type: number
       test_value_range:
-        deprecated_enum:
-          - 0-25
-          - 26-50
-          - 51-75
-          - 76-100
         description: The range of values within which the subject's results fall.
         enum:
-          - 0-25
-          - 26-50
-          - 51-75
-          - 76-100
           - 1-4%
           - 5-9%
           - <10%
@@ -115594,9 +115090,6 @@ schema:
           term:
           term_url:
       timepoint_category:
-        deprecated_enum:
-          - After Study Enrollment
-          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -115604,7 +115097,6 @@ schema:
           - Adolescence
           - Adulthood
           - After Chemotherapy
-          - After Study Enrollment
           - After Study Registration
           - Childhood
           - End of Consolidation Therapy
@@ -115626,7 +115118,6 @@ schema:
           - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
-          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
@@ -116347,13 +115838,6 @@ schema:
           term: CDC HIV Risk Factor Text Term
           term_url:
       comorbidities:
-        deprecated_enum:
-          - Alpha-1 Antitrypsin
-          - Diabetes
-          - Gastroesophageal Reflux Disease
-          - Hepatitis
-          - Kidney Disease
-          - Smoking
         description: The text term used to describe a patient with one or more diseases
           or conditions, which coexist with the patient's malignant disease at the
           same time.
@@ -116429,6 +115913,7 @@ schema:
               term_version: 19.12e
         items:
           enum:
+            - Abdominal Hernia
             - Abnormal Glucose Level
             - Acute Renal Failure
             - Adenocarcinoma
@@ -116453,12 +115938,12 @@ schema:
             - Allergy, Processed Foods
             - Allergy, Seafood
             - Allergy, Wasp
-            - Alpha-1 Antitrypsin
             - Alpha-1 Antitrypsin Deficiency
             - Altered Mental Status
             - Androgen Excess
             - Anemia
             - Anxiety
+            - Aortic Valve Insufficiency
             - Arrhythmia
             - Arthritis
             - Asthma
@@ -116475,7 +115960,9 @@ schema:
             - Behcet's Disease
             - Benign Prostatic Hyperplasia
             - Benign Thyroid Nodule
+            - Beta Thalassemia
             - Biliary Disorder
+            - Bipolar Disorder
             - Birt-Hogg-Dube Syndrome
             - BK Virus
             - Blood Clots
@@ -116483,6 +115970,7 @@ schema:
             - Bronchitis
             - Calcium Channel Blockers
             - Cancer
+            - Cardiomyopathy
             - Cataracts
             - Celiac Disease
             - Cerebrovascular Disease
@@ -116519,7 +116007,6 @@ schema:
             - Denys-Drash Syndrome
             - Depression
             - Dermatomyosis
-            - Diabetes
             - Diabetes, NOS
             - Diabetes, Type I
             - Diabetes, Type II
@@ -116532,14 +116019,18 @@ schema:
             - Dyslipidemia
             - EBV Lymphoproliferation
             - Eczema
+            - Encephalitis
             - Endometriosis
             - Endosalpingiosis
             - Epilepsy
             - Epithelial Dysplasia
             - Epithelial Hyperplasia
             - Epstein-Barr Virus
+            - Erectile Dysfunction
+            - Erythroderma
             - Escherichia coli
             - Estrogen Excess
+            - Evan's Syndrome
             - Familial Adenomatous Polyposis
             - Fanconi Anemia
             - Fibromyalgia
@@ -116547,7 +116038,6 @@ schema:
             - Follicular Adenoma
             - Gastric Polyp(s)
             - Gastritis
-            - Gastroesophageal Reflux Disease
             - GERD
             - Gilbert's Syndrome
             - Glaucoma
@@ -116557,19 +116047,21 @@ schema:
             - Gonadal Dysfunction
             - Gorlin Syndrome
             - Gout
+            - Graft vs Host Disease
             - Graves' Disease
             - Hashimoto's Thyroiditis
             - Hay Fever
             - Headache
+            - Hearing Loss
             - Heart Disease
             - Helicobacter pylori Infection
             - Helicobacter pylori-Associated Gastritis
             - Hematologic Disorder, NOS
             - Hemihypertrophy
             - Hemochromatosis
+            - Hemophagocytic Lymphohistiocytosis (HLH)
             - Hemorrhagic Cystitis
             - Hepatic Encephalopathy
-            - Hepatitis
             - Hepatitis A Infection
             - Hepatitis B Infection
             - Hepatitis C Infection
@@ -116603,6 +116095,7 @@ schema:
             - Hypertension
             - Hyperthyroidism
             - Hypospadias
+            - Hypotension
             - Hypothyroidism
             - Inflammation
             - Inflammation, Hyperkeratosis
@@ -116616,13 +116109,13 @@ schema:
             - Ischemic Heart Disease
             - ITP
             - Joint Replacement
-            - Kidney Disease
             - Li-Fraumeni Syndrome
             - Liver Cirrhosis (Liver Disease)
             - Liver Toxicity (Non-Infectious)
             - Low Grade Dysplasia
             - Low Grade Liver Dysplastic Nodule
             - Lupus
+            - Lyme Disease
             - Lymphamatoid Papulosis
             - Lymphocytic Meningitis
             - Lymphocytic Thyroiditis
@@ -116632,6 +116125,7 @@ schema:
             - Malaria
             - Metabolic Syndrome
             - Methicillin-Resistant Staphylococcus aureus (MRSA)
+            - Migraine
             - Mineralcorticoids Excess
             - Motor / Movement Change
             - Myasthenia Gravis
@@ -116640,12 +116134,15 @@ schema:
             - Myocardial Infarction
             - Neurocystericerosis
             - Neuroendocrine Tumor
+            - Neuroma
+            - Neuropathy
             - Nevus of Ota
             - Nodular Hyperplasia
             - Nodular Prostatic Hyperplasia
             - Nonalcoholic Fatty Liver Disease
             - Nonalcoholic Steatohepatitis
             - Obesity
+            - Opioid Addiction
             - Organ Transplant (Site)
             - Osteoarthritis
             - Osteoporosis or Osteopenia
@@ -116660,14 +116157,20 @@ schema:
             - Peripheral Neuropathy
             - Peripheral Vascular Disease
             - Peutz-Jeghers Disease
+            - Pleural Effusion
             - Pneumocystis Pneumonia
             - Pneumonia, NOS
             - Polycystic Ovarian Syndrome (PCOS)
+            - Polycythemia
             - Pregnancy in Patient or Partner
+            - Primary Ciliary Dyskinesia
             - Primary Sclerosing Cholangitis
+            - Primordial Dwarfism
             - Psoriasis
+            - Pulmonary Embolism
             - Pulmonary Fibrosis
             - Pulmonary Hemorrhage
+            - Reactive Airway Disease
             - Recurrent Pyogenic Cholangitis
             - Renal Dialysis
             - Renal Failure (Requiring Dialysis)
@@ -116680,13 +116183,13 @@ schema:
             - Scarlet Fever
             - Seizure
             - Sensory Changes
+            - Sepsis
             - Serous Tubal Intraepithelial Carcinoma (STIC)
             - Shingles
             - Sialadenitis
             - Sjogren's Syndrome
             - Skin Rash
             - Sleep Apnea
-            - Smoking
             - Squamous Metaplasia
             - Staph Osteomyelitis
             - Staphylococcus aureus
@@ -116706,12 +116209,14 @@ schema:
             - Tubulointerstitial Disease
             - Tumor-Associated Lymphoid Proliferation
             - Turcot Syndrome
+            - Turner's Syndrome
             - Tyrosinemia
             - Ulcerative Colitis
             - Undescended Testis
             - Urinary Tract Infection
             - Varicella Zoster Virus
             - Vascular Disease
+            - Ventricular Tachycardia
             - Vision Changes
             - Von Hippel-Lindau Syndrome
             - Wagr Syndrome
@@ -116926,7 +116431,7 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C157437
       fertility_history:
         description: Text term to describe an individual's capacity to conceive or
-          to induce conception
+          to induce conception.
         enum:
           - Conceived 1 or more children by assisted reproduction
           - Conceived 1 or more children by natural conception
@@ -117102,7 +116607,7 @@ schema:
         minimum: 0
         termDef:
           cde_id: 649
-          cde_version: 4.1
+          cde_version: 4.0
           source: caDSR
           term: Patient Height Measurement
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=649%20and%20ver_nr=4.1
@@ -117490,7 +116995,7 @@ schema:
               term_version: 19.12e
         termDef:
           cde_id: 2434914
-          cde_version: 1.1
+          cde_version: 1.0
           source: caDSR
           term: Patient Menopause Status
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2434914%20and%20ver_nr=1.1
@@ -118056,11 +117561,6 @@ schema:
           term: Risk Factor Treatment Indicator
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6514356%20and%20ver_nr=1.0
       risk_factors:
-        deprecated_enum:
-          - Chronic Hepatitis
-          - Cirrhosis
-          - HIV
-          - Reflux Disease
         description: The text term used to describe a risk factor the patient had
           at the time of or prior to their diagnosis.
         enumDef:
@@ -118111,6 +117611,7 @@ schema:
               term_version: 19.12e
         items:
           enum:
+            - Abdominal Hernia
             - Abnormal Glucose Level
             - Adenocarcinoma
             - Adenomatous Polyposis Coli
@@ -118138,6 +117639,7 @@ schema:
             - Altered Mental Status
             - Androgen Excess
             - Anemia
+            - Aortic Valve Insufficiency
             - Arthritis
             - Asthma
             - Ataxia-Telangiectasia
@@ -118152,13 +117654,16 @@ schema:
             - Behcet's Disease
             - Benign Prostatic Hyperplasia
             - Benign Thyroid Nodule
+            - Beta Thalassemia
             - Biliary Disorder
+            - Bipolar Disorder
             - Birt-Hogg-Dube Syndrome
             - BK Virus
             - BRCA Family History
             - Bronchitis
             - Calcium Channel Blockers
             - Cancer
+            - Cardiomyopathy
             - Cataracts
             - Celiac Disease
             - Cerebrovascular Disease
@@ -118166,12 +117671,10 @@ schema:
             - Chloroma
             - Cholelithiasis
             - Chronic Fatigue Syndrome
-            - Chronic Hepatitis
             - Chronic Kidney Disease
             - Chronic Pancreatitis
             - Chronic Systemic Steroid Use
             - Chronic Thyroiditis
-            - Cirrhosis
             - Clonal Hematopoiesis
             - CNS Infection
             - Colon Polyps
@@ -118202,13 +117705,17 @@ schema:
             - Dyslipidemia
             - EBV Lymphoproliferation
             - Eczema
+            - Encephalitis
             - Endometriosis
             - Endosalpingiosis
             - Epithelial Dysplasia
             - Epithelial Hyperplasia
             - Epstein-Barr Virus
+            - Erectile Dysfunction
+            - Erythroderma
             - Escherichia coli
             - Estrogen Excess
+            - Evan's Syndrome
             - Familial Adenomatous Polyposis
             - Fanconi Anemia
             - Fibrosis
@@ -118223,16 +117730,19 @@ schema:
             - Goiter
             - Gorlin Syndrome
             - Gout
+            - Graft vs Host Disease
             - Graves' Disease
             - Hashimoto's Thyroiditis
             - Hay Fever
             - Headache
+            - Hearing Loss
             - Heart Disease
             - Helicobacter pylori Infection
             - Helicobacter pylori-Associated Gastritis
             - Hematologic Disorder, NOS
             - Hemihypertrophy
             - Hemochromatosis
+            - Hemophagocytic Lymphohistiocytosis (HLH)
             - Hepatic Encephalopathy
             - Hepatitis A Infection
             - Hepatitis B Infection
@@ -118254,7 +117764,6 @@ schema:
             - High Grade Dysplasia
             - High Grade Liver Dysplastic Nodule
             - High-grade Prostatic Intraepithelial Neoplasia (PIN)
-            - HIV
             - HIV/AIDS
             - Hodgkin Lymphoma
             - Human Herpesvirus-6 (HHV-6)
@@ -118267,6 +117776,7 @@ schema:
             - Hypertension
             - Hyperthyroidism
             - Hypospadias
+            - Hypotension
             - Hypothyroidism
             - Inflammation
             - Inflammation, Hyperkeratosis
@@ -118283,6 +117793,7 @@ schema:
             - Low Grade Dysplasia
             - Low Grade Liver Dysplastic Nodule
             - Lupus
+            - Lyme Disease
             - Lymphamatoid Papulosis
             - Lymphocytic Meningitis
             - Lymphocytic Thyroiditis
@@ -118290,6 +117801,7 @@ schema:
             - Lynch Syndrome
             - Malaria
             - Metabolic Syndrome
+            - Migraine
             - Mineralcorticoids Excess
             - Motor / Movement Change
             - Myasthenia Gravis
@@ -118298,6 +117810,8 @@ schema:
             - Myocardial Infarction
             - Neurocystericerosis
             - Neuroendocrine Tumor
+            - Neuroma
+            - Neuropathy
             - Nevus of Ota
             - Nodular Hyperplasia
             - Nodular Prostatic Hyperplasia
@@ -118305,6 +117819,7 @@ schema:
             - Nonalcoholic Steatohepatitis
             - None
             - Obesity
+            - Opioid Addiction
             - Oral Contraceptives
             - Organ Transplant (Site)
             - Osteoarthritis
@@ -118313,15 +117828,20 @@ schema:
             - Peptic Ulcer (Ulcer)
             - Peripheral Vascular Disease
             - Peutz-Jeghers Disease
+            - Pleural Effusion
             - Pneumocystis Pneumonia
             - Pneumonia, NOS
             - Polycystic Ovarian Syndrome (PCOS)
+            - Polycythemia
             - Pregnancy in Patient or Partner
+            - Primary Ciliary Dyskinesia
             - Primary Sclerosing Cholangitis
+            - Primordial Dwarfism
             - Psoriasis
+            - Pulmonary Embolism
             - Pulmonary Fibrosis
+            - Reactive Airway Disease
             - Recurrent Pyogenic Cholangitis
-            - Reflux Disease
             - Renal Failure (Requiring Dialysis)
             - Renal Insufficiency
             - Rheumatoid Arthritis
@@ -118332,6 +117852,7 @@ schema:
             - Scarlet Fever
             - Seizure
             - Sensory Changes
+            - Sepsis
             - Serous Tubal Intraepithelial Carcinoma (STIC)
             - Shingles
             - Sialadenitis
@@ -118356,12 +117877,14 @@ schema:
             - Tubulointerstitial Disease
             - Tumor-associated Lymphoid Proliferation
             - Turcot Syndrome
+            - Turner's Syndrome
             - Tyrosinemia
             - Ulcerative Colitis
             - Undescended Testis
             - Urinary Tract Infection
             - Varicella Zoster Virus
             - Vascular Disease
+            - Ventricular Tachycardia
             - Vision Changes
             - Von Hippel-Lindau Syndrome
             - Wagr Syndrome
@@ -118416,9 +117939,6 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       timepoint_category:
-        deprecated_enum:
-          - After Study Enrollment
-          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -118426,7 +117946,6 @@ schema:
           - Adolescence
           - Adulthood
           - After Chemotherapy
-          - After Study Enrollment
           - After Study Registration
           - Childhood
           - End of Consolidation Therapy
@@ -118448,7 +117967,6 @@ schema:
           - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
-          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
@@ -118578,19 +118096,6 @@ schema:
           source:
           term: Undescended Testis Corrected
           term_url:
-      undescended_testis_corrected_age:
-        description: The patient's age when their undescended testis was corrected.
-        maximum: 89
-        minimum: 0
-        termDef:
-          cde_id: C181721
-          cde_version: 24.07e
-          source: NCIt
-          term: Undescended Testis Corrected Age
-          term_id: C181721
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C181721
-          term_version: 24.07e
-        type: integer
       undescended_testis_corrected_age_range:
         description: The patient's age when their undescended testis was corrected.
         enum:
@@ -119491,20 +118996,6 @@ schema:
           source:
           term:
           term_url:
-      epithelioid_cell_percent:
-        description: A quantitative measurement of the percent of epithelioid melanocytes
-          compared to the number of total cells present in a sample.
-        maximum: 100
-        minimum: 0
-        termDef:
-          cde_id: C200471
-          cde_version: 24.07e
-          source: NCIt
-          term: Percent of Epithelioid Melanocytes
-          term_id: C200471
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200471
-          term_version: 24.07e
-        type: number
       epithelioid_cell_percent_range:
         description: A quantitative measurement of the percent of epithelioid melanocytes
           compared to the number of total cells present in a sample.
@@ -119539,6 +119030,8 @@ schema:
           term: Extracapsular
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C25502
       extracapsular_extension_present:
+        description: An indication of the presence of the extension of malignant tissue
+          situated outside of a specific capsule.
         enum:
           - 'Yes'
           - 'No'
@@ -119575,6 +119068,12 @@ schema:
               term_id: C49488
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49488
               term_version: 19.12e
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Extracapsular Extension Present
+          term_url:
       extranodal_extension:
         description: Extension of a malignant neoplasm beyond the lymph node capsule.
         enum:
@@ -119604,15 +119103,6 @@ schema:
           term_id: C185261
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C185261
           term_version: 24.07e
-      extrascleral_extension:
-        description: Spread of uveal melanoma beyond the sclera.
-        termDef:
-          cde_id: C111028
-          cde_version: 22.11d
-          source: NCIt
-          term: Extrascleral Extension of Uveal Melanoma
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C111028
-        type: boolean
       extrascleral_extension_present:
         description: Spread of uveal melanoma beyond the sclera.
         enum:
@@ -119888,14 +119378,11 @@ schema:
           term:
           term_url:
       lymph_node_involved_site:
-        deprecated_enum:
-          - Cervical
         description: The text term used to describe the anatomic site of lymph node
           involvement.
         enum:
           - Aortic
           - Axillary
-          - Cervical
           - Cervical, Central
           - Cervical, Lateral
           - Cervical, NOS
@@ -119932,16 +119419,6 @@ schema:
               term: Axillary Lymph Node
               term_id: C12904
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C12904
-              term_version: 20.10d
-          Cervical:
-            description: Any of the lymph nodes located in the neck.
-            termDef:
-              cde_id: C32298
-              cde_version: 20.10d
-              source: NCIt
-              term: Cervical Lymph Node
-              term_id: C32298
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C32298
               term_version: 20.10d
           Epitrochlear:
             description: A lymph node located above and adjacent to the elbow.
@@ -120164,9 +119641,12 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C33027
           term_version: 19.12e
       lymph_node_involvement:
+        'deprecated_enum:':
+          - Indeterminant
         description: Indicator noting whether lymph nodes were involved.
         enum:
           - Indeterminant
+          - Indeterminate
           - Negative
           - Positive
           - Unknown
@@ -120328,23 +119808,23 @@ schema:
           tissue which has been left outside the boundary of a resected specimen within
           the patient.
         enum:
-          - Indeterminant
+          - Indeterminate
           - Involved
           - Uninvolved
           - Unknown
           - Not Reported
         enumDef:
-          Indeterminant:
+          Indeterminate:
             description: Cannot distinguish between two or more possible values in
               the current context.
             termDef:
               cde_id: C48658
-              cde_version: 20.10d
+              cde_version: 20.05a
               source: NCIt
               term: Indeterminate
               term_id: C48658
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C48658
-              term_version: 20.10d
+              term_version: 20.05a
           Involved:
             description: Specifies whether the margins of surgical resection are infiltrated
               by disease.
@@ -121138,32 +120618,6 @@ schema:
           source:
           term:
           term_url:
-      size_extraocular_nodule:
-        description: The size of the nodule that is outside the eye.
-        minimum: 0
-        termDef:
-          cde_id: C185261
-          cde_version: 24.07e
-          source: NCIt
-          term: Extraocular Nodule Size
-          term_id: C185261
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C185261
-          term_version: 24.07e
-        type: number
-      spindle_cell_percent:
-        description: A quantitative measurement of the percent of spindle-shaped melanocytes
-          compared to the number of total cells present in a sample.
-        maximum: 100
-        minimum: 0
-        termDef:
-          cde_id: C200472
-          cde_version: 24.07e
-          source: NCIt
-          term: Percent of Spindle-Shaped Melanocytes
-          term_id: C200472
-          term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C200472
-          term_version: 24.07e
-        type: number
       spindle_cell_percent_range:
         description: A quantitative measurement of the percent of spindle-shaped melanocytes
           compared to the number of total cells present in a sample.
@@ -121225,9 +120679,6 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       timepoint_category:
-        deprecated_enum:
-          - After Study Enrollment
-          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -121235,7 +120686,6 @@ schema:
           - Adolescence
           - Adulthood
           - After Chemotherapy
-          - After Study Enrollment
           - After Study Registration
           - Childhood
           - End of Consolidation Therapy
@@ -121257,7 +120707,6 @@ schema:
           - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
-          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
@@ -124067,6 +123516,7 @@ schema:
           Suggested value is a combination of vendor, kit name, and kit version.
         enum:
           - Custom AmpliSeq Cancer Hotspot GENIE-MDA Augmented Panel v1 - 46 Genes
+          - Custom Ashion GEM ExTra v2 - 125.9 Mb
           - Custom GENIE-DFCI OncoPanel - 275 Genes
           - Custom GENIE-DFCI Oncopanel - 300 Genes
           - Custom GENIE-DFCI Oncopanel - 447 Genes
@@ -125597,8 +125047,6 @@ schema:
           of a project.
         type: integer
       biospecimen_anatomic_site:
-        deprecated_enum:
-          - Head - Face Or Neck, Nos
         description: Text term that represents the name of the organ or tissue site
           of the submitted sample.
         enum:
@@ -125717,7 +125165,6 @@ schema:
           - Hand
           - Hard Palate
           - Head & Neck
-          - Head - Face Or Neck, Nos
           - Head, Face or Neck, NOS
           - Heart
           - Hepatic
@@ -125742,6 +125189,7 @@ schema:
           - Large Bowel
           - Laryngopharynx
           - Larynx
+          - Left Hemisphere
           - Leg
           - Leptomeninges
           - Ligament
@@ -125792,6 +125240,7 @@ schema:
           - Nerve
           - Nerve(s) Cranial
           - Occipital Cortex
+          - Occipital Lobe
           - Ocular Orbits
           - Omentum
           - Oral Cavity
@@ -125803,6 +125252,7 @@ schema:
           - Paranasal Sinuses
           - Paraspinal Ganglion
           - Parathyroid
+          - Parietal Lobe
           - Parotid Gland
           - Patella
           - Pelvis
@@ -125826,6 +125276,7 @@ schema:
           - Retro-Orbital Region
           - Retroperitoneum
           - Rib
+          - Right Hemisphere
           - Ring Finger
           - Round Ligament
           - Sacrum
@@ -125860,6 +125311,7 @@ schema:
           - Supraglottis
           - Synovium
           - Temporal Cortex
+          - Temporal Lobe
           - Tendon
           - Testis
           - Thigh
@@ -126218,8 +125670,6 @@ schema:
                 type: string
             type: object
       diagnosis_pathologically_confirmed:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: The histologic description of tissue or cells confirmed by a
           pathology review of frozen or formalin fixed slide(s) completed after the
           diagnostic pathology review of the tumor sample used to extract analyte(s).
@@ -126228,7 +125678,6 @@ schema:
           - 'No'
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           'No':
             description: The non-affirmative response to a question.
@@ -126239,17 +125688,6 @@ schema:
               term: 'No'
               term_id: C49487
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C49487
-              term_version: 19.12e
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
               term_version: 19.12e
           Not Reported:
             description: Not provided or available.
@@ -126631,8 +126069,6 @@ schema:
         description: UUID of the related pathology report.
         type: string
       preservation_method:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Text term that represents the method used to preserve the sample.
         enum:
           - Cryopreserved
@@ -126644,19 +126080,7 @@ schema:
           - Snap Frozen
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -127020,8 +126444,6 @@ schema:
                 type: string
             type: object
       tissue_type:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Text term that represents a description of the kind of tissue
           collected with respect to disease status or proximity to tumor tissue.
         enum:
@@ -127031,7 +126453,6 @@ schema:
           - Tumor
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
           Normal:
             description: Being approximately average or within certain limits; conforming
@@ -127044,17 +126465,6 @@ schema:
               term_id: C14165
               term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C14165
               term_version: 20.10d
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -127081,43 +126491,7 @@ schema:
           source: caDSR
           term: Tissue Sample Description Type
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432687%20and%20ver_nr=1.0
-      tumor_code_id:
-        description: BCR-defined id code for the tumor sample.
-        enum:
-          - '00'
-          - '01'
-          - '02'
-          - '03'
-          - '04'
-          - '10'
-          - '15'
-          - '20'
-          - '21'
-          - '30'
-          - '40'
-          - '41'
-          - '50'
-          - '51'
-          - '52'
-          - '60'
-          - '61'
-          - '62'
-          - '63'
-          - '64'
-          - '65'
-          - '70'
-          - '71'
-          - '80'
-          - '81'
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
       tumor_descriptor:
-        deprecated_enum:
-          - Not Allowed To Collect
         description: Text that describes the kind of disease present in the tumor
           specimen as related to a specific timepoint.
         enum:
@@ -127131,19 +126505,7 @@ schema:
           - Unknown
           - Not Reported
           - Not Applicable
-          - Not Allowed To Collect
         enumDef:
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Applicable:
             description: Determination of a value is not relevant in the current context.
             termDef:
@@ -130039,6 +129401,7 @@ schema:
           - GATK4 MuTect2 Tumor-Only
           - Manta Indel
           - MuSE
+          - MuSiCal
           - MuSiCal GATK4 MuTect2
           - MuTect2
           - Pindel
@@ -133644,6 +133007,7 @@ schema:
         description: The text term used to describe the status of the patient's malignancy
           when the treatment began.
         enum:
+          - Biochemical Recurrence
           - Initial Diagnosis
           - Persistent Disease
           - Progressive Disease
@@ -133722,15 +133086,21 @@ schema:
         description: The text term used to describe the anatomic sites that were involved
           in the survival margins.
         enum:
+          - Bladder
           - Cervix Uteri
           - Gerota Fascia
+          - Macroscopic Parametrium
+          - Microscopic Parametrium
           - Parenchyma
           - Perinephric Fat
           - Renal
           - Renal Capsule
           - Renal Sinus
           - Renal Vein
+          - Soft Tissue
           - Ureter
+          - Uterus
+          - Vagina
           - Other
           - Unknown
           - Not Reported
@@ -134185,6 +133555,8 @@ schema:
           place of the uuid for identifying or recalling a node.
         type: string
       therapeutic_agents:
+        deprecated_enum:
+          - Pegaspargase
         description: Text identification of the individual agent(s) used as part of
           a treatment regimen.
         enum:
@@ -135905,6 +135277,7 @@ schema:
           - Dynemicin A
           - E2F1 Pathway Activator ARQ 171
           - EBNA-1 inhibitor VK-2019
+          - EBV CTLs
           - Echinomycin
           - Ecromeximab
           - Edatrexate
@@ -137478,6 +136851,7 @@ schema:
           - PEG-PEI-cholesterol Lipopolymer-encased IL-12 DNA Plasmid Vector GEN-1
           - PEG-Proline-Interferon Alfa-2b
           - Pegargiminase
+          - Pegasparagase
           - Pegaspargase
           - Pegdinetanib
           - Pegfilgrastim
@@ -138391,6 +137765,7 @@ schema:
           - Tocladesine
           - Tocotrienol
           - Tocotrienol-rich Fraction
+          - Tofacitinib
           - Tolebrutinib
           - Toll-like Receptor 7 Agonist DSP-0509
           - Tolnidamine
@@ -138697,6 +138072,7 @@ schema:
           - Zebularine
           - Zelavespib
           - Zibotentan
+          - Zidovudine
           - Zinc Finger Nuclease ZFN-603
           - Zinc Finger Nuclease ZFN-758
           - Zinostatin
@@ -152007,16 +151383,6 @@ schema:
           source: caDSR
           term: Prior Therapy Regimen Text
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2975232%20and%20ver_nr=1.0
-      therapeutic_level_achieved:
-        description: Indicates a target level of treatment was reached, according
-          to the patient's treatment plan.
-        termDef:
-          cde_id:
-          cde_version:
-          source:
-          term:
-          term_url:
-        type: boolean
       therapeutic_levels_achieved:
         description: An indication that the intended level of therapeutic agent was
           achieved in an individual.
@@ -152087,9 +151453,6 @@ schema:
           term:
           term_url:
       timepoint_category:
-        deprecated_enum:
-          - After Study Enrollment
-          - Prior to Study Enrollment
         description: Category describing a specific point in the time continuum, including
           those established relative to an event.
         enum:
@@ -152097,7 +151460,6 @@ schema:
           - Adolescence
           - Adulthood
           - After Chemotherapy
-          - After Study Enrollment
           - After Study Registration
           - Childhood
           - End of Consolidation Therapy
@@ -152119,7 +151481,6 @@ schema:
           - Prior to Chemotherapy
           - Prior to Diagnosis
           - Prior to Procurement
-          - Prior to Study Enrollment
           - Prior to Study Registration
           - Prior to Treatment
           - Progression
@@ -152138,8 +151499,6 @@ schema:
           term: Timepoint
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C68568
       treatment_anatomic_sites:
-        deprecated_enum:
-          - Head - Face Or Neck, Nos
         description: The anatomic site or field targeted by a treatment regimen or
           single agent therapy.
         enumDef:
@@ -152401,7 +151760,6 @@ schema:
             - Gum
             - Hand
             - Hard Palate
-            - Head - Face Or Neck, Nos
             - Head and Neck
             - Head, Face or Neck, NOS
             - Heart
@@ -152869,8 +152227,8 @@ schema:
           term: Treatment Regimen Intent Type
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2793511%20and%20ver_nr=1.0
       treatment_or_therapy:
-        description: A yes/no/unknown/not applicable indicator related to the administration
-          of therapeutic agents received.
+        description: An indicator related to the administration of the treatment specified
+          in the treatment_type field.
         enum:
           - 'yes'
           - 'no'
@@ -152982,11 +152340,11 @@ schema:
           term_url:
         type: integer
       treatment_type:
-        deprecated_enum:
-          - Cryoablation
-          - Not Allowed To Collect
-          - Surgery
-        description: Text term that describes the kind of treatment administered.
+        description: Text term that describes the type of treatment information available
+          within this dataset. Note the value of this field may not be an indication
+          that the treatment type was administered to this patient. Please reference
+          the treatment_or_therapy property where it is indicated whether the patient
+          received this treatment type.
         enum:
           - Ablation or Embolization, NOS
           - Ablation, Cryo
@@ -153008,7 +152366,6 @@ schema:
           - Chemoprotectant
           - Chemotherapy
           - Concurrent Chemoradiation
-          - Cryoablation
           - Distal Pancreatectomy
           - Embolization
           - Ethanol Injection Ablation
@@ -153054,7 +152411,6 @@ schema:
           - Stem Cell Treatment
           - Stereotactic Radiosurgery
           - Steroid Therapy
-          - Surgery
           - Surgery, Minimally Invasive
           - Surgery, NOS
           - Surgery, Open
@@ -153064,19 +152420,7 @@ schema:
           - Other
           - Unknown
           - Not Reported
-          - Not Allowed To Collect
         enumDef:
-          Not Allowed To Collect:
-            description: An indicator that specifies that a collection event was not
-              permitted.
-            termDef:
-              cde_id: C141478
-              cde_version: 19.12e
-              source: NCIt
-              term: Not Allowed To Collect
-              term_id: C141478
-              term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C141478
-              term_version: 19.12e
           Not Reported:
             description: Not provided or available.
             termDef:
@@ -153135,6 +152479,92 @@ schema:
           source: caDSR
           term: Treatment Method Type
           term_url: https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5102381%20and%20ver_nr=1.0
+      treatment_type_administered:
+        description: Text term that describes the kind of treatment administered to
+          a patient.
+        oneOf:
+          - type: 'null'
+          - enum:
+              - Ablation or Embolization, NOS
+              - Ablation, Cryo
+              - Ablation, Ethanol Injection
+              - Ablation, Microwave
+              - Ablation, NOS
+              - Ablation, Radiofrequency
+              - Ablation, Radiosurgical
+              - Ancillary Treatment
+              - Antiseizure Treatment
+              - Biopsy, Excisional
+              - Biopsy, Incisional
+              - Bisphosphonate Therapy
+              - Blinded Study, Treatment Unknown
+              - Brachytherapy, High Dose
+              - Brachytherapy, Low Dose
+              - Brachytherapy, NOS
+              - Chemoembolization
+              - Chemoprotectant
+              - Chemotherapy
+              - Concurrent Chemoradiation
+              - Distal Pancreatectomy
+              - Embolization
+              - Ethanol Injection Ablation
+              - External Beam Radiation
+              - Hormone Therapy
+              - Hysterectomy, NOS
+              - I-131 Radiation Therapy
+              - Immunotherapy (Including Vaccines)
+              - Internal Radiation
+              - Isolated Limb Perfusion (ILP)
+              - Organ Transplantation
+              - Peptide Receptor Radionuclide Therapy (PRRT)
+              - Pharmaceutical Therapy, NOS
+              - Pleurodesis
+              - Pleurodesis, NOS
+              - Pleurodesis, Talc
+              - Radiation Therapy, NOS
+              - Radiation, 2D Conventional
+              - Radiation, 3D Conformal
+              - Radiation, Combination
+              - Radiation, Cyberknife
+              - Radiation, External Beam
+              - Radiation, Hypofractionated
+              - Radiation, Implants
+              - Radiation, Intensity-Modulated Radiotherapy
+              - Radiation, Internal
+              - Radiation, Mixed Photon Beam
+              - Radiation, Photon Beam
+              - Radiation, Proton Beam
+              - Radiation, Radioisotope
+              - Radiation, Stereotactic/Gamma Knife/SRS
+              - Radiation, Systemic
+              - Radioactive Iodine Therapy
+              - Radioembolization
+              - Radiosensitizing Agent
+              - Stem Cell Transplantation, Allogeneic
+              - Stem Cell Transplantation, Autologous
+              - Stem Cell Transplantation, Double Autologous
+              - Stem Cell Transplantation, Haploidentical
+              - Stem Cell Transplantation, Non-Myeloablative
+              - Stem Cell Transplantation, NOS
+              - Stem Cell Transplantation, Syngenic
+              - Stem Cell Treatment
+              - Stereotactic Radiosurgery
+              - Steroid Therapy
+              - Surgery, Minimally Invasive
+              - Surgery, NOS
+              - Surgery, Open
+              - Targeted Molecular Therapy
+              - Total Pancreatectomy
+              - Whipple
+              - Other
+              - Unknown
+              - Not Reported
+        termDef:
+          cde_id:
+          cde_version:
+          source:
+          term: Treatment Type Administered
+          term_url:
       type:
         type: string
       updated_datetime:
@@ -153152,4 +152582,5 @@ schema:
           - type: 'null'
     required:
       - submitter_id
-version: 0.1.dev20
+      - treatment_type_administered
+version: 4.0.2
