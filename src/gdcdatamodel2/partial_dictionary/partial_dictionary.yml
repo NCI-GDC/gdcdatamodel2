@@ -119641,7 +119641,7 @@ schema:
           term_url: https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C33027
           term_version: 19.12e
       lymph_node_involvement:
-        'deprecated_enum:':
+        deprecated_enum:
           - Indeterminant
         description: Indicator noting whether lymph nodes were involved.
         enum:
@@ -152583,4 +152583,4 @@ schema:
     required:
       - submitter_id
       - treatment_type_administered
-version: 4.0.2
+version: 4.0.3
